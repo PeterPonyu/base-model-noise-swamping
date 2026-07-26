@@ -1,0 +1,25 @@
+{
+ "n": 2,
+ "rows": [
+  {
+   "npz": "results/vectors/vectors_qv_llama1b_rome_cf_L14_s0.npz",
+   "K_shape": [
+    200,
+    8192
+   ],
+   "vectors_valid": true,
+   "recon_rel_err_max": 0.0005680136964656413,
+   "K_all_finite": true
+  },
+  {
+   "npz": "results/vectors/vectors_qv_qwen15b_rome_cf_L14_s0.npz",
+   "K_shape": [
+    200,
+    8960
+   ],
+   "vectors_valid": true,
+   "recon_rel_err_max": 0.0006760956603102386,
+   "K_all_finite": true
+  }
+ ]
+}

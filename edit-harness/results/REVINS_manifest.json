@@ -1,0 +1,143 @@
+{
+ "generated_by": "run_revins.sh",
+ "n_targets": 27,
+ "n_present": 27,
+ "n_valid": 27,
+ "rows": [
+  {
+   "path": "results/g4_llama1b_alphaHO_mquake_L12_s0.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/matrices/g4_llama1b_alphaHO_mquake_L12_s0.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/g4_llama1b_alphaHO_mquake_L12_s1.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/matrices/g4_llama1b_alphaHO_mquake_L12_s1.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/g4_llama1b_alphaHO_mquake_L12_s2.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/matrices/g4_llama1b_alphaHO_mquake_L12_s2.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/C4_causal_mquake_holdout_table_3seed.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/egl_llama1b_grace_cf_L12_s1.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/matrices/egl_llama1b_grace_cf_L12_s1.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/egl_llama1b_grace_cf_L12_s2.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/matrices/egl_llama1b_grace_cf_L12_s2.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/GRACE_damage_report_revins.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/mechanism/s1/Llama-3.2-1B_L12.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/mechanism/s2/Llama-3.2-1B_L12.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/mechanism/Llama-3.2-1B_L8.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/mechanism/Llama-3.2-1B_L10.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/mechanism/Llama-3.2-1B_L14.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s1.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s2.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/GRADSIM_TRUE_Llama-3.2-1B_L8_s0.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/GRADSIM_TRUE_Llama-3.2-1B_L10_s0.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/GRADSIM_TRUE_Llama-3.2-1B_L14_s0.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/g4_gptj_alphaHO_cf_L21_s1.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/matrices/g4_gptj_alphaHO_cf_L21_s1.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/g4_gptj_alphaHO_cf_L21_s2.json",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/matrices/g4_gptj_alphaHO_cf_L21_s2.npz",
+   "present": true,
+   "valid": true
+  },
+  {
+   "path": "results/C4_causal_gptj_table_3seed.json",
+   "present": true,
+   "valid": true
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 12,
+  "seed": 1,
+  "steps": 20,
+  "lr": 0.1,
+  "tasks": [
+    "sst2",
+    "mrpc",
+    "rte"
+  ],
+  "n_glue_samples": 100,
+  "checkpoints": [
+    0,
+    10,
+    50,
+    100
+  ],
+  "trajectory": [
+    {
+      "n_edits": 0,
+      "accuracy": {
+        "sst2": 0.72,
+        "mrpc": 0.72,
+        "rte": 0.55
+      }
+    },
+    {
+      "n_edits": 10,
+      "accuracy": {
+        "sst2": 0.88,
+        "mrpc": 0.72,
+        "rte": 0.55
+      }
+    },
+    {
+      "n_edits": 50,
+      "accuracy": {
+        "sst2": 0.78,
+        "mrpc": 0.66,
+        "rte": 0.47
+      }
+    },
+    {
+      "n_edits": 100,
+      "accuracy": {
+        "sst2": 0.53,
+        "mrpc": 0.72,
+        "rte": 0.55
+      }
+    }
+  ],
+  "runtime_s": 90.7
+}

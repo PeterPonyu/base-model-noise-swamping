@@ -1,0 +1,88 @@
+{
+ "rows": [
+  {
+   "layer": 11,
+   "seed": 0,
+   "esr": 0.98,
+   "frac_known": 0.234,
+   "n_edit_ok": 196,
+   "rho_cos": 0.0263,
+   "rho_norm_growth": 0.0206
+  },
+  {
+   "layer": 11,
+   "seed": 1,
+   "esr": 0.975,
+   "frac_known": 0.238,
+   "n_edit_ok": 195,
+   "rho_cos": 0.0375,
+   "rho_norm_growth": 0.0072
+  },
+  {
+   "layer": 11,
+   "seed": 2,
+   "esr": 0.965,
+   "frac_known": 0.218,
+   "n_edit_ok": 193,
+   "rho_cos": 0.037,
+   "rho_norm_growth": 0.0153
+  },
+  {
+   "layer": 16,
+   "seed": 0,
+   "esr": 0.89,
+   "frac_known": 0.234,
+   "n_edit_ok": 178,
+   "rho_cos": 0.0572,
+   "rho_norm_growth": 0.0739
+  },
+  {
+   "layer": 16,
+   "seed": 1,
+   "esr": 0.89,
+   "frac_known": 0.238,
+   "n_edit_ok": 178,
+   "rho_cos": 0.0591,
+   "rho_norm_growth": 0.0832
+  },
+  {
+   "layer": 16,
+   "seed": 2,
+   "esr": 0.87,
+   "frac_known": 0.218,
+   "n_edit_ok": 174,
+   "rho_cos": 0.0482,
+   "rho_norm_growth": 0.0478
+  },
+  {
+   "layer": 22,
+   "seed": 0,
+   "esr": 0.495,
+   "frac_known": 0.234,
+   "n_edit_ok": 99,
+   "rho_cos": 0.0464,
+   "rho_norm_growth": 0.1624
+  },
+  {
+   "layer": 22,
+   "seed": 1,
+   "esr": 0.5,
+   "frac_known": 0.238,
+   "n_edit_ok": 100,
+   "rho_cos": 0.0809,
+   "rho_norm_growth": 0.1872
+  },
+  {
+   "layer": 22,
+   "seed": 2,
+   "esr": 0.505,
+   "frac_known": 0.218,
+   "n_edit_ok": 101,
+   "rho_cos": 0.0347,
+   "rho_norm_growth": 0.0862
+  }
+ ],
+ "lr": 0.5,
+ "coverage": "9 science rows on disk (grid = L11/L16/L22 x s0-2 + DOC L28/L33 s0; alphaHO separate)",
+ "verdict_note": "BOTH channels dead across the editable band (cosine +0.03..+0.08; NG flat except a seed-UNSTABLE L22 trace 0.162/0.187/0.086). lr-0.1 rows are quarantined .DEAD-LR01 \u2014 never mix."
+}

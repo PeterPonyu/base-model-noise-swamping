@@ -1,0 +1,337 @@
+{
+  "experiment": "T1.1_depth_dissociation_E0_GATE",
+  "prereg": "docs/plans/PREREG-T11-DEPTH-DISSOCIATION-E0-20260713.md",
+  "created": "2026-07-14T22:20:58",
+  "cli_args": {
+    "results_dir": "/root/edit-harness/results",
+    "mergedir": "/root/edit-harness/results/merging",
+    "arch1_vector_dir": "/root/edit-harness/results/vectors",
+    "arch1_tag": "llama1b",
+    "arch1_layers": "8,12,14",
+    "arch2_vector_dir": "/root/edit-harness/results/vectors",
+    "arch2_tag": "qwen15b",
+    "arch2_layers": "14,17,21,24",
+    "arch2_matrices_dir": "/root/edit-harness/results/matrices",
+    "arch2_collateral_json": null,
+    "out": "/root/edit-harness/results/analysis/T11_gate_report.json"
+  },
+  "arch1": {
+    "decidable": false,
+    "reason": "no raw-K bank for arch-1 at layer(s) [14] (glob vectors_qv_llama1b_rome_cf_L<L>_s*.npz in /root/edit-harness/results/vectors).",
+    "layers": [
+      8,
+      12,
+      14
+    ],
+    "collateral_raw": {
+      "8": {
+        "C": 0.3951,
+        "std": 0.0106,
+        "max_within_probe_perm_p": 0.0033,
+        "n_seeds": 3,
+        "source": "G1_stability_L8_v2.json"
+      },
+      "12": {
+        "C": 0.6018,
+        "std": 0.0189,
+        "max_within_probe_perm_p": 0.0033,
+        "n_seeds": 3,
+        "source": "G1_stability_L12_v2.json"
+      },
+      "14": {
+        "C": 0.3006,
+        "std": 0.0403,
+        "max_within_probe_perm_p": 0.0033,
+        "n_seeds": 3,
+        "source": "G1_stability_L14_v2.json"
+      }
+    },
+    "merge_raw": {
+      "8": {
+        "M": 0.3007,
+        "M_std": 0.0283,
+        "M_ownmag_mean": 0.3342,
+        "rho_I_cos_drop_mean": 0.3226,
+        "chosen_g": 3,
+        "cells_used": [
+          "g3_s0",
+          "g3_s2"
+        ],
+        "n_cells": 2,
+        "source": "RG_operating_curve_table_L8.json",
+        "layer_field": 8
+      },
+      "12": {
+        "M": 0.469267,
+        "M_std": 0.018289,
+        "M_ownmag_mean": 0.510933,
+        "rho_I_cos_drop_mean": 0.513067,
+        "chosen_g": 2,
+        "cells_used": [
+          "g2_s0",
+          "g2_s1",
+          "g2_s2"
+        ],
+        "n_cells": 3,
+        "source": "RG_operating_curve_table.json",
+        "layer_field": 12
+      },
+      "14": {
+        "M": 0.3168,
+        "M_std": 0.008988,
+        "M_ownmag_mean": 0.488867,
+        "rho_I_cos_drop_mean": 0.484833,
+        "chosen_g": 2,
+        "cells_used": [
+          "g2_s0",
+          "g2_s1",
+          "g2_s2"
+        ],
+        "n_cells": 3,
+        "source": "RG_operating_curve_table_L14.json",
+        "layer_field": 14
+      }
+    }
+  },
+  "arch2": {
+    "arch2_tag": "qwen15b",
+    "decidable": false,
+    "reason": "fewer than 3 depths have BOTH a raw-K bank AND a collateral C(L) value (auto-discovered from local matrices npz, or supplied via --arch2_collateral_json); the arch-2 replication target needs >=3 depths (prereg s2.4/s3.1).",
+    "layers_requested": [
+      14,
+      17,
+      21,
+      24
+    ],
+    "layers_with_bank": [
+      14,
+      17,
+      21,
+      24
+    ],
+    "layers_with_collateral": [
+      14
+    ],
+    "layers_used": [
+      14
+    ],
+    "collateral_detail": {
+      "14": {
+        "C": -0.17162354927129364,
+        "n_seeds": 3,
+        "source": "auto:within_probe_rhos over 3 seed npz (gate_qwen15b_rome_cf_L14_s*.npz)"
+      }
+    },
+    "statistics_per_layer": {
+      "14": {
+        "pr_frac": 0.325399,
+        "mean_cos": 0.197326,
+        "mean_abs_cos": 0.197435,
+        "kappa": 5.103761,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.325399,
+            "std": 0.016195,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.197326,
+            "std": 0.001647,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.197435,
+            "std": 0.001548,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 5.103761,
+            "std": 0.067386,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      },
+      "17": {
+        "pr_frac": 0.220631,
+        "mean_cos": 0.277302,
+        "mean_abs_cos": 0.277398,
+        "kappa": 4.783675,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.220631,
+            "std": 0.011919,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.277302,
+            "std": 0.007643,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.277398,
+            "std": 0.007548,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 4.783675,
+            "std": 0.283718,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      },
+      "21": {
+        "pr_frac": 0.2793,
+        "mean_cos": 0.234633,
+        "mean_abs_cos": 0.234855,
+        "kappa": 7.492274,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.2793,
+            "std": 0.0122,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.234633,
+            "std": 0.009137,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.234855,
+            "std": 0.008993,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 7.492274,
+            "std": 0.51795,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      },
+      "24": {
+        "pr_frac": 0.281445,
+        "mean_cos": 0.324323,
+        "mean_abs_cos": 0.324464,
+        "kappa": 15.249183,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.281445,
+            "std": 0.017018,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.324323,
+            "std": 0.007755,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.324464,
+            "std": 0.007618,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 15.249183,
+            "std": 0.297451,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      }
+    }
+  },
+  "gate": {
+    "verdict": "KILL_FOR_GATE_PURPOSES",
+    "literal_gate_decidable": false,
+    "literal_gate_verdict": "UNDECIDABLE_AS_PREREGISTERED",
+    "reason": "arch-1 undecidable: no raw-K bank for arch-1 at layer(s) [14] (glob vectors_qv_llama1b_rome_cf_L<L>_s*.npz in /root/edit-harness/results/vectors)."
+  },
+  "gate_interpretation": [
+    "No merge-interference (RG) measurement exists for any non-Llama architecture in this codebase (results/merging/ has Llama-3.2-1B and Mistral-7B-v0.3 only), and the planned dump wave fills raw-K banks only \u2014 so the prereg's literal D(L)=z[M]-z[C] (s1.1) cannot be built for arch-2 under any currently described data collection. This is a property of the experiment design, not a missing file. Arch-2 replication is instead tested against a SINGLE-SIDED PROXY target T_arch2(L) = z_grid[|C_arch2(L)|] \u2014 arch-2's own within-probe collateral-dominance MAGNITUDE \u2014 not a merge-vs-collateral dissociation. A PASS against this proxy is WEAKER than the prereg's literal wording and must be reported as such (see arch2.target.target_kind).",
+    "abs() on C_arch2 is load-bearing, not cosmetic: Qwen-1.5B's within-probe rho is sign-inverted at measured depths (rho_C<0; memory crossarch-transfer-verdict-2026-07-02) while Llama-1B's is positive throughout its grid. Tracking the raw signed rho would conflate depth-SHAPE with an incidental global sign flip. For arch-1 this is a strict no-op (its C(L) is already all-positive on the prereg grid), so build_dissociation() / tracking_test() run UNMODIFIED and arch-1 numbers are byte-identical to depth_dissoc_sketch.py's own descriptive run.",
+    "C_arch2(L) is (a) auto-discovered by running within_probe_rhos (imported from analyze_matrices.py, the G1 gate's own primitive) on any local results/matrices/gate_<tag>_rome_cf_L<L>_s*.npz found, point estimate only (no permutation null \u2014 out of scope for a depth-shape target), and/or (b) supplied via --arch2_collateral_json, which OVERRIDES the auto value per layer. Layers with neither are ABSENT from the profile, never treated as 0.",
+    "On the data situation named in the task brief (qwen15b raw-K planned at L14/L17/L21/L24; this repo's matrices npz exist only at L14 \u2014 L17/L21/L24 have mechanism_dump.py S-factor summaries only, which carry no COS/damage matrix), the DEFAULT on-box run with no --arch2_collateral_json is EXPECTED to return arch2.decidable=false. That is disclosed here, not hidden.",
+    "gate.literal_gate_decidable is ALWAYS false and gate.literal_gate_verdict is ALWAYS 'UNDECIDABLE_AS_PREREGISTERED' on every code path in this script \u2014 the prereg's LITERAL two-family replication gate can never be decided here (bullet 1). gate.verdict is a SEPARATE, practical field: 'KILL_FOR_GATE_PURPOSES' means one or both arches are undecidable on current data (more data could still change the picture); 'KILL' means both arches were fully measured and no statistic replicated on both against the proxy target; 'PASS_PROXY_TARGET' means a statistic DID replicate against the proxy target. Bare 'PASS' is never emitted \u2014 a hostile reviewer (or anything parsing this JSON) must not be able to mistake a proxy-target match for the pre-registered gate firing."
+  ]
+}

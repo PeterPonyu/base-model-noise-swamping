@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.0841,
+    "within_probe_std_across_seeds": 0.0294,
+    "per_edit_mean_across_seeds": 0.1832,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.1948,
+    "VERDICT": "DEAD \u2014 within-probe rho < 0.10; demote headline, pivot to Qwen-null / FT-overcollateral"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_gemma2b_rome_cf_L13_s0.npz",
+      "shape": [
+        183,
+        159
+      ],
+      "flat_spearman_INFLATED": 0.1232,
+      "within_probe_mean": 0.1097,
+      "within_probe_ci95": [
+        0.0901,
+        0.1294
+      ],
+      "within_probe_ci95_editcluster": [
+        0.045,
+        0.1717
+      ],
+      "within_probe_frac_positive": 0.755,
+      "per_edit_mean": 0.161,
+      "per_edit_ci95": [
+        0.1445,
+        0.1778
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": -0.0013,
+      "editlevel_null_std": 0.0315,
+      "editlevel_z": 3.52,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": -0.0612,
+      "mean_residual_norm(S)": 26.4253
+    },
+    {
+      "npz": "gate_gemma2b_rome_cf_L13_s1.npz",
+      "shape": [
+        182,
+        163
+      ],
+      "flat_spearman_INFLATED": 0.139,
+      "within_probe_mean": 0.0997,
+      "within_probe_ci95": [
+        0.0792,
+        0.1207
+      ],
+      "within_probe_ci95_editcluster": [
+        0.0205,
+        0.1682
+      ],
+      "within_probe_frac_positive": 0.742,
+      "per_edit_mean": 0.2012,
+      "per_edit_ci95": [
+        0.1821,
+        0.2211
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.01,
+      "editlevel_null_mean": -0.0003,
+      "editlevel_null_std": 0.0363,
+      "editlevel_z": 2.76,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": -0.0343,
+      "mean_residual_norm(S)": 26.6398
+    },
+    {
+      "npz": "gate_gemma2b_rome_cf_L13_s2.npz",
+      "shape": [
+        184,
+        168
+      ],
+      "flat_spearman_INFLATED": 0.0773,
+      "within_probe_mean": 0.043,
+      "within_probe_ci95": [
+        0.0194,
+        0.0659
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.0293,
+        0.1068
+      ],
+      "within_probe_frac_positive": 0.577,
+      "per_edit_mean": 0.1874,
+      "per_edit_ci95": [
+        0.1656,
+        0.2098
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.1948,
+      "editlevel_null_mean": 0.0013,
+      "editlevel_null_std": 0.0342,
+      "editlevel_z": 1.22,
+      "flat_perm_p": 0.034,
+      "within_probe_mean_normgrowth": 0.0241,
+      "mean_residual_norm(S)": 26.3949
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "checkpoint_id": "Phi-3.5-mini",
+  "counts": {
+    "n_problems": 200,
+    "n_traces": 1600,
+    "n_right": 482,
+    "n_wrong": 1118,
+    "n_mixed_problems": 173
+  },
+  "mean_len_right": 237.82157676348547,
+  "mean_len_wrong": 315.0232558139535,
+  "D_pooled": {
+    "point": 1.324620163153848,
+    "ci_level": 0.95,
+    "ci_lo": 1.242267116942448,
+    "ci_hi": 1.4177967318585456,
+    "boot_se": 0.044780967288738205,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "D_within": {
+    "point": 1.4919925577089364,
+    "ci_level": 0.95,
+    "ci_lo": 1.3876338515183346,
+    "ci_hi": 1.6049492933464757,
+    "boot_se": 0.054925397182754035,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "length_bias_flag": true,
+  "_meta": {
+    "input": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/samples/Phi-3.5-mini.json",
+    "generated_at": "2026-07-10T22:56:55.590702+00:00",
+    "tool": "run_diag.py",
+    "note": "CPU diagnostic; sample generation is a separate queued GPU job."
+  }
+}

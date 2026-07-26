@@ -1,0 +1,37 @@
+RUN_MERGING_WIDTH REPORT tag=gemma2b model=data/models/gemma-2-2b layer=13 2026-07-15 14:19:26  elapsed 10m/85m
+[2026-07-15 12:53:58] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 19
+[2026-07-15 12:53:58] DRYRUN tag=gemma2b layer=19 est=30m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --rg --model data/models/gemma-2-2b --data data/counterfact.json --n_edits 200 --layer 19 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --out_dir results/merging --table_out results/merging/RG_operating_curve_table_gemma2b_L19.json
+[2026-07-15 12:54:42] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 19
+[2026-07-15 12:54:42] DRYRUN tag=gemma2b layer=19 est=30m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --rg --model data/models/gemma-2-2b --data data/counterfact.json --n_edits 200 --layer 19 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --out_dir results/merging --table_out results/merging/RG_operating_curve_table_gemma2b_L19.json
+[2026-07-15 12:54:43] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 19
+[2026-07-15 12:54:43] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_width_selftest_gemma2b.log
+[2026-07-15 12:54:43] SMOKE OK: self-test passed (identity + M0 partial/coherence fixtures + RG pass/kill)
+[2026-07-15 12:54:44] gpu poll util=0 mem=1019 consec=1/3
+[2026-07-15 12:55:14] gpu poll util=0 mem=1012 consec=2/3
+[2026-07-15 12:55:45] gpu poll util=0 mem=1012 consec=3/3
+[2026-07-15 12:55:45] RUN rg tag=gemma2b (est 30m, cap 6600s, elapsed 0m) -> engine/merging_width_gemma2b_run.log
+[2026-07-15 13:06:24] done rg tag=gemma2b (638s) VALIDATE-OK verdict=INCONCLUSIVE qualifying_g=[]
+[2026-07-15 13:06:24] ---------------- POST-RUN (CPU) tag=gemma2b ----------------
+[rg post] VERDICT overall=INCONCLUSIVE qualifying_g=[] testable_cells=0
+[rg post] scoped-federation boundary: per_seed={'0': 10, '1': 10, '2': 10} conservative=10
+[rg post]   g=2: partial_by_seed={'0': 0.2417, '1': 0.0109, '2': 0.1296} pass_geometry=0 qualifies=False
+[rg post]   g=3: partial_by_seed={'0': 0.1545, '1': 0.0455, '2': 0.116} pass_geometry=0 qualifies=False
+[rg post]   g=5: partial_by_seed={'0': 0.1841, '1': 0.1418, '2': -0.0138} pass_geometry=0 qualifies=False
+[rg post]   g=10: partial_by_seed={'0': 0.0804, '1': 0.138, '2': -0.0678} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': -0.0284, '1': 0.1551, '2': -0.0779} pass_geometry=0 qualifies=False
+[2026-07-15 14:08:10] WARN: explicit LAYER=13 != the 75%-depth rule's 19 for this model — proceeding with the explicit override, but this is NOT the D2 layer rule
+[2026-07-15 14:08:10] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_width_selftest_gemma2b.log
+[2026-07-15 14:08:10] SMOKE OK: self-test passed (identity + M0 partial/coherence fixtures + RG pass/kill)
+[2026-07-15 14:08:10] gpu poll util=0 mem=703 consec=1/3
+[2026-07-15 14:08:40] gpu poll util=0 mem=703 consec=2/3
+[2026-07-15 14:09:10] gpu poll util=0 mem=703 consec=3/3
+[2026-07-15 14:09:10] RUN rg tag=gemma2b (est 30m, cap 6600s, elapsed 0m) -> engine/merging_width_gemma2b_run.log
+[2026-07-15 14:19:26] done rg tag=gemma2b (616s) VALIDATE-OK verdict=INCONCLUSIVE qualifying_g=[]
+[2026-07-15 14:19:26] ---------------- POST-RUN (CPU) tag=gemma2b ----------------
+[rg post] VERDICT overall=INCONCLUSIVE qualifying_g=[] testable_cells=0
+[rg post] scoped-federation boundary: per_seed={'0': 10, '1': 10, '2': 10} conservative=10
+[rg post]   g=2: partial_by_seed={'0': 0.1446, '1': -0.0014, '2': 0.0972} pass_geometry=0 qualifies=False
+[rg post]   g=3: partial_by_seed={'0': 0.0812, '1': -0.0486, '2': 0.0581} pass_geometry=0 qualifies=False
+[rg post]   g=5: partial_by_seed={'0': 0.0809, '1': 0.0286, '2': -0.0015} pass_geometry=0 qualifies=False
+[rg post]   g=10: partial_by_seed={'0': 0.0705, '1': 0.0588, '2': 0.0259} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': 0.0455, '1': 0.0635, '2': 0.0119} pass_geometry=0 qualifies=False

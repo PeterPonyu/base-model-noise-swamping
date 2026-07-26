@@ -1,0 +1,194 @@
+{
+ "n": 27,
+ "rows": [
+  {
+   "json": "results/C3_instruct_egl_L12_instruct.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_instruct_rome_L10_instruct.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_instruct_rome_L12_instruct.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_instruct_rome_L14_instruct.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_instruct_rome_L8_instruct.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C4_causal_instruct_table.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_instruct_rome_cf_L12_s0.egl.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_instruct_rome_cf_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/egl_instruct_rome_cf_L12_s1.egl.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_instruct_rome_cf_L12_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/egl_instruct_rome_cf_L12_s2.egl.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_instruct_rome_cf_L12_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/g4_instruct_alphaHO_cf_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L10_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L10_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L10_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L12_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L12_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L14_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.93
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L14_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.95
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L14_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.925
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L8_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L8_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/gate_instruct_rome_cf_L8_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_instruct_rome_zsre_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/instruct_validation.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": false,
+   "err": "Expecting value: line 1 column 1 (char 0)"
+  }
+ ]
+}

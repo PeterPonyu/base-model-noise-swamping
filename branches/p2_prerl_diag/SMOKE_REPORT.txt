@@ -1,0 +1,3 @@
+SMOKE  rc=1  status=failed  merged=no  (9s)
+PANEL  n_usable=6  (>=6 => n=6 confirmatory; <6 => descriptive-only or more resampling)
+next   if smoke=completed+merged=yes: launch run_p2_grpo.sh (FORCE_DESCRIPTIVE=1 iff n_usable<6)

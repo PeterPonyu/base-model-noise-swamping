@@ -1,0 +1,121 @@
+{
+ "n": 16,
+ "rows": [
+  {
+   "json": "results/g4_llama1b_alphaHO_cf_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.985,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/C3_null_phi35_L16_v2.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_null_qwen3b_L18_v2.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/gate_llama1b_ftkl_cf_L8_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/C3_null_ftkl_L8_v2.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_null_gemma2b_L13_v2.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/D3_routing_eval_v2.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/gate_qwen3b_rome_cf_L18_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_phi35_rome_cf_L16_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama1b_ft_cf_L10_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/C3_null_memit_v2.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/g4_llama1b_alphaHO_cf_L8_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/g4_llama1b_alphaHO_cf_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama1b_ft_cf_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/g4_llama1b_alphaHO_cf_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama1b_ftkl_cf_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  }
+ ]
+}

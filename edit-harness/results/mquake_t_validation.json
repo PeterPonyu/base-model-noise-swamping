@@ -1,0 +1,83 @@
+{
+ "n": 13,
+ "rows": [
+  {
+   "json": "results/gate_llama1b_alpha_mquaket_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.415
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L10_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.895
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L10_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.905
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L10_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.91
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.96
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.985
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L14_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.985
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L14_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.94
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L14_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.945
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L8_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.96
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.925
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquaket_L8_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.9
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+  "aggregate": {
+    "n_seeds": 1,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.0339,
+    "within_probe_std_across_seeds": 0.0,
+    "per_edit_mean_across_seeds": 0.0252,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "DEAD \u2014 within-probe rho < 0.10; demote headline, pivot to Qwen-null / FT-overcollateral"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_llama1b_memit_cf_L10_s0.npz",
+      "shape": [
+        200,
+        149
+      ],
+      "flat_spearman_INFLATED": 0.0303,
+      "within_probe_mean": 0.0339,
+      "within_probe_ci95": [
+        0.02,
+        0.0474
+      ],
+      "within_probe_ci95_editcluster": [
+        0.0192,
+        0.0481
+      ],
+      "within_probe_frac_positive": 0.651,
+      "per_edit_mean": 0.0252,
+      "per_edit_ci95": [
+        0.0123,
+        0.038
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": -0.0,
+      "editlevel_null_std": 0.0068,
+      "editlevel_z": 4.98,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.0182,
+      "mean_residual_norm(S)": 22.8719
+    }
+  ]
+}

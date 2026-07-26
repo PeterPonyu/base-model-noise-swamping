@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.3645,
+    "within_probe_std_across_seeds": 0.014,
+    "per_edit_mean_across_seeds": 0.3041,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "PASS \u2014 headline survives (edit-specific pairwise geometry, not probe-marginal)"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_instruct_rome_cf_L8_s0.npz",
+      "shape": [
+        198,
+        124
+      ],
+      "flat_spearman_INFLATED": 0.3705,
+      "within_probe_mean": 0.3831,
+      "within_probe_ci95": [
+        0.3669,
+        0.3992
+      ],
+      "within_probe_ci95_editcluster": [
+        0.3305,
+        0.4302
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.3127,
+      "per_edit_ci95": [
+        0.2896,
+        0.3352
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0007,
+      "editlevel_null_std": 0.0289,
+      "editlevel_z": 13.24,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.2128,
+      "mean_residual_norm(S)": 22.6519
+    },
+    {
+      "npz": "gate_instruct_rome_cf_L8_s1.npz",
+      "shape": [
+        199,
+        151
+      ],
+      "flat_spearman_INFLATED": 0.3481,
+      "within_probe_mean": 0.3494,
+      "within_probe_ci95": [
+        0.3328,
+        0.3658
+      ],
+      "within_probe_ci95_editcluster": [
+        0.3022,
+        0.3959
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.3203,
+      "per_edit_ci95": [
+        0.3004,
+        0.3409
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0,
+      "editlevel_null_std": 0.0281,
+      "editlevel_z": 12.42,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.2079,
+      "mean_residual_norm(S)": 22.7865
+    },
+    {
+      "npz": "gate_instruct_rome_cf_L8_s2.npz",
+      "shape": [
+        200,
+        129
+      ],
+      "flat_spearman_INFLATED": 0.3148,
+      "within_probe_mean": 0.361,
+      "within_probe_ci95": [
+        0.3429,
+        0.378
+      ],
+      "within_probe_ci95_editcluster": [
+        0.3155,
+        0.3993
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.2792,
+      "per_edit_ci95": [
+        0.2558,
+        0.3032
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0005,
+      "editlevel_null_std": 0.027,
+      "editlevel_z": 13.35,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.1439,
+      "mean_residual_norm(S)": 22.6628
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+CHAIN_6H REPORT 2026-07-12 00:54:23 (window 355m, remaining 328m)
+merging: [2026-07-12 00:10:42] ================ RUN_MERGING_KG0 COMPLETE (0 done / 0 fail / 0 skip) ================ [2026-07-12 00:28:30] ================ RUN_MERGING_KG0 COMPLETE (1 done / 0 fail / 0 skip) ================ 
+gradsim gap-fill: done=6 skip=0 fail=0
+HL0 rc: 0  (verdict table: results/halflife/HL0_killgate_table.json if produced)
+M0 verdict table: results/merging/M0_killgate_table.json (if produced)
+dossier: [revision_dossier] cells=23 stable=22 shifted=0 pending=0 descriptive_confirmed=1 descriptive_anomaly=0 esr_warn=4

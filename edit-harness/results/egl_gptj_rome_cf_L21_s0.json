@@ -1,0 +1,65 @@
+{
+  "model": "data/models/gpt-j-6b",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 21,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "gptj",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.79,
+  "mean_residual_norm": 55.853,
+  "frac_probes_known(pre_p>0.05)": 0.214,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": -0.0973,
+    "spearman_normgrowth_damage": -0.1074,
+    "auroc_cos_broken": 0.5438,
+    "auroc_normgrowth_broken": 0.5588,
+    "mean_damage_logit": -0.03673,
+    "mean_cosine": 0.1961
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 21400,
+    "spearman_cos_damage": -0.0967,
+    "spearman_normgrowth_damage": -0.0938,
+    "auroc_cos_broken": 0.5916,
+    "auroc_normgrowth_broken": 0.5613,
+    "mean_damage_logit": -0.03264,
+    "mean_cosine": 0.1776
+  },
+  "runtime_s": 2556.0,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0967,
+    "auroc": 0.5916,
+    "beats_normgrowth": true
+  },
+  "matrices_npz": "results/matrices/egl_gptj_rome_cf_L21_s0.npz",
+  "EGL": {
+    "n_edits": 200,
+    "ES": 0.92,
+    "PS": 0.345,
+    "NS": 0.7535,
+    "ES_ft": 0.92,
+    "n_paraphrase_total": 400,
+    "n_neighborhood_total": 2000,
+    "n_paraphrase_missing": 0,
+    "n_neighborhood_missing": 0
+  },
+  "egl_sidecar": "results/egl_gptj_rome_cf_L21_s0.egl.json"
+}

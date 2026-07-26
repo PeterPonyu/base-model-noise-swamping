@@ -1,0 +1,14 @@
+{
+  "schema_version": "m0.v1",
+  "model": "SYNTHETIC_group_fails",
+  "model_tag": "synthetic_group_fails",
+  "dataset": "synthetic",
+  "layer": -1,
+  "seed": 0,
+  "n_edits": 40,
+  "d_in": 16,
+  "d_out": 8,
+  "pair_pool": 10,
+  "group_size": 40,
+  "n_enriched": 30
+}

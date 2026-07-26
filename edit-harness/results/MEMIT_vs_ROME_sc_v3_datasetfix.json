@@ -1,0 +1,77 @@
+{
+  "statistic": "S=mean||v-Wk||, |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg)",
+  "rho_SC_validity": "within_probe_rho_SC is the closed-form single-layer rank-one ROME identity S*|cos|. It is a valid S x C statistic ONLY for editor==rome (rho_SC_valid_sxc==true). For MEMIT (multi-layer aggregate edit) and non-ROME editors it is NOT a valid S x C measurement \u2014 quote rho_C only. See findings-MEMIT-SC-RECONCILIATION-2026-07-04.md.",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "results/matrices/gate_llama1b_memit_cf_L8_s0.npz",
+    "results/matrices/gate_llama1b_memit_cf_L12_s0.npz",
+    "results/matrices/gate_llama1b_rome_cf_L8_s0.npz",
+    "results/matrices/gate_llama1b_rome_cf_L12_s0.npz"
+  ],
+  "groups": [
+    {
+      "model": "llama1b",
+      "editor": "memit",
+      "dataset": "cf",
+      "layer": 8,
+      "rho_SC_valid_sxc": false,
+      "n_files": 1,
+      "n_pairs": 29800,
+      "mean_S": 22.9359,
+      "S_available": true,
+      "mean_absC": 0.3105,
+      "within_probe_rho_C": 0.0156,
+      "within_probe_rho_SC": 0.0182
+    },
+    {
+      "model": "llama1b",
+      "editor": "memit",
+      "dataset": "cf",
+      "layer": 12,
+      "rho_SC_valid_sxc": false,
+      "n_files": 1,
+      "n_pairs": 29651,
+      "mean_S": 23.1092,
+      "S_available": true,
+      "mean_absC": 0.2932,
+      "within_probe_rho_C": 0.0357,
+      "within_probe_rho_SC": 0.0327
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 8,
+      "rho_SC_valid_sxc": true,
+      "n_files": 1,
+      "n_pairs": 29502,
+      "mean_S": 22.9173,
+      "S_available": true,
+      "mean_absC": 0.3105,
+      "within_probe_rho_C": 0.406,
+      "within_probe_rho_SC": 0.4038
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 12,
+      "rho_SC_valid_sxc": true,
+      "n_files": 1,
+      "n_pairs": 29651,
+      "mean_S": 23.1092,
+      "S_available": true,
+      "mean_absC": 0.2932,
+      "within_probe_rho_C": 0.6016,
+      "within_probe_rho_SC": 0.6263
+    }
+  ],
+  "notes": [
+    "llama1b/memit/cf L8: within_probe_rho_SC is NOT a valid S x C statistic \u2014 the S x C closed form is a single-layer rank-one ROME identity; this editor is not single-layer rank-one ROME. Quote rho_C only.",
+    "llama1b/memit/cf L12: within_probe_rho_SC is NOT a valid S x C statistic \u2014 the S x C closed form is a single-layer rank-one ROME identity; this editor is not single-layer rank-one ROME. Quote rho_C only.",
+    "MEMIT present: rho_SC rows carry rho_SC_valid_sxc=false \u2014 do NOT cite them as 'MEMIT S x C'."
+  ]
+}

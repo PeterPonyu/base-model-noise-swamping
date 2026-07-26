@@ -1,0 +1,51 @@
+{
+  "receipt": "CP-Edit probe-outcome-free score receipt (machine-generated)",
+  "terminology_correction_2026_07_01": "Earlier revision shipped this as a 'pre-edit-only score receipt' with a bare clean:true. That claim was OVER-BROAD: norm_growth (=||delta_W|| at the edit layer) is a POST-edit weight quantity that does not exist until the edit is computed, and SxC's S factor (resid_norm = ||v-Wk||) is computed DURING the ROME value-optimization (edit-computation-time). The certified predictor class is 'PROBE-OUTCOME-FREE / computable at edit time, before deployment'. 'Pre-edit-only' is reserved for keycos alone. No predictor reads any post-edit probe outcome \u2014 that assertion stands unchanged.",
+  "predictor_timing_class": {
+    "keycos": "strictly PRE-EDIT (base-model key cosines; weights restored between edits)",
+    "SxC": "EDIT-COMPUTATION-TIME: S = resid_norm = ||v-Wk|| arises during the ROME value-optimization; the C factor (|cos|) is pre-edit",
+    "NG": "REQUIRES THE EDIT TO BE COMPUTED: ||delta_W|| of the applied update (post-edit weights; closed-form predictable for the rank-one ROME update; touches NO probe outcome)",
+    "marginal": "constant (no inputs)"
+  },
+  "npz_fields_read_per_score": {
+    "SxC": [
+      "resid_norm (=||v-Wk||, S numerator)",
+      "COS (pre-edit key cosine)"
+    ],
+    "keycos": [
+      "COS (pre-edit key cosine)"
+    ],
+    "NG": [
+      "norm_growth (=||delta_W|| at edit layer)"
+    ],
+    "marginal": [
+      "(none \u2014 constant 1)"
+    ]
+  },
+  "target_y_fields_read": [
+    "damage_logit (pre_l - post_l; POST-edit probe outcome)"
+  ],
+  "mask_fields_read": {
+    "edit_ok": "POST-edit efficacy \u2014 used ONLY as a row filter, never as a predictor",
+    "pre_p": "BASE-model probe prob (pre-edit) \u2014 used ONLY as a column filter"
+  },
+  "assertions": {
+    "no_predictor_reads_damage_star": true,
+    "no_predictor_reads_post_edit_probe_logit_or_prob": true,
+    "no_predictor_reads_pre_l_post_comparison": true
+  },
+  "documented_caveats": [
+    "norm_growth derives from POST-edit WEIGHTS (||delta_W||) and REQUIRES the edit to be computed \u2014 it is NOT pre-edit. It is closed-form predictable for the rank-one ROME update and touches NO probe outcome, so it is a valid PROBE-OUTCOME-FREE predictor (edit-computation-time class), not a target leak; calling it 'pre-edit-only' was a scoping error, corrected 2026-07-01.",
+    "resid_norm = ||v-Wk|| is computed during the ROME value-optimization from the edit's own (k,v); it does not read any probe's damage.",
+    "COS is base-model key cosine (weights restored after every edit), fully pre-edit.",
+    "edit_ok is a POST-edit quantity but enters only as a row mask (which edits succeeded), identical to the C1/C4 pipeline; it never enters a predictor value."
+  ],
+  "probe_outcome_free_clean": true,
+  "clean_means": "no post-edit PROBE OUTCOME (damage_*, post-edit logit/prob, pre_l/pre_p post-comparison) enters any predictor; it does NOT mean 'pre-edit-only'",
+  "pre_edit_only_strict": {
+    "keycos": true,
+    "SxC": false,
+    "NG": false,
+    "marginal": true
+  }
+}

@@ -1,0 +1,19 @@
+RUN_MERGING_KG0 REPORT 2026-07-12 00:28:30  jobs: 1 done / 0 fail / 0 skipped  elapsed 1m/150m
+[2026-07-11 12:24:24] DRYRUN phase1_m0 est=90m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --layer 12 --seed 0 --steps 20 --lr 0.1 --device cuda --pair_pool 10 --group_size 200 --n_enriched 45 --out_dir results/merging --table_out results/merging/M0_killgate_table.json
+[2026-07-11 12:24:24] ================ RUN_MERGING_KG0 COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-11 12:35:07] DRYRUN phase1_m0 est=90m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --layer 12 --seed 0 --steps 20 --lr 0.1 --device cuda --pair_pool 10 --group_size 200 --n_enriched 45 --out_dir results/merging --table_out results/merging/M0_killgate_table.json
+[2026-07-11 12:35:07] ================ RUN_MERGING_KG0 COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-12 00:10:42] DRYRUN phase1_m0 est=90m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --layer 12 --seed 0 --steps 20 --lr 0.1 --device cuda --pair_pool 10 --group_size 200 --n_enriched 45 --out_dir results/merging --table_out results/merging/M0_killgate_table.json
+[2026-07-12 00:10:42] ================ RUN_MERGING_KG0 COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-12 00:25:59] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_selftest.log
+[2026-07-12 00:25:59] SMOKE OK: self-test passed (identity + negligible->KILL + strong->PASS)
+[2026-07-12 00:25:59] gpu poll util=0 mem=986 consec=1/3
+[2026-07-12 00:26:29] gpu poll util=2 mem=960 consec=2/3
+[2026-07-12 00:26:59] gpu poll util=5 mem=991 consec=3/3
+[2026-07-12 00:26:59] RUN phase1_m0 (est 90m, cap 17400s, elapsed 0m) -> engine/merging_phase1.log
+[2026-07-12 00:28:30] done phase1_m0 (91s) VALIDATE-OK verdict=MIXED
+[2026-07-12 00:28:30] ---------------- POST-RUN (CPU) ----------------
+[merging post] VERDICT overall=MIXED c1=PASS c2=MIXED c3=PASS
+[merging post]   natural_pairwise: med|drop|=2.26758 rho(Icos,drop)=0.5401 drho=-0.0106 non_negligible=True
+[merging post]   natural_group: med|drop|=22.28714 rho(Icos,drop)=0.0435 drho=0.109 non_negligible=True
+[merging post]   enriched_conflict: med|drop|=6.15263 rho(Icos,drop)=0.3774 drho=0.0612 non_negligible=True

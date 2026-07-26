@@ -1,0 +1,106 @@
+{
+  "statistic": "S=mean||v-Wk||/||k||=mean||DW||_F (from norm_growth; Eq.2), |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg). mean_S_resid_norm_unnormalized is provenance-only, NOT a valid S.",
+  "rho_SC_validity": "within_probe_rho_SC is the closed-form single-layer rank-one ROME identity S*|cos|. It is a valid S x C statistic ONLY for editor==rome (rho_SC_valid_sxc==true). For MEMIT (multi-layer aggregate edit) and non-ROME editors it is NOT a valid S x C measurement \u2014 quote rho_C only. See findings-MEMIT-SC-RECONCILIATION-2026-07-04.md.",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "results/matrices/gate_llama1b_rome_cf_L*_s*.npz",
+    "results/matrices/gate_qwen05b_rome_cf_L12_s*.npz",
+    "results/matrices/gate_qwen15b_rome_cf_L14_s*.npz"
+  ],
+  "groups": [
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 8,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 90332,
+      "mean_S": 4.995,
+      "mean_S_resid_norm_unnormalized": 22.8699,
+      "S_available": true,
+      "mean_absC": 0.3067,
+      "within_probe_rho_C": 0.395,
+      "within_probe_rho_SC": 0.4015
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 10,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 89875,
+      "mean_S": 4.3342,
+      "mean_S_resid_norm_unnormalized": 22.8002,
+      "S_available": true,
+      "mean_absC": 0.2137,
+      "within_probe_rho_C": 0.5337,
+      "within_probe_rho_SC": 0.5526
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 12,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 90635,
+      "mean_S": 4.2804,
+      "mean_S_resid_norm_unnormalized": 23.113,
+      "S_available": true,
+      "mean_absC": 0.2847,
+      "within_probe_rho_C": 0.6018,
+      "within_probe_rho_SC": 0.6765
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 14,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 85330,
+      "mean_S": 2.6543,
+      "mean_S_resid_norm_unnormalized": 24.7477,
+      "S_available": true,
+      "mean_absC": 0.4251,
+      "within_probe_rho_C": 0.3006,
+      "within_probe_rho_SC": 0.5037
+    },
+    {
+      "model": "qwen05b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 12,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 54117,
+      "mean_S": 2.7786,
+      "mean_S_resid_norm_unnormalized": 21.8022,
+      "S_available": true,
+      "mean_absC": 0.3281,
+      "within_probe_rho_C": 0.1022,
+      "within_probe_rho_SC": 0.1395
+    },
+    {
+      "model": "qwen15b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 14,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 74063,
+      "mean_S": 2.6866,
+      "mean_S_resid_norm_unnormalized": 33.216,
+      "S_available": true,
+      "mean_absC": 0.1897,
+      "within_probe_rho_C": -0.1714,
+      "within_probe_rho_SC": -0.1416
+    }
+  ],
+  "notes": []
+}

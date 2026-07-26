@@ -1,0 +1,23 @@
+{
+  "model": "data/models/Qwen2.5-1.5B",
+  "model_tag": "Qwen2.5-1.5B",
+  "dataset": "counterfact",
+  "layer": 14,
+  "n_edits": 50,
+  "seed": 0,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "edit_success_rate": 0.98,
+  "S_mean": 2.769535,
+  "S_median": 2.827976,
+  "S_std": 0.438476,
+  "resid_norm_mean": 33.445888,
+  "resid_norm_median": 33.988937,
+  "key_norm_mean": 12.176728,
+  "key_norm_median": 11.997161,
+  "norm_growth_mean": 2.769534,
+  "n_finite_S": 50,
+  "npz": "results/aniso_qwen15b_L14/Qwen2.5-1.5B_L14.npz",
+  "runtime_s": 69.2
+}

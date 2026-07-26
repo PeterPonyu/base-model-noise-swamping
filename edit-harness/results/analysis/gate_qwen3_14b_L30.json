@@ -1,0 +1,80 @@
+{
+  "aggregate": {
+    "n_seeds": 2,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.0227,
+    "within_probe_std_across_seeds": 0.032,
+    "per_edit_mean_across_seeds": -0.1066,
+    "max_within_probe_perm_p": 0.8106,
+    "max_within_probe_perm_p_editlevel": 0.9241,
+    "VERDICT": "DEAD \u2014 within-probe rho < 0.10; demote headline, pivot to Qwen-null / FT-overcollateral"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_qwen3_14b_rome_cf_L30_s0.npz",
+      "shape": [
+        4,
+        167
+      ],
+      "flat_spearman_INFLATED": -0.06,
+      "within_probe_mean": 0.0548,
+      "within_probe_ci95": [
+        -0.0241,
+        0.1336
+      ],
+      "within_probe_ci95_editcluster": [
+        NaN,
+        NaN
+      ],
+      "within_probe_frac_positive": 0.455,
+      "per_edit_mean": -0.1349,
+      "per_edit_ci95": [
+        -0.2116,
+        -0.0677
+      ],
+      "within_probe_perm_p": 0.2292,
+      "within_probe_perm_p_editlevel": 0.7582,
+      "editlevel_null_mean": -0.0007,
+      "editlevel_null_std": 0.113,
+      "editlevel_z": 0.49,
+      "flat_perm_p": 0.2507,
+      "within_probe_mean_normgrowth": -0.1515,
+      "mean_residual_norm(S)": 26.0424
+    },
+    {
+      "npz": "gate_qwen3_14b_rome_cf_L30_s1.npz",
+      "shape": [
+        6,
+        163
+      ],
+      "flat_spearman_INFLATED": -0.0555,
+      "within_probe_mean": -0.0093,
+      "within_probe_ci95": [
+        -0.0817,
+        0.0609
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.2472,
+        0.3287
+      ],
+      "within_probe_frac_positive": 0.429,
+      "per_edit_mean": -0.0783,
+      "per_edit_ci95": [
+        -0.1807,
+        0.0033
+      ],
+      "within_probe_perm_p": 0.8106,
+      "within_probe_perm_p_editlevel": 0.9241,
+      "editlevel_null_mean": 0.0005,
+      "editlevel_null_std": 0.1014,
+      "editlevel_z": -0.1,
+      "flat_perm_p": 0.1838,
+      "within_probe_mean_normgrowth": -0.226,
+      "mean_residual_norm(S)": 26.5639
+    }
+  ]
+}

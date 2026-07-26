@@ -1,0 +1,37 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 8,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 0,
+  "edit_success_rate": 0.99,
+  "frac_probes_known(pre_p>0.05)": 0.298,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.4084,
+    "spearman_normgrowth_damage": 0.0432,
+    "auroc_cos_broken": 0.7397,
+    "auroc_normgrowth_broken": 0.5213,
+    "mean_damage_logit": 3.50966,
+    "mean_cosine": 0.3102
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 29800,
+    "spearman_cos_damage": 0.4213,
+    "spearman_normgrowth_damage": 0.0837,
+    "auroc_cos_broken": 0.7269,
+    "auroc_normgrowth_broken": 0.5362,
+    "mean_damage_logit": 4.45091,
+    "mean_cosine": 0.3105
+  },
+  "runtime_s": 1184.4,
+  "VERDICT": "PASS \u2014 key geometry predicts damage",
+  "verdict_detail": {
+    "abs_spearman": 0.4213,
+    "auroc": 0.7269,
+    "beats_normgrowth": true
+  }
+}

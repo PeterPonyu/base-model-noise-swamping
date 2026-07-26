@@ -1,0 +1,37 @@
+{
+  "statistic": "S=mean||v-Wk||, |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg)",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "results/matrices/gate_llama1b_memit_cf_L*_s0.npz",
+    "results/matrices/gate_llama1b_rome_cf_L8_s0.npz",
+    "results/matrices/gate_llama1b_rome_cf_L12_s0.npz"
+  ],
+  "groups": [
+    {
+      "model": "llama1b",
+      "layer": 8,
+      "n_files": 2,
+      "n_pairs": 59302,
+      "mean_S": 22.9266,
+      "S_available": true,
+      "mean_absC": 0.3105,
+      "within_probe_rho_C": 0.2108,
+      "within_probe_rho_SC": 0.211
+    },
+    {
+      "model": "llama1b",
+      "layer": 12,
+      "n_files": 2,
+      "n_pairs": 59302,
+      "mean_S": 23.1092,
+      "S_available": true,
+      "mean_absC": 0.2932,
+      "within_probe_rho_C": 0.3186,
+      "within_probe_rho_SC": 0.3295
+    }
+  ],
+  "notes": []
+}

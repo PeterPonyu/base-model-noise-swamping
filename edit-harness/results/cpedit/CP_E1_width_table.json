@@ -1,0 +1,192 @@
+{
+  "experiment": "CP-Edit E1 headline certified-width table (ROME + AlphaEdit)",
+  "rng_seed": 12345,
+  "B": 1000,
+  "target_coverage": 0.9,
+  "score_order": [
+    "SxC",
+    "keycos",
+    "NG",
+    "marginal"
+  ],
+  "rows": [
+    {
+      "layer": 8,
+      "editor": "rome",
+      "n_cal": 296,
+      "n_test": 297,
+      "mean_y_damage": 4.3857,
+      "W_SxC": 7.0358,
+      "W_keycos": 6.9163,
+      "W_NG": 7.0963,
+      "W_marginal": 6.9829,
+      "cov_SxC": 0.9032,
+      "cov_keycos": 0.9035,
+      "cov_NG": 0.9024,
+      "cov_marginal": 0.9024,
+      "sxc_pct_tighter_than_marginal": -0.0076,
+      "ordering_fraction": 0.023
+    },
+    {
+      "layer": 8,
+      "editor": "alpha",
+      "n_cal": 298,
+      "n_test": 299,
+      "mean_y_damage": 0.0749,
+      "W_SxC": 0.1922,
+      "W_keycos": 0.1943,
+      "W_NG": 0.1914,
+      "W_marginal": 0.1979,
+      "cov_SxC": 0.9027,
+      "cov_keycos": 0.9026,
+      "cov_NG": 0.9023,
+      "cov_marginal": 0.9027,
+      "sxc_pct_tighter_than_marginal": 0.029,
+      "ordering_fraction": 0.103
+    },
+    {
+      "layer": 10,
+      "editor": "rome",
+      "n_cal": 294,
+      "n_test": 296,
+      "mean_y_damage": 2.0395,
+      "W_SxC": 3.4391,
+      "W_keycos": 3.3894,
+      "W_NG": 3.7804,
+      "W_marginal": 3.972,
+      "cov_SxC": 0.9011,
+      "cov_keycos": 0.9017,
+      "cov_NG": 0.9017,
+      "cov_marginal": 0.9024,
+      "sxc_pct_tighter_than_marginal": 0.1342,
+      "ordering_fraction": 0.23
+    },
+    {
+      "layer": 10,
+      "editor": "alpha",
+      "n_cal": 296,
+      "n_test": 299,
+      "mean_y_damage": 0.0719,
+      "W_SxC": 0.175,
+      "W_keycos": 0.1724,
+      "W_NG": 0.1616,
+      "W_marginal": 0.1637,
+      "cov_SxC": 0.9016,
+      "cov_keycos": 0.9019,
+      "cov_NG": 0.9015,
+      "cov_marginal": 0.9011,
+      "sxc_pct_tighter_than_marginal": -0.0687,
+      "ordering_fraction": 0.002
+    },
+    {
+      "layer": 12,
+      "editor": "rome",
+      "n_cal": 297,
+      "n_test": 298,
+      "mean_y_damage": 3.0018,
+      "W_SxC": 4.5165,
+      "W_keycos": 4.677,
+      "W_NG": 4.9997,
+      "W_marginal": 5.6688,
+      "cov_SxC": 0.9013,
+      "cov_keycos": 0.9015,
+      "cov_NG": 0.9022,
+      "cov_marginal": 0.9018,
+      "sxc_pct_tighter_than_marginal": 0.2033,
+      "ordering_fraction": 0.969
+    },
+    {
+      "layer": 12,
+      "editor": "alpha",
+      "n_cal": 297,
+      "n_test": 298,
+      "mean_y_damage": 0.0899,
+      "W_SxC": 0.212,
+      "W_keycos": 0.2144,
+      "W_NG": 0.2034,
+      "W_marginal": 0.2136,
+      "cov_SxC": 0.9027,
+      "cov_keycos": 0.9026,
+      "cov_NG": 0.9029,
+      "cov_marginal": 0.9027,
+      "sxc_pct_tighter_than_marginal": 0.0074,
+      "ordering_fraction": 0.014
+    },
+    {
+      "layer": 14,
+      "editor": "rome",
+      "n_cal": 279,
+      "n_test": 281,
+      "mean_y_damage": 5.3659,
+      "W_SxC": 8.4879,
+      "W_keycos": 8.9762,
+      "W_NG": 8.3671,
+      "W_marginal": 9.2839,
+      "cov_SxC": 0.8996,
+      "cov_keycos": 0.8999,
+      "cov_NG": 0.9018,
+      "cov_marginal": 0.9014,
+      "sxc_pct_tighter_than_marginal": 0.0857,
+      "ordering_fraction": 0.009
+    },
+    {
+      "layer": 14,
+      "editor": "alpha",
+      "n_cal": 285,
+      "n_test": 288,
+      "mean_y_damage": 0.079,
+      "W_SxC": 0.2112,
+      "W_keycos": 0.219,
+      "W_NG": 0.1906,
+      "W_marginal": 0.2249,
+      "cov_SxC": 0.9022,
+      "cov_keycos": 0.9027,
+      "cov_NG": 0.9014,
+      "cov_marginal": 0.9024,
+      "sxc_pct_tighter_than_marginal": 0.0609,
+      "ordering_fraction": 0.005
+    }
+  ],
+  "c4_tie_in": {
+    "8": {
+      "certified_width_ratio_marginal(rome/alpha)": 35.28,
+      "certified_width_ratio_SxC(rome/alpha)": 36.61,
+      "c4_damage_ratio(rome/alpha)": 58.6,
+      "expected_approx_40x": true,
+      "freeze_and_reconcile": false,
+      "note": "width ratio within [10,100] => consistent with C4 damage collapse"
+    },
+    "10": {
+      "certified_width_ratio_marginal(rome/alpha)": 24.26,
+      "certified_width_ratio_SxC(rome/alpha)": 19.65,
+      "c4_damage_ratio(rome/alpha)": 28.58,
+      "expected_approx_40x": true,
+      "freeze_and_reconcile": false,
+      "note": "width ratio within [10,100] => consistent with C4 damage collapse"
+    },
+    "12": {
+      "certified_width_ratio_marginal(rome/alpha)": 26.54,
+      "certified_width_ratio_SxC(rome/alpha)": 21.3,
+      "c4_damage_ratio(rome/alpha)": 33.38,
+      "expected_approx_40x": true,
+      "freeze_and_reconcile": false,
+      "note": "width ratio within [10,100] => consistent with C4 damage collapse"
+    },
+    "14": {
+      "certified_width_ratio_marginal(rome/alpha)": 41.28,
+      "certified_width_ratio_SxC(rome/alpha)": 40.19,
+      "c4_damage_ratio(rome/alpha)": 67.57,
+      "expected_approx_40x": true,
+      "freeze_and_reconcile": false,
+      "note": "width ratio within [10,100] => consistent with C4 damage collapse"
+    }
+  },
+  "e1_downgrade_note": {
+    "downgrade_to_note": true,
+    "layers_below_10pct_preE5": [
+      "8"
+    ],
+    "note": "Full accounting (double-centering + NG-partialling) is applied in E5; final downgrade decision folds E5 in."
+  },
+  "runtime_s": 0.7
+}

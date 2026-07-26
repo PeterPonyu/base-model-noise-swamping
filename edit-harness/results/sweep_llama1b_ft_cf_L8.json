@@ -1,0 +1,39 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "editor": "ft",
+  "dataset": "counterfact",
+  "layer": 8,
+  "n_edits": 150,
+  "n_probes": 400,
+  "steps": 25,
+  "seed": 0,
+  "edit_success_rate": 1.0,
+  "frac_probes_known(pre_p>0.05)": 0.305,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 60000,
+    "spearman_cos_damage": 0.0681,
+    "spearman_normgrowth_damage": -0.1085,
+    "auroc_cos_broken": 0.5345,
+    "auroc_normgrowth_broken": 0.4413,
+    "mean_damage_logit": 15.14253,
+    "mean_cosine": 0.3121
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 18300,
+    "spearman_cos_damage": 0.0358,
+    "spearman_normgrowth_damage": -0.1229,
+    "auroc_cos_broken": 0.5194,
+    "auroc_normgrowth_broken": 0.4424,
+    "mean_damage_logit": 18.06208,
+    "mean_cosine": 0.3137
+  },
+  "runtime_s": 1021.6,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0358,
+    "auroc": 0.5194,
+    "beats_normgrowth": true
+  }
+}

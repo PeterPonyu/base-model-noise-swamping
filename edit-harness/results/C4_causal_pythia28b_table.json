@@ -1,0 +1,67 @@
+{
+  "metric": "damage_logit",
+  "statistic": "signed within-probe partialled Spearman(key-cos, damage_removed); quartile mean damage-removed",
+  "filters": {
+    "known": true,
+    "edit_ok": true,
+    "proj_source": "holdout"
+  },
+  "rome_glob": "results/matrices/gate_pythia28b_rome_cf_L{L}_s*.npz",
+  "alpha_glob": "results/matrices/g4_pythia28b_alphaHO_cf_L{L}_s*.npz",
+  "layers": {
+    "8": {
+      "layer": 8,
+      "n_pairs": 22400,
+      "seeds_used": [
+        0
+      ],
+      "proj_sources": [
+        "holdout"
+      ],
+      "within_probe_spearman": -0.0762,
+      "within_probe_spearman_per_seed": [
+        -0.0762
+      ],
+      "mean_damage_rome": -0.0678,
+      "mean_damage_alpha": -0.00134,
+      "mean_damage_removed": -0.06646,
+      "quartile_means": [
+        {
+          "cosine_quartile": "Q1(low)",
+          "n_pairs": 5600,
+          "mean_cos": 0.0836,
+          "mean_damage_removed": -0.04939,
+          "mean_damage_rome": -0.04823,
+          "mean_damage_alpha": 0.00117
+        },
+        {
+          "cosine_quartile": "Q2",
+          "n_pairs": 5600,
+          "mean_cos": 0.1254,
+          "mean_damage_removed": -0.06705,
+          "mean_damage_rome": -0.06647,
+          "mean_damage_alpha": 0.00058
+        },
+        {
+          "cosine_quartile": "Q3",
+          "n_pairs": 5600,
+          "mean_cos": 0.1642,
+          "mean_damage_removed": -0.08125,
+          "mean_damage_rome": -0.0828,
+          "mean_damage_alpha": -0.00155
+        },
+        {
+          "cosine_quartile": "Q4(high)",
+          "n_pairs": 5600,
+          "mean_cos": 0.2565,
+          "mean_damage_removed": -0.06815,
+          "mean_damage_rome": -0.0737,
+          "mean_damage_alpha": -0.00555
+        }
+      ],
+      "removed_top_vs_bottom_ratio": 1.38
+    }
+  },
+  "layers_skipped": [],
+  "notes": []
+}

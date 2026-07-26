@@ -1,0 +1,14 @@
+{
+  "cmd": "conda run -n dl python3 branches/p2_prerl_diag/run_diag.py branches/p2_prerl_diag/samples/Qwen2.5-3B.json --id Qwen2.5-3B --n-boot 2000 --seed 0",
+  "id": "p2_diag_Qwen2.5-3B",
+  "branch": "P2",
+  "created": "2026-07-01T03:05:31.838036+00:00",
+  "gpu_required": false,
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis",
+  "env": {},
+  "expect_outputs": [
+    "branches/p2_prerl_diag/results/Qwen2.5-3B.json"
+  ],
+  "timeout_s": null,
+  "description": "CPU diagnostic on the generated samples; numpy/stdlib only. [depends_on=p2_gen_Qwen2.5-3B]"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "p2_diag_Phi-3.5-mini",
+  "status": "done",
+  "returncode": 0,
+  "reason": "ok",
+  "started": "2026-07-10T18:56:52",
+  "finished": "2026-07-10T18:56:55",
+  "duration_s": 3.559746265411377,
+  "cmd": "conda run -n dl python3 branches/p2_prerl_diag/run_diag.py branches/p2_prerl_diag/samples/Phi-3.5-mini.json --id Phi-3.5-mini --n-boot 2000 --seed 0",
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis",
+  "outputs_present": [
+    "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Phi-3.5-mini.json"
+  ],
+  "outputs_missing": [],
+  "log_path": "/home/zeyufu/Desktop/idea-feasibility-analysis/fission-engine/queue/done/p2_diag_Phi-3.5-mini.log",
+  "branch": "P2"
+}

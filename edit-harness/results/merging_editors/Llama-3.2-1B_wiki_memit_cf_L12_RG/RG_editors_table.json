@@ -1,0 +1,552 @@
+{
+  "experiment": "merging_law_RG_operating_curve_editors",
+  "schema_version": "editors.v1",
+  "created": "2026-07-16T23:40:24",
+  "model": "/root/autodl-tmp/models/Llama-3.2-1B",
+  "layer": 12,
+  "editor": "memit",
+  "edited_layers": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "dataset": "cf",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "thresholds": {
+    "neg_logit": 0.1,
+    "neg_argmax": 0.05,
+    "rho_min": 0.3,
+    "drho_min": 0.1,
+    "partial_min": 0.15,
+    "sat_argmax": 0.8
+  },
+  "pass_rule": "PASS iff partial rho(I_cos, drop | I_mag) >= partial_min (0.15) in >= 2 non-negligible, c2-passing (rho(I_cos,drop) >= rho_min) group sizes across >= 2 seeds; KILL if geometry's partial < partial_min everywhere testable OR geometry collapses under own-magnitude partialling (rho(I_cos,drop | ||k_a||,S_a) < partial_min) at every testable cell.",
+  "geometry_metric": "partial_rho(I_cos, drop | I_mag)  [own-mag guard: rho(...|||k_a||,S_a)]",
+  "generalisation_note": "editor-general: per-layer rank-one \u0394W^l=outer(r^l,kk^l)/denom^l; kk=k(ROME)/Pk(AlphaEdit)/C^-1 k(MEMIT); cross-term \u0394W_b^l@k_a^l=r_b^l(kk_b^l\u00b7k_a^l)/denom_b^l aggregated over layers; ROME path == merging_m0 (selftest anchor)",
+  "cells": {
+    "g2_s0": {
+      "n_obs": 200,
+      "n_groups": 100,
+      "n_worked_solo": 199,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.0879,
+      "mean_drop_logit": 0.20047,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6475,
+      "rho_I_magonly_drop": 0.1355,
+      "partial_rho_geom": 0.6412,
+      "partial_rho_geom_ownmag": 0.6526,
+      "delta_rho_cos_minus_mag": 0.5121,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.969,
+      "rho_dose_drop": 0.651,
+      "mean_abs_dose": 0.01298,
+      "non_negligible": false,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": false,
+      "collapses_under_ownmag_partial": false
+    },
+    "g3_s0": {
+      "n_obs": 198,
+      "n_groups": 66,
+      "n_worked_solo": 197,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.2656,
+      "mean_drop_logit": 0.47245,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6008,
+      "rho_I_magonly_drop": 0.1728,
+      "partial_rho_geom": 0.5843,
+      "partial_rho_geom_ownmag": 0.6022,
+      "delta_rho_cos_minus_mag": 0.4281,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9895,
+      "rho_dose_drop": 0.5904,
+      "mean_abs_dose": 0.02838,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g5_s0": {
+      "n_obs": 200,
+      "n_groups": 40,
+      "n_worked_solo": 199,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.5869,
+      "mean_drop_logit": 0.85687,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6327,
+      "rho_I_magonly_drop": 0.2388,
+      "partial_rho_geom": 0.6041,
+      "partial_rho_geom_ownmag": 0.6379,
+      "delta_rho_cos_minus_mag": 0.3939,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.987,
+      "rho_dose_drop": 0.6227,
+      "mean_abs_dose": 0.04935,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g10_s0": {
+      "n_obs": 200,
+      "n_groups": 20,
+      "n_worked_solo": 199,
+      "n_layers": 4,
+      "median_abs_drop_logit": 1.7815,
+      "mean_drop_logit": 2.15172,
+      "argmax_loss_rate": 0.005,
+      "rho_I_cos_drop": 0.6945,
+      "rho_I_magonly_drop": 0.1599,
+      "partial_rho_geom": 0.6887,
+      "partial_rho_geom_ownmag": 0.7014,
+      "delta_rho_cos_minus_mag": 0.5346,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9896,
+      "rho_dose_drop": 0.676,
+      "mean_abs_dose": 0.10821,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g20_s0": {
+      "n_obs": 200,
+      "n_groups": 10,
+      "n_worked_solo": 199,
+      "n_layers": 4,
+      "median_abs_drop_logit": 4.9517,
+      "mean_drop_logit": 5.25481,
+      "argmax_loss_rate": 0.0352,
+      "rho_I_cos_drop": 0.6089,
+      "rho_I_magonly_drop": 0.204,
+      "partial_rho_geom": 0.5861,
+      "partial_rho_geom_ownmag": 0.6067,
+      "delta_rho_cos_minus_mag": 0.4048,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9913,
+      "rho_dose_drop": 0.5646,
+      "mean_abs_dose": 0.24019,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g2_s1": {
+      "n_obs": 200,
+      "n_groups": 100,
+      "n_worked_solo": 198,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.1021,
+      "mean_drop_logit": 0.17426,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.5352,
+      "rho_I_magonly_drop": 0.0049,
+      "partial_rho_geom": 0.5387,
+      "partial_rho_geom_ownmag": 0.5345,
+      "delta_rho_cos_minus_mag": 0.5303,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9818,
+      "rho_dose_drop": 0.5481,
+      "mean_abs_dose": 0.0127,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g3_s1": {
+      "n_obs": 198,
+      "n_groups": 66,
+      "n_worked_solo": 196,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.2341,
+      "mean_drop_logit": 0.29922,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.5831,
+      "rho_I_magonly_drop": -0.0024,
+      "partial_rho_geom": 0.5897,
+      "partial_rho_geom_ownmag": 0.5897,
+      "delta_rho_cos_minus_mag": 0.5855,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9858,
+      "rho_dose_drop": 0.5777,
+      "mean_abs_dose": 0.02183,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g5_s1": {
+      "n_obs": 200,
+      "n_groups": 40,
+      "n_worked_solo": 198,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.5563,
+      "mean_drop_logit": 0.7154,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6069,
+      "rho_I_magonly_drop": 0.0198,
+      "partial_rho_geom": 0.607,
+      "partial_rho_geom_ownmag": 0.6016,
+      "delta_rho_cos_minus_mag": 0.587,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9895,
+      "rho_dose_drop": 0.6134,
+      "mean_abs_dose": 0.0463,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g10_s1": {
+      "n_obs": 200,
+      "n_groups": 20,
+      "n_worked_solo": 198,
+      "n_layers": 4,
+      "median_abs_drop_logit": 1.5282,
+      "mean_drop_logit": 1.86436,
+      "argmax_loss_rate": 0.0101,
+      "rho_I_cos_drop": 0.6984,
+      "rho_I_magonly_drop": 0.034,
+      "partial_rho_geom": 0.6995,
+      "partial_rho_geom_ownmag": 0.6945,
+      "delta_rho_cos_minus_mag": 0.6644,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9845,
+      "rho_dose_drop": 0.683,
+      "mean_abs_dose": 0.10639,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g20_s1": {
+      "n_obs": 200,
+      "n_groups": 10,
+      "n_worked_solo": 198,
+      "n_layers": 4,
+      "median_abs_drop_logit": 4.3479,
+      "mean_drop_logit": 4.66258,
+      "argmax_loss_rate": 0.0505,
+      "rho_I_cos_drop": 0.6793,
+      "rho_I_magonly_drop": 0.0269,
+      "partial_rho_geom": 0.6824,
+      "partial_rho_geom_ownmag": 0.6733,
+      "delta_rho_cos_minus_mag": 0.6524,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9845,
+      "rho_dose_drop": 0.6345,
+      "mean_abs_dose": 0.22238,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g2_s2": {
+      "n_obs": 200,
+      "n_groups": 100,
+      "n_worked_solo": 200,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.1021,
+      "mean_drop_logit": 0.19239,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6034,
+      "rho_I_magonly_drop": 0.1143,
+      "partial_rho_geom": 0.5965,
+      "partial_rho_geom_ownmag": 0.5958,
+      "delta_rho_cos_minus_mag": 0.4891,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9915,
+      "rho_dose_drop": 0.6157,
+      "mean_abs_dose": 0.01273,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g3_s2": {
+      "n_obs": 198,
+      "n_groups": 66,
+      "n_worked_solo": 198,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.2191,
+      "mean_drop_logit": 0.36521,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6725,
+      "rho_I_magonly_drop": -0.0912,
+      "partial_rho_geom": 0.681,
+      "partial_rho_geom_ownmag": 0.6738,
+      "delta_rho_cos_minus_mag": 0.7637,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9853,
+      "rho_dose_drop": 0.6852,
+      "mean_abs_dose": 0.02275,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g5_s2": {
+      "n_obs": 200,
+      "n_groups": 40,
+      "n_worked_solo": 200,
+      "n_layers": 4,
+      "median_abs_drop_logit": 0.5803,
+      "mean_drop_logit": 0.70538,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6911,
+      "rho_I_magonly_drop": -0.0248,
+      "partial_rho_geom": 0.7008,
+      "partial_rho_geom_ownmag": 0.6832,
+      "delta_rho_cos_minus_mag": 0.7159,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9876,
+      "rho_dose_drop": 0.6917,
+      "mean_abs_dose": 0.04358,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g10_s2": {
+      "n_obs": 200,
+      "n_groups": 20,
+      "n_worked_solo": 200,
+      "n_layers": 4,
+      "median_abs_drop_logit": 1.3406,
+      "mean_drop_logit": 1.71378,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": 0.6404,
+      "rho_I_magonly_drop": 0.15,
+      "partial_rho_geom": 0.6309,
+      "partial_rho_geom_ownmag": 0.6255,
+      "delta_rho_cos_minus_mag": 0.4904,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9888,
+      "rho_dose_drop": 0.5942,
+      "mean_abs_dose": 0.09874,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "g20_s2": {
+      "n_obs": 200,
+      "n_groups": 10,
+      "n_worked_solo": 200,
+      "n_layers": 4,
+      "median_abs_drop_logit": 4.2016,
+      "mean_drop_logit": 4.48194,
+      "argmax_loss_rate": 0.02,
+      "rho_I_cos_drop": 0.6689,
+      "rho_I_magonly_drop": 0.1294,
+      "partial_rho_geom": 0.6621,
+      "partial_rho_geom_ownmag": 0.6497,
+      "delta_rho_cos_minus_mag": 0.5395,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.9897,
+      "rho_dose_drop": 0.6181,
+      "mean_abs_dose": 0.20962,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    }
+  },
+  "per_g_summary": {
+    "2": {
+      "n_seeds_measured": 3,
+      "n_seeds_eligible": 2,
+      "n_seeds_pass_geometry": 2,
+      "pass_seeds": [
+        1,
+        2
+      ],
+      "partial_by_seed": {
+        "0": 0.6412,
+        "1": 0.5387,
+        "2": 0.5965
+      },
+      "eligible_by_seed": {
+        "0": false,
+        "1": true,
+        "2": true
+      },
+      "argmax_loss_by_seed": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0
+      },
+      "rho_dose_by_seed": {
+        "0": 0.651,
+        "1": 0.5481,
+        "2": 0.6157
+      },
+      "qualifies": true
+    },
+    "3": {
+      "n_seeds_measured": 3,
+      "n_seeds_eligible": 3,
+      "n_seeds_pass_geometry": 3,
+      "pass_seeds": [
+        0,
+        1,
+        2
+      ],
+      "partial_by_seed": {
+        "0": 0.5843,
+        "1": 0.5897,
+        "2": 0.681
+      },
+      "eligible_by_seed": {
+        "0": true,
+        "1": true,
+        "2": true
+      },
+      "argmax_loss_by_seed": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0
+      },
+      "rho_dose_by_seed": {
+        "0": 0.5904,
+        "1": 0.5777,
+        "2": 0.6852
+      },
+      "qualifies": true
+    },
+    "5": {
+      "n_seeds_measured": 3,
+      "n_seeds_eligible": 3,
+      "n_seeds_pass_geometry": 3,
+      "pass_seeds": [
+        0,
+        1,
+        2
+      ],
+      "partial_by_seed": {
+        "0": 0.6041,
+        "1": 0.607,
+        "2": 0.7008
+      },
+      "eligible_by_seed": {
+        "0": true,
+        "1": true,
+        "2": true
+      },
+      "argmax_loss_by_seed": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0
+      },
+      "rho_dose_by_seed": {
+        "0": 0.6227,
+        "1": 0.6134,
+        "2": 0.6917
+      },
+      "qualifies": true
+    },
+    "10": {
+      "n_seeds_measured": 3,
+      "n_seeds_eligible": 3,
+      "n_seeds_pass_geometry": 3,
+      "pass_seeds": [
+        0,
+        1,
+        2
+      ],
+      "partial_by_seed": {
+        "0": 0.6887,
+        "1": 0.6995,
+        "2": 0.6309
+      },
+      "eligible_by_seed": {
+        "0": true,
+        "1": true,
+        "2": true
+      },
+      "argmax_loss_by_seed": {
+        "0": 0.005,
+        "1": 0.0101,
+        "2": 0.0
+      },
+      "rho_dose_by_seed": {
+        "0": 0.676,
+        "1": 0.683,
+        "2": 0.5942
+      },
+      "qualifies": true
+    },
+    "20": {
+      "n_seeds_measured": 3,
+      "n_seeds_eligible": 3,
+      "n_seeds_pass_geometry": 3,
+      "pass_seeds": [
+        0,
+        1,
+        2
+      ],
+      "partial_by_seed": {
+        "0": 0.5861,
+        "1": 0.6824,
+        "2": 0.6621
+      },
+      "eligible_by_seed": {
+        "0": true,
+        "1": true,
+        "2": true
+      },
+      "argmax_loss_by_seed": {
+        "0": 0.0352,
+        "1": 0.0505,
+        "2": 0.02
+      },
+      "rho_dose_by_seed": {
+        "0": 0.5646,
+        "1": 0.6345,
+        "2": 0.6181
+      },
+      "qualifies": true
+    }
+  },
+  "scoped_federation_boundary": {
+    "per_seed_largest_nonsaturated_g": {
+      "0": 20,
+      "1": 20,
+      "2": 20
+    },
+    "conservative_min_across_seeds": 20,
+    "note": "largest group size g where damage stays partial (argmax_loss < sat_argmax) i.e. measurable/gradated \u2014 the scoped-federation limit"
+  },
+  "verdict": {
+    "overall": "PASS",
+    "qualifying_group_sizes": [
+      2,
+      3,
+      5,
+      10,
+      20
+    ],
+    "n_qualifying_group_sizes": 5,
+    "n_testable_cells": 14,
+    "any_geometry_pass": true,
+    "all_collapse_under_ownmag": false,
+    "pass_rule": "PASS iff partial rho(I_cos, drop | I_mag) >= partial_min (0.15) in >= 2 non-negligible, c2-passing (rho(I_cos,drop) >= rho_min) group sizes across >= 2 seeds; KILL if geometry's partial < partial_min everywhere testable OR geometry collapses under own-magnitude partialling (rho(I_cos,drop | ||k_a||,S_a) < partial_min) at every testable cell.",
+    "interpretation": "geometry (partial rho) predicts merge interference at >= 2 group sizes across >= 2 seeds for this editor -> the federation law is editor-general at this cell"
+  }
+}

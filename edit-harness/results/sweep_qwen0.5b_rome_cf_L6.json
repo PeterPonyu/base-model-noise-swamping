@@ -1,0 +1,39 @@
+{
+  "model": "data/models/Qwen2.5-0.5B",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 6,
+  "n_edits": 150,
+  "n_probes": 400,
+  "steps": 20,
+  "seed": 0,
+  "edit_success_rate": 1.0,
+  "frac_probes_known(pre_p>0.05)": 0.175,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 60000,
+    "spearman_cos_damage": 0.015,
+    "spearman_normgrowth_damage": -0.0002,
+    "auroc_cos_broken": 0.7878,
+    "auroc_normgrowth_broken": 0.6397,
+    "mean_damage_logit": 0.02063,
+    "mean_cosine": 0.132
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 10500,
+    "spearman_cos_damage": -0.0917,
+    "spearman_normgrowth_damage": -0.0079,
+    "auroc_cos_broken": 0.7096,
+    "auroc_normgrowth_broken": 0.6267,
+    "mean_damage_logit": -0.03568,
+    "mean_cosine": 0.1105
+  },
+  "runtime_s": 722.3,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0917,
+    "auroc": 0.7096,
+    "beats_normgrowth": true
+  }
+}

@@ -1,0 +1,91 @@
+# 裂变引擎 —— 实验门定义（所有入选方向）
+# 每个 gate：entry(开跑前置) → smoke(必须先过的本地烟测) → kill(早夭判据,2-3天内验) → GPU 成本
+# 状态: PASS=已本地验证 / READY=资源到位可跑 / PENDING=待下载 / BLOCKED=有前置未解
+meta:
+  machine: RTX 5090 Laptop 24GB (Blackwell cc12.0)
+  env: conda dl, torch 2.12.1+cu130, transformers 5.12.1, torchvision 0.27.1+cu130 (FIXED)
+  proxy: ALL_PROXY(socks) unset; HTTP proxy 7897 kept   # see env.sh
+  edit_engine: native ROME/MEMIT (EasyEdit NOT pip-installable; native primitives PASS)
+
+# ---------- 主干门 (Trunk gate) — 必须先过,才放任何分支进队 ----------
+trunk:
+  status: READY                      # all smoke tests below PASSED on tiny proxies
+  smoke_passed:
+    - torch+cuda on 5090            : PASS
+    - text causal-LM import         : PASS (after torchvision fix)
+    - gpu fp16 load+generate (proxy): PASS  (tiny-gpt2, 21.5s incl download)
+    - datasets cached load (gsm8k)  : PASS
+    - datasets fresh download(proxy): PASS
+    - edit primitive: layer-access  : PASS  (model.layers[i].mlp.down_proj)
+    - edit primitive: forward-hook k: PASS
+    - edit primitive: rank-one ΔW   : PASS  (logits change, MEMIT core works)
+  entry:
+    model: EleutherAI/gpt-j-6b       # ungated; canonical ROME/MEMIT target (CounterFact/zsRE built on it)
+    data:  [zsRE, CounterFact]
+    download_gb: ~14
+  gate: "MEMIT × GPT-J-6B × CounterFact reproduces published efficacy≥0.9 & locality≥0.7; 5 metrics dump valid JSON."
+  kill: "If cannot reproduce baseline within published ±5% → harness bug, fix before any branch."
+  gpu_cost: low (edit=seconds, eval=minutes)
+
+# ---------- 文本分支 (no torchvision needed, run first) ----------
+B1_multihop_consistency:
+  status: PENDING                    # needs MQuAKE download
+  paper: "编辑单事实后多跳推理一致性崩塌的量化与诊断"
+  entry: {model: gpt-j-6b (shared), data: [MQuAKE], download_gb: ~0.1}
+  gate:  "MQuAKE multi-hop consistency measurably LOWER than single-hop efficacy (the 崩塌)."
+  kill:  "If multi-hop ≈ single-hop (no gap) → no story, KILL within 2 days."
+  gpu_cost: low
+  fans_into: [B2, B3]
+
+B2_stopping_criteria:
+  status: PENDING
+  paper: "序贯编辑何时该停：可学习的 Stopping Criterion"
+  entry: {model: gpt-j-6b (shared), data: [CounterFact sequential], build: "序贯编辑循环"}
+  gate:  "存在可预测的 '编辑次数 vs locality 崩塌' 拐点。"
+  kill:  "If locality degrades randomly (no predictable knee) → KILL, fold into B3 ablation."
+  gpu_cost: med   # sequential edits
+  shares_infra_with: B3
+
+B3_lifelong_forgetting:
+  status: PENDING
+  paper: "数千次序贯编辑下的遗忘曲线与缓解"
+  entry: {model: gpt-j-6b (shared), data: [zsRE+CounterFact large], reuse: "B2 sequential loop"}
+  gate:  "遗忘曲线随编辑数单调恶化 且 方法间(ROME/MEMIT/...)有显著差异。"
+  kill:  "If all methods identical forgetting → no contribution, KILL."
+  gpu_cost: high  # long sequences, overnight batch
+
+B4_rl_routing_policy:
+  status: PENDING
+  paper: "用 RL 学'编辑哪一层/是否外挂记忆'的路由策略"
+  entry: {model: gpt-j-6b/llama-3-8b, build: "policy module + reward=efficacy-λ·locality_drop", download_gb: 0}
+  gate:  "RL 路由 vs 固定层编辑 ≥2% 稳定增益(×3 seed)。"
+  kill:  "If <2% or unstable across seeds → demote to B2 ablation, free GPU."
+  gpu_cost: high  # RL rollouts, overnight
+
+B6_mechanistic_theory:
+  status: READY                      # low GPU, uses existing checkpoints; run during idle/other-branch GPU time
+  paper: "编辑为何泛化 / 为何破坏 locality 的机理分析"
+  entry: {model: any edited checkpoint, build: "causal-trace / probe", download_gb: 0}
+  gate:  "探针给出可证伪的机理假设(如:特定层贡献泛化)。"
+  kill:  "If probes give no falsifiable claim → fold into other branches' analysis sections."
+  gpu_cost: low   # FILLER: write/run while B1-B4 occupy GPU
+
+# ---------- 多模态分支 (needs the SAME torchvision, already fixed; needs VLM) ----------
+B5_multimodal_editing:
+  status: PENDING                    # do after text line mature
+  paper: "把知识编辑从 LLM 迁到 VLM"
+  entry:
+    model: Qwen2-VL-7B-Instruct      # ungated
+    data:  [MMEdit / E-VQA editing benchmark]
+    download_gb: ~18
+    note: "torchvision already fixed in trunk → no extra env work."
+  gate:  "VLM 编辑的 locality 比 LLM 更难(出现新现象/新失败模式)。"
+  kill:  "If VLM editing behaves identically to LLM → no novelty, KILL."
+  gpu_cost: med
+
+# ---------- 调度策略 ----------
+scheduling:
+  gpu_lane: "serial queue; ONE job at a time (24GB; 8B fp16 ~18-20GB); ×3 seeds; overnight batch."
+  parallel_lanes: "design(D)/analysis(A)/writing(W) run on CPU+agents while GPU busy → fan-out parallelism."
+  order: "trunk → B1 → (B2+B3 shared loop) → B4 → B5;  B6 interleaved as GPU-idle filler."
+  download_waves: "Wave0 trunk(~14GB) → +B1(0.1GB) → +B5(18GB) → rest data tiny.  See download_manifest.sh"

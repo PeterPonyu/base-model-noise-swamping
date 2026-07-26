@@ -1,0 +1,467 @@
+{
+  "experiment": "T1.1_depth_dissociation_E0_descriptive_sketch",
+  "prereg": "docs/plans/PREREG-T11-DEPTH-DISSOCIATION-E0-20260713.md",
+  "created": "2026-07-14T09:16:49",
+  "arch": "Llama-3.2-1B (ROME, CounterFact)",
+  "grid_layers": [
+    8,
+    12,
+    14
+  ],
+  "grid_note": "L10 excluded: has C but no RG-merge run and no raw-K bank (prereg s2.2/s2.4). Shared usable grid = {L8,L12,L14}.",
+  "collateral_C": {
+    "8": {
+      "C": 0.3951,
+      "std": 0.0106,
+      "max_within_probe_perm_p": 0.0033,
+      "n_seeds": 3,
+      "source": "G1_stability_L8_v2.json"
+    },
+    "12": {
+      "C": 0.6018,
+      "std": 0.0189,
+      "max_within_probe_perm_p": 0.0033,
+      "n_seeds": 3,
+      "source": "G1_stability_L12_v2.json"
+    },
+    "14": {
+      "C": 0.3006,
+      "std": 0.0403,
+      "max_within_probe_perm_p": 0.0033,
+      "n_seeds": 3,
+      "source": "G1_stability_L14_v2.json"
+    }
+  },
+  "merge_M": {
+    "8": {
+      "M": 0.3007,
+      "M_std": 0.0283,
+      "M_ownmag_mean": 0.3342,
+      "rho_I_cos_drop_mean": 0.3226,
+      "chosen_g": 3,
+      "cells_used": [
+        "g3_s0",
+        "g3_s2"
+      ],
+      "n_cells": 2,
+      "source": "RG_operating_curve_table_L8.json",
+      "layer_field": 8
+    },
+    "12": {
+      "M": 0.469267,
+      "M_std": 0.018289,
+      "M_ownmag_mean": 0.510933,
+      "rho_I_cos_drop_mean": 0.513067,
+      "chosen_g": 2,
+      "cells_used": [
+        "g2_s0",
+        "g2_s1",
+        "g2_s2"
+      ],
+      "n_cells": 3,
+      "source": "RG_operating_curve_table.json",
+      "layer_field": 12
+    },
+    "14": {
+      "M": 0.3168,
+      "M_std": 0.008988,
+      "M_ownmag_mean": 0.488867,
+      "rho_I_cos_drop_mean": 0.484833,
+      "chosen_g": 2,
+      "cells_used": [
+        "g2_s0",
+        "g2_s1",
+        "g2_s2"
+      ],
+      "n_cells": 3,
+      "source": "RG_operating_curve_table_L14.json",
+      "layer_field": 14
+    }
+  },
+  "dissociation": {
+    "profile": [
+      {
+        "layer": 8,
+        "C": 0.3951,
+        "M": 0.3007,
+        "zC": -0.297354,
+        "zM": -0.81044,
+        "D": -0.513086
+      },
+      {
+        "layer": 12,
+        "C": 0.6018,
+        "M": 0.469267,
+        "zC": 1.346043,
+        "zM": 1.408908,
+        "D": 0.062865
+      },
+      {
+        "layer": 14,
+        "C": 0.3006,
+        "M": 0.3168,
+        "zC": -1.048689,
+        "zM": -0.598468,
+        "D": 0.450221
+      }
+    ],
+    "sigma_M": 0.075953,
+    "sigma_C": 0.125776,
+    "pairs": [
+      {
+        "pair": "L8->L12",
+        "dM": 0.168567,
+        "dC": 0.2067,
+        "dD": 0.575952,
+        "sign_dM": 1,
+        "sign_dC": 1,
+        "sign_dD": 1,
+        "raw_unambiguous": false
+      },
+      {
+        "pair": "L12->L14",
+        "dM": -0.152467,
+        "dC": -0.3012,
+        "dD": 0.387356,
+        "sign_dM": -1,
+        "sign_dC": -1,
+        "sign_dD": 1,
+        "raw_unambiguous": false
+      }
+    ],
+    "d_profile_ambiguous": true
+  },
+  "statistics_per_layer": {
+    "8": {
+      "pr_frac": 0.27736,
+      "mean_cos": 0.318642,
+      "mean_abs_cos": 0.318642,
+      "kappa": 3.658442,
+      "bands": {
+        "pr_frac": {
+          "mean": 0.27736,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        },
+        "mean_cos": {
+          "mean": 0.318642,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        },
+        "mean_abs_cos": {
+          "mean": 0.318642,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        },
+        "kappa": {
+          "mean": 3.658442,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        }
+      },
+      "single_seed": true
+    },
+    "12": {
+      "pr_frac": 0.338715,
+      "mean_cos": 0.321878,
+      "mean_abs_cos": 0.321878,
+      "kappa": 7.555701,
+      "bands": {
+        "pr_frac": {
+          "mean": 0.338715,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        },
+        "mean_cos": {
+          "mean": 0.321878,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        },
+        "mean_abs_cos": {
+          "mean": 0.321878,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        },
+        "kappa": {
+          "mean": 7.555701,
+          "std": 0.0,
+          "n_seeds": 1,
+          "seeds": [
+            0
+          ]
+        }
+      },
+      "single_seed": true
+    },
+    "14": {
+      "pr_frac": 0.196143,
+      "mean_cos": 0.440455,
+      "mean_abs_cos": 0.440455,
+      "kappa": 8.566426,
+      "bands": {
+        "pr_frac": {
+          "mean": 0.196143,
+          "std": 0.008347,
+          "n_seeds": 3,
+          "seeds": [
+            0,
+            1,
+            2
+          ]
+        },
+        "mean_cos": {
+          "mean": 0.440455,
+          "std": 0.013965,
+          "n_seeds": 3,
+          "seeds": [
+            0,
+            1,
+            2
+          ]
+        },
+        "mean_abs_cos": {
+          "mean": 0.440455,
+          "std": 0.013965,
+          "n_seeds": 3,
+          "seeds": [
+            0,
+            1,
+            2
+          ]
+        },
+        "kappa": {
+          "mean": 8.566426,
+          "std": 0.395303,
+          "n_seeds": 3,
+          "seeds": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "single_seed": false
+    }
+  },
+  "statistics_per_seed": {
+    "8": [
+      {
+        "npz": "vectors_qv_llama1b_rome_cf_L8_s0.npz",
+        "layer": 8,
+        "seed": 0,
+        "N": 200,
+        "d": 8192,
+        "vectors_valid": 1,
+        "pr": 55.1946,
+        "pr_frac": 0.27736,
+        "mean_cos": 0.318642,
+        "mean_abs_cos": 0.318642,
+        "kappa": 3.658442,
+        "kappa_cols_kept": 8192,
+        "kappa_cols_dropped": 0
+      }
+    ],
+    "12": [
+      {
+        "npz": "vectors_qv_llama1b_rome_cf_L12_s0.npz",
+        "layer": 12,
+        "seed": 0,
+        "N": 200,
+        "d": 8192,
+        "vectors_valid": 1,
+        "pr": 67.4042,
+        "pr_frac": 0.338715,
+        "mean_cos": 0.321878,
+        "mean_abs_cos": 0.321878,
+        "kappa": 7.555701,
+        "kappa_cols_kept": 8192,
+        "kappa_cols_dropped": 0
+      }
+    ],
+    "14": [
+      {
+        "npz": "vectors_qv_llama1b_rome_cf_L14_s0.npz",
+        "layer": 14,
+        "seed": 0,
+        "N": 200,
+        "d": 8192,
+        "vectors_valid": 1,
+        "pr": 36.7258,
+        "pr_frac": 0.184552,
+        "mean_cos": 0.460181,
+        "mean_abs_cos": 0.460181,
+        "kappa": 8.110016,
+        "kappa_cols_kept": 8192,
+        "kappa_cols_dropped": 0
+      },
+      {
+        "npz": "vectors_qv_llama1b_rome_cf_L14_s1.npz",
+        "layer": 14,
+        "seed": 1,
+        "N": 200,
+        "d": 8192,
+        "vectors_valid": 1,
+        "pr": 39.8013,
+        "pr_frac": 0.200007,
+        "mean_cos": 0.429748,
+        "mean_abs_cos": 0.429748,
+        "kappa": 8.515052,
+        "kappa_cols_kept": 8192,
+        "kappa_cols_dropped": 0
+      },
+      {
+        "npz": "vectors_qv_llama1b_rome_cf_L14_s2.npz",
+        "layer": 14,
+        "seed": 2,
+        "N": 200,
+        "d": 8192,
+        "vectors_valid": 1,
+        "pr": 40.5703,
+        "pr_frac": 0.203871,
+        "mean_cos": 0.431437,
+        "mean_abs_cos": 0.431437,
+        "kappa": 9.074209,
+        "kappa_cols_kept": 8192,
+        "kappa_cols_dropped": 0
+      }
+    ]
+  },
+  "tracking": [
+    {
+      "stat": "pr_frac",
+      "convention": "H1 participation-ratio fraction (primary): sign(-d pr_frac)",
+      "values_on_grid": [
+        0.27736,
+        0.338715,
+        0.196143
+      ],
+      "pairs": [
+        {
+          "pair": "L8->L12",
+          "dS": 0.061355,
+          "sign_expected": -1,
+          "sign_dD": 1,
+          "concordant": false
+        },
+        {
+          "pair": "L12->L14",
+          "dS": -0.142572,
+          "sign_expected": 1,
+          "sign_dD": 1,
+          "concordant": true
+        }
+      ],
+      "n_concordant": 1,
+      "n_pairs": 2,
+      "monotone_tracks_arch1": false,
+      "sign_test_p": null,
+      "holm": {
+        "p": 1.0,
+        "holm_threshold": 0.05,
+        "passes_holm": false
+      }
+    },
+    {
+      "stat": "mean_cos",
+      "convention": "H2 key anisotropy (secondary): sign(+d mean_cos)",
+      "values_on_grid": [
+        0.318642,
+        0.321878,
+        0.440455
+      ],
+      "pairs": [
+        {
+          "pair": "L8->L12",
+          "dS": 0.003236,
+          "sign_expected": 1,
+          "sign_dD": 1,
+          "concordant": true
+        },
+        {
+          "pair": "L12->L14",
+          "dS": 0.118577,
+          "sign_expected": 1,
+          "sign_dD": 1,
+          "concordant": true
+        }
+      ],
+      "n_concordant": 2,
+      "n_pairs": 2,
+      "monotone_tracks_arch1": true,
+      "sign_test_p": 0.25,
+      "holm": {
+        "p": 0.25,
+        "holm_threshold": 0.016667,
+        "passes_holm": false
+      }
+    },
+    {
+      "stat": "kappa",
+      "convention": "H3 kurtosis proxy (tertiary): sign(+d kappa)",
+      "values_on_grid": [
+        3.658442,
+        7.555701,
+        8.566426
+      ],
+      "pairs": [
+        {
+          "pair": "L8->L12",
+          "dS": 3.897259,
+          "sign_expected": 1,
+          "sign_dD": 1,
+          "concordant": true
+        },
+        {
+          "pair": "L12->L14",
+          "dS": 1.010725,
+          "sign_expected": 1,
+          "sign_dD": 1,
+          "concordant": true
+        }
+      ],
+      "n_concordant": 2,
+      "n_pairs": 2,
+      "monotone_tracks_arch1": true,
+      "sign_test_p": 0.25,
+      "holm": {
+        "p": 0.25,
+        "holm_threshold": 0.025,
+        "passes_holm": false
+      }
+    }
+  ],
+  "arch1_winner_candidate": "mean_cos",
+  "verdict": "DESCRIPTIVE_ONLY_GATE_NOT_DECIDABLE",
+  "gate_status": {
+    "pass_gate_decidable": false,
+    "reason": "PASS requires a 2nd architecture with raw-K at >=3 depths; cache has Qwen-1.5B raw-K at L14 only -> no arch-2 depth profile exists (prereg s2.4). A one-architecture 3-point match is KILL-for-gate-purposes (prereg s3.3 AMBIGUOUS guard); reported descriptively only.",
+    "d_profile_ambiguous": true
+  },
+  "binding_wording": [
+    "z-grid-relative reading only: D compares depth-SHAPE, not absolute partial-rho levels between the two families.",
+    "single-seed statistic point estimates at L8 and L12 (raw-K 3-seed only at L14) -> arch-1 tracking rests on point estimates there.",
+    "merge M(L) carries two boundaries per house rule (geometry-valid g<=5; gradated g=10); this sketch uses only qualifying g in {2,3}.",
+    "kurtosis kappa is implemented in-file (not the analyze_aniso --emit_kurtosis flag) per the one-file task constraint; PR and anisotropy are imported from analyze_aniso (identical formulas)."
+  ]
+}

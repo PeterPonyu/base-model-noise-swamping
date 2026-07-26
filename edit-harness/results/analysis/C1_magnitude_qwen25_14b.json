@@ -1,0 +1,338 @@
+{
+  "definition": "within-probe Spearman(|key-cos|, |damage|), tie-averaged, partialled by holding probe identity fixed down each column",
+  "metric": "logit",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "n_perm_editlevel": 1000,
+  "families_transfer_PASS": "3/4",
+  "headline": {
+    "qwen25_14b_L24": {
+      "mean_abs": 0.2318,
+      "std_abs": 0.0047,
+      "n_seeds": 2,
+      "verdict": "PASS"
+    },
+    "qwen25_14b_L30": {
+      "mean_abs": 0.3087,
+      "std_abs": 0.0002,
+      "n_seeds": 2,
+      "verdict": "PASS"
+    },
+    "qwen25_14b_L36": {
+      "mean_abs": 0.1761,
+      "std_abs": 0.0079,
+      "n_seeds": 2,
+      "verdict": "PASS"
+    },
+    "qwen25_14b_L42": {
+      "mean_abs": NaN,
+      "std_abs": NaN,
+      "n_seeds": 2,
+      "verdict": "UNDETERMINED"
+    }
+  },
+  "families": [
+    {
+      "family": "qwen25_14b_L24",
+      "name": "qwen25_14b_L24",
+      "within_probe_mean_across_seeds": 0.2318,
+      "within_probe_std_across_seeds": 0.0047,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_14b_rome_cf_L24_s*.npz",
+      "n_seeds": 2,
+      "seeds": [
+        "gate_qwen25_14b_rome_cf_L24_s0.npz",
+        "gate_qwen25_14b_rome_cf_L24_s1.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.2318,
+      "within_probe_std_abs_across_seeds": 0.0047,
+      "per_edit_mean_abs_across_seeds": 0.1588,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L24_s0.npz",
+          "shape": [
+            200,
+            168
+          ],
+          "flat_spearman_abs_INFLATED": 0.2194,
+          "within_probe_mean_abs": 0.2271,
+          "within_probe_ci95": [
+            0.2088,
+            0.2456
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2038,
+            0.249
+          ],
+          "within_probe_frac_positive": 0.982,
+          "per_edit_mean_abs": 0.17,
+          "per_edit_ci95": [
+            0.1571,
+            0.1822
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0004,
+          "editlevel_null_std": 0.0139,
+          "editlevel_z": 16.34
+        },
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L24_s1.npz",
+          "shape": [
+            198,
+            172
+          ],
+          "flat_spearman_abs_INFLATED": 0.1984,
+          "within_probe_mean_abs": 0.2365,
+          "within_probe_ci95": [
+            0.2184,
+            0.2546
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2141,
+            0.2573
+          ],
+          "within_probe_frac_positive": 0.971,
+          "per_edit_mean_abs": 0.1476,
+          "per_edit_ci95": [
+            0.1343,
+            0.161
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0003,
+          "editlevel_null_std": 0.0139,
+          "editlevel_z": 17.04
+        }
+      ]
+    },
+    {
+      "family": "qwen25_14b_L30",
+      "name": "qwen25_14b_L30",
+      "within_probe_mean_across_seeds": 0.3087,
+      "within_probe_std_across_seeds": 0.0002,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_14b_rome_cf_L30_s*.npz",
+      "n_seeds": 2,
+      "seeds": [
+        "gate_qwen25_14b_rome_cf_L30_s0.npz",
+        "gate_qwen25_14b_rome_cf_L30_s1.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.3087,
+      "within_probe_std_abs_across_seeds": 0.0002,
+      "per_edit_mean_abs_across_seeds": 0.2347,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L30_s0.npz",
+          "shape": [
+            196,
+            168
+          ],
+          "flat_spearman_abs_INFLATED": 0.298,
+          "within_probe_mean_abs": 0.3089,
+          "within_probe_ci95": [
+            0.2888,
+            0.328
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2791,
+            0.3353
+          ],
+          "within_probe_frac_positive": 0.988,
+          "per_edit_mean_abs": 0.2454,
+          "per_edit_ci95": [
+            0.2324,
+            0.2575
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0003,
+          "editlevel_null_std": 0.0181,
+          "editlevel_z": 17.07
+        },
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L30_s1.npz",
+          "shape": [
+            198,
+            172
+          ],
+          "flat_spearman_abs_INFLATED": 0.2784,
+          "within_probe_mean_abs": 0.3086,
+          "within_probe_ci95": [
+            0.2878,
+            0.3278
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2825,
+            0.331
+          ],
+          "within_probe_frac_positive": 0.983,
+          "per_edit_mean_abs": 0.224,
+          "per_edit_ci95": [
+            0.2104,
+            0.2368
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0003,
+          "editlevel_null_std": 0.0169,
+          "editlevel_z": 18.24
+        }
+      ]
+    },
+    {
+      "family": "qwen25_14b_L36",
+      "name": "qwen25_14b_L36",
+      "within_probe_mean_across_seeds": 0.1761,
+      "within_probe_std_across_seeds": 0.0079,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_14b_rome_cf_L36_s*.npz",
+      "n_seeds": 2,
+      "seeds": [
+        "gate_qwen25_14b_rome_cf_L36_s0.npz",
+        "gate_qwen25_14b_rome_cf_L36_s1.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.1761,
+      "within_probe_std_abs_across_seeds": 0.0079,
+      "per_edit_mean_abs_across_seeds": 0.154,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L36_s0.npz",
+          "shape": [
+            69,
+            168
+          ],
+          "flat_spearman_abs_INFLATED": 0.2065,
+          "within_probe_mean_abs": 0.184,
+          "within_probe_ci95": [
+            0.1538,
+            0.215
+          ],
+          "within_probe_ci95_editcluster": [
+            0.1486,
+            0.2129
+          ],
+          "within_probe_frac_positive": 0.792,
+          "per_edit_mean_abs": 0.1646,
+          "per_edit_ci95": [
+            0.1438,
+            0.1853
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0008,
+          "editlevel_null_std": 0.0222,
+          "editlevel_z": 8.31
+        },
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L36_s1.npz",
+          "shape": [
+            77,
+            172
+          ],
+          "flat_spearman_abs_INFLATED": 0.1703,
+          "within_probe_mean_abs": 0.1682,
+          "within_probe_ci95": [
+            0.1402,
+            0.1965
+          ],
+          "within_probe_ci95_editcluster": [
+            0.1366,
+            0.1959
+          ],
+          "within_probe_frac_positive": 0.797,
+          "per_edit_mean_abs": 0.1435,
+          "per_edit_ci95": [
+            0.1228,
+            0.1626
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0002,
+          "editlevel_null_std": 0.0191,
+          "editlevel_z": 8.8
+        }
+      ]
+    },
+    {
+      "family": "qwen25_14b_L42",
+      "name": "qwen25_14b_L42",
+      "within_probe_mean_across_seeds": NaN,
+      "within_probe_std_across_seeds": NaN,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_14b_rome_cf_L42_s*.npz",
+      "n_seeds": 2,
+      "seeds": [
+        "gate_qwen25_14b_rome_cf_L42_s0.npz",
+        "gate_qwen25_14b_rome_cf_L42_s1.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": NaN,
+      "within_probe_std_abs_across_seeds": NaN,
+      "per_edit_mean_abs_across_seeds": -0.0017,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "UNDETERMINED",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L42_s0.npz",
+          "shape": [
+            0,
+            168
+          ],
+          "flat_spearman_abs_INFLATED": NaN,
+          "within_probe_mean_abs": NaN,
+          "within_probe_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_ci95_editcluster": [
+            NaN,
+            NaN
+          ],
+          "within_probe_frac_positive": 0.0,
+          "per_edit_mean_abs": NaN,
+          "per_edit_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": NaN,
+          "editlevel_null_std": NaN,
+          "editlevel_z": null
+        },
+        {
+          "npz": "gate_qwen25_14b_rome_cf_L42_s1.npz",
+          "shape": [
+            2,
+            172
+          ],
+          "flat_spearman_abs_INFLATED": 0.0235,
+          "within_probe_mean_abs": NaN,
+          "within_probe_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_ci95_editcluster": [
+            NaN,
+            NaN
+          ],
+          "within_probe_frac_positive": 0.0,
+          "per_edit_mean_abs": -0.0017,
+          "per_edit_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": NaN,
+          "editlevel_null_std": NaN,
+          "editlevel_z": null
+        }
+      ]
+    }
+  ]
+}

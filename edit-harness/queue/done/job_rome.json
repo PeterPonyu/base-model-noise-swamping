@@ -1,0 +1,16 @@
+{
+  "_note": "ROME edits a MIDDLE MLP layer so the subject-position edit can propagate forward; on a 2-layer model that means layer 0 (NOT the last layer 1, which has no downstream layers to carry the change to the final position). On this tiny RANDOM model the subject token barely influences the final prediction (random attention), so efficacy may stay 0 even though a real rank-one edit is applied and logits change (rank_one_solve_residual ~0 confirms (W+dW)k = v). On a real trained model (GPT-J-6B trunk target) this steers the fact.",
+  "editor": "rome_native",
+  "model": "HuggingFaceM4/tiny-random-LlamaForCausalLM",
+  "dtype": "float32",
+  "device": "cpu",
+  "editor_config": { "layer": 0, "steps": 60, "lr": 0.5, "v_weight_decay": 0.0001 },
+  "edit_request": {
+    "subject": "France",
+    "prompt": "The capital of France is",
+    "target_new": "London",
+    "target_true": "Paris",
+    "paraphrase_prompts": ["France's capital city is", "The capital city of France is called"],
+    "neighborhood_prompts": ["The capital of Italy is", "The capital of Spain is", "The sky is"]
+  }
+}

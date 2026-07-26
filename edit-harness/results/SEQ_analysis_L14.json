@@ -1,0 +1,360 @@
+{
+  "double_centering_note": "analyze_matrices.py double-centering removes row+column marginals from the [edit\u00d7probe] COS/damage matrix. Here the H1 outcome is a PER-EDIT scalar (one final-survival value per edit, aggregated over all subsequent overwriters), so there is no 2-D (edit,probe) pairing to double-center. The faithful analog \u2014 removing the marginal (subsequent-edit COUNT == stream position) that inflates the sum-based raw rho \u2014 is (i) the position-partialled Spearman [primary] and (ii) the count-normalized geometry variant 'SC_fwd_mean_countnorm'.",
+  "geometry_definition": "For prior edit jj: overwrite exposure to SUBSEQUENT edits. C_fwd_sum=\u03a3_{s>jj}|GRAM_pre[jj,s]|; SC_fwd_sum=\u03a3_{s>jj} resid_norm[s]\u00b7|GRAM_pre[jj,s]|. Outcome overwritten=1-survived so rho>0 == geometry predicts damage.",
+  "n_perm": 2000,
+  "seed": 12345,
+  "edit_ok_filter": false,
+  "per_stream": [
+    {
+      "npz": "seq_llama1b_nr_L14_s0.npz",
+      "n_edits": 50,
+      "recheck_at": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "edit_ok_filter": false,
+      "edit_success_rate": 0.82,
+      "survival_curve": [
+        {
+          "checkpoint_nedits": 10,
+          "n_present": 10,
+          "n_survived": 1,
+          "frac_survived": 0.1
+        },
+        {
+          "checkpoint_nedits": 20,
+          "n_present": 20,
+          "n_survived": 6,
+          "frac_survived": 0.3
+        },
+        {
+          "checkpoint_nedits": 30,
+          "n_present": 30,
+          "n_survived": 3,
+          "frac_survived": 0.1
+        },
+        {
+          "checkpoint_nedits": 40,
+          "n_present": 40,
+          "n_survived": 1,
+          "frac_survived": 0.025
+        },
+        {
+          "checkpoint_nedits": 50,
+          "n_present": 50,
+          "n_survived": 4,
+          "frac_survived": 0.08
+        }
+      ],
+      "final_survival_frac": 0.08,
+      "position_fragility": {
+        "rho_position_vs_survival": 0.4547,
+        "perm_p": 0.0005,
+        "null_mean": -0.0019,
+        "null_std": 0.1458,
+        "note": "rho>0 == later-applied edits survive more (fewer subsequent overwriters)"
+      },
+      "H1_geometry": {
+        "binary_overwritten": {
+          "outcome": "overwritten = 1 - survived (binary)",
+          "n_edits": 50,
+          "SC_fwd_sum": {
+            "label": "S\u00d7C forward exposure (sum)",
+            "raw_rho": 0.4547,
+            "raw_perm_p": 0.0005,
+            "raw_null_mean": -0.002,
+            "raw_null_std": 0.1465,
+            "partial_rho_ctrl_position": 0.0597,
+            "partial_perm_p": 0.6767,
+            "partial_null_mean": -0.0006,
+            "partial_null_std": 0.1437,
+            "reverse_partial_position_ctrl_geometry": -0.0597,
+            "reverse_partial_perm_p": 0.6797
+          },
+          "C_fwd_sum": {
+            "label": "key-cosine forward coupling (sum)",
+            "raw_rho": 0.4547,
+            "raw_perm_p": 0.0005,
+            "raw_null_mean": -0.002,
+            "raw_null_std": 0.1466,
+            "partial_rho_ctrl_position": 0.0611,
+            "partial_perm_p": 0.6627,
+            "partial_null_mean": -0.0008,
+            "partial_null_std": 0.1431,
+            "reverse_partial_position_ctrl_geometry": -0.0611,
+            "reverse_partial_perm_p": 0.6722
+          },
+          "SC_fwd_mean_countnorm": {
+            "label": "S\u00d7C forward exposure (count-normalized)",
+            "raw_rho": 0.3311,
+            "raw_perm_p": 0.0135,
+            "raw_null_mean": 0.0016,
+            "raw_null_std": 0.1454,
+            "partial_rho_ctrl_position": 0.2302,
+            "partial_perm_p": 0.1249,
+            "partial_null_mean": -0.0005,
+            "partial_null_std": 0.1463,
+            "reverse_partial_position_ctrl_geometry": -0.3229,
+            "reverse_partial_perm_p": 0.019
+          }
+        },
+        "continuous_1_minus_pnew": {
+          "outcome": "1 - P(target_new) at final checkpoint",
+          "n_edits": 50,
+          "SC_fwd_sum": {
+            "label": "S\u00d7C forward exposure (sum)",
+            "raw_rho": 0.234,
+            "raw_perm_p": 0.098,
+            "raw_null_mean": -0.0015,
+            "raw_null_std": 0.1413,
+            "partial_rho_ctrl_position": 0.0527,
+            "partial_perm_p": 0.7146,
+            "partial_null_mean": -0.0027,
+            "partial_null_std": 0.1402,
+            "reverse_partial_position_ctrl_geometry": -0.0029,
+            "reverse_partial_perm_p": 0.9755
+          },
+          "C_fwd_sum": {
+            "label": "key-cosine forward coupling (sum)",
+            "raw_rho": 0.2361,
+            "raw_perm_p": 0.097,
+            "raw_null_mean": -0.0014,
+            "raw_null_std": 0.1414,
+            "partial_rho_ctrl_position": 0.0619,
+            "partial_perm_p": 0.6722,
+            "partial_null_mean": -0.0021,
+            "partial_null_std": 0.1396,
+            "reverse_partial_position_ctrl_geometry": 0.0049,
+            "reverse_partial_perm_p": 0.975
+          },
+          "SC_fwd_mean_countnorm": {
+            "label": "S\u00d7C forward exposure (count-normalized)",
+            "raw_rho": 0.158,
+            "raw_perm_p": 0.2734,
+            "raw_null_mean": 0.0014,
+            "raw_null_std": 0.1449,
+            "partial_rho_ctrl_position": 0.1055,
+            "partial_perm_p": 0.4763,
+            "partial_null_mean": 0.001,
+            "partial_null_std": 0.1448,
+            "reverse_partial_position_ctrl_geometry": -0.1381,
+            "reverse_partial_perm_p": 0.3393
+          }
+        }
+      }
+    },
+    {
+      "npz": "seq_llama1b_nr_L14_s1.npz",
+      "n_edits": 50,
+      "recheck_at": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "edit_ok_filter": false,
+      "edit_success_rate": 0.86,
+      "survival_curve": [
+        {
+          "checkpoint_nedits": 10,
+          "n_present": 10,
+          "n_survived": 4,
+          "frac_survived": 0.4
+        },
+        {
+          "checkpoint_nedits": 20,
+          "n_present": 20,
+          "n_survived": 7,
+          "frac_survived": 0.35
+        },
+        {
+          "checkpoint_nedits": 30,
+          "n_present": 30,
+          "n_survived": 4,
+          "frac_survived": 0.1333
+        },
+        {
+          "checkpoint_nedits": 40,
+          "n_present": 40,
+          "n_survived": 9,
+          "frac_survived": 0.225
+        },
+        {
+          "checkpoint_nedits": 50,
+          "n_present": 50,
+          "n_survived": 1,
+          "frac_survived": 0.02
+        }
+      ],
+      "final_survival_frac": 0.02,
+      "position_fragility": {
+        "rho_position_vs_survival": 0.2425,
+        "perm_p": 0.0415,
+        "null_mean": -0.0056,
+        "null_std": 0.1438,
+        "note": "rho>0 == later-applied edits survive more (fewer subsequent overwriters)"
+      },
+      "H1_geometry": {
+        "binary_overwritten": {
+          "outcome": "overwritten = 1 - survived (binary)",
+          "n_edits": 50,
+          "SC_fwd_sum": {
+            "label": "S\u00d7C forward exposure (sum)",
+            "raw_rho": 0.2425,
+            "raw_perm_p": 0.0395,
+            "raw_null_mean": -0.0056,
+            "raw_null_std": 0.1437,
+            "partial_rho_ctrl_position": 0.0543,
+            "partial_perm_p": 0.6262,
+            "partial_null_mean": -0.0022,
+            "partial_null_std": 0.1447,
+            "reverse_partial_position_ctrl_geometry": -0.0543,
+            "reverse_partial_perm_p": 0.6377
+          },
+          "C_fwd_sum": {
+            "label": "key-cosine forward coupling (sum)",
+            "raw_rho": 0.2425,
+            "raw_perm_p": 0.0395,
+            "raw_null_mean": -0.0055,
+            "raw_null_std": 0.1437,
+            "partial_rho_ctrl_position": 0.0536,
+            "partial_perm_p": 0.6372,
+            "partial_null_mean": -0.0019,
+            "partial_null_std": 0.1447,
+            "reverse_partial_position_ctrl_geometry": -0.0536,
+            "reverse_partial_perm_p": 0.6332
+          },
+          "SC_fwd_mean_countnorm": {
+            "label": "S\u00d7C forward exposure (count-normalized)",
+            "raw_rho": null,
+            "raw_perm_p": null,
+            "raw_null_mean": null,
+            "raw_null_std": null,
+            "partial_rho_ctrl_position": null,
+            "partial_perm_p": null,
+            "partial_null_mean": null,
+            "partial_null_std": null,
+            "reverse_partial_position_ctrl_geometry": null,
+            "reverse_partial_perm_p": null
+          }
+        },
+        "continuous_1_minus_pnew": {
+          "outcome": "1 - P(target_new) at final checkpoint",
+          "n_edits": 50,
+          "SC_fwd_sum": {
+            "label": "S\u00d7C forward exposure (sum)",
+            "raw_rho": 0.0942,
+            "raw_perm_p": 0.5107,
+            "raw_null_mean": -0.001,
+            "raw_null_std": 0.1429,
+            "partial_rho_ctrl_position": -0.0185,
+            "partial_perm_p": 0.908,
+            "partial_null_mean": -0.003,
+            "partial_null_std": 0.1458,
+            "reverse_partial_position_ctrl_geometry": -0.0633,
+            "reverse_partial_perm_p": 0.6722
+          },
+          "C_fwd_sum": {
+            "label": "key-cosine forward coupling (sum)",
+            "raw_rho": 0.0983,
+            "raw_perm_p": 0.4968,
+            "raw_null_mean": -0.0011,
+            "raw_null_std": 0.143,
+            "partial_rho_ctrl_position": -0.0091,
+            "partial_perm_p": 0.9525,
+            "partial_null_mean": -0.0033,
+            "partial_null_std": 0.1461,
+            "reverse_partial_position_ctrl_geometry": -0.0544,
+            "reverse_partial_perm_p": 0.7096
+          },
+          "SC_fwd_mean_countnorm": {
+            "label": "S\u00d7C forward exposure (count-normalized)",
+            "raw_rho": 0.0153,
+            "raw_perm_p": 0.93,
+            "raw_null_mean": 0.0005,
+            "raw_null_std": 0.1449,
+            "partial_rho_ctrl_position": 0.0177,
+            "partial_perm_p": 0.9095,
+            "partial_null_mean": 0.0007,
+            "partial_null_std": 0.1451,
+            "reverse_partial_position_ctrl_geometry": -0.057,
+            "reverse_partial_perm_p": 0.7036
+          }
+        }
+      }
+    }
+  ],
+  "pooled": {
+    "n_streams": 2,
+    "n_edits_pooled": 100,
+    "final_survival_frac": 0.05,
+    "position_fragility": {
+      "rho_position_vs_survival": 0.3609,
+      "perm_p": 0.0005,
+      "null_mean": 0.0033,
+      "null_std": 0.0993
+    },
+    "H1_geometry": {
+      "outcome": "overwritten = 1 - survived (binary)",
+      "n_edits": 100,
+      "SC_fwd_sum": {
+        "label": "S\u00d7C forward exposure (sum)",
+        "raw_rho": 0.3632,
+        "raw_perm_p": 0.0005,
+        "raw_null_mean": 0.0024,
+        "raw_null_std": 0.1,
+        "partial_rho_ctrl_position": 0.0764,
+        "partial_perm_p": 0.4178,
+        "partial_null_mean": -0.0034,
+        "partial_null_std": 0.1018,
+        "reverse_partial_position_ctrl_geometry": -0.0625,
+        "reverse_partial_perm_p": 0.5087
+      },
+      "C_fwd_sum": {
+        "label": "key-cosine forward coupling (sum)",
+        "raw_rho": 0.3632,
+        "raw_perm_p": 0.0005,
+        "raw_null_mean": 0.0024,
+        "raw_null_std": 0.1,
+        "partial_rho_ctrl_position": 0.0764,
+        "partial_perm_p": 0.4173,
+        "partial_null_mean": -0.0034,
+        "partial_null_std": 0.102,
+        "reverse_partial_position_ctrl_geometry": -0.0625,
+        "reverse_partial_perm_p": 0.5127
+      },
+      "SC_fwd_mean_countnorm": {
+        "label": "S\u00d7C forward exposure (count-normalized)",
+        "raw_rho": 0.2125,
+        "raw_perm_p": 0.0335,
+        "raw_null_mean": 0.0015,
+        "raw_null_std": 0.1018,
+        "partial_rho_ctrl_position": 0.1792,
+        "partial_perm_p": 0.0805,
+        "partial_null_mean": 0.0008,
+        "partial_null_std": 0.102,
+        "reverse_partial_position_ctrl_geometry": -0.2526,
+        "reverse_partial_perm_p": 0.007
+      }
+    }
+  },
+  "verdict": {
+    "criterion": "position-partialled S\u00d7C rho > 0 AND perm-p < 0.05 in BOTH streams",
+    "per_stream_partial_rho": [
+      0.0597,
+      0.0543
+    ],
+    "per_stream_partial_perm_p": [
+      0.6767,
+      0.6262
+    ],
+    "pooled_partial_rho": 0.0764,
+    "pooled_partial_perm_p": 0.4178,
+    "H1_STATUS": "UNSETTLED",
+    "paper_guidance": "A sequential geometry-attribution claim is admissible ONLY under SUPPORTED. Current status governs what may be written."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "m0.v1",
+  "experiment": "RG",
+  "model": "data/models/Phi-3.5-mini",
+  "model_tag": "Phi-3.5-mini",
+  "dataset": "counterfact",
+  "layer": 24,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "reuse": {
+    "0": "fresh 200-edit phase-1 (saved for future reuse)",
+    "1": "fresh 200-edit phase-1 (saved for future reuse)",
+    "2": "fresh 200-edit phase-1 (saved for future reuse)"
+  },
+  "esr_by_seed": {
+    "0": 0.425,
+    "1": 0.515,
+    "2": 0.44
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 2.45660601194686e-07,
+    "1": 2.424420699753682e-07,
+    "2": 2.1659276683294593e-07
+  },
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1",
+  "numpy": "2.3.4"
+}

@@ -1,0 +1,54 @@
+{
+  "model": "HuggingFaceM4/tiny-random-LlamaForCausalLM",
+  "device": "cpu",
+  "tests": {
+    "T0_parse_memit_layers": {
+      "pass": true
+    },
+    "T1_identity_equivalence": {
+      "pass": true,
+      "rel_err": 4.2994638960180964e-08
+    },
+    "T2_rank_one_exactness": {
+      "pass": true,
+      "max_solve_resid": 2.548795863315583e-05
+    },
+    "T3_spread_closure": {
+      "pass": true,
+      "shortfall_ratio": 5.16733881102411e-06,
+      "delta_norms": {
+        "0": 12.262664794921875,
+        "1": 10.227402687072754
+      }
+    },
+    "T4_covariance_path": {
+      "pass": true,
+      "n_tokens": {
+        "0": 201,
+        "1": 201
+      },
+      "reg_used": {
+        "0": 0.01,
+        "1": 0.01
+      },
+      "deltas_finite": true,
+      "shortfall_ratio": 8.176382697677508e-08
+    },
+    "T5_batch": {
+      "pass": true,
+      "shortfall_ratios": [
+        5.541084258063032e-06,
+        1.0472260064542407e-05,
+        7.353503467210628e-06
+      ],
+      "finite": true,
+      "memit_lambda_used": 1e-08
+    },
+    "T6_restore_dict": {
+      "pass": true,
+      "max_abs_weight_diff": 0.0,
+      "logits_identical": true
+    }
+  },
+  "ALL_PASS": true
+}

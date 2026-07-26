@@ -1,0 +1,814 @@
+{
+  "artifact": "D4/T3.2 weight-vs-memory routing E0 (ROME/AlphaEdit weight vs GRACE memory)",
+  "analysis_plan": "docs/plans/ANALYSIS-D4-ROUTING-E0-20260714.md",
+  "status_note": "RETROSPECTIVE analysis on PRE-EXISTING EGL cells (outcome known at authoring time) \u2014 NOT a pre-registration. The gate below is a retrospective screen; a confirmatory claim needs E1 (new data).",
+  "objective": "capacity-constrained memory routing: minimize total residual collateral damage at memory budget f_mem; metric = signed damage_logit; oracle-efficiency eta = reduction/reduction(oracle)",
+  "weight_editor": "rome",
+  "primary_layer": 12,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "f_mem_primary": 0.2,
+  "feature_set": [
+    "key_cos",
+    "S",
+    "S_x_absC"
+  ],
+  "router_signals": {
+    "headline": "geometry_raw = mean signed key-cos over known probes (zero-parameter, deployable from the edit key alone; the D3 held-out headline)",
+    "reference": "geometry_ols = d3 OLS(key_cos, S, S*|cos|) predicting weight damage (IN-SAMPLE full-fit; upper reference, not a held-out number)"
+  },
+  "data": {
+    "rome_glob": "results/matrices/egl_llama1b_rome_cf_L{L}_s{s}.npz",
+    "alpha_glob": "results/matrices/egl_llama1b_alpha_cf_L{L}_s{s}.npz",
+    "grace_glob": "results/matrices/egl_llama1b_grace_cf_L{L}_s{s}.npz",
+    "cells_loaded": [
+      "L12_s0",
+      "L12_s1",
+      "L12_s2"
+    ],
+    "cells_missing": [],
+    "grace_max_abs_damage": 0.0,
+    "provenance_note": "EGL 5-editor cells PRE-EXIST (run_u6/run_revins); the per-editor damage was known at authoring time. NEW here = the routing accounting. This router reads the egl_ cells; D3's per-edit rank corr (~0.72 @ L12) was measured on the gate_/g4_ cells \u2014 the two cell families agree to ~0.72, so D3 is a consistency cross-check, NOT the source of the thresholds."
+  },
+  "primary_gate": {
+    "thresholds_note": "conventional round-number go/no-go thresholds (not derived from any statistic); a retrospective screen, not a pre-registered gate",
+    "thresholds": {
+      "eta_mean>=": 0.7,
+      "eta_perseed>=": 0.6,
+      "perseed_min_seeds": 2,
+      "margin_vs_random>=": 0.25,
+      "kill_if_eta_mean<": 0.5,
+      "kill_if_beats_random_seeds<": 2
+    },
+    "mean_eta_geometry_raw": 0.8421,
+    "mean_eta_random_expected": 0.5215,
+    "margin_geometry_minus_random": 0.3206,
+    "seeds_eta_raw>=perseed_floor": 3,
+    "seeds_geometry_beats_random": 3,
+    "VERDICT": "PASS",
+    "VERDICT_INTERPRETATION": "retrospective gate met \u2014 a confirmatory claim requires E1 (new data)",
+    "per_seed": {
+      "0": {
+        "n_edits": 198,
+        "k_routed": 40,
+        "f_mem": 0.2,
+        "total_delta": 660.1981,
+        "reduction": {
+          "oracle": 250.028,
+          "geometry_raw": 194.6223,
+          "geometry_ols": 215.4816,
+          "random_expected": 133.3734,
+          "random_empirical_mean": 132.3034,
+          "random_empirical_ci95": [
+            111.3341,
+            152.6289
+          ],
+          "always_grace_unbudgeted": 660.1981
+        },
+        "eta": {
+          "oracle": 1.0,
+          "geometry_raw": 0.7784,
+          "geometry_ols": 0.8618,
+          "random_expected": 0.5334
+        },
+        "per_edit_signal_spearman_vs_weight_damage": {
+          "raw": 0.7213,
+          "ols": 0.7678
+        }
+      },
+      "1": {
+        "n_edits": 196,
+        "k_routed": 39,
+        "f_mem": 0.2,
+        "total_delta": 557.4965,
+        "reduction": {
+          "oracle": 220.1605,
+          "geometry_raw": 193.2741,
+          "geometry_ols": 201.3866,
+          "random_expected": 110.9304,
+          "random_empirical_mean": 110.4907,
+          "random_empirical_ci95": [
+            92.1274,
+            129.8892
+          ],
+          "always_grace_unbudgeted": 557.4965
+        },
+        "eta": {
+          "oracle": 1.0,
+          "geometry_raw": 0.8779,
+          "geometry_ols": 0.9147,
+          "random_expected": 0.5039
+        },
+        "per_edit_signal_spearman_vs_weight_damage": {
+          "raw": 0.7747,
+          "ols": 0.8554
+        }
+      },
+      "2": {
+        "n_edits": 198,
+        "k_routed": 40,
+        "f_mem": 0.2,
+        "total_delta": 565.1251,
+        "reduction": {
+          "oracle": 216.6037,
+          "geometry_raw": 188.4352,
+          "geometry_ols": 184.8575,
+          "random_expected": 114.1667,
+          "random_empirical_mean": 114.3943,
+          "random_empirical_ci95": [
+            95.8576,
+            133.7435
+          ],
+          "always_grace_unbudgeted": 565.1251
+        },
+        "eta": {
+          "oracle": 1.0,
+          "geometry_raw": 0.87,
+          "geometry_ols": 0.8534,
+          "random_expected": 0.5271
+        },
+        "per_edit_signal_spearman_vs_weight_damage": {
+          "raw": 0.6746,
+          "ols": 0.729
+        }
+      }
+    }
+  },
+  "secondary_sequential_stress": {
+    "status": "NOT_RUN",
+    "reason": "edits-accumulate stress needs fresh sequential GPU runs; not part of this CPU retrospective. H1 geometry-attribution was NULL for sequential (findings-SEQ-ANALYSIS) -> descriptive-only when run.",
+    "promoted_to": "E1"
+  },
+  "secondary_budget_sweep": {
+    "0.05": {
+      "mean_eta_geometry_raw": 0.7795,
+      "mean_eta_random_expected": 0.4116,
+      "per_seed": {
+        "0": {
+          "n_edits": 198,
+          "k_routed": 10,
+          "f_mem": 0.05,
+          "total_delta": 660.1981,
+          "reduction": {
+            "oracle": 77.1669,
+            "geometry_raw": 57.07,
+            "geometry_ols": 58.8318,
+            "random_expected": 33.3433,
+            "random_empirical_mean": 33.8525,
+            "random_empirical_ci95": [
+              22.91,
+              45.1525
+            ],
+            "always_grace_unbudgeted": 660.1981
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.7396,
+            "geometry_ols": 0.7624,
+            "random_expected": 0.4321
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7213,
+            "ols": 0.7678
+          }
+        },
+        "1": {
+          "n_edits": 196,
+          "k_routed": 10,
+          "f_mem": 0.05,
+          "total_delta": 557.4965,
+          "reduction": {
+            "oracle": 70.5619,
+            "geometry_raw": 59.233,
+            "geometry_ols": 64.5571,
+            "random_expected": 28.4437,
+            "random_empirical_mean": 28.771,
+            "random_empirical_ci95": [
+              19.4436,
+              40.5029
+            ],
+            "always_grace_unbudgeted": 557.4965
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.8394,
+            "geometry_ols": 0.9149,
+            "random_expected": 0.4031
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7747,
+            "ols": 0.8554
+          }
+        },
+        "2": {
+          "n_edits": 198,
+          "k_routed": 10,
+          "f_mem": 0.05,
+          "total_delta": 565.1251,
+          "reduction": {
+            "oracle": 71.4523,
+            "geometry_raw": 54.2709,
+            "geometry_ols": 60.8948,
+            "random_expected": 28.5417,
+            "random_empirical_mean": 28.504,
+            "random_empirical_ci95": [
+              19.6339,
+              39.4805
+            ],
+            "always_grace_unbudgeted": 565.1251
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.7595,
+            "geometry_ols": 0.8522,
+            "random_expected": 0.3995
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.6746,
+            "ols": 0.729
+          }
+        }
+      }
+    },
+    "0.1": {
+      "mean_eta_geometry_raw": 0.7625,
+      "mean_eta_random_expected": 0.4507,
+      "per_seed": {
+        "0": {
+          "n_edits": 198,
+          "k_routed": 20,
+          "f_mem": 0.1,
+          "total_delta": 660.1981,
+          "reduction": {
+            "oracle": 142.491,
+            "geometry_raw": 100.407,
+            "geometry_ols": 119.5778,
+            "random_expected": 66.6867,
+            "random_empirical_mean": 67.0461,
+            "random_empirical_ci95": [
+              52.5674,
+              84.64
+            ],
+            "always_grace_unbudgeted": 660.1981
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.7047,
+            "geometry_ols": 0.8392,
+            "random_expected": 0.468
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7213,
+            "ols": 0.7678
+          }
+        },
+        "1": {
+          "n_edits": 196,
+          "k_routed": 20,
+          "f_mem": 0.1,
+          "total_delta": 557.4965,
+          "reduction": {
+            "oracle": 128.3981,
+            "geometry_raw": 106.571,
+            "geometry_ols": 108.6204,
+            "random_expected": 56.8874,
+            "random_empirical_mean": 56.7169,
+            "random_empirical_ci95": [
+              41.5716,
+              70.8129
+            ],
+            "always_grace_unbudgeted": 557.4965
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.83,
+            "geometry_ols": 0.846,
+            "random_expected": 0.4431
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7747,
+            "ols": 0.8554
+          }
+        },
+        "2": {
+          "n_edits": 198,
+          "k_routed": 20,
+          "f_mem": 0.1,
+          "total_delta": 565.1251,
+          "reduction": {
+            "oracle": 129.4514,
+            "geometry_raw": 97.458,
+            "geometry_ols": 110.3859,
+            "random_expected": 57.0833,
+            "random_empirical_mean": 56.6409,
+            "random_empirical_ci95": [
+              44.3413,
+              70.4071
+            ],
+            "always_grace_unbudgeted": 565.1251
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.7529,
+            "geometry_ols": 0.8527,
+            "random_expected": 0.441
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.6746,
+            "ols": 0.729
+          }
+        }
+      }
+    },
+    "0.2": {
+      "mean_eta_geometry_raw": 0.8421,
+      "mean_eta_random_expected": 0.5215,
+      "per_seed": {
+        "0": {
+          "n_edits": 198,
+          "k_routed": 40,
+          "f_mem": 0.2,
+          "total_delta": 660.1981,
+          "reduction": {
+            "oracle": 250.028,
+            "geometry_raw": 194.6223,
+            "geometry_ols": 215.4816,
+            "random_expected": 133.3734,
+            "random_empirical_mean": 132.3034,
+            "random_empirical_ci95": [
+              111.3341,
+              152.6289
+            ],
+            "always_grace_unbudgeted": 660.1981
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.7784,
+            "geometry_ols": 0.8618,
+            "random_expected": 0.5334
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7213,
+            "ols": 0.7678
+          }
+        },
+        "1": {
+          "n_edits": 196,
+          "k_routed": 39,
+          "f_mem": 0.2,
+          "total_delta": 557.4965,
+          "reduction": {
+            "oracle": 220.1605,
+            "geometry_raw": 193.2741,
+            "geometry_ols": 201.3866,
+            "random_expected": 110.9304,
+            "random_empirical_mean": 110.4907,
+            "random_empirical_ci95": [
+              92.1274,
+              129.8892
+            ],
+            "always_grace_unbudgeted": 557.4965
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.8779,
+            "geometry_ols": 0.9147,
+            "random_expected": 0.5039
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7747,
+            "ols": 0.8554
+          }
+        },
+        "2": {
+          "n_edits": 198,
+          "k_routed": 40,
+          "f_mem": 0.2,
+          "total_delta": 565.1251,
+          "reduction": {
+            "oracle": 216.6037,
+            "geometry_raw": 188.4352,
+            "geometry_ols": 184.8575,
+            "random_expected": 114.1667,
+            "random_empirical_mean": 114.3943,
+            "random_empirical_ci95": [
+              95.8576,
+              133.7435
+            ],
+            "always_grace_unbudgeted": 565.1251
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.87,
+            "geometry_ols": 0.8534,
+            "random_expected": 0.5271
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.6746,
+            "ols": 0.729
+          }
+        }
+      }
+    },
+    "0.3": {
+      "mean_eta_geometry_raw": 0.8792,
+      "mean_eta_random_expected": 0.5799,
+      "per_seed": {
+        "0": {
+          "n_edits": 198,
+          "k_routed": 59,
+          "f_mem": 0.3,
+          "total_delta": 660.1981,
+          "reduction": {
+            "oracle": 335.4063,
+            "geometry_raw": 283.3047,
+            "geometry_ols": 301.203,
+            "random_expected": 196.7257,
+            "random_empirical_mean": 197.7696,
+            "random_empirical_ci95": [
+              173.5648,
+              223.1467
+            ],
+            "always_grace_unbudgeted": 660.1981
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.8447,
+            "geometry_ols": 0.898,
+            "random_expected": 0.5865
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7213,
+            "ols": 0.7678
+          }
+        },
+        "1": {
+          "n_edits": 196,
+          "k_routed": 59,
+          "f_mem": 0.3,
+          "total_delta": 557.4965,
+          "reduction": {
+            "oracle": 297.0199,
+            "geometry_raw": 274.0975,
+            "geometry_ols": 283.0273,
+            "random_expected": 167.8178,
+            "random_empirical_mean": 167.6063,
+            "random_empirical_ci95": [
+              146.6846,
+              189.0198
+            ],
+            "always_grace_unbudgeted": 557.4965
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.9228,
+            "geometry_ols": 0.9529,
+            "random_expected": 0.565
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7747,
+            "ols": 0.8554
+          }
+        },
+        "2": {
+          "n_edits": 198,
+          "k_routed": 59,
+          "f_mem": 0.3,
+          "total_delta": 565.1251,
+          "reduction": {
+            "oracle": 286.3295,
+            "geometry_raw": 249.1665,
+            "geometry_ols": 263.4976,
+            "random_expected": 168.3959,
+            "random_empirical_mean": 168.3357,
+            "random_empirical_ci95": [
+              147.4064,
+              190.0601
+            ],
+            "always_grace_unbudgeted": 565.1251
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.8702,
+            "geometry_ols": 0.9203,
+            "random_expected": 0.5881
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.6746,
+            "ols": 0.729
+          }
+        }
+      }
+    },
+    "0.5": {
+      "mean_eta_geometry_raw": 0.9219,
+      "mean_eta_random_expected": 0.6848,
+      "per_seed": {
+        "0": {
+          "n_edits": 198,
+          "k_routed": 99,
+          "f_mem": 0.5,
+          "total_delta": 660.1981,
+          "reduction": {
+            "oracle": 478.9941,
+            "geometry_raw": 439.5966,
+            "geometry_ols": 451.0533,
+            "random_expected": 330.0991,
+            "random_empirical_mean": 329.7033,
+            "random_empirical_ci95": [
+              301.1721,
+              356.4656
+            ],
+            "always_grace_unbudgeted": 660.1981
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.9177,
+            "geometry_ols": 0.9417,
+            "random_expected": 0.6892
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7213,
+            "ols": 0.7678
+          }
+        },
+        "1": {
+          "n_edits": 196,
+          "k_routed": 98,
+          "f_mem": 0.5,
+          "total_delta": 557.4965,
+          "reduction": {
+            "oracle": 414.9235,
+            "geometry_raw": 389.4109,
+            "geometry_ols": 398.9771,
+            "random_expected": 278.7482,
+            "random_empirical_mean": 278.6587,
+            "random_empirical_ci95": [
+              255.2185,
+              302.0493
+            ],
+            "always_grace_unbudgeted": 557.4965
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.9385,
+            "geometry_ols": 0.9616,
+            "random_expected": 0.6718
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.7747,
+            "ols": 0.8554
+          }
+        },
+        "2": {
+          "n_edits": 198,
+          "k_routed": 99,
+          "f_mem": 0.5,
+          "total_delta": 565.1251,
+          "reduction": {
+            "oracle": 407.5252,
+            "geometry_raw": 370.603,
+            "geometry_ols": 381.1156,
+            "random_expected": 282.5625,
+            "random_empirical_mean": 282.2338,
+            "random_empirical_ci95": [
+              258.6287,
+              305.5723
+            ],
+            "always_grace_unbudgeted": 565.1251
+          },
+          "eta": {
+            "oracle": 1.0,
+            "geometry_raw": 0.9094,
+            "geometry_ols": 0.9352,
+            "random_expected": 0.6934
+          },
+          "per_edit_signal_spearman_vs_weight_damage": {
+            "raw": 0.6746,
+            "ols": 0.729
+          }
+        }
+      }
+    }
+  },
+  "secondary_scalarized_cost": {
+    "c_mem_grid": [
+      0.1,
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "note": "cost = residual weight damage + c_mem*(#edits in memory) + grace damage of memory-routed edits. always_rome / always_grace / always_alpha are the corner/skyline points. always_alpha needs a GLOBAL null-space projector (preserved-knowledge covariance) \u2014 a heavyweight corpus-dependent prerequisite the per-edit router does not assume; reported as a SKYLINE.",
+    "per_seed": {
+      "0": {
+        "always_rome_cost_ref": 660.1981,
+        "always_grace_cost_at_cmem": {
+          "0.1": 19.8,
+          "0.25": 49.5,
+          "0.5": 99.0,
+          "1.0": 198.0,
+          "2.0": 396.0,
+          "4.0": 792.0,
+          "8.0": 1584.0
+        },
+        "always_alpha_cost_ref": 18.3421,
+        "curve": [
+          {
+            "c_mem": 0.1,
+            "oracle_cost": 19.8,
+            "geometry_raw_cost": 19.8,
+            "random_cost_expected": 19.8,
+            "n_routed_to_grace": 198
+          },
+          {
+            "c_mem": 0.25,
+            "oracle_cost": 49.2597,
+            "geometry_raw_cost": 49.827,
+            "random_cost_expected": 55.6687,
+            "n_routed_to_grace": 196
+          },
+          {
+            "c_mem": 0.5,
+            "oracle_cost": 97.2703,
+            "geometry_raw_cost": 100.2327,
+            "random_cost_expected": 124.509,
+            "n_routed_to_grace": 189
+          },
+          {
+            "c_mem": 1.0,
+            "oracle_cost": 189.8761,
+            "geometry_raw_cost": 202.233,
+            "random_cost_expected": 242.3523,
+            "n_routed_to_grace": 179
+          },
+          {
+            "c_mem": 2.0,
+            "oracle_cost": 353.9979,
+            "geometry_raw_cost": 375.7771,
+            "random_cost_expected": 464.051,
+            "n_routed_to_grace": 147
+          },
+          {
+            "c_mem": 4.0,
+            "oracle_cost": 560.4403,
+            "geometry_raw_cost": 614.5293,
+            "random_cost_expected": 702.8007,
+            "n_routed_to_grace": 64
+          },
+          {
+            "c_mem": 8.0,
+            "oracle_cost": 657.552,
+            "geometry_raw_cost": 669.6691,
+            "random_cost_expected": 674.1951,
+            "n_routed_to_grace": 3
+          }
+        ]
+      },
+      "1": {
+        "always_rome_cost_ref": 557.4965,
+        "always_grace_cost_at_cmem": {
+          "0.1": 19.6,
+          "0.25": 49.0,
+          "0.5": 98.0,
+          "1.0": 196.0,
+          "2.0": 392.0,
+          "4.0": 784.0,
+          "8.0": 1568.0
+        },
+        "always_alpha_cost_ref": 16.7884,
+        "curve": [
+          {
+            "c_mem": 0.1,
+            "oracle_cost": 19.3026,
+            "geometry_raw_cost": 19.7139,
+            "random_cost_expected": 22.3444,
+            "n_routed_to_grace": 195
+          },
+          {
+            "c_mem": 0.25,
+            "oracle_cost": 48.3483,
+            "geometry_raw_cost": 51.6608,
+            "random_cost_expected": 61.9718,
+            "n_routed_to_grace": 191
+          },
+          {
+            "c_mem": 0.5,
+            "oracle_cost": 95.6779,
+            "geometry_raw_cost": 101.338,
+            "random_cost_expected": 121.4437,
+            "n_routed_to_grace": 186
+          },
+          {
+            "c_mem": 1.0,
+            "oracle_cost": 185.9143,
+            "geometry_raw_cost": 196.4682,
+            "random_cost_expected": 240.2649,
+            "n_routed_to_grace": 172
+          },
+          {
+            "c_mem": 2.0,
+            "oracle_cost": 331.9952,
+            "geometry_raw_cost": 360.4483,
+            "random_cost_expected": 452.7946,
+            "n_routed_to_grace": 124
+          },
+          {
+            "c_mem": 4.0,
+            "oracle_cost": 492.3788,
+            "geometry_raw_cost": 517.8263,
+            "random_cost_expected": 611.8111,
+            "n_routed_to_grace": 47
+          },
+          {
+            "c_mem": 8.0,
+            "oracle_cost": 556.2844,
+            "geometry_raw_cost": 563.1419,
+            "random_cost_expected": 567.8077,
+            "n_routed_to_grace": 2
+          }
+        ]
+      },
+      "2": {
+        "always_rome_cost_ref": 565.1251,
+        "always_grace_cost_at_cmem": {
+          "0.1": 19.8,
+          "0.25": 49.5,
+          "0.5": 99.0,
+          "1.0": 198.0,
+          "2.0": 396.0,
+          "4.0": 792.0,
+          "8.0": 1584.0
+        },
+        "always_alpha_cost_ref": 18.2977,
+        "curve": [
+          {
+            "c_mem": 0.1,
+            "oracle_cost": 19.5773,
+            "geometry_raw_cost": 20.2952,
+            "random_cost_expected": 25.3083,
+            "n_routed_to_grace": 196
+          },
+          {
+            "c_mem": 0.25,
+            "oracle_cost": 48.9727,
+            "geometry_raw_cost": 49.9881,
+            "random_cost_expected": 57.3125,
+            "n_routed_to_grace": 195
+          },
+          {
+            "c_mem": 0.5,
+            "oracle_cost": 96.9805,
+            "geometry_raw_cost": 100.0424,
+            "random_cost_expected": 122.5417,
+            "n_routed_to_grace": 188
+          },
+          {
+            "c_mem": 1.0,
+            "oracle_cost": 188.4073,
+            "geometry_raw_cost": 196.0459,
+            "random_cost_expected": 236.9375,
+            "n_routed_to_grace": 177
+          },
+          {
+            "c_mem": 2.0,
+            "oracle_cost": 342.4716,
+            "geometry_raw_cost": 371.1121,
+            "random_cost_expected": 451.5209,
+            "n_routed_to_grace": 133
+          },
+          {
+            "c_mem": 4.0,
+            "oracle_cost": 508.448,
+            "geometry_raw_cost": 535.0989,
+            "random_cost_expected": 612.1042,
+            "n_routed_to_grace": 41
+          },
+          {
+            "c_mem": 8.0,
+            "oracle_cost": 564.4161,
+            "geometry_raw_cost": 564.4161,
+            "random_cost_expected": 570.2709,
+            "n_routed_to_grace": 1
+          }
+        ]
+      }
+    }
+  },
+  "secondary_descriptive_layers": {},
+  "caveats": [
+    "L14 (and any non-L12 layer) is DESCRIPTIVE ONLY: its routing signal is norm-growth MAGNITUDE, not key geometry (D3 L14 lift is norm-growth-carried; geometry inert). The primary geometry-routing claim is L12 only.",
+    "geometry_ols is IN-SAMPLE (full-data fit incl. the evaluated edits); the clean zero-parameter held-out headline is geometry_raw.",
+    "always_alpha SKYLINE requires AlphaEdit's global null-space projector; the router's premise is the online / no-preserved-knowledge-statistics setting where the per-edit choice is ROME-vs-GRACE. Do not read always_alpha as the baseline the router must beat.",
+    "GRACE damage==0 is by construction (dW==0 codebook) and confirmed empirically (honesty gate above); its real cost is retrieval/capacity + no generalization/ripple \u2014 modeled here as the memory budget f_mem / c_mem, not as damage.",
+    "Llama-3.2-1B / CounterFact only; the cross-arch geometry law does NOT transfer off Llama (Qwen L14 sign-inverts), so the router coefficients are Llama-specific.",
+    "Sequential-editing stress (edits accumulate) is tracked as the structured secondary_sequential_stress status field (NOT_RUN here; promoted to E1) \u2014 descriptive-only when run (H1 geometry-attribution NULL, findings-SEQ-ANALYSIS).",
+    "RAG memory arm is OUT of E0 scope (needs corpus downloads); registered as E1.",
+    "RETROSPECTIVE: data pre-exists and the outcome was known at authoring time (see status_note) \u2014 this is an analysis plan, not a pre-registration. The validity defense rests on the router being a DETERMINISTIC, ZERO-PARAMETER rule (raw key-cos ranking; no fitting, no free knobs, nothing to overfit), NOT on prior registration. A confirmatory claim requires E1 (new data). D3's ~0.72 rank corr (gate_/g4_ cells) is a consistency cross-check for the egl_-cell router, not the source of the gate."
+  ]
+}

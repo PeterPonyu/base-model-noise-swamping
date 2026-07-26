@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.2427,
+    "within_probe_std_across_seeds": 0.0232,
+    "per_edit_mean_across_seeds": 0.2628,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "PASS \u2014 headline survives (edit-specific pairwise geometry, not probe-marginal)"
+  },
+  "per_seed": [
+    {
+      "npz": "u1e0_llama1b_delete_refusal_zsre_L10_s0.npz",
+      "shape": [
+        197,
+        34
+      ],
+      "flat_spearman_INFLATED": 0.2586,
+      "within_probe_mean": 0.2408,
+      "within_probe_ci95": [
+        0.1911,
+        0.2885
+      ],
+      "within_probe_ci95_editcluster": [
+        0.1842,
+        0.3014
+      ],
+      "within_probe_frac_positive": 0.971,
+      "per_edit_mean": 0.2881,
+      "per_edit_ci95": [
+        0.2509,
+        0.3245
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": -0.0016,
+      "editlevel_null_std": 0.0304,
+      "editlevel_z": 7.96,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.1197,
+      "mean_residual_norm(S)": 21.6616
+    },
+    {
+      "npz": "u1e0_llama1b_delete_refusal_zsre_L10_s1.npz",
+      "shape": [
+        197,
+        26
+      ],
+      "flat_spearman_INFLATED": 0.2875,
+      "within_probe_mean": 0.2721,
+      "within_probe_ci95": [
+        0.195,
+        0.348
+      ],
+      "within_probe_ci95_editcluster": [
+        0.2084,
+        0.3316
+      ],
+      "within_probe_frac_positive": 0.923,
+      "per_edit_mean": 0.2626,
+      "per_edit_ci95": [
+        0.2279,
+        0.2949
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0005,
+      "editlevel_null_std": 0.0312,
+      "editlevel_z": 8.72,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.1965,
+      "mean_residual_norm(S)": 21.4406
+    },
+    {
+      "npz": "u1e0_llama1b_delete_refusal_zsre_L10_s2.npz",
+      "shape": [
+        199,
+        34
+      ],
+      "flat_spearman_INFLATED": 0.2417,
+      "within_probe_mean": 0.2153,
+      "within_probe_ci95": [
+        0.1379,
+        0.2878
+      ],
+      "within_probe_ci95_editcluster": [
+        0.1621,
+        0.2643
+      ],
+      "within_probe_frac_positive": 0.824,
+      "per_edit_mean": 0.2376,
+      "per_edit_ci95": [
+        0.2032,
+        0.2719
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0018,
+      "editlevel_null_std": 0.0308,
+      "editlevel_z": 6.92,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.0534,
+      "mean_residual_norm(S)": 21.4336
+    }
+  ]
+}

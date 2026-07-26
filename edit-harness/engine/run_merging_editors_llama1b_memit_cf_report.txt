@@ -1,0 +1,27 @@
+RUN_MERGING_EDITORS REPORT tag=llama1b_memit_cf model=data/models/Llama-3.2-1B editor=memit layer=12 2026-07-16 06:56:07  elapsed 0m/120m
+[2026-07-15 21:40:23] LAYER=12 explicit override matches the 75%-depth rule (12)
+[2026-07-15 21:40:23] DRYRUN tag=llama1b_memit_cf editor=memit layer=12 est=40m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_editors.py --rg --no_refuse_clobber --editor memit --dataset cf --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --n_holdout 50 --layer 12 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --keep_ratio 0.99 --memit_cov identity --out_dir results/merging_editors --table_out results/merging_editors/RG_editors_table_llama1b_memit_cf_L12.json
+[2026-07-15 21:43:23] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 12
+[2026-07-15 21:43:23] DRYRUN tag=llama1b_memit_cf editor=memit layer=12 est=40m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_editors.py --rg --no_refuse_clobber --editor memit --dataset cf --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --n_holdout 50 --layer 12 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --keep_ratio 0.99 --memit_cov identity --out_dir results/merging_editors --table_out results/merging_editors/RG_editors_table_llama1b_memit_cf_L12.json
+[2026-07-15 21:44:22] LAYER=12 explicit override matches the 75%-depth rule (12)
+[2026-07-15 21:44:22] DRYRUN tag=llama1b_memit_cf editor=memit layer=12 est=40m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_editors.py --rg --no_refuse_clobber --editor memit --dataset cf --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --n_holdout 50 --layer 12 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --keep_ratio 0.99 --memit_cov identity --out_dir results/merging_editors --table_out results/merging_editors/RG_editors_table_llama1b_memit_cf_L12.json
+[2026-07-15 21:45:36] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 12
+[2026-07-15 21:45:36] SMOKE merging_editors --selftest (CPU, ~5s) -> engine/merging_editors_selftest_llama1b_memit_cf.log
+[2026-07-15 21:45:41] SMOKE OK: self-test passed (cross-term + additivity + ROME-equivalence + RG pass/kill)
+[2026-07-15 21:45:41] gpu poll util=2 mem=1058 consec=1/3
+[2026-07-15 21:46:11] gpu poll util=2 mem=1081 consec=2/3
+[2026-07-15 21:46:41] gpu poll util=2 mem=1145 consec=3/3
+[2026-07-15 21:46:41] SMOKE ΔW-fidelity gate (real model, ~1-2 GPU-min) -> engine/merging_editors_llama1b_memit_cf_smoke.log
+[2026-07-15 21:46:49] SMOKE OK: ΔW-fidelity PASS ([smoke] memit ΔW-FIDELITY PASS — worst rel-err 2.666e-06 < 0.0001 (re-derived factors reconstruct the real editor's ΔW))
+[2026-07-15 21:46:49] RUN rg tag=llama1b_memit_cf (est 40m, cap 8400s, elapsed 0m) -> engine/merging_editors_llama1b_memit_cf_run.log
+[2026-07-15 21:55:29] done rg tag=llama1b_memit_cf (520s) VALIDATE-OK editor=memit verdict=PASS qualifying_g=[2, 3, 5]
+[2026-07-15 21:55:29] ---------------- POST-RUN (CPU) tag=llama1b_memit_cf ----------------
+[rg post] editor=memit VERDICT overall=PASS qualifying_g=[2, 3, 5] testable_cells=9
+[rg post] scoped-federation boundary: per_seed={'0': 10, '1': 10, '2': 10} conservative=10
+[rg post]   g=2: partial_by_seed={'0': 0.7116, '1': 0.559, '2': 0.6318} pass_geometry=3 qualifies=True
+[rg post]   g=3: partial_by_seed={'0': 0.5844, '1': 0.6406, '2': 0.6816} pass_geometry=3 qualifies=True
+[rg post]   g=5: partial_by_seed={'0': 0.3382, '1': 0.3543, '2': 0.5649} pass_geometry=3 qualifies=True
+[rg post]   g=10: partial_by_seed={'0': -0.0246, '1': 0.0361, '2': 0.0656} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': -0.123, '1': -0.0025, '2': -0.0972} pass_geometry=0 qualifies=False
+[2026-07-16 06:56:07] LAYER=12 explicit override matches the 75%-depth rule (12)
+[2026-07-16 06:56:07] DRYRUN tag=llama1b_memit_cf editor=memit layer=12 est=40m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_editors.py --rg --no_refuse_clobber --editor memit --dataset cf --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --n_holdout 50 --layer 12 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --keep_ratio 0.99 --memit_cov identity --out_dir results/merging_editors --table_out results/merging_editors/RG_editors_table_llama1b_memit_cf_L12.json

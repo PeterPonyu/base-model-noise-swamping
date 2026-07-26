@@ -1,0 +1,67 @@
+{
+ "model": "data/models/Llama-3.2-1B",
+ "data": "data/rippleedits/popular.json",
+ "editor": "alpha",
+ "layer": 12,
+ "n_layers": 16,
+ "arch": "native",
+ "seed": 0,
+ "steps": 20,
+ "lr": 0.1,
+ "n_edits": 200,
+ "n_ripple_probes": 240,
+ "n_unrelated_probes": 199,
+ "edit_success_rate": 1.0,
+ "per_criterion_accuracy": {
+  "Logical_Generalization": 0.075,
+  "Compositionality_I": 0.0,
+  "Compositionality_II": 0.175,
+  "Subject_Aliasing": 0.4,
+  "Relation_Specificity": 0.05,
+  "Forgetfulness": 0.0
+ },
+ "per_criterion_n": {
+  "Logical_Generalization": 40,
+  "Compositionality_I": 40,
+  "Compositionality_II": 40,
+  "Subject_Aliasing": 40,
+  "Relation_Specificity": 40,
+  "Forgetfulness": 40
+ },
+ "within_probe_rho_logit": {
+  "ripple": 0.16857891266325542,
+  "unrelated": 0.011414894601755923
+ },
+ "within_probe_rho_p": {
+  "ripple": 0.05650488937591733,
+  "unrelated": -0.026500074478916256
+ },
+ "loader_meta": {
+  "n_source_records": 885,
+  "n_consumed": 400,
+  "skip_counts": {
+   "no_original_fact": 0,
+   "noop_edit": 0,
+   "empty_new_target": 0
+  },
+  "n_edits": 200,
+  "n_unrelated_probes": 200,
+  "criteria_present": [
+   "Compositionality_I",
+   "Compositionality_II",
+   "Forgetfulness",
+   "Logical_Generalization",
+   "Relation_Specificity",
+   "Subject_Aliasing"
+  ],
+  "n_ripple_probes_per_criterion": {
+   "Compositionality_II": 141,
+   "Subject_Aliasing": 468,
+   "Relation_Specificity": 1146,
+   "Forgetfulness": 112,
+   "Logical_Generalization": 104,
+   "Compositionality_I": 443
+  }
+ },
+ "runtime_s": 1262.7485146522522
+}

@@ -1,0 +1,40 @@
+{
+  "model": "synthetic-tiny-gptneox",
+  "device": "cpu",
+  "tests": {
+    "T0_normalize_arch_returns_gptneox": {
+      "pass": true,
+      "arch": "gptneox"
+    },
+    "T1_graft_is_same_live_module": {
+      "pass": true,
+      "same_data_ptr": true,
+      "is_nn_linear": true
+    },
+    "T2_capture_key_through_graft": {
+      "pass": true,
+      "shape": [
+        128
+      ],
+      "finite": true
+    },
+    "T3_rome_edit_no_nan": {
+      "pass": true,
+      "finite": true,
+      "changed": true,
+      "delta_weight_norm": 1.558390736579895,
+      "rank_one_solve_residual": 5.44325970963655e-08
+    },
+    "T4_resolve_layer_device_mock_heterogeneous": {
+      "pass": true,
+      "layer0_device": "cuda:0",
+      "layer1_device": "cuda:1"
+    },
+    "T5_safe_model_to_guard": {
+      "pass": true,
+      "dispatched_model_to_skipped": true,
+      "plain_model_to_called": true
+    }
+  },
+  "ALL_PASS": true
+}

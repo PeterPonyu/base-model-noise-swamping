@@ -1,0 +1,200 @@
+{
+  "experiment": "RG_gain_law_editors",
+  "status": "DESCRIPTIVE (prereg prediction (c) read-out; frozen doc PREREG-FED-EDITORS-2026-07-16.md)",
+  "schema_version": "m0.v1",
+  "created": "2026-07-16T12:43:40",
+  "bundles": {
+    "Llama-3.1-8B_alpha_cf_L24_RG": {
+      "model": "/root/autodl-tmp/models/Llama-3.1-8B",
+      "editor": "alpha",
+      "dataset": "cf",
+      "layers": [
+        24
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2523,
+      "gain_median_absdrop_per_dose": 16.5634,
+      "frac_drop_negative": 0.3222,
+      "rho_dose_drop": 0.4178,
+      "median_rel_dose": 0.013
+    },
+    "Llama-3.1-8B_memit_cf_L24_RG": {
+      "model": "/root/autodl-tmp/models/Llama-3.1-8B",
+      "editor": "memit",
+      "dataset": "cf",
+      "layers": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2994,
+      "gain_median_absdrop_per_dose": 27.7224,
+      "frac_drop_negative": 0.1166,
+      "rho_dose_drop": 0.8678,
+      "median_rel_dose": 0.0844
+    },
+    "Llama-3.2-1B_alpha_cf_L12_RG": {
+      "model": "data/models/Llama-3.2-1B",
+      "editor": "alpha",
+      "dataset": "cf",
+      "layers": [
+        12
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2119,
+      "gain_median_absdrop_per_dose": 28.0695,
+      "frac_drop_negative": 0.2152,
+      "rho_dose_drop": 0.5413,
+      "median_rel_dose": 0.0161
+    },
+    "Llama-3.2-1B_memit_cf_L12_RG": {
+      "model": "data/models/Llama-3.2-1B",
+      "editor": "memit",
+      "dataset": "cf",
+      "layers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2888,
+      "gain_median_absdrop_per_dose": 51.3422,
+      "frac_drop_negative": 0.0235,
+      "rho_dose_drop": 0.802,
+      "median_rel_dose": 0.1251
+    },
+    "Llama-3.2-1B_rome_zsre_L12_RG": {
+      "model": "data/models/Llama-3.2-1B",
+      "editor": "rome",
+      "dataset": "zsre",
+      "layers": [
+        12
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2984,
+      "gain_median_absdrop_per_dose": 28.9665,
+      "frac_drop_negative": 0.0194,
+      "rho_dose_drop": 0.8433,
+      "median_rel_dose": 0.2039
+    },
+    "Llama-3.2-1B_wiki_memit_cf_L12_RG": {
+      "model": "/root/autodl-tmp/models/Llama-3.2-1B",
+      "editor": "memit",
+      "dataset": "cf",
+      "layers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2922,
+      "gain_median_absdrop_per_dose": 17.6952,
+      "frac_drop_negative": 0.1389,
+      "rho_dose_drop": 0.8192,
+      "median_rel_dose": 0.0401
+    },
+    "Phi-3.5-mini-instruct_alpha_cf_L24_RG": {
+      "model": "/root/autodl-tmp/models/Phi-3.5-mini-instruct",
+      "editor": "alpha",
+      "dataset": "cf",
+      "layers": [
+        24
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2020,
+      "gain_median_absdrop_per_dose": 3.2072,
+      "frac_drop_negative": 0.6718,
+      "rho_dose_drop": -0.2528,
+      "median_rel_dose": 0.0194
+    },
+    "Qwen2.5-1.5B_alpha_cf_L21_RG": {
+      "model": "data/models/Qwen2.5-1.5B",
+      "editor": "alpha",
+      "dataset": "cf",
+      "layers": [
+        21
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 1824,
+      "gain_median_absdrop_per_dose": 4.7714,
+      "frac_drop_negative": 0.6393,
+      "rho_dose_drop": -0.2951,
+      "median_rel_dose": 0.0129
+    },
+    "Qwen2.5-1.5B_memit_cf_L21_RG": {
+      "model": "data/models/Qwen2.5-1.5B",
+      "editor": "memit",
+      "dataset": "cf",
+      "layers": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2685,
+      "gain_median_absdrop_per_dose": 3.5746,
+      "frac_drop_negative": 0.3881,
+      "rho_dose_drop": 0.5037,
+      "median_rel_dose": 0.1253
+    },
+    "Qwen2.5-1.5B_rome_zsre_L21_RG": {
+      "model": "data/models/Qwen2.5-1.5B",
+      "editor": "rome",
+      "dataset": "zsre",
+      "layers": [
+        21
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2879,
+      "gain_median_absdrop_per_dose": 4.2162,
+      "frac_drop_negative": 0.4179,
+      "rho_dose_drop": 0.4001,
+      "median_rel_dose": 0.1102
+    },
+    "Qwen2.5-14B_alpha_cf_L36_RG": {
+      "model": "/root/autodl-tmp/models/Qwen2.5-14B",
+      "editor": "alpha",
+      "dataset": "cf",
+      "layers": [
+        36
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 2146,
+      "gain_median_absdrop_per_dose": 5.1749,
+      "frac_drop_negative": 0.8374,
+      "rho_dose_drop": -0.6197,
+      "median_rel_dose": 0.0126
+    },
+    "gpt2-xl_alpha_cf_L36_RG": {
+      "model": "/root/autodl-tmp/models/gpt2-xl",
+      "editor": "alpha",
+      "dataset": "cf",
+      "layers": [
+        36
+      ],
+      "schema_version": "editors.v1",
+      "n_obs": 2994,
+      "n_pos_dose": 1902,
+      "gain_median_absdrop_per_dose": 1.4469,
+      "frac_drop_negative": 0.6987,
+      "rho_dose_drop": -0.3906,
+      "median_rel_dose": 0.0102
+    }
+  }
+}

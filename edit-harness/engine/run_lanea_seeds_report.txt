@@ -1,0 +1,81 @@
+RUN_LANEA_SEEDS REPORT 2026-07-10 23:38:35  jobs: 4 done / 0 fail / 0 skipped  elapsed 184m/560m  abort=0
+[2026-07-10 14:11:17] post: C4_causal_instruct_table_3seed done (atomic)
+[2026-07-10 14:11:18] post: C4_causal_8b_table_3seed done (atomic)
+[2026-07-10 14:11:18] ================ RUN_LANEA_SEEDS COMPLETE (1 done / 0 fail / 0 skip) ================
+[2026-07-10 20:30:38] preflight OK: integrity_check.py
+[2026-07-10 20:30:38] integrity OK: Llama-3.2-1B-Instruct
+[2026-07-10 20:30:38] integrity OK: Llama-3.1-8B
+[2026-07-10 20:30:38] DRYRUN alpha_mq [SMOKE] est=4m needs=- cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B --editor alpha --dataset mquake --data data/mquake_cf3k.json --n_edits 4 --n_probes 40 --steps 2 --save_matrices --matrix_dir results/smoke_lanea/matrices --lr 0.1 --layer 12 --seed 0 --out results/smoke_lanea/alpha_mq.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN gate_llama1b_alpha_mquake_L12_s1 [SCIENCE] est=25m needs=engine/smoke_lanea_alpha_mq.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B --editor alpha --dataset mquake --data data/mquake_cf3k.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 1 --out results/gate_llama1b_alpha_mquake_L12_s1.json
+[2026-07-10 20:30:38] DRYRUN gate_llama1b_alpha_mquake_L12_s2 [SCIENCE] est=25m needs=engine/smoke_lanea_alpha_mq.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B --editor alpha --dataset mquake --data data/mquake_cf3k.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 2 --out results/gate_llama1b_alpha_mquake_L12_s2.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN alphaHO_instr [SMOKE] est=6m needs=engine/instruct_integrity.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 4 --n_probes 40 --steps 2 --save_matrices --matrix_dir results/smoke_lanea/matrices --lr 0.1 --layer 12 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/smoke_lanea/alphaHO_instr.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_instruct_alphaHO_cf_L12_s1 [SCIENCE] est=25m needs=engine/instruct_integrity.ok,engine/smoke_lanea_alphaHO_instr.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 1 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_instruct_alphaHO_cf_L12_s1.json
+[2026-07-10 20:30:38] DRYRUN g4_instruct_alphaHO_cf_L12_s2 [SCIENCE] est=25m needs=engine/instruct_integrity.ok,engine/smoke_lanea_alphaHO_instr.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 2 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_instruct_alphaHO_cf_L12_s2.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN equiv_llama1b_bf16_L12_s0 [SCIENCE] est=22m needs=engine/r3_integrity_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 0 --out results/equiv_llama1b_bf16_L12_s0.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN alphaHO_8b [SMOKE] est=15m needs=engine/r3_integrity_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 4 --n_probes 40 --steps 2 --save_matrices --matrix_dir results/smoke_lanea/matrices --lr 0.1 --layer 16 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/smoke_lanea/alphaHO_8b.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN gate_llama8b_rome_cf_L16_s2 [SCIENCE] est=65m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 16 --seed 2 --out results/gate_llama8b_rome_cf_L16_s2.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_llama8b_alphaHO_cf_L16_s1 [SCIENCE] est=55m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok,engine/smoke_lanea_alphaHO_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 16 --seed 1 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L16_s1.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_llama8b_alphaHO_cf_L16_s2 [SCIENCE] est=55m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok,engine/smoke_lanea_alphaHO_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 16 --seed 2 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L16_s2.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_llama8b_alphaHO_cf_L24_s1 [SCIENCE] est=55m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok,engine/smoke_lanea_alphaHO_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 24 --seed 1 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L24_s1.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_llama8b_alphaHO_cf_L24_s2 [SCIENCE] est=55m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok,engine/smoke_lanea_alphaHO_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 24 --seed 2 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L24_s2.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_llama8b_alphaHO_cf_L28_s0 [SCIENCE] est=65m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok,engine/smoke_lanea_alphaHO_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 28 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L28_s0.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN gate_llama8b_rome_cf_L28_s1 [SCIENCE] est=65m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 28 --seed 1 --out results/gate_llama8b_rome_cf_L28_s1.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_llama8b_alphaHO_cf_L28_s1 [SCIENCE] est=65m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok,engine/smoke_lanea_alphaHO_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 28 --seed 1 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L28_s1.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN gate_llama8b_rome_cf_L28_s2 [SCIENCE] est=65m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 28 --seed 2 --out results/gate_llama8b_rome_cf_L28_s2.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] DRYRUN g4_llama8b_alphaHO_cf_L28_s2 [SCIENCE] est=65m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok,engine/smoke_lanea_alphaHO_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 28 --seed 2 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L28_s2.json
+[2026-07-10 20:30:38] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:30:38] ---------------- POST-RUN (CPU) ----------------
+[2026-07-10 20:32:39] post: C3_mquake_alpha_L12_3seed done (atomic)
+[2026-07-10 20:32:39] post: C4_causal_mquake_table_3seed_probesrc done (atomic)
+[2026-07-10 20:32:39] post: C4_causal_instruct_table_3seed done (atomic)
+[2026-07-10 20:32:40] post: C4_causal_8b_table_3seed done (atomic)
+[2026-07-10 20:32:40] ================ RUN_LANEA_SEEDS COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-10 20:33:12] preflight OK: integrity_check.py
+[2026-07-10 20:33:12] integrity OK: Llama-3.2-1B-Instruct
+[2026-07-10 20:33:12] integrity OK: Llama-3.1-8B
+[2026-07-10 20:34:12] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:12] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:12] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:13] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[lanea equiv-gate] fp32 rho=+0.6016 bf16 rho=+0.5976 |drho|=0.0040 bar=0.02
+[lanea equiv-gate] PASS — 8B science admitted
+[2026-07-10 20:34:13] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:13] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:13] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:13] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:13] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:14] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:14] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:14] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=560m
+[2026-07-10 20:34:14] RUN gate_llama8b_rome_cf_L28_s1 [SCIENCE] (est 65m, cap 12900s, elapsed 0m) -> engine/lanea_gate_llama8b_rome_cf_L28_s1.log
+[2026-07-10 21:19:54] done gate_llama8b_rome_cf_L28_s1 (2740s) VALIDATE-OK
+[2026-07-10 21:19:54] PROGRESS jobs=1done/0fail/0skip elapsed=45m budget_left=515m
+[2026-07-10 21:19:54] RUN g4_llama8b_alphaHO_cf_L28_s1 [SCIENCE] (est 65m, cap 12900s, elapsed 45m) -> engine/lanea_g4_llama8b_alphaHO_cf_L28_s1.log
+[2026-07-10 22:04:01] done g4_llama8b_alphaHO_cf_L28_s1 (2647s) VALIDATE-OK
+[2026-07-10 22:04:01] PROGRESS jobs=2done/0fail/0skip elapsed=89m budget_left=471m
+[2026-07-10 22:04:01] RUN gate_llama8b_rome_cf_L28_s2 [SCIENCE] (est 65m, cap 12900s, elapsed 89m) -> engine/lanea_gate_llama8b_rome_cf_L28_s2.log
+[2026-07-10 22:48:44] done gate_llama8b_rome_cf_L28_s2 (2683s) VALIDATE-OK
+[2026-07-10 22:48:44] PROGRESS jobs=3done/0fail/0skip elapsed=134m budget_left=426m
+[2026-07-10 22:48:44] RUN g4_llama8b_alphaHO_cf_L28_s2 [SCIENCE] (est 65m, cap 12900s, elapsed 134m) -> engine/lanea_g4_llama8b_alphaHO_cf_L28_s2.log
+[2026-07-10 23:36:34] done g4_llama8b_alphaHO_cf_L28_s2 (2870s) VALIDATE-OK
+[2026-07-10 23:36:34] PROGRESS jobs=4done/0fail/0skip elapsed=182m budget_left=378m
+[2026-07-10 23:36:34] ---------------- POST-RUN (CPU) ----------------
+[2026-07-10 23:38:34] post: C3_mquake_alpha_L12_3seed done (atomic)
+[2026-07-10 23:38:34] post: C4_causal_mquake_table_3seed_probesrc done (atomic)
+[2026-07-10 23:38:34] post: C4_causal_instruct_table_3seed done (atomic)
+[2026-07-10 23:38:35] post: C4_causal_8b_table_3seed done (atomic)

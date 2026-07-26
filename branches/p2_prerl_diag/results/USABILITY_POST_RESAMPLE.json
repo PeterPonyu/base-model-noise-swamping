@@ -1,0 +1,86 @@
+{
+  "rule": "A checkpoint is UNUSABLE for the cross-checkpoint correlation if n_right < 20 (too few correct traces to control difficulty) OR the 95% cluster-bootstrap CI width on the primary effect size D_within exceeds 1.5 (estimate too imprecise to rank the panel). Otherwise USABLE.",
+  "checkpoints": {
+    "Qwen2.5-0.5B": {
+      "checkpoint": "Qwen2.5-0.5B",
+      "canonical_results": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Qwen2.5-0.5B.json",
+      "usable": true,
+      "reasons": [],
+      "n_right": 118,
+      "D_within": 0.9760169375884513,
+      "D_pooled": 0.9653625599835273,
+      "ci_width": 0.2192
+    },
+    "Qwen2.5-1.5B": {
+      "checkpoint": "Qwen2.5-1.5B",
+      "canonical_results": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Qwen2.5-1.5B.json",
+      "usable": true,
+      "reasons": [],
+      "n_right": 189,
+      "D_within": 0.9169016643084008,
+      "D_pooled": 0.9051912388223501,
+      "ci_width": 0.168
+    },
+    "Qwen2.5-3B": {
+      "checkpoint": "Qwen2.5-3B",
+      "canonical_results": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Qwen2.5-3B.json",
+      "usable": true,
+      "reasons": [],
+      "n_right": 456,
+      "D_within": 0.9043187766047678,
+      "D_pooled": 0.8898520395458476,
+      "ci_width": 0.1241
+    },
+    "Llama-3.2-1B": {
+      "checkpoint": "Llama-3.2-1B",
+      "canonical_results": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Llama-3.2-1B_n1000.json",
+      "usable": false,
+      "reasons": [
+        "n_right=13 < 20"
+      ],
+      "n_right": 13,
+      "D_within": 0.9457521343698928,
+      "D_pooled": 0.8088133222064137,
+      "ci_width": 0.7059
+    },
+    "Llama-3.2-3B": {
+      "checkpoint": "Llama-3.2-3B",
+      "canonical_results": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Llama-3.2-3B_n1000.json",
+      "usable": true,
+      "reasons": [],
+      "n_right": 157,
+      "D_within": 2.336545163094767,
+      "D_pooled": 1.3157261600200871,
+      "ci_width": 0.8159
+    },
+    "gemma-2-2b": {
+      "checkpoint": "gemma-2-2b",
+      "canonical_results": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/gemma-2-2b_n600.json",
+      "usable": true,
+      "reasons": [],
+      "n_right": 59,
+      "D_within": 1.8005490195406533,
+      "D_pooled": 1.1727416529742218,
+      "ci_width": 1.0921
+    },
+    "Phi-3.5-mini": {
+      "checkpoint": "Phi-3.5-mini",
+      "canonical_results": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Phi-3.5-mini.json",
+      "usable": true,
+      "reasons": [],
+      "n_right": 482,
+      "D_within": 1.4919925577089364,
+      "D_pooled": 1.324620163153848,
+      "ci_width": 0.2173
+    }
+  },
+  "usable": [
+    "Qwen2.5-0.5B",
+    "Qwen2.5-1.5B",
+    "Qwen2.5-3B",
+    "Llama-3.2-3B",
+    "gemma-2-2b",
+    "Phi-3.5-mini"
+  ],
+  "n_usable": 6
+}

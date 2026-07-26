@@ -1,0 +1,18 @@
+{
+  "cmd": [
+    "/home/zeyufu/miniconda3/bin/python3",
+    "-c",
+    "import json,os,time,pathlib;p=pathlib.Path('results/hello.json');p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps({'hello':'fission','pid':os.getpid(),'ts':time.time(),'ok':True},indent=2));print('wrote',p.resolve())"
+  ],
+  "id": "hello_cpu",
+  "branch": "G",
+  "created": "2026-07-01T04:22:28",
+  "gpu_required": false,
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis/fission-engine",
+  "env": {},
+  "expect_outputs": [
+    "results/hello.json"
+  ],
+  "timeout_s": null,
+  "description": "CPU smoke: write results/hello.json"
+}

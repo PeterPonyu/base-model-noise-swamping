@@ -1,0 +1,49 @@
+{
+  "aggregate": {
+    "n_seeds": 1,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.1097,
+    "within_probe_std_across_seeds": 0.0,
+    "per_edit_mean_across_seeds": 0.161,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "BORDERLINE \u2014 weak within-probe signal; needs more edits/probes or reframe"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_gemma2b_rome_cf_L13_s0.npz",
+      "shape": [
+        183,
+        159
+      ],
+      "flat_spearman_INFLATED": 0.1232,
+      "within_probe_mean": 0.1097,
+      "within_probe_ci95": [
+        0.0901,
+        0.1294
+      ],
+      "within_probe_ci95_editcluster": [
+        0.045,
+        0.1717
+      ],
+      "within_probe_frac_positive": 0.755,
+      "per_edit_mean": 0.161,
+      "per_edit_ci95": [
+        0.1445,
+        0.1778
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": -0.0013,
+      "editlevel_null_std": 0.0315,
+      "editlevel_z": 3.52,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": -0.0612,
+      "mean_residual_norm(S)": 26.4253
+    }
+  ]
+}

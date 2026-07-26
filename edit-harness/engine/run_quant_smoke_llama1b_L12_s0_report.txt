@@ -1,0 +1,16 @@
+RUN_QUANT_SMOKE REPORT tag=llama1b_L12_s0 model=data/models/Llama-3.2-1B L=12 seed=0 2026-07-15 22:38:50  elapsed 2m/40m
+[2026-07-15 22:35:09] ======== RUN_QUANT_SMOKE START tag=llama1b_L12_s0 model=data/models/Llama-3.2-1B L=12 seed=0 n_edits=50 n_probes=40 schemes=nf4,int8 pid=803528 budget=40m ========
+[2026-07-15 22:35:10] SMOKE quant_survival_smoke --selftest (CPU, ~10s) -> engine/quant_smoke_selftest_llama1b_L12_s0.log
+[2026-07-15 22:35:17] SMOKE OK: self-test passed (INT8+NF4 codec bounds + tiny e2e)
+[2026-07-15 22:35:17] gpu poll util=0 mem=854 consec=1/3
+[2026-07-15 22:35:47] gpu poll util=0 mem=854 consec=2/3
+[2026-07-15 22:36:17] gpu poll util=5 mem=854 consec=3/3
+[2026-07-15 22:36:17] RUN tag=llama1b_L12_s0 (est 30m, cap 6000s, elapsed 0m) -> engine/quant_smoke_llama1b_L12_s0_run.log
+[2026-07-15 22:38:50] done tag=llama1b_L12_s0 (153s) VALIDATE-OK arms=['nf4_edited_layer', 'nf4_full_model', 'int8_edited_layer', 'int8_full_model'] rho_fp32=0.5604
+[2026-07-15 22:38:50] ---------------- POST-RUN (CPU) tag=llama1b_L12_s0 ----------------
+[qs post] fp32 rho(key-cos,damage) pooled=0.5604 within=0.6098 mean_esr_fp32=0.98
+[qs post]   nf4_edited_layer: esr=0.98 surv=1.0 rho(cos,dmg)=0.5621 Δrho=0.0017 rank_surv=0.9994
+[qs post]   nf4_full_model: esr=0.98 surv=1.0 rho(cos,dmg)=0.5217 Δrho=-0.0387 rank_surv=0.8689
+[qs post]   int8_edited_layer: esr=0.98 surv=1.0 rho(cos,dmg)=0.5604 Δrho=0.0001 rank_surv=1.0
+[qs post]   int8_full_model: esr=0.98 surv=1.0 rho(cos,dmg)=0.5507 Δrho=-0.0097 rank_surv=0.9966
+[qs post] readout p1(nf4-full esr surv>0.9)=True p3 esr-gap(nf4)=0.0

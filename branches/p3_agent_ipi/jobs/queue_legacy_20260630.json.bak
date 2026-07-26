@@ -1,0 +1,46 @@
+[
+  {
+    "run_id": "ipi_20260630_mock_n30",
+    "backend": "mock",
+    "gpu_required": false,
+    "created": "2026-06-30T23:09:20",
+    "cmd": [
+      "python",
+      "run_ipi.py",
+      "--backend",
+      "mock",
+      "--n",
+      "30",
+      "--n_perm",
+      "1000",
+      "--metric",
+      "pearson",
+      "--run_id",
+      "ipi_20260630_mock_n30"
+    ],
+    "out": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p3_agent_ipi/results/ipi_20260630_mock_n30.json",
+    "status": "queued"
+  },
+  {
+    "run_id": "ipi_20260630_ollama_n30",
+    "backend": "ollama",
+    "gpu_required": true,
+    "created": "2026-06-30T23:09:20",
+    "cmd": [
+      "python",
+      "run_ipi.py",
+      "--backend",
+      "ollama",
+      "--n",
+      "30",
+      "--n_perm",
+      "1000",
+      "--metric",
+      "pearson",
+      "--run_id",
+      "ipi_20260630_ollama_n30"
+    ],
+    "out": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p3_agent_ipi/results/ipi_20260630_ollama_n30.json",
+    "status": "queued"
+  }
+]

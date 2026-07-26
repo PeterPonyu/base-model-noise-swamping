@@ -1,0 +1,16 @@
+{
+  "_note": "Smoke config for the TINY RANDOM Llama. target_new=' user' is NOT the pre-edit argmax but is reachable, so FT-L genuinely flips it: pre.success=0 -> post.success=1 with P(new)>P(true), validating the full edit+metrics pipeline. Locality stays low because editing the FINAL layer's down_proj perturbs every position's 16-dim output on this degenerate random model; a real model (hidden=4096) is far more robust. For a real model use a real fact (e.g. target_new='London').",
+  "editor": "ft_editor",
+  "model": "HuggingFaceM4/tiny-random-LlamaForCausalLM",
+  "dtype": "float32",
+  "device": "cpu",
+  "editor_config": { "layers": [1], "steps": 150, "lr": 0.05, "lambda_l2": 0.001, "lambda_kl": 0.05 },
+  "edit_request": {
+    "subject": "France",
+    "prompt": "The capital of France is",
+    "target_new": "user",
+    "target_true": "Paris",
+    "paraphrase_prompts": ["France's capital city is", "The capital city of France is called"],
+    "neighborhood_prompts": ["The capital of Italy is", "The capital of Spain is", "The sky is"]
+  }
+}

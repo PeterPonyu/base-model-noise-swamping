@@ -1,0 +1,128 @@
+{
+  "smoke": false,
+  "IS_U1_RESULT": true,
+  "note": "scored on provided npz",
+  "npz": "u1e0_llama1b_alpha_delete_refusal_L12_s1.npz",
+  "dataset": "counterfact",
+  "metric": "logit",
+  "seed": 1,
+  "n_edits": 200,
+  "n_probes": 500,
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "shape_after_masks": [
+    199,
+    154
+  ],
+  "mean_signed_damage": 0.10245,
+  "keycos": {
+    "within_probe_mean": 0.0566,
+    "within_probe_frac_positive": 0.727,
+    "nan_column_count": 0,
+    "n_columns": 154
+  },
+  "SxC_within_probe_mean": 0.0732,
+  "transplant_features": {
+    "jaccard": {
+      "within_probe_mean": 0.016,
+      "within_probe_frac_positive": 0.61,
+      "nan_column_count": 0,
+      "n_columns": 154
+    },
+    "subj_overlap": {
+      "within_probe_mean": 0.0617,
+      "within_probe_frac_positive": 0.201,
+      "nan_column_count": 113,
+      "n_columns": 154
+    },
+    "rel_overlap": {
+      "within_probe_mean": 0.0171,
+      "within_probe_frac_positive": 0.63,
+      "nan_column_count": 0,
+      "n_columns": 154
+    },
+    "target_contain": {
+      "within_probe_mean": 0.0351,
+      "within_probe_frac_positive": 0.039,
+      "nan_column_count": 145,
+      "n_columns": 154
+    },
+    "probe_len": {
+      "within_probe_mean": null,
+      "within_probe_frac_positive": null,
+      "nan_column_count": 154,
+      "n_columns": 154
+    },
+    "probe_target_rarity": {
+      "within_probe_mean": null,
+      "within_probe_frac_positive": null,
+      "nan_column_count": 154,
+      "n_columns": 154
+    },
+    "sbert_cos": {
+      "within_probe_mean": 0.0344,
+      "within_probe_frac_positive": 0.662,
+      "nan_column_count": 0,
+      "n_columns": 154
+    }
+  },
+  "transplant_combined": {
+    "within_probe_mean": 0.0398,
+    "within_probe_frac_positive": 0.708,
+    "nan_column_count": 0,
+    "n_columns": 154
+  },
+  "combiner_features_used": [
+    "jaccard",
+    "subj_overlap",
+    "rel_overlap",
+    "target_contain",
+    "sbert_cos"
+  ],
+  "combiner_features_excluded_within_col_constant": [
+    "probe_len",
+    "probe_target_rarity"
+  ],
+  "sbert_info": {
+    "sbert": "OK",
+    "model": "BAAI/bge-m3",
+    "env_pin": {
+      "device": "cpu",
+      "model_dtype": "torch.float32",
+      "tf32_matmul": false,
+      "tf32_cudnn": false,
+      "torch_version": "2.12.1+cu130",
+      "sentence_transformers_version": "5.3.0",
+      "numpy_version": "2.3.4",
+      "hf_hub_offline": "1",
+      "snapshot_path": "/home/zeyufu/.cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181",
+      "snapshot_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "pooling_mode": "cls",
+      "pooling_pin": "ENFORCED: pooling_mode must be 'cls' (load hard-fails otherwise)",
+      "emb_sha256_edits": "3ba78257c38fec54",
+      "emb_sha256_probes": "6afafbab7d54acc3",
+      "emb_shapes": [
+        [
+          200,
+          1024
+        ],
+        [
+          500,
+          1024
+        ]
+      ]
+    }
+  },
+  "cross_fit_K": 8,
+  "env_pin_note": "FIX PASS 2026-07-02: (1) SBERT pooling pin is now ENFORCED \u2014 model loaded from an explicit cached snapshot containing modules.json, realized pooling_mode checked against EXPECTED_POOLING (bge-m3 -> 'cls'); mismatch hard-fails gate runs / degrades to sbert=SKIPPED on smoke. Environment (cpu/float32/TF32-off), snapshot path and sha256 of both embedding matrices recorded in sbert_info.env_pin. (2) _colrank now uses tie-averaged MIDRANKS (analyze_matrices._midrank); the previous stable-argsort ranking broke ties by row index, gutting sparse features in the combiner; within-column-constant features are excluded from the combiner. This artifact was regenerated from the checked-in code after both fixes.",
+  "transplant_best_single": {
+    "feature": "subj_overlap",
+    "within_probe_mean": 0.0617
+  },
+  "delta_rho_SxC_minus_transplant": 0.0334,
+  "transplant_best_of_combined_and_singles": 0.0617,
+  "delta_rho_SxC_minus_best_transplant": 0.0115,
+  "U1_E1_gate_note": "U1 survives \u2014 S\u00d7C beats data-only transplant (\u0394\u03c1>0 vs best of combined and single features)"
+}

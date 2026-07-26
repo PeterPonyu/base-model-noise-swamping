@@ -1,0 +1,41 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "editor": "alpha",
+  "dataset": "counterfact",
+  "layer": 12,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 1,
+  "edit_success_rate": 0.99,
+  "mean_residual_norm": 23.2148,
+  "frac_probes_known(pre_p>0.05)": 0.308,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.0398,
+    "spearman_normgrowth_damage": 0.0987,
+    "auroc_cos_broken": 0.6006,
+    "auroc_normgrowth_broken": 0.697,
+    "mean_damage_logit": 0.07202,
+    "mean_cosine": 0.2913
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 30800,
+    "spearman_cos_damage": 0.0283,
+    "spearman_normgrowth_damage": 0.1145,
+    "auroc_cos_broken": 0.6065,
+    "auroc_normgrowth_broken": 0.698,
+    "mean_damage_logit": 0.08443,
+    "mean_cosine": 0.2722
+  },
+  "runtime_s": 1223.4,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0283,
+    "auroc": 0.6065,
+    "beats_normgrowth": false
+  },
+  "matrices_npz": "/home/zeyufu/Desktop/idea-feasibility-analysis/edit-harness/results/matrices/g4_llama1b_alpha_cf_L12_s1.npz"
+}

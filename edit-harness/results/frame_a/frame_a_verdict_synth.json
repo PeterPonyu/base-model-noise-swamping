@@ -1,0 +1,421 @@
+{
+  "VERDICT": "KILL",
+  "P1": false,
+  "P1_mixes": 0,
+  "P2": false,
+  "P2_detail": {
+    "exposure_edit_lt_rag": true,
+    "footprint_delta_positive": true,
+    "overhead_delta_positive": true,
+    "router_selects_edit_majority": false,
+    "values": {
+      "exposure_edit": 0.0,
+      "exposure_rag": 1.0,
+      "footprint_delta": 128000.0,
+      "overhead_delta": 0.6000000000000001,
+      "router_edit_majority_on_privacy": 0.16981132075471697
+    }
+  },
+  "P3": false,
+  "P3_mixes": 0,
+  "P4": false,
+  "P4_beats_cost_only_mixes": 3,
+  "P4_beats_damage_only_mixes": 0,
+  "gate": {
+    "P1_min_mixes": 2,
+    "P3_min_mixes": 2,
+    "rule": "PASS=P1\u2227P2 ; KILL=\u00acP1\u2227\u00acP2 ; GREY=exactly one. P3/P4 sharpen only."
+  },
+  "measured_vs_synthetic_cost_ratio_check": {
+    "per_arm": {},
+    "note": "wave-1 router uses the frozen synthetic cost table; measured-vs-synthetic per-arm serving ratios reported here \u2014 material divergence triggers a wave-1b sensitivity re-run with measured router costs (PREREG \u00a7c decision note).",
+    "applicable": false
+  },
+  "per_mix": {
+    "MIX_A": {
+      "P1_dominates_all_fixed": false,
+      "P1_detail": {
+        "always_edit": {
+          "dominates": true,
+          "dQ": 0.1266981807092582,
+          "dQ_ci": [
+            0.1266981807092582,
+            0.1266981807092582
+          ],
+          "d_cost_adv": 2765.3940000000002,
+          "d_cost_adv_ci": [
+            2765.3940000000002,
+            2765.3940000000002
+          ],
+          "strict_Q": true,
+          "strict_cost": true
+        },
+        "always_grace": {
+          "dominates": false,
+          "dQ": -0.00020655354274157212,
+          "dQ_ci": [
+            -0.00020655354274157212,
+            -0.00020655354274157212
+          ],
+          "d_cost_adv": -8.105999999999767,
+          "d_cost_adv_ci": [
+            -8.105999999999767,
+            -8.105999999999767
+          ],
+          "strict_Q": false,
+          "strict_cost": false
+        },
+        "always_rag": {
+          "dominates": false,
+          "dQ": -0.00020655354274157212,
+          "dQ_ci": [
+            -0.00020655354274157212,
+            -0.00020655354274157212
+          ],
+          "d_cost_adv": -309.6059999999993,
+          "d_cost_adv_ci": [
+            -309.6059999999993,
+            -309.6059999999993
+          ],
+          "strict_Q": false,
+          "strict_cost": false
+        },
+        "always_ft": {
+          "dominates": false,
+          "dQ": 0.1281934464572584,
+          "dQ_ci": [
+            0.1281934464572584,
+            0.1281934464572584
+          ],
+          "d_cost_adv": -834.6059999999998,
+          "d_cost_adv_ci": [
+            -834.6059999999998,
+            -834.6059999999998
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "always_reject": {
+          "dominates": false,
+          "dQ": 0.6997934464572584,
+          "dQ_ci": [
+            0.6997934464572584,
+            0.6997934464572584
+          ],
+          "d_cost_adv": -1234.6059999999998,
+          "d_cost_adv_ci": [
+            -1234.6059999999998,
+            -1234.6059999999998
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "random": {
+          "dominates": false,
+          "dQ": 0.08550406245007125,
+          "dQ_ci": [
+            0.07966661342683845,
+            0.0884385385362747
+          ],
+          "d_cost_adv": -22.17733333333308,
+          "d_cost_adv_ci": [
+            -38.11599999999953,
+            -13.893999999999778
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        }
+      },
+      "P3_beats_ft_merge": false,
+      "discovery": {
+        "mean_recall_at_decile": 1.0,
+        "mean_lift": 10.070493454179255,
+        "predictor_ceiling": 0.4407,
+        "n_damaging_gt": 35,
+        "point_floor": 50,
+        "ci_only": true,
+        "point_claim_allowed": false,
+        "recall_ci": [
+          1.0,
+          1.0
+        ],
+        "point_recall": null,
+        "point_claim": "SUPPRESSED_below_point_floor (rev.5: CI-only)",
+        "per_fact_type": {
+          "cf": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 9
+          },
+          "zsre": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 10
+          },
+          "mquake_mh": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 9
+          },
+          "ripple": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 7
+          }
+        }
+      }
+    },
+    "MIX_B": {
+      "P1_dominates_all_fixed": false,
+      "P1_detail": {
+        "always_edit": {
+          "dominates": true,
+          "dQ": 0.1277457488038316,
+          "dQ_ci": [
+            0.1277457488038316,
+            0.1277457488038316
+          ],
+          "d_cost_adv": 2761.3320000000003,
+          "d_cost_adv_ci": [
+            2761.3320000000003,
+            2761.3320000000003
+          ],
+          "strict_Q": true,
+          "strict_cost": true
+        },
+        "always_grace": {
+          "dominates": false,
+          "dQ": -0.00020655354274157212,
+          "dQ_ci": [
+            -0.00020655354274157212,
+            -0.00020655354274157212
+          ],
+          "d_cost_adv": -12.167999999999665,
+          "d_cost_adv_ci": [
+            -12.167999999999665,
+            -12.167999999999665
+          ],
+          "strict_Q": false,
+          "strict_cost": false
+        },
+        "always_rag": {
+          "dominates": false,
+          "dQ": -0.00020655354274157212,
+          "dQ_ci": [
+            -0.00020655354274157212,
+            -0.00020655354274157212
+          ],
+          "d_cost_adv": -313.6679999999992,
+          "d_cost_adv_ci": [
+            -313.6679999999992,
+            -313.6679999999992
+          ],
+          "strict_Q": false,
+          "strict_cost": false
+        },
+        "always_ft": {
+          "dominates": false,
+          "dQ": 0.1281934464572584,
+          "dQ_ci": [
+            0.1281934464572584,
+            0.1281934464572584
+          ],
+          "d_cost_adv": -838.6679999999997,
+          "d_cost_adv_ci": [
+            -838.6679999999997,
+            -838.6679999999997
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "always_reject": {
+          "dominates": false,
+          "dQ": 0.6997934464572584,
+          "dQ_ci": [
+            0.6997934464572584,
+            0.6997934464572584
+          ],
+          "d_cost_adv": -1238.6679999999997,
+          "d_cost_adv_ci": [
+            -1238.6679999999997,
+            -1238.6679999999997
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "random": {
+          "dominates": false,
+          "dQ": 0.08614858853867458,
+          "dQ_ci": [
+            0.08338243603060369,
+            0.08777482601390907
+          ],
+          "d_cost_adv": -26.23933333333298,
+          "d_cost_adv_ci": [
+            -42.17799999999943,
+            -17.955999999999676
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        }
+      },
+      "P3_beats_ft_merge": false,
+      "discovery": {
+        "mean_recall_at_decile": 1.0,
+        "mean_lift": 10.070493454179255,
+        "predictor_ceiling": 0.4407,
+        "n_damaging_gt": 80,
+        "point_floor": 50,
+        "ci_only": false,
+        "point_claim_allowed": true,
+        "recall_ci": [
+          1.0,
+          1.0
+        ],
+        "point_recall": 1.0,
+        "per_fact_type": {
+          "cf": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 20
+          },
+          "zsre": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 20
+          },
+          "mquake_mh": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 20
+          },
+          "ripple": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 20
+          }
+        }
+      }
+    },
+    "MIX_C": {
+      "P1_dominates_all_fixed": false,
+      "P1_detail": {
+        "always_edit": {
+          "dominates": true,
+          "dQ": 0.12618001577751192,
+          "dQ_ci": [
+            0.12618001577751192,
+            0.12618001577751192
+          ],
+          "d_cost_adv": 2580.9900000000002,
+          "d_cost_adv_ci": [
+            2580.9900000000002,
+            2580.9900000000002
+          ],
+          "strict_Q": true,
+          "strict_cost": true
+        },
+        "always_grace": {
+          "dominates": false,
+          "dQ": -0.002943937103427219,
+          "dQ_ci": [
+            -0.002943937103427219,
+            -0.002943937103427219
+          ],
+          "d_cost_adv": -192.50999999999976,
+          "d_cost_adv_ci": [
+            -192.50999999999976,
+            -192.50999999999976
+          ],
+          "strict_Q": false,
+          "strict_cost": false
+        },
+        "always_rag": {
+          "dominates": false,
+          "dQ": -0.002943937103427219,
+          "dQ_ci": [
+            -0.002943937103427219,
+            -0.002943937103427219
+          ],
+          "d_cost_adv": -494.0099999999993,
+          "d_cost_adv_ci": [
+            -494.0099999999993,
+            -494.0099999999993
+          ],
+          "strict_Q": false,
+          "strict_cost": false
+        },
+        "always_ft": {
+          "dominates": false,
+          "dQ": 0.12545606289657274,
+          "dQ_ci": [
+            0.12545606289657274,
+            0.12545606289657274
+          ],
+          "d_cost_adv": -1019.0099999999998,
+          "d_cost_adv_ci": [
+            -1019.0099999999998,
+            -1019.0099999999998
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "always_reject": {
+          "dominates": false,
+          "dQ": 0.6970560628965727,
+          "dQ_ci": [
+            0.6970560628965727,
+            0.6970560628965727
+          ],
+          "d_cost_adv": -1419.0099999999998,
+          "d_cost_adv_ci": [
+            -1419.0099999999998,
+            -1419.0099999999998
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "random": {
+          "dominates": false,
+          "dQ": 0.08380134032290787,
+          "dQ_ci": [
+            0.07958551141365633,
+            0.09201933328514023
+          ],
+          "d_cost_adv": -206.58133333333308,
+          "d_cost_adv_ci": [
+            -222.51999999999953,
+            -198.29799999999977
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        }
+      },
+      "P3_beats_ft_merge": false,
+      "discovery": {
+        "mean_recall_at_decile": 1.0,
+        "mean_lift": 10.070493454179255,
+        "predictor_ceiling": 0.4407,
+        "n_damaging_gt": 52,
+        "point_floor": 50,
+        "ci_only": false,
+        "point_claim_allowed": true,
+        "recall_ci": [
+          1.0,
+          1.0
+        ],
+        "point_recall": 1.0,
+        "per_fact_type": {
+          "cf": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 14
+          },
+          "zsre": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 11
+          },
+          "mquake_mh": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 14
+          },
+          "ripple": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 13
+          }
+        }
+      }
+    }
+  }
+}

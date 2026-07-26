@@ -1,0 +1,175 @@
+{
+  "del_npz": "u1e0_llama1b_delete_refusal_L8_s0.npz",
+  "ins_npz": "gate_llama1b_rome_cf_L8_s0.npz",
+  "metric": "logit",
+  "n_perm": 1000,
+  "rng_seed": 12345,
+  "primary_arm": "known=True|edit_ok=False (DC SxC vs DC damage, edit-level perm null)",
+  "arms": {
+    "known=True|edit_ok=False": {
+      "dc_rho": 0.4218,
+      "dc_perm_p": 0.001,
+      "dc_null_mean": 0.0001,
+      "dc_null_std": 0.0181,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.4772,
+      "nondc_perm_p": 0.001,
+      "dc_ci95_editcluster": [
+        0.3955,
+        0.4433
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.4715,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "sxc_s_partialled": {
+        "mean": 0.4666,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "raw_cos": {
+        "mean": 0.4722,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "ng_baseline": {
+        "mean": 0.1022,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "s_alone": {
+        "mean": 0.1213,
+        "nan_cols": 0,
+        "n_cols": 149
+      }
+    },
+    "known=True|edit_ok=True": {
+      "dc_rho": 0.4216,
+      "dc_perm_p": 0.001,
+      "dc_null_mean": 0.0008,
+      "dc_null_std": 0.0171,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.4752,
+      "nondc_perm_p": 0.001,
+      "dc_ci95_editcluster": [
+        0.3959,
+        0.4435
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.4695,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "sxc_s_partialled": {
+        "mean": 0.4662,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "raw_cos": {
+        "mean": 0.4713,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "ng_baseline": {
+        "mean": 0.1018,
+        "nan_cols": 0,
+        "n_cols": 149
+      },
+      "s_alone": {
+        "mean": 0.1136,
+        "nan_cols": 0,
+        "n_cols": 149
+      }
+    },
+    "known=False|edit_ok=False": {
+      "dc_rho": 0.3926,
+      "dc_perm_p": 0.001,
+      "dc_null_mean": 0.0004,
+      "dc_null_std": 0.0181,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.4565,
+      "nondc_perm_p": 0.001,
+      "dc_ci95_editcluster": [
+        0.3688,
+        0.4131
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.4523,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "sxc_s_partialled": {
+        "mean": 0.4466,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "raw_cos": {
+        "mean": 0.4524,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "ng_baseline": {
+        "mean": 0.0803,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "s_alone": {
+        "mean": 0.1113,
+        "nan_cols": 0,
+        "n_cols": 500
+      }
+    },
+    "known=False|edit_ok=True": {
+      "dc_rho": 0.3924,
+      "dc_perm_p": 0.001,
+      "dc_null_mean": 0.001,
+      "dc_null_std": 0.0174,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.4552,
+      "nondc_perm_p": 0.001,
+      "dc_ci95_editcluster": [
+        0.3683,
+        0.411
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.451,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "sxc_s_partialled": {
+        "mean": 0.4467,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "raw_cos": {
+        "mean": 0.452,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "ng_baseline": {
+        "mean": 0.0798,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "s_alone": {
+        "mean": 0.1045,
+        "nan_cols": 0,
+        "n_cols": 500
+      }
+    }
+  },
+  "variance_receipt": {
+    "var_del": 1.768254345735774,
+    "var_ins": 2.6517776886878193,
+    "var_ratio": 0.6668184717289632,
+    "n_del": 200,
+    "n_ins": 200,
+    "mean_del": 22.513038854599,
+    "mean_ins": 22.93591248512268
+  },
+  "suppression_rate": 0.995,
+  "suppression_rate_ptrue_pre_gt_0.05": 1.0,
+  "delete_variant": "refusal",
+  "VERDICT": "PASS \u2014 authorizes ONLY U1-E1 transplant head-to-head + QuantEdit E5 deletion unlock"
+}

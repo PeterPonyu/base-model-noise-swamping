@@ -1,0 +1,152 @@
+{
+ "n": 21,
+ "rows": [
+  {
+   "json": "results/C3_gptj_rome_L14_gptj.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_gptj_rome_L18_gptj.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_gptj_rome_L21_gptj.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C3_gptj_rome_L24_gptj.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/C4_causal_gptj_table.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_gptj_rome_cf_L21_s0.egl.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_gptj_rome_cf_L21_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.79
+  },
+  {
+   "json": "results/g4_gptj_alphaHO_cf_L21_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.795
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L14_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L14_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L14_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L18_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L18_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.96
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L18_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L21_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.79
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L21_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.78
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L21_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.785
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L24_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.415
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L24_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.395
+  },
+  {
+   "json": "results/gate_gptj_rome_cf_L24_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.395
+  },
+  {
+   "json": "results/gptj_validation.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": false,
+   "err": "Expecting value: line 1 column 1 (char 0)"
+  }
+ ]
+}

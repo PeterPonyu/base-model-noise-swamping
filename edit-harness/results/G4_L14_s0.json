@@ -1,0 +1,48 @@
+{
+  "rome": "gate_llama1b_rome_cf_L14_s0.npz",
+  "alpha": "g4_llama1b_alpha_cf_L14_s0.npz",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "by_cosine_quartile": [
+    {
+      "cosine_quartile": "Q1(low)",
+      "n_pairs": 6780,
+      "mean_cos": 0.2784,
+      "rome_mean_damage": 4.5289,
+      "alpha_mean_damage": 0.07271,
+      "damage_reduction": 4.45619,
+      "protection_ratio": 62.29
+    },
+    {
+      "cosine_quartile": "Q2",
+      "n_pairs": 6779,
+      "mean_cos": 0.3826,
+      "rome_mean_damage": 5.27654,
+      "alpha_mean_damage": 0.07008,
+      "damage_reduction": 5.20646,
+      "protection_ratio": 75.292
+    },
+    {
+      "cosine_quartile": "Q3",
+      "n_pairs": 6779,
+      "mean_cos": 0.4629,
+      "rome_mean_damage": 5.97864,
+      "alpha_mean_damage": 0.07243,
+      "damage_reduction": 5.9062,
+      "protection_ratio": 82.539
+    },
+    {
+      "cosine_quartile": "Q4(high)",
+      "n_pairs": 6780,
+      "mean_cos": 0.5974,
+      "rome_mean_damage": 7.1873,
+      "alpha_mean_damage": 0.10749,
+      "damage_reduction": 7.07981,
+      "protection_ratio": 66.867
+    }
+  ],
+  "reduction_top_vs_bottom_ratio": 1.589,
+  "VERDICT": "WEAK \u2014 protection not cosine-concentrated; geometry account not causally supported"
+}

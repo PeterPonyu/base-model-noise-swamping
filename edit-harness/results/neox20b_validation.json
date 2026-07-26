@@ -1,0 +1,96 @@
+{
+ "n": 13,
+ "rows": [
+  {
+   "json": "results/g4_neox20b_alphaHO_cf_L16_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.935
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L11_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.98
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L11_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.975
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L11_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.965
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L16_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.89
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L16_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.89
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L16_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.87
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L22_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.495
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L22_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.5
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L22_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.505
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L28_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.02
+  },
+  {
+   "json": "results/gate_neox20b_rome_cf_L33_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.01
+  },
+  {
+   "json": "results/neox20b_validation.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": false,
+   "err": "Expecting value: line 1 column 1 (char 0)"
+  }
+ ]
+}

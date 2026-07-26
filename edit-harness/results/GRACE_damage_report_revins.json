@@ -1,0 +1,36 @@
+{
+ "cell": "B (grace)",
+ "statistic": "damage_logit identically-zero check (NOT within-probe Spearman -- see run_revins.sh header)",
+ "reason": "grace's \u0394W==0 codebook mechanism leaves non-codebook-matched probes bit-identical to the base model; a within-probe rho over a constant damage column is undefined (NaN).",
+ "n_seeds_found": 3,
+ "damage_identically_zero_all_seeds": true,
+ "per_seed": [
+  {
+   "npz": "results/matrices/egl_llama1b_grace_cf_L12_s0.npz",
+   "n_edits": 200,
+   "n_probes": 500,
+   "n_filtered_pairs": 29502,
+   "max_abs_damage": 0.0,
+   "frac_nonzero": 0.0,
+   "damage_identically_zero": true
+  },
+  {
+   "npz": "results/matrices/egl_llama1b_grace_cf_L12_s1.npz",
+   "n_edits": 200,
+   "n_probes": 500,
+   "n_filtered_pairs": 30492,
+   "max_abs_damage": 0.0,
+   "frac_nonzero": 0.0,
+   "damage_identically_zero": true
+  },
+  {
+   "npz": "results/matrices/egl_llama1b_grace_cf_L12_s2.npz",
+   "n_edits": 200,
+   "n_probes": 500,
+   "n_filtered_pairs": 30800,
+   "max_abs_damage": 0.0,
+   "frac_nonzero": 0.0,
+   "damage_identically_zero": true
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "run_id": "ipi_grid_outgroup_n30_s0",
+    "kind": "grid",
+    "backend": "ollama",
+    "tier": "outgroup",
+    "seed": 0,
+    "gpu_required": true,
+    "created": "2026-07-10T00:00:00",
+    "note": "DRAFT -- NOT QUEUED. Preview of what make_jobs.py --kind grid --tier outgroup --seeds 0 --n 30 would append to jobs/queue.json. This file is NOT read by run_p3_gpu.sh (which hardcodes jobs/queue.json) and is not itself executable.",
+    "cmd": [
+      "python",
+      "run_grid.py",
+      "--tier",
+      "outgroup",
+      "--backend",
+      "ollama",
+      "--n",
+      "30",
+      "--seed",
+      "0",
+      "--n_perm",
+      "1000",
+      "--allow_gpu",
+      "--run_id",
+      "ipi_grid_outgroup_n30_s0"
+    ],
+    "out": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p3_agent_ipi/results/ipi_grid_outgroup_n30_s0.json",
+    "status": "NOT_QUEUED"
+  }
+]

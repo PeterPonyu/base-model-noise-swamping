@@ -1,0 +1,44 @@
+{
+  "schema_version": "editors.v1",
+  "experiment": "RG_editors",
+  "model": "/root/autodl-tmp/models/Phi-3.5-mini-instruct",
+  "model_tag": "Phi-3.5-mini-instruct",
+  "editor": "alpha",
+  "edited_layers": [
+    24
+  ],
+  "dataset": "cf",
+  "layer": 24,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "keep_ratio": 0.99,
+  "memit_cov": "identity",
+  "memit_cov_resolved": "identity",
+  "device": "cuda",
+  "esr_by_seed": {
+    "0": 0.425,
+    "1": 0.52,
+    "2": 0.445
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 2.1127907245954702e-07,
+    "1": 2.0111463072680635e-07,
+    "2": 1.7492361337190232e-07
+  },
+  "torch": "2.8.0+cu128",
+  "transformers": "5.13.0",
+  "numpy": "2.3.2"
+}

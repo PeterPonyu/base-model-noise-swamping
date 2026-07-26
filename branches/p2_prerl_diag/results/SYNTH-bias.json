@@ -1,0 +1,39 @@
+{
+  "checkpoint_id": "SYNTH-bias",
+  "counts": {
+    "n_problems": 150,
+    "n_traces": 1200,
+    "n_right": 599,
+    "n_wrong": 601,
+    "n_mixed_problems": 146
+  },
+  "mean_len_right": 203.8913188647746,
+  "mean_len_wrong": 329.67254575707153,
+  "D_pooled": {
+    "point": 1.6169032972694533,
+    "ci_level": 0.95,
+    "ci_lo": 1.5430837100588635,
+    "ci_hi": 1.6942849640495572,
+    "boot_se": 0.038296038128317375,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "D_within": {
+    "point": 1.6105748816900827,
+    "ci_level": 0.95,
+    "ci_lo": 1.5852014499978007,
+    "ci_hi": 1.6359627536010861,
+    "boot_se": 0.013266646608251421,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "length_bias_flag": true,
+  "_meta": {
+    "input": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/samples/SYNTH-bias.json",
+    "generated_at": "2026-07-01T03:07:06.740430+00:00",
+    "tool": "run_diag.py",
+    "note": "CPU diagnostic; sample generation is a separate queued GPU job."
+  }
+}

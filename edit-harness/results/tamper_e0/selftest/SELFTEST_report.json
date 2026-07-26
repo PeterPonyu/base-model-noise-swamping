@@ -1,0 +1,54 @@
+{
+  "verdict": "SELFTEST-PASS",
+  "all_ok": true,
+  "checks": {
+    "mp_edge_accuracy_null": {
+      "ok": true,
+      "detail": "sv_edge=36.264 true=36.373 rel_err=0.0030 tau_hat=0.6979"
+    },
+    "mp_null_low_excess": {
+      "ok": true,
+      "detail": "summed_excess=0.00000 n_beyond=0 sigma1/edge=0.9934"
+    },
+    "mp_median_in_support": {
+      "ok": true,
+      "detail": "mp_median(0.25)=0.9160"
+    },
+    "planted_spike_detected": {
+      "ok": true,
+      "detail": "summed_excess=5.037 sigma1=219.292 edge=36.325"
+    },
+    "planted_spike_vector_recovered": {
+      "ok": true,
+      "detail": "|u1.u_plant|=0.9986"
+    },
+    "gram_vs_direct_svd": {
+      "ok": true,
+      "detail": "max_rel_top20=1.69e-15"
+    },
+    "edited_gram_identity": {
+      "ok": true,
+      "detail": "max_abs_top20=4.97e-14"
+    },
+    "localization_picks_planted": {
+      "ok": true,
+      "detail": "argmax_layer=3 planted=3 scores=[0.0, 0.0, 0.0, 5.044, 0.0, 0.0, 0.0, 0.0]"
+    },
+    "rank1_singular_identity": {
+      "ok": true,
+      "detail": "sv=55.001766 ||a||*||b||=55.001766"
+    },
+    "auroc_perfect": {
+      "ok": true,
+      "detail": ""
+    },
+    "auroc_reversed": {
+      "ok": true,
+      "detail": ""
+    },
+    "spearman_monotone": {
+      "ok": true,
+      "detail": ""
+    }
+  }
+}

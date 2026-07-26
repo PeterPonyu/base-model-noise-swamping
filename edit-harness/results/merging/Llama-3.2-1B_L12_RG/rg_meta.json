@@ -1,0 +1,44 @@
+{
+  "schema_version": "m0.v1",
+  "experiment": "RG",
+  "model": "data/models/Llama-3.2-1B",
+  "model_tag": "Llama-3.2-1B",
+  "dataset": "counterfact",
+  "layer": 12,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20,
+    50,
+    100
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "reuse": {
+    "0": "reused results/merging/Llama-3.2-1B_L12_s0/phase1_vectors.npz",
+    "1": "fresh 200-edit phase-1 (saved for future reuse)",
+    "2": "fresh 200-edit phase-1 (saved for future reuse)"
+  },
+  "esr_by_seed": {
+    "0": 0.995,
+    "1": 0.99,
+    "2": 0.99
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 2.4155701794370543e-07,
+    "1": 2.643803611590556e-07,
+    "2": 2.4194142156375165e-07
+  },
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1",
+  "numpy": "2.3.4"
+}

@@ -1,0 +1,40 @@
+{
+  "model": "data/models/Phi-3.5-mini",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 8,
+  "n_edits": 150,
+  "n_probes": 400,
+  "steps": 20,
+  "seed": 0,
+  "edit_success_rate": 1.0,
+  "mean_residual_norm": 26.16,
+  "frac_probes_known(pre_p>0.05)": 0.135,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 60000,
+    "spearman_cos_damage": -0.0263,
+    "spearman_normgrowth_damage": -0.1168,
+    "auroc_cos_broken": 0.6266,
+    "auroc_normgrowth_broken": 0.6246,
+    "mean_damage_logit": -0.04163,
+    "mean_cosine": 0.0928
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 8100,
+    "spearman_cos_damage": 0.0185,
+    "spearman_normgrowth_damage": 0.0337,
+    "auroc_cos_broken": 0.6484,
+    "auroc_normgrowth_broken": 0.6806,
+    "mean_damage_logit": -0.00928,
+    "mean_cosine": 0.0895
+  },
+  "runtime_s": 1989.0,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0185,
+    "auroc": 0.6484,
+    "beats_normgrowth": false
+  }
+}

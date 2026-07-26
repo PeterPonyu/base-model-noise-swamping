@@ -1,0 +1,28 @@
+{
+  "schema_version": "editors.v1",
+  "experiment": "RG_editors",
+  "model": "SYNTHETIC_RG_pass",
+  "model_tag": "synthetic_rg_pass",
+  "editor": "synthetic",
+  "edited_layers": [
+    0,
+    1,
+    2
+  ],
+  "dataset": "synthetic",
+  "layer": -1,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20,
+    50
+  ],
+  "n_edits": 60
+}

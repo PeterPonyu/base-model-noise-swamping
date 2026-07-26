@@ -1,0 +1,69 @@
+{
+ "n": 8,
+ "rows": [
+  {
+   "json": "results/gate_llama3b_rome_cf_L24_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama3b_rome_cf_L24_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L16_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L24_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L24_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/seq_llama1b_nr_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.92,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/seq_llama1b_nr_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.86,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_refusal_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  }
+ ]
+}

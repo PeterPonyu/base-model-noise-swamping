@@ -1,0 +1,39 @@
+{
+  "checkpoint_id": "gemma-2-2b",
+  "counts": {
+    "n_problems": 200,
+    "n_traces": 1600,
+    "n_right": 16,
+    "n_wrong": 1584,
+    "n_mixed_problems": 16
+  },
+  "mean_len_right": 174.0625,
+  "mean_len_wrong": 199.33585858585857,
+  "D_pooled": {
+    "point": 1.1451970331683077,
+    "ci_level": 0.95,
+    "ci_lo": 0.8367956847993118,
+    "ci_hi": 1.6673425658578533,
+    "boot_se": 0.21288193429612032,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "D_within": {
+    "point": 1.7086603496639872,
+    "ci_level": 0.95,
+    "ci_lo": 0.967352048123915,
+    "ci_hi": 2.6808956216526543,
+    "boot_se": 0.4528834044676882,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "length_bias_flag": false,
+  "_meta": {
+    "input": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/samples/gemma-2-2b.json",
+    "generated_at": "2026-07-10T22:11:51.843087+00:00",
+    "tool": "run_diag.py",
+    "note": "CPU diagnostic; sample generation is a separate queued GPU job."
+  }
+}

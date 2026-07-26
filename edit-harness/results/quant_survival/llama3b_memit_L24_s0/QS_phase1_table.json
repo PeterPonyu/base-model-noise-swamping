@@ -1,0 +1,182 @@
+{
+  "experiment": "quant_survival_phase1",
+  "schema_version": "qs.phase1.v1",
+  "created": "2026-07-20T20:00:53",
+  "model": "data/models/Llama-3.2-3B",
+  "layer": 24,
+  "editor": "memit",
+  "n_edits": 200,
+  "n_probes": 200,
+  "seed": 0,
+  "schemes": [
+    "nf4dq",
+    "int8"
+  ],
+  "codec": "real",
+  "blocksize": 64,
+  "fullmodel_cache": "off",
+  "edited_layers": [
+    21,
+    22,
+    23,
+    24
+  ],
+  "c2_scope": "editor=memit is C1/C3-ONLY, never C2 (fp32 geometry tie is dead for this editor \u2014 a geometry-survival number would be vacuous)",
+  "quant_note": "REAL bitsandbytes kernels (codec=real): NF4 double-quant ON, INT8 per-row absmax; sim = pilot pure-torch round-trip (NF4 omits double-quant), CPU cross-check only",
+  "damage_metric_note": "signed damage_logit = pre_l(fp32 unedited) \u2212 post_l; never AUROC",
+  "esr": {
+    "mean_esr_fp32": 1.0,
+    "n_edits_worked_fp32": 200
+  },
+  "mechanism_tie": {
+    "rho_keycos_damage_fp32_pooled": 0.1806,
+    "rho_keycos_damage_fp32_within_probe": 0.2432,
+    "within_probe_n_cols": 200,
+    "fp32_law_gate_c2_eligible": false,
+    "fp32_pooled_ci95_bootstrap_edits": [
+      0.1493,
+      0.2128
+    ]
+  },
+  "arms": {
+    "nf4dq_edited_layer": {
+      "locality": "edited_layer",
+      "scheme": "nf4dq",
+      "mean_esr": 1.0,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.1649,
+      "rho_keycos_damage_pooled_base_subtracted": 0.174,
+      "rho_keycos_damage_within_probe": 0.2381,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.2381,
+      "delta_rho_vs_fp32_pooled": -0.0157,
+      "delta_rho_vs_fp32_within_probe": -0.0051,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.9508,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.9542,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        0.1362,
+        0.1969
+      ],
+      "added_damage_logit_mean": 0.00473,
+      "added_damage_logit_std": 0.07855,
+      "base_quant_noise_logit_mean_abs": 0.06004
+    },
+    "nf4dq_full_model": {
+      "locality": "full_model",
+      "scheme": "nf4dq",
+      "mean_esr": 0.98,
+      "esr_survival_given_fp32_worked": 0.98,
+      "rho_keycos_damage_pooled": 0.0312,
+      "rho_keycos_damage_pooled_base_subtracted": 0.1765,
+      "rho_keycos_damage_within_probe": 0.2401,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.2401,
+      "delta_rho_vs_fp32_pooled": -0.1493,
+      "delta_rho_vs_fp32_within_probe": -0.0031,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.3543,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.4154,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        0.0165,
+        0.047
+      ],
+      "added_damage_logit_mean": 0.29204,
+      "added_damage_logit_std": 0.93227,
+      "base_quant_noise_logit_mean_abs": 0.629
+    },
+    "int8_edited_layer": {
+      "locality": "edited_layer",
+      "scheme": "int8",
+      "mean_esr": 1.0,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.1811,
+      "rho_keycos_damage_pooled_base_subtracted": 0.1802,
+      "rho_keycos_damage_within_probe": 0.2433,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.2433,
+      "delta_rho_vs_fp32_pooled": 0.0005,
+      "delta_rho_vs_fp32_within_probe": 0.0002,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.9994,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.9994,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        0.1508,
+        0.2139
+      ],
+      "added_damage_logit_mean": -0.00026,
+      "added_damage_logit_std": 0.00839,
+      "base_quant_noise_logit_mean_abs": 0.00584
+    },
+    "int8_full_model": {
+      "locality": "full_model",
+      "scheme": "int8",
+      "mean_esr": 1.0,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.1456,
+      "rho_keycos_damage_pooled_base_subtracted": 0.1795,
+      "rho_keycos_damage_within_probe": 0.2425,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.2425,
+      "delta_rho_vs_fp32_pooled": -0.0349,
+      "delta_rho_vs_fp32_within_probe": -0.0007,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.9131,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.9005,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        0.1166,
+        0.1771
+      ],
+      "added_damage_logit_mean": 0.01277,
+      "added_damage_logit_std": 0.11872,
+      "base_quant_noise_logit_mean_abs": 0.08853
+    }
+  },
+  "bin_width_mechanism_C3": {
+    "nf4dq": {
+      "n_params_pooled": 3276800,
+      "F_above_bin": 0.0002,
+      "median_ratio": 0.009,
+      "p90_ratio": 0.066,
+      "M_concentration_holds_median_ge_1": false,
+      "r_func_mean": 0.1874,
+      "r_param_mean": 26.7074,
+      "M_averaging_r_func_ll_r_param": true,
+      "note": "F_above/median_ratio are a CONCENTRATION proxy (survival also depends on W_base in-bin position) \u2014 reported distinct from the measured C1/C2 survival"
+    },
+    "int8": {
+      "n_params_pooled": 3276800,
+      "F_above_bin": 0.032,
+      "median_ratio": 0.072,
+      "p90_ratio": 0.5014,
+      "M_concentration_holds_median_ge_1": false,
+      "r_func_mean": 0.0212,
+      "r_param_mean": 3.4046,
+      "M_averaging_r_func_ll_r_param": true,
+      "note": "F_above/median_ratio are a CONCENTRATION proxy (survival also depends on W_base in-bin position) \u2014 reported distinct from the measured C1/C2 survival"
+    }
+  },
+  "generation_checks": {
+    "fp32": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 11.2591,
+      "paraphrase_esr_mean": 0.6125
+    },
+    "nf4dq_edited_layer": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 11.2086,
+      "paraphrase_esr_mean": 0.6125
+    },
+    "nf4dq_full_model": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 12.8042,
+      "paraphrase_esr_mean": 0.525
+    },
+    "int8_edited_layer": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 11.2503,
+      "paraphrase_esr_mean": 0.6125
+    },
+    "int8_full_model": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 11.286,
+      "paraphrase_esr_mean": 0.6125
+    }
+  }
+}

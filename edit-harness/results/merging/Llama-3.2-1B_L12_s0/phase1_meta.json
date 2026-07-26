@@ -1,0 +1,27 @@
+{
+  "schema_version": "m0.v1",
+  "model": "data/models/Llama-3.2-1B",
+  "model_tag": "Llama-3.2-1B",
+  "dataset": "counterfact",
+  "layer": 12,
+  "seed": 0,
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "d_in": 8192,
+  "d_out": 2048,
+  "pair_pool": 10,
+  "group_size": 200,
+  "n_enriched": 45,
+  "regime_group_counts": {
+    "natural_pairwise": 45,
+    "natural_group": 1,
+    "enriched_conflict": 45
+  },
+  "esr_solo": 0.995,
+  "max_recon_rel_err": 2.4155701794370543e-07,
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1",
+  "numpy": "2.3.4"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "editors.v1",
+  "experiment": "RG_editors",
+  "model": "data/models/Llama-3.2-1B",
+  "model_tag": "Llama-3.2-1B",
+  "editor": "memit",
+  "edited_layers": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "dataset": "cf",
+  "layer": 12,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "keep_ratio": 0.99,
+  "memit_cov": "identity",
+  "device": "cuda",
+  "esr_by_seed": {
+    "0": 0.99,
+    "1": 0.995,
+    "2": 1.0
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 3.8169892491168866e-07,
+    "1": 3.6235394418326905e-07,
+    "2": 3.006718714004819e-07
+  },
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1",
+  "numpy": "2.3.4"
+}

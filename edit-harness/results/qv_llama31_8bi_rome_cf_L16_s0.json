@@ -1,0 +1,54 @@
+{
+  "model": "/root/autodl-tmp/models/Llama-3.1-8B-Instruct",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 16,
+  "n_edits": 200,
+  "n_probes": 100,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.995,
+  "mean_residual_norm": 30.0732,
+  "frac_probes_known(pre_p>0.05)": 0.4,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 20000,
+    "spearman_cos_damage": 0.1783,
+    "spearman_normgrowth_damage": 0.1627,
+    "auroc_cos_broken": 0.7152,
+    "auroc_normgrowth_broken": 0.6177,
+    "mean_damage_logit": 0.37468,
+    "mean_cosine": 0.2092
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 8000,
+    "spearman_cos_damage": 0.2501,
+    "spearman_normgrowth_damage": 0.2135,
+    "auroc_cos_broken": 0.7473,
+    "auroc_normgrowth_broken": 0.6281,
+    "mean_damage_logit": 0.49183,
+    "mean_cosine": 0.2148
+  },
+  "runtime_s": 729.2,
+  "VERDICT": "PASS \u2014 key geometry predicts damage",
+  "verdict_detail": {
+    "abs_spearman": 0.2501,
+    "auroc": 0.7473,
+    "beats_normgrowth": true
+  },
+  "vectors_npz": "/root/edit-harness/results/vectors/vectors_qv_llama31_8bi_rome_cf_L16_s0.npz",
+  "vectors_valid": false
+}

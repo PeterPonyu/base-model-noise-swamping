@@ -1,0 +1,92 @@
+# APPLY AFTER THE LIVE FRAME-A GPU WAVE HAS FULLY DRAINED.
+#
+# WHY STAGED: experiments/frame_a/{real_replay,stream_builder}.py LAZY-import
+# killgate_keygeom (real_replay.py:94,116; stream_builder.py:166,216). The MIX_C phase is a
+# separate python invocation that re-reads this file from disk, so editing it mid-wave is
+# exactly the live-file hazard this workspace's memory warns about.
+#
+# From edit-harness/experiments/ run:
+#   patch --dry-run --forward --batch -p0 < patches/alpha_sham_projector_20260726.patch
+#   patch --forward --batch -p0 < patches/alpha_sham_projector_20260726.patch
+# Then smoke: python experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B \
+#   --editor alpha --dataset counterfact --n_edits 3 --n_probes 8 --steps 2 --layer 12 \
+#   --seed 0 --alpha_proj_source sham --holdout_frac 1.0 --out results/smoke/sham_probe.json
+#
+# WHAT IT ADDS: --alpha_proj_source sham — a RANK-MATCHED RANDOM projector. It fits the
+# real holdout projector first (identical code path, so the removed rank r is whatever the
+# honest cell would have used), then discards it and builds P = I − Q Qᵀ from a random
+# orthonormal basis Q of that SAME rank r. Everything downstream (the edit loop, the value
+# optimisation, the full forward pass, the damage measurement) is byte-identical to the
+# holdout cell; the ONLY difference is which subspace is removed.
+#
+# THE TEST THIS ENABLES: within-probe rho(key-cos, damage-removed) under sham vs under the
+# real holdout projector, same layer/seed. If the geometry-tracking is an algebraic
+# consequence of "projecting something out", sham reproduces it. If it comes from removing
+# the PRESERVED-KEY subspace specifically, sham does not. This is the objection the
+# withdrawn CPU proxy could not address (see
+# submissions/ieee/revision/SHAM-CONTROL-READOUT-20260726.md).
+#
+# PROVENANCE: alpha_proj_source is already recorded into the npz/json (killgate lines
+# ~787/820/897/988/1010), so "sham" self-labels in every artifact; proj_disjoint stays 1
+# because sham != probes. Cells write to their own tags (g4_*_alphaSHAM_*), never colliding
+# with holdout artifacts.
+--- killgate_keygeom.py
++++ killgate_keygeom.py
+@@ -168,13 +168,18 @@
+     ap.add_argument("--ft_lr", type=float, default=5e-3)
+     ap.add_argument("--keep_ratio", type=float, default=0.99,
+                     help="AlphaEdit: fraction of preserved-key energy to project out")
+-    ap.add_argument("--alpha_proj_source", choices=["probes", "holdout", "generic"],
++    ap.add_argument("--alpha_proj_source", choices=["probes", "holdout", "generic", "sham"],
+                     default="probes",
+                     help="AlphaEdit projector fit set. 'probes'=fit on the SAME probe bank "
+                          "damage is measured on (by-construction; reference only). "
+                          "'holdout'=fit on a DISJOINT bank of held-out facts (the honest "
+                          "causal test). 'generic'=fit on generic non-subject token keys "
+-                         "from the held-out prompts (distribution-shifted control).")
++                         "from the held-out prompts (distribution-shifted control). "
++                         "'sham'=RANK-MATCHED RANDOM subspace: fit the holdout projector to "
++                         "learn its removed rank r, then remove a uniformly-random r-dim "
++                         "subspace instead — the algebraic-tautology control (tests whether "
++                         "damage-removal tracks key-cosine because the PRESERVED-KEY subspace "
++                         "was removed, or merely because *some* rank-r subspace was).")
+     ap.add_argument("--holdout_frac", type=float, default=1.0,
+                     help="size of the held-out projector-fit bank as a multiple of n_probes "
+                          "(only used when --alpha_proj_source in {holdout,generic})")
+@@ -522,6 +527,26 @@
+     if args.editor == "alpha":
+         if args.alpha_proj_source == "probes":
+             proj_fit_keys = K_probe                                   # by-construction reference
++        elif args.alpha_proj_source == "sham":
++            # Rank-matched random control (B6 revision insurance). Fit the honest holdout
++            # projector FIRST — purely to learn the rank it would remove — then discard it
++            # and remove a uniformly-random subspace of that SAME rank. Same rank, same edit
++            # loop, same forward pass, same measurement; only the removed subspace differs.
++            proj_fit_keys = np.stack([key_for(h["prompt"], h["subject"]) for h in holdout])
++            _ref = build_null_projector(torch.tensor(proj_fit_keys, device=device),
++                                        args.keep_ratio)
++            _d = _ref.shape[0]
++            _r = int(round(_d - float(_ref.diagonal().sum())))         # rank actually removed
++            _r = max(1, min(_r, _d - 1))
++            _g = torch.Generator(device="cpu").manual_seed(args.seed + 31337)
++            _G = torch.randn(_d, _r, generator=_g, dtype=torch.float32)
++            _Q, _ = torch.linalg.qr(_G)                                # [d, r] orthonormal
++            _Q = _Q[:, :_r].to(device=_ref.device, dtype=_ref.dtype)
++            alpha_proj = torch.eye(_d, device=_ref.device, dtype=_ref.dtype) - _Q @ _Q.t()
++            del _ref
++            print(f"[kg] alphaedit projector [sham]: rank-matched random, removed {_r} dims "
++                  f"(rank copied from a holdout fit on {proj_fit_keys.shape[0]} keys)",
++                  flush=True)
+         elif args.alpha_proj_source == "holdout":
+             proj_fit_keys = np.stack([key_for(h["prompt"], h["subject"]) for h in holdout])
+         else:  # generic — random non-subject token keys from the held-out prompts
+@@ -531,7 +556,8 @@
+         # the edited layer's device; harmless (not a correctness bug), because
+         # alphaedit._resolve_projector re-homes config["projector"] onto
+         # resolve_layer_device(model, layer_idx) before every use (tp_edit_util.py).
+-        alpha_proj = build_null_projector(torch.tensor(proj_fit_keys, device=device), args.keep_ratio)
++        if alpha_proj is None:      # 'sham' already built its own projector above
++            alpha_proj = build_null_projector(torch.tensor(proj_fit_keys, device=device), args.keep_ratio)
+         _removed = int(round(alpha_proj.shape[0] - float(alpha_proj.diagonal().sum())))
+         print(f"[kg] alphaedit projector [{args.alpha_proj_source}]: fit on "
+               f"{proj_fit_keys.shape[0]} keys, removed {_removed} dims", flush=True)

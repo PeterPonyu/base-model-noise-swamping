@@ -1,0 +1,125 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "keycos_within_probe": {
+      "mean": -0.1716,
+      "std": 0.0125,
+      "n_seeds": 3
+    },
+    "gradsim_within_probe": {
+      "resid": {
+        "mean": -0.1311,
+        "std": 0.0236,
+        "n_seeds": 3
+      },
+      "normgrowth": {
+        "mean": -0.1419,
+        "std": 0.0244,
+        "n_seeds": 3
+      }
+    },
+    "mean_signed_damage_across_seeds": {
+      "mean": -0.1098,
+      "std": 0.0118,
+      "n_seeds": 3
+    },
+    "VERDICT": "key-cosine BEATS GradSim (headline survives G2 baseline)"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_qwen15b_rome_cf_L14_s0.npz",
+      "shape": [
+        197,
+        118
+      ],
+      "mean_signed_damage": -0.10693,
+      "keycos": {
+        "within_probe_mean": -0.1696,
+        "within_probe_frac_positive": 0.203,
+        "nan_column_count": 0,
+        "n_columns": 118
+      },
+      "gradsim": {
+        "resid": {
+          "within_probe_mean": -0.1346,
+          "within_probe_frac_positive": 0.246,
+          "nan_column_count": 0,
+          "n_columns": 118,
+          "keycos_beats_gradsim": true
+        },
+        "normgrowth": {
+          "within_probe_mean": -0.1415,
+          "within_probe_frac_positive": 0.237,
+          "nan_column_count": 0,
+          "n_columns": 118,
+          "keycos_beats_gradsim": true
+        }
+      }
+    },
+    {
+      "npz": "gate_qwen15b_rome_cf_L14_s1.npz",
+      "shape": [
+        198,
+        127
+      ],
+      "mean_signed_damage": -0.12548,
+      "keycos": {
+        "within_probe_mean": -0.1878,
+        "within_probe_frac_positive": 0.142,
+        "nan_column_count": 0,
+        "n_columns": 127
+      },
+      "gradsim": {
+        "resid": {
+          "within_probe_mean": -0.1581,
+          "within_probe_frac_positive": 0.189,
+          "nan_column_count": 0,
+          "n_columns": 127,
+          "keycos_beats_gradsim": true
+        },
+        "normgrowth": {
+          "within_probe_mean": -0.172,
+          "within_probe_frac_positive": 0.165,
+          "nan_column_count": 0,
+          "n_columns": 127,
+          "keycos_beats_gradsim": true
+        }
+      }
+    },
+    {
+      "npz": "gate_qwen15b_rome_cf_L14_s2.npz",
+      "shape": [
+        199,
+        129
+      ],
+      "mean_signed_damage": -0.09705,
+      "keycos": {
+        "within_probe_mean": -0.1574,
+        "within_probe_frac_positive": 0.233,
+        "nan_column_count": 0,
+        "n_columns": 129
+      },
+      "gradsim": {
+        "resid": {
+          "within_probe_mean": -0.1006,
+          "within_probe_frac_positive": 0.287,
+          "nan_column_count": 0,
+          "n_columns": 129,
+          "keycos_beats_gradsim": true
+        },
+        "normgrowth": {
+          "within_probe_mean": -0.1123,
+          "within_probe_frac_positive": 0.271,
+          "nan_column_count": 0,
+          "n_columns": 129,
+          "keycos_beats_gradsim": true
+        }
+      }
+    }
+  ]
+}

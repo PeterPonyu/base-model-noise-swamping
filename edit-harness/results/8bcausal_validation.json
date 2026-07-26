@@ -1,0 +1,33 @@
+{
+ "n": 4,
+ "rows": [
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L16_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L24_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L16_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L24_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  }
+ ]
+}

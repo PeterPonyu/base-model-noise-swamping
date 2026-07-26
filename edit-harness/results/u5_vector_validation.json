@@ -1,0 +1,41 @@
+{
+ "n": 4,
+ "rows": [
+  {
+   "npz": "results/vectors/vectors_qv_llama1b_rome_cf_L14_s1.npz",
+   "K_shape": [
+    200,
+    8192
+   ],
+   "vectors_valid": true,
+   "K_all_finite": true
+  },
+  {
+   "npz": "results/vectors/vectors_qv_llama1b_rome_cf_L14_s2.npz",
+   "K_shape": [
+    200,
+    8192
+   ],
+   "vectors_valid": true,
+   "K_all_finite": true
+  },
+  {
+   "npz": "results/vectors/vectors_qv_qwen15b_rome_cf_L14_s1.npz",
+   "K_shape": [
+    200,
+    8960
+   ],
+   "vectors_valid": true,
+   "K_all_finite": true
+  },
+  {
+   "npz": "results/vectors/vectors_qv_qwen15b_rome_cf_L14_s2.npz",
+   "K_shape": [
+    200,
+    8960
+   ],
+   "vectors_valid": true,
+   "K_all_finite": true
+  }
+ ]
+}

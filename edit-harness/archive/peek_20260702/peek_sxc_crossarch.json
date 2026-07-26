@@ -1,0 +1,48 @@
+{
+  "statistic": "S=mean||v-Wk||, |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg)",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "results/matrices/gate_qwen05b_rome_cf_L12_s*.npz",
+    "results/matrices/gate_qwen15b_rome_cf_L14_s*.npz",
+    "results/matrices/gate_gemma2b_rome_cf_L13_s0.npz"
+  ],
+  "groups": [
+    {
+      "model": "gemma2b",
+      "layer": 13,
+      "n_files": 1,
+      "n_pairs": 29097,
+      "mean_S": 26.3564,
+      "S_available": true,
+      "mean_absC": 0.5146,
+      "within_probe_rho_C": 0.1097,
+      "within_probe_rho_SC": 0.1065
+    },
+    {
+      "model": "qwen05b",
+      "layer": 12,
+      "n_files": 3,
+      "n_pairs": 54117,
+      "mean_S": 21.8022,
+      "S_available": true,
+      "mean_absC": 0.3281,
+      "within_probe_rho_C": 0.1022,
+      "within_probe_rho_SC": 0.1342
+    },
+    {
+      "model": "qwen15b",
+      "layer": 14,
+      "n_files": 3,
+      "n_pairs": 74063,
+      "mean_S": 33.216,
+      "S_available": true,
+      "mean_absC": 0.1897,
+      "within_probe_rho_C": -0.1714,
+      "within_probe_rho_SC": -0.1306
+    }
+  ],
+  "notes": []
+}

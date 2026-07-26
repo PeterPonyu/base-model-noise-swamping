@@ -1,0 +1,22 @@
+{
+  "schema_version": "m0.v1",
+  "experiment": "RG",
+  "model": "SYNTHETIC_RG_pass",
+  "model_tag": "synthetic_rg_pass",
+  "dataset": "synthetic",
+  "layer": -1,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20,
+    50
+  ],
+  "n_edits": 60
+}

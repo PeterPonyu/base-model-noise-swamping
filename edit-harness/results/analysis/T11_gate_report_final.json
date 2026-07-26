@@ -1,0 +1,1346 @@
+{
+  "experiment": "T1.1_depth_dissociation_E0_GATE",
+  "prereg": "docs/plans/PREREG-T11-DEPTH-DISSOCIATION-E0-20260713.md",
+  "created": "2026-07-15T08:36:56",
+  "cli_args": {
+    "results_dir": "/root/edit-harness/results",
+    "mergedir": "/root/edit-harness/results/merging",
+    "arch1_vector_dir": "/root/edit-harness/results/vectors",
+    "arch1_tag": "llama1b",
+    "arch1_layers": "8,12,14",
+    "arch2_vector_dir": "/root/edit-harness/results/vectors",
+    "arch2_tag": "qwen15b",
+    "arch2_layers": "14,17,21,24",
+    "arch2_matrices_dir": "/root/edit-harness/results/matrices",
+    "arch2_collateral_json": null,
+    "out": "/root/edit-harness/results/analysis/T11_gate_report.json"
+  },
+  "arch1": {
+    "decidable": true,
+    "layers": [
+      8,
+      12,
+      14
+    ],
+    "collateral_C": {
+      "8": {
+        "C": 0.3951,
+        "std": 0.0106,
+        "max_within_probe_perm_p": 0.0033,
+        "n_seeds": 3,
+        "source": "G1_stability_L8_v2.json"
+      },
+      "12": {
+        "C": 0.6018,
+        "std": 0.0189,
+        "max_within_probe_perm_p": 0.0033,
+        "n_seeds": 3,
+        "source": "G1_stability_L12_v2.json"
+      },
+      "14": {
+        "C": 0.3006,
+        "std": 0.0403,
+        "max_within_probe_perm_p": 0.0033,
+        "n_seeds": 3,
+        "source": "G1_stability_L14_v2.json"
+      }
+    },
+    "merge_M": {
+      "8": {
+        "M": 0.3007,
+        "M_std": 0.0283,
+        "M_ownmag_mean": 0.3342,
+        "rho_I_cos_drop_mean": 0.3226,
+        "chosen_g": 3,
+        "cells_used": [
+          "g3_s0",
+          "g3_s2"
+        ],
+        "n_cells": 2,
+        "source": "RG_operating_curve_table_L8.json",
+        "layer_field": 8
+      },
+      "12": {
+        "M": 0.469267,
+        "M_std": 0.018289,
+        "M_ownmag_mean": 0.510933,
+        "rho_I_cos_drop_mean": 0.513067,
+        "chosen_g": 2,
+        "cells_used": [
+          "g2_s0",
+          "g2_s1",
+          "g2_s2"
+        ],
+        "n_cells": 3,
+        "source": "RG_operating_curve_table.json",
+        "layer_field": 12
+      },
+      "14": {
+        "M": 0.3168,
+        "M_std": 0.008988,
+        "M_ownmag_mean": 0.488867,
+        "rho_I_cos_drop_mean": 0.484833,
+        "chosen_g": 2,
+        "cells_used": [
+          "g2_s0",
+          "g2_s1",
+          "g2_s2"
+        ],
+        "n_cells": 3,
+        "source": "RG_operating_curve_table_L14.json",
+        "layer_field": 14
+      }
+    },
+    "statistics_per_layer": {
+      "8": {
+        "pr_frac": 0.292365,
+        "mean_cos": 0.300156,
+        "mean_abs_cos": 0.300156,
+        "kappa": 3.715753,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.292365,
+            "std": 0.00255,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.300156,
+            "std": 0.005605,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.300156,
+            "std": 0.005605,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 3.715753,
+            "std": 0.039937,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 2
+      },
+      "12": {
+        "pr_frac": 0.352031,
+        "mean_cos": 0.286244,
+        "mean_abs_cos": 0.286244,
+        "kappa": 7.82582,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.352031,
+            "std": 0.017467,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.286244,
+            "std": 0.001483,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.286244,
+            "std": 0.001483,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 7.82582,
+            "std": 0.192926,
+            "n_seeds": 2,
+            "seeds": [
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 2
+      },
+      "14": {
+        "pr_frac": 0.196143,
+        "mean_cos": 0.440455,
+        "mean_abs_cos": 0.440455,
+        "kappa": 8.566426,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.196143,
+            "std": 0.008347,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.440455,
+            "std": 0.013965,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.440455,
+            "std": 0.013965,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 8.566426,
+            "std": 0.395303,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      }
+    },
+    "statistics_per_seed": {
+      "8": [
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L8_s1.npz",
+          "layer": 8,
+          "seed": 1,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "pr": 57.6729,
+          "pr_frac": 0.289814,
+          "mean_cos": 0.294551,
+          "mean_abs_cos": 0.294551,
+          "kappa": 3.75569,
+          "kappa_cols_kept": 8192,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L8_s2.npz",
+          "layer": 8,
+          "seed": 2,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "pr": 58.688,
+          "pr_frac": 0.294915,
+          "mean_cos": 0.305761,
+          "mean_abs_cos": 0.305761,
+          "kappa": 3.675816,
+          "kappa_cols_kept": 8192,
+          "kappa_cols_dropped": 0
+        }
+      ],
+      "12": [
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L12_s1.npz",
+          "layer": 12,
+          "seed": 1,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "pr": 66.578,
+          "pr_frac": 0.334563,
+          "mean_cos": 0.284761,
+          "mean_abs_cos": 0.284761,
+          "kappa": 7.632894,
+          "kappa_cols_kept": 8192,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L12_s2.npz",
+          "layer": 12,
+          "seed": 2,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "pr": 73.5301,
+          "pr_frac": 0.369498,
+          "mean_cos": 0.287727,
+          "mean_abs_cos": 0.287727,
+          "kappa": 8.018747,
+          "kappa_cols_kept": 8192,
+          "kappa_cols_dropped": 0
+        }
+      ],
+      "14": [
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L14_s0.npz",
+          "layer": 14,
+          "seed": 0,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "pr": 36.7258,
+          "pr_frac": 0.184552,
+          "mean_cos": 0.460181,
+          "mean_abs_cos": 0.460181,
+          "kappa": 8.110016,
+          "kappa_cols_kept": 8192,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L14_s1.npz",
+          "layer": 14,
+          "seed": 1,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "pr": 39.8013,
+          "pr_frac": 0.200007,
+          "mean_cos": 0.429748,
+          "mean_abs_cos": 0.429748,
+          "kappa": 8.515052,
+          "kappa_cols_kept": 8192,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L14_s2.npz",
+          "layer": 14,
+          "seed": 2,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "pr": 40.5703,
+          "pr_frac": 0.203871,
+          "mean_cos": 0.431437,
+          "mean_abs_cos": 0.431437,
+          "kappa": 9.074209,
+          "kappa_cols_kept": 8192,
+          "kappa_cols_dropped": 0
+        }
+      ]
+    },
+    "dissociation": {
+      "profile": [
+        {
+          "layer": 8,
+          "C": 0.3951,
+          "M": 0.3007,
+          "zC": -0.297354,
+          "zM": -0.81044,
+          "D": -0.513086
+        },
+        {
+          "layer": 12,
+          "C": 0.6018,
+          "M": 0.469267,
+          "zC": 1.346043,
+          "zM": 1.408908,
+          "D": 0.062865
+        },
+        {
+          "layer": 14,
+          "C": 0.3006,
+          "M": 0.3168,
+          "zC": -1.048689,
+          "zM": -0.598468,
+          "D": 0.450221
+        }
+      ],
+      "sigma_M": 0.075953,
+      "sigma_C": 0.125776,
+      "pairs": [
+        {
+          "pair": "L8->L12",
+          "dM": 0.168567,
+          "dC": 0.2067,
+          "dD": 0.575952,
+          "sign_dM": 1,
+          "sign_dC": 1,
+          "sign_dD": 1,
+          "raw_unambiguous": false
+        },
+        {
+          "pair": "L12->L14",
+          "dM": -0.152467,
+          "dC": -0.3012,
+          "dD": 0.387356,
+          "sign_dM": -1,
+          "sign_dC": -1,
+          "sign_dD": 1,
+          "raw_unambiguous": false
+        }
+      ],
+      "d_profile_ambiguous": true
+    },
+    "tracking": [
+      {
+        "stat": "pr_frac",
+        "convention": "H1 participation-ratio fraction (primary): sign(-d pr_frac)",
+        "values_on_grid": [
+          0.292365,
+          0.352031,
+          0.196143
+        ],
+        "pairs": [
+          {
+            "pair": "L8->L12",
+            "dS": 0.059666,
+            "sign_expected": -1,
+            "sign_dD": 1,
+            "concordant": false
+          },
+          {
+            "pair": "L12->L14",
+            "dS": -0.155888,
+            "sign_expected": 1,
+            "sign_dD": 1,
+            "concordant": true
+          }
+        ],
+        "n_concordant": 1,
+        "n_pairs": 2,
+        "monotone_tracks_arch1": false,
+        "sign_test_p": null,
+        "holm": {
+          "p": 1.0,
+          "holm_threshold": 0.025,
+          "passes_holm": false
+        }
+      },
+      {
+        "stat": "mean_cos",
+        "convention": "H2 key anisotropy (secondary): sign(+d mean_cos)",
+        "values_on_grid": [
+          0.300156,
+          0.286244,
+          0.440455
+        ],
+        "pairs": [
+          {
+            "pair": "L8->L12",
+            "dS": -0.013912,
+            "sign_expected": -1,
+            "sign_dD": 1,
+            "concordant": false
+          },
+          {
+            "pair": "L12->L14",
+            "dS": 0.154211,
+            "sign_expected": 1,
+            "sign_dD": 1,
+            "concordant": true
+          }
+        ],
+        "n_concordant": 1,
+        "n_pairs": 2,
+        "monotone_tracks_arch1": false,
+        "sign_test_p": null,
+        "holm": {
+          "p": 1.0,
+          "holm_threshold": 0.05,
+          "passes_holm": false
+        }
+      },
+      {
+        "stat": "kappa",
+        "convention": "H3 kurtosis proxy (tertiary): sign(+d kappa)",
+        "values_on_grid": [
+          3.715753,
+          7.82582,
+          8.566426
+        ],
+        "pairs": [
+          {
+            "pair": "L8->L12",
+            "dS": 4.110067,
+            "sign_expected": 1,
+            "sign_dD": 1,
+            "concordant": true
+          },
+          {
+            "pair": "L12->L14",
+            "dS": 0.740606,
+            "sign_expected": 1,
+            "sign_dD": 1,
+            "concordant": true
+          }
+        ],
+        "n_concordant": 2,
+        "n_pairs": 2,
+        "monotone_tracks_arch1": true,
+        "sign_test_p": 0.25,
+        "holm": {
+          "p": 0.25,
+          "holm_threshold": 0.016667,
+          "passes_holm": false
+        }
+      }
+    ],
+    "arch1_winner_candidate": "kappa"
+  },
+  "arch2": {
+    "arch2_tag": "qwen15b",
+    "decidable": true,
+    "layers_used": [
+      14,
+      17,
+      21,
+      24
+    ],
+    "layers_with_bank_no_collateral": [],
+    "collateral_detail": {
+      "14": {
+        "C": -0.17162354927129364,
+        "n_seeds": 3,
+        "source": "auto:within_probe_rhos over 3 seed npz (gate_qwen15b_rome_cf_L14_s*.npz)"
+      },
+      "17": {
+        "C": -0.14081029009825205,
+        "n_seeds": 3,
+        "source": "auto:within_probe_rhos over 3 seed npz (gate_qwen15b_rome_cf_L17_s*.npz)"
+      },
+      "21": {
+        "C": 0.03743723306352093,
+        "n_seeds": 3,
+        "source": "auto:within_probe_rhos over 3 seed npz (gate_qwen15b_rome_cf_L21_s*.npz)"
+      },
+      "24": {
+        "C": 0.13174115686119137,
+        "n_seeds": 3,
+        "source": "auto:within_probe_rhos over 3 seed npz (gate_qwen15b_rome_cf_L24_s*.npz)"
+      }
+    },
+    "statistics_per_layer": {
+      "14": {
+        "pr_frac": 0.325399,
+        "mean_cos": 0.197326,
+        "mean_abs_cos": 0.197435,
+        "kappa": 5.103761,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.325399,
+            "std": 0.016195,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.197326,
+            "std": 0.001647,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.197435,
+            "std": 0.001548,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 5.103761,
+            "std": 0.067386,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      },
+      "17": {
+        "pr_frac": 0.220631,
+        "mean_cos": 0.277302,
+        "mean_abs_cos": 0.277398,
+        "kappa": 4.783675,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.220631,
+            "std": 0.011919,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.277302,
+            "std": 0.007643,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.277398,
+            "std": 0.007548,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 4.783675,
+            "std": 0.283718,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      },
+      "21": {
+        "pr_frac": 0.2793,
+        "mean_cos": 0.234633,
+        "mean_abs_cos": 0.234855,
+        "kappa": 7.492274,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.2793,
+            "std": 0.0122,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.234633,
+            "std": 0.009137,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.234855,
+            "std": 0.008993,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 7.492274,
+            "std": 0.51795,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      },
+      "24": {
+        "pr_frac": 0.281445,
+        "mean_cos": 0.324323,
+        "mean_abs_cos": 0.324464,
+        "kappa": 15.249183,
+        "bands": {
+          "pr_frac": {
+            "mean": 0.281445,
+            "std": 0.017018,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_cos": {
+            "mean": 0.324323,
+            "std": 0.007755,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "mean_abs_cos": {
+            "mean": 0.324464,
+            "std": 0.007618,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "kappa": {
+            "mean": 15.249183,
+            "std": 0.297451,
+            "n_seeds": 3,
+            "seeds": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "n_seeds": 3
+      }
+    },
+    "statistics_per_seed": {
+      "14": [
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L14_s0.npz",
+          "layer": 14,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 60.4052,
+          "pr_frac": 0.303544,
+          "mean_cos": 0.199529,
+          "mean_abs_cos": 0.199541,
+          "kappa": 5.179369,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L14_s1.npz",
+          "layer": 14,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 65.7479,
+          "pr_frac": 0.330392,
+          "mean_cos": 0.195571,
+          "mean_abs_cos": 0.195863,
+          "kappa": 5.015718,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L14_s2.npz",
+          "layer": 14,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 68.1097,
+          "pr_frac": 0.34226,
+          "mean_cos": 0.196877,
+          "mean_abs_cos": 0.1969,
+          "kappa": 5.116197,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        }
+      ],
+      "17": [
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L17_s0.npz",
+          "layer": 17,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 41.7448,
+          "pr_frac": 0.209773,
+          "mean_cos": 0.287463,
+          "mean_abs_cos": 0.287467,
+          "kappa": 4.988924,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L17_s1.npz",
+          "layer": 17,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 42.7641,
+          "pr_frac": 0.214895,
+          "mean_cos": 0.26903,
+          "mean_abs_cos": 0.269295,
+          "kappa": 4.382473,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L17_s2.npz",
+          "layer": 17,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 47.2078,
+          "pr_frac": 0.237225,
+          "mean_cos": 0.275413,
+          "mean_abs_cos": 0.275431,
+          "kappa": 4.979629,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        }
+      ],
+      "21": [
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L21_s0.npz",
+          "layer": 21,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 52.4309,
+          "pr_frac": 0.263472,
+          "mean_cos": 0.247551,
+          "mean_abs_cos": 0.247552,
+          "kappa": 8.027017,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L21_s1.npz",
+          "layer": 21,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 55.9719,
+          "pr_frac": 0.281266,
+          "mean_cos": 0.228469,
+          "mean_abs_cos": 0.229131,
+          "kappa": 6.791375,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L21_s2.npz",
+          "layer": 21,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 58.3392,
+          "pr_frac": 0.293162,
+          "mean_cos": 0.22788,
+          "mean_abs_cos": 0.227882,
+          "kappa": 7.658429,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        }
+      ],
+      "24": [
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L24_s0.npz",
+          "layer": 24,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 52.5266,
+          "pr_frac": 0.263953,
+          "mean_cos": 0.334968,
+          "mean_abs_cos": 0.334968,
+          "kappa": 15.299373,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L24_s1.npz",
+          "layer": 24,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 54.8989,
+          "pr_frac": 0.275874,
+          "mean_cos": 0.316715,
+          "mean_abs_cos": 0.317139,
+          "kappa": 14.862389,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L24_s2.npz",
+          "layer": 24,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "pr": 60.5969,
+          "pr_frac": 0.304507,
+          "mean_cos": 0.321285,
+          "mean_abs_cos": 0.321285,
+          "kappa": 15.585787,
+          "kappa_cols_kept": 8960,
+          "kappa_cols_dropped": 0
+        }
+      ]
+    },
+    "target": {
+      "profile": [
+        {
+          "layer": 14,
+          "C_signed": -0.171624,
+          "C_abs": 0.171624,
+          "zT": 1.021763
+        },
+        {
+          "layer": 17,
+          "C_signed": -0.14081,
+          "C_abs": 0.14081,
+          "zT": 0.40709
+        },
+        {
+          "layer": 21,
+          "C_signed": 0.037437,
+          "C_abs": 0.037437,
+          "zT": -1.655029
+        },
+        {
+          "layer": 24,
+          "C_signed": 0.131741,
+          "C_abs": 0.131741,
+          "zT": 0.226176
+        }
+      ],
+      "sigma_T": 0.05013,
+      "pairs": [
+        {
+          "pair": "L14->L17",
+          "dD": -0.614673,
+          "sign_dD": -1,
+          "dM": null,
+          "dC": null,
+          "raw_unambiguous": null,
+          "note": "single-sided proxy pair; no dM/dC concordance guard applies (see module docstring)."
+        },
+        {
+          "pair": "L17->L21",
+          "dD": -2.062119,
+          "sign_dD": -1,
+          "dM": null,
+          "dC": null,
+          "raw_unambiguous": null,
+          "note": "single-sided proxy pair; no dM/dC concordance guard applies (see module docstring)."
+        },
+        {
+          "pair": "L21->L24",
+          "dD": 1.881205,
+          "sign_dD": 1,
+          "dM": null,
+          "dC": null,
+          "raw_unambiguous": null,
+          "note": "single-sided proxy pair; no dM/dC concordance guard applies (see module docstring)."
+        }
+      ],
+      "d_profile_ambiguous": null,
+      "target_kind": "single_sided_proxy_abs_C"
+    },
+    "tracking": [
+      {
+        "stat": "pr_frac",
+        "convention": "H1 participation-ratio fraction (primary): sign(-d pr_frac)",
+        "values_on_grid": [
+          0.325399,
+          0.220631,
+          0.2793,
+          0.281445
+        ],
+        "pairs": [
+          {
+            "pair": "L14->L17",
+            "dS": -0.104768,
+            "sign_expected": 1,
+            "sign_dD": -1,
+            "concordant": false
+          },
+          {
+            "pair": "L17->L21",
+            "dS": 0.058669,
+            "sign_expected": -1,
+            "sign_dD": -1,
+            "concordant": true
+          },
+          {
+            "pair": "L21->L24",
+            "dS": 0.002145,
+            "sign_expected": -1,
+            "sign_dD": 1,
+            "concordant": false
+          }
+        ],
+        "n_concordant": 1,
+        "n_pairs": 3,
+        "monotone_tracks_arch1": false,
+        "sign_test_p": null,
+        "holm": {
+          "p": 1.0,
+          "holm_threshold": 0.016667,
+          "passes_holm": false
+        }
+      },
+      {
+        "stat": "mean_cos",
+        "convention": "H2 key anisotropy (secondary): sign(+d mean_cos)",
+        "values_on_grid": [
+          0.197326,
+          0.277302,
+          0.234633,
+          0.324323
+        ],
+        "pairs": [
+          {
+            "pair": "L14->L17",
+            "dS": 0.079976,
+            "sign_expected": 1,
+            "sign_dD": -1,
+            "concordant": false
+          },
+          {
+            "pair": "L17->L21",
+            "dS": -0.042669,
+            "sign_expected": -1,
+            "sign_dD": -1,
+            "concordant": true
+          },
+          {
+            "pair": "L21->L24",
+            "dS": 0.08969,
+            "sign_expected": 1,
+            "sign_dD": 1,
+            "concordant": true
+          }
+        ],
+        "n_concordant": 2,
+        "n_pairs": 3,
+        "monotone_tracks_arch1": false,
+        "sign_test_p": null,
+        "holm": {
+          "p": 1.0,
+          "holm_threshold": 0.025,
+          "passes_holm": false
+        }
+      },
+      {
+        "stat": "kappa",
+        "convention": "H3 kurtosis proxy (tertiary): sign(+d kappa)",
+        "values_on_grid": [
+          5.103761,
+          4.783675,
+          7.492274,
+          15.249183
+        ],
+        "pairs": [
+          {
+            "pair": "L14->L17",
+            "dS": -0.320086,
+            "sign_expected": -1,
+            "sign_dD": -1,
+            "concordant": true
+          },
+          {
+            "pair": "L17->L21",
+            "dS": 2.708599,
+            "sign_expected": 1,
+            "sign_dD": -1,
+            "concordant": false
+          },
+          {
+            "pair": "L21->L24",
+            "dS": 7.756909,
+            "sign_expected": 1,
+            "sign_dD": 1,
+            "concordant": true
+          }
+        ],
+        "n_concordant": 2,
+        "n_pairs": 3,
+        "monotone_tracks_arch1": false,
+        "sign_test_p": null,
+        "holm": {
+          "p": 1.0,
+          "holm_threshold": 0.05,
+          "passes_holm": false
+        }
+      }
+    ],
+    "winner_candidate": null,
+    "literal": {
+      "C_signed_by_L": {
+        "14": -0.171624,
+        "17": -0.14081,
+        "21": 0.037437,
+        "24": 0.131741
+      },
+      "M_by_L": {
+        "14": 0.3111
+      },
+      "merge_detail": {
+        "14": {
+          "status": "qualified",
+          "file": "RG_operating_curve_table_qwen15b_L14.json",
+          "chosen_g": 3,
+          "M": 0.3111,
+          "cells_used": [
+            "g3_s0"
+          ]
+        },
+        "17": {
+          "status": "file_absent",
+          "file": "RG_operating_curve_table_qwen15b_L17.json"
+        },
+        "21": {
+          "status": "present_but_no_qualifying_g2g3_cell",
+          "file": "RG_operating_curve_table_qwen15b_L21.json",
+          "cells": {
+            "g2": {
+              "present_seeds": [
+                0,
+                1,
+                2
+              ],
+              "per_seed": {
+                "0": {
+                  "c2_coherent": false,
+                  "non_negligible": false,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent",
+                    "negligible"
+                  ]
+                },
+                "1": {
+                  "c2_coherent": false,
+                  "non_negligible": false,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent",
+                    "negligible"
+                  ]
+                },
+                "2": {
+                  "c2_coherent": false,
+                  "non_negligible": false,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent",
+                    "negligible"
+                  ]
+                }
+              }
+            },
+            "g3": {
+              "present_seeds": [
+                0,
+                1,
+                2
+              ],
+              "per_seed": {
+                "0": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                },
+                "1": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                },
+                "2": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "24": {
+          "status": "present_but_no_qualifying_g2g3_cell",
+          "file": "RG_operating_curve_table_qwen15b_L24.json",
+          "cells": {
+            "g2": {
+              "present_seeds": [
+                0,
+                1,
+                2
+              ],
+              "per_seed": {
+                "0": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                },
+                "1": {
+                  "c2_coherent": false,
+                  "non_negligible": false,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent",
+                    "negligible"
+                  ]
+                },
+                "2": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                }
+              }
+            },
+            "g3": {
+              "present_seeds": [
+                0,
+                1,
+                2
+              ],
+              "per_seed": {
+                "0": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                },
+                "1": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                },
+                "2": {
+                  "c2_coherent": false,
+                  "non_negligible": true,
+                  "saturated": false,
+                  "qualifies": false,
+                  "fail_reasons": [
+                    "not_c2_coherent"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "merge_status_counts": {
+        "present": 3,
+        "qualified": 1,
+        "present_but_no_qualifying_g2g3_cell": 2
+      },
+      "depths_C_and_M": [
+        14
+      ],
+      "depths_C_and_M_and_bank": [
+        14
+      ],
+      "merge_source_convention": "RG_operating_curve_table_qwen15b_L<L>.json (tag-namespaced; NOT the untagged arch-1 RG names)",
+      "decidable": false,
+      "reason": "fewer than 3 depths have BOTH arch-2 collateral C(L) AND merge M(L): C at [14, 17, 21, 24], M at [14], overlap [14] (merge status counts {'present': 3, 'qualified': 1, 'present_but_no_qualifying_g2g3_cell': 2}); the literal two-family D_arch2 needs >=3 overlapping depths (prereg s2.4). Gate falls back to the single-sided proxy."
+    }
+  },
+  "gate": {
+    "verdict": "KILL",
+    "literal_gate_decidable": false,
+    "literal_gate_verdict": "UNDECIDABLE_AS_PREREGISTERED",
+    "target_kind": "single_sided_proxy_abs_C",
+    "winning_statistic": null,
+    "arch1_tracks": {
+      "pr_frac": false,
+      "mean_cos": false,
+      "kappa": true
+    },
+    "arch2_tracks": {
+      "pr_frac": false,
+      "mean_cos": false,
+      "kappa": false
+    },
+    "arch1_winner_candidate": "kappa",
+    "arch2_winner_candidate": null,
+    "note": "PASS_PROXY_TARGET/KILL here are against arch-2's SINGLE-SIDED PROXY target (target_kind=single_sided_proxy_abs_C), a weaker claim than the prereg's literal two-family D(L) \u2014 see literal_gate_verdict and the module docstring GATE-INTERPRETATION note. PASS_PROXY_TARGET is NOT the pre-registered gate firing; it is this script's practical, disclosed-as-weaker substitute."
+  },
+  "gate_interpretation": [
+    "TWO gate regimes. LITERAL two-family gate (prereg s1.1 D(L)=z[M]-z[C]) fires when arch-2 has tag-namespaced merge M(L) (RG_operating_curve_table_<tag>_L<L>.json), collateral C(L), AND a raw-K stat bank at >=3 OVERLAPPING depths; then gate.verdict is the pre-registered PASS/KILL/AMBIGUOUS and gate.literal_gate_decidable=true. Otherwise the script FALLS BACK to a SINGLE-SIDED PROXY target T_arch2(L)=z_grid[|C_arch2(L)|] (arch-2's own collateral-dominance MAGNITUDE, not a merge-vs-collateral dissociation): gate.verdict is PASS_PROXY_TARGET/KILL/KILL_FOR_GATE_PURPOSES, gate.literal_gate_decidable=false and gate.literal_gate_verdict='UNDECIDABLE_AS_PREREGISTERED'. A PASS_PROXY_TARGET is WEAKER than the literal gate and must be reported as such (see arch2.target.target_kind).",
+    "SIGN POLICY (review MAJOR-1; three regimes by the sign of arch-2 C over the gate depths, recorded as gate.arch2_C_sign_regime / arch2_C_sign_consistent): (i) POSITIVE (all C>=0) -> |C| is a strict no-op, D_arch2=z[M]-z[C] is exactly prereg s1.1, so a gate pass is the BARE token 'PASS'; (ii) NEGATIVE (all C<=0, globally sign-inverted arch e.g. Qwen) -> the |C| target is a DEVIATION from prereg s1.1's signed-C wording, so a gate pass is the DISTINCT token 'PASS_ABS_CONVENTION' (never bare PASS); (iii) MIXED (both +C and -C) -> |C| conflates genuinely opposite couplings into one magnitude, abs() is UNjustified, so the gate is FORCED to 'AMBIGUOUS' regardless of tracking (the reviewer's {-0.5,+0.3,-0.1} case must never PASS). abs() is used because the prereg's 'collateral-geometry dominance' is a MAGNITUDE and Qwen's within-probe rho is sign-inverted (memory crossarch-transfer-verdict-2026-07-02). The SIGNED-C variant is an auditable shadow (arch2.literal.gate_target.signed_C_shadow) and gate.winner_robust_to_signed_C is an AUDIT field ONLY \u2014 it cannot gate, because z[-x]=-z[x] makes it expected-False in the legitimate negative regime. For arch-1 (positive C) abs() is a no-op: build_dissociation()/tracking_test() run UNMODIFIED and arch-1 numbers are byte-identical to depth_dissoc_sketch.py.",
+    "PASS_ABS_CONVENTION is NOT the bare pre-registered outcome. It marks a gate pass on a globally-NEGATIVE-C architecture where the two-family D was built with |C| \u2014 a documented deviation from prereg s1.1, which is written for signed C. It is admissible AS the pre-registered result ONLY after a prereg AMENDMENT ratifies the |C| convention for sign-inverted architectures. That ratification is a PENDING USER DECISION; until then, a PASS_ABS_CONVENTION is a conditional positive, reported distinctly so no reader can mistake it for bare PASS.",
+    "AMBIGUOUS (literal gate only) fires when (a) the arch-2 C sign regime is MIXED (above), or (b) per prereg s1.3 EITHER arch's D-profile trips the raw dM/dC fragility guard (d_profile_ambiguous \u2014 M and C not cleanly opposite at some pair, so sign(dD) depends on a 3-sample std ratio). AMBIGUOUS and KILL both mean descriptive-only publication, but a reviewer needs the distinction: AMBIGUOUS = the target/convention is unjustified or fragile; KILL = the target is clean but no statistic replicated on both arches.",
+    "MERGE HONESTY (review MAJOR-2): _read_merge records per-layer status (arch2.literal.merge_detail) distinguishing file_absent / present_but_no_qualifying_g2g3_cell (with the per-g/seed reason: not_c2_coherent / negligible / saturated) / qualified, and emits a stderr WARNING for a present-but-degenerate layer. When EVERY present arch-2 merge file has no qualifying g2/g3 cell (the real Qwen case: its signal lives at g=10-20, outside the frozen s2.2 small-g window), literal.reason states the two-family dissociation cannot be built on Qwen's pre-registered merge statistic without a prereg amendment \u2014 DISTINCT from merge-data-absent (literal.merge_window_failure=true).",
+    "C_arch2(L) is (a) auto-discovered by running within_probe_rhos (imported from analyze_matrices.py, the G1 gate's own primitive) on any local results/matrices/gate_<tag>_rome_cf_L<L>_s*.npz found, point estimate only (no permutation null \u2014 out of scope for a depth-shape target), and/or (b) supplied via --arch2_collateral_json, which OVERRIDES the auto value per layer. Layers with neither are ABSENT from the profile, never treated as 0. For the LITERAL D-profile, C is discovered over ALL requested depths (a C-only depth with no bank still contributes to the informative D_profile_buildable), but the statistic-replication GATE additionally requires a raw-K bank at each depth (prereg s3.1).",
+    "On the data situation at authoring time (2026-07-14): qwen15b matrices exist at L14 only, tag-namespaced merge at L21 only, raw-K bank at L14 only \u2014 zero overlap, so the DEFAULT on-box run returns arch2.decidable via the proxy path and literal_gate_decidable=false. As the local chain lands gate_qwen15b_rome_cf_L{17,21,24} matrices + RG_operating_curve_table_qwen15b_L{14,24} merge (and, for the full gate, raw-K banks at those depths), the literal gate activates automatically with no code change. Bare 'PASS' is emitted ONLY on the literal two-family target \u2014 a proxy-target match can never be mistaken for the pre-registered gate firing."
+  ]
+}

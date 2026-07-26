@@ -1,0 +1,105 @@
+{
+ "rome_depth_profile": {
+  "L8": {
+   "n_seeds": 3,
+   "rho_ripple_mean": 0.45385987755136764,
+   "rho_unrelated_mean": 0.47451506253665326,
+   "rho_ripple_per_seed": [
+    0.4567541125360144,
+    0.44749683065085183,
+    0.4573286894672367
+   ],
+   "rho_unrelated_per_seed": [
+    0.46837627048809183,
+    0.47639438775863385,
+    0.47877452936323417
+   ],
+   "esr_per_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "L10": {
+   "n_seeds": 3,
+   "rho_ripple_mean": 0.46534047375269544,
+   "rho_unrelated_mean": 0.5454503243225836,
+   "rho_ripple_per_seed": [
+    0.4476270265417188,
+    0.47101818114272687,
+    0.4773762135736407
+   ],
+   "rho_unrelated_per_seed": [
+    0.5149398232898155,
+    0.5732594133845277,
+    0.5481517362934074
+   ],
+   "esr_per_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "L12": {
+   "n_seeds": 3,
+   "rho_ripple_mean": 0.2740556933148716,
+   "rho_unrelated_mean": 0.3324817529039128,
+   "rho_ripple_per_seed": [
+    0.2769332554549745,
+    0.28063162932417574,
+    0.26460219516546457
+   ],
+   "rho_unrelated_per_seed": [
+    0.3171942195116971,
+    0.3625114259041605,
+    0.31773961329588085
+   ],
+   "esr_per_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "L14": {
+   "n_seeds": 3,
+   "rho_ripple_mean": 0.4915470381693712,
+   "rho_unrelated_mean": 0.4492104193768826,
+   "rho_ripple_per_seed": [
+    0.479592562979834,
+    0.5022687061423994,
+    0.4927798453858801
+   ],
+   "rho_unrelated_per_seed": [
+    0.4525341109116607,
+    0.4383647158917848,
+    0.45673243132720237
+   ],
+   "esr_per_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "alpha_L12_per_seed": [
+  {
+   "json": "results/ripple_llama1b_alpha_popular_L12_s0.json",
+   "rho_ripple": 0.16857891266325542,
+   "rho_unrelated": 0.011414894601755923,
+   "esr": 1.0
+  },
+  {
+   "json": "results/ripple_llama1b_alpha_popular_L12_s1.json",
+   "rho_ripple": 0.14898967330237317,
+   "rho_unrelated": 0.0350546108817567,
+   "esr": 1.0
+  },
+  {
+   "json": "results/ripple_llama1b_alpha_popular_L12_s2.json",
+   "rho_ripple": 0.1284491527633615,
+   "rho_unrelated": 0.01814164611109008,
+   "esr": 1.0
+  }
+ ],
+ "note": "pooled from per-cell jsons (run_ripple/run_ripple_ext protocol, popular split)"
+}

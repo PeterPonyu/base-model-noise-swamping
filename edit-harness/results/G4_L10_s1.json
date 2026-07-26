@@ -1,0 +1,48 @@
+{
+  "rome": "gate_llama1b_rome_cf_L10_s1.npz",
+  "alpha": "g4_llama1b_alpha_cf_L10_s1.npz",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "by_cosine_quartile": [
+    {
+      "cosine_quartile": "Q1(low)",
+      "n_pairs": 7469,
+      "mean_cos": 0.096,
+      "rome_mean_damage": 0.89463,
+      "alpha_mean_damage": 0.043,
+      "damage_reduction": 0.85163,
+      "protection_ratio": 20.806
+    },
+    {
+      "cosine_quartile": "Q2",
+      "n_pairs": 7469,
+      "mean_cos": 0.1581,
+      "rome_mean_damage": 1.36902,
+      "alpha_mean_damage": 0.05761,
+      "damage_reduction": 1.31141,
+      "protection_ratio": 23.764
+    },
+    {
+      "cosine_quartile": "Q3",
+      "n_pairs": 7469,
+      "mean_cos": 0.2135,
+      "rome_mean_damage": 2.00441,
+      "alpha_mean_damage": 0.07029,
+      "damage_reduction": 1.93412,
+      "protection_ratio": 28.517
+    },
+    {
+      "cosine_quartile": "Q4(high)",
+      "n_pairs": 7469,
+      "mean_cos": 0.3522,
+      "rome_mean_damage": 3.52348,
+      "alpha_mean_damage": 0.1195,
+      "damage_reduction": 3.40398,
+      "protection_ratio": 29.486
+    }
+  ],
+  "reduction_top_vs_bottom_ratio": 3.997,
+  "VERDICT": "PASS \u2014 AlphaEdit protection concentrated in high-cosine probes (causal support)"
+}

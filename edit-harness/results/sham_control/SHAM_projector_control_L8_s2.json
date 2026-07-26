@@ -1,0 +1,16 @@
+{
+  "n_edits": 196,
+  "dim": 8192,
+  "removed_rank_r": 180,
+  "keep_ratio": 0.99,
+  "n_sham": 20,
+  "rho_algebraic_real_projector": 0.5083,
+  "rho_sham_mean": 0.8998,
+  "rho_sham_sd": 0.0099,
+  "rho_sham_p95": 0.9166,
+  "real_percentile_in_sham": 0.0,
+  "rho_measured_damage_removed": 0.3518,
+  "measured_minus_algebraic": -0.1565,
+  "interpretation": "If rho_measured \u2248 rho_algebraic_real AND sham stays near its null, the geometry-tracking is carried by the preserved-key structure (empirical under the full forward pass, not reproduced by rank-matched random projectors). If sham \u2248 real, the projection step alone forces the correlation and the objection stands.",
+  "cell": "L8_s2"
+}

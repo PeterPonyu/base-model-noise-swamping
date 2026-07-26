@@ -1,0 +1,155 @@
+{
+  "experiment": "QuantEdit E0 (rank #7, EXPANSION-DIRECTIONS-DEEP-2026-07-01.md S2.7)",
+  "hypothesis": "closed-form row-effective margin (from K,A,B,Wbase alone) predicts per-edit survival under simulated 4-bit-class PTQ",
+  "margin_definition": "median over d_out rows of |A_i[r]| * ||B_i||_2 / (||Q(Wbase)[r,:]-Wbase[r,:]||_2 + eps); Q = the rung's quantizer applied to Wbase once (shared across edits in the bank)",
+  "survival_definition": "||Q(Wbase+outer(A_i,B_i)) - Q(Wbase)||_F / (||A_i||_2*||B_i||_2); Q(Wbase+\u0394W_i) is requantized per edit (post-edit absmax) \u2014 assumes PTQ happens AFTER editing",
+  "nf4_definition": "bitsandbytes/QLoRA 16-level NF4 codebook (Dettmers et al. 2023), per-row-group absmax normalization, nearest-codebook dequant; NO double-quantization of scale constants (out of scope)",
+  "uniform_rtn_definition": "symmetric per-row-group absmax RTN: scale=max(|group|)/qmax, qmax=2**(bits-1)-1, code=clip(round(x/scale),-qmax,qmax), dequant=code*scale",
+  "rungs": [
+    "int8_g64",
+    "int4_g64",
+    "int3_g32",
+    "nf4_g64"
+  ],
+  "group_sizes": {
+    "int8_g64": 64,
+    "int4_g64": 64,
+    "int3_g32": 32,
+    "nf4_g64": 64
+  },
+  "gate": {
+    "gate_rho": 0.8,
+    "gate_var_floor": 0.05,
+    "rule": "KILL if no bank clears gate_var_floor at its transition rung (no signal), OR any bank's transition-rung Spearman(margin,survival) < gate_rho",
+    "source": "EXPANSION-DIRECTIONS-DEEP-2026-07-01.md:164 (QuantEdit E0 pre-registration)"
+  },
+  "verdict": "KILL",
+  "verdict_reason": "at least one bank's transition-rung Spearman(margin, survival) < gate_rho",
+  "banks": [
+    {
+      "bank": {
+        "path": "results/vectors/vectors_qv_llama1b_rome_cf_L8_s0.npz",
+        "model": "data/models/Llama-3.2-1B",
+        "editor": "rome",
+        "layer": 8,
+        "seed": 0,
+        "N": 200
+      },
+      "rungs": [
+        {
+          "rung": "int8_g64",
+          "rho_margin_survival": -0.6427,
+          "margin_mean": 9.8604,
+          "margin_median": 9.7998,
+          "margin_std": 0.8732,
+          "survival_mean": 1.0066,
+          "survival_median": 1.0065,
+          "survival_std": 0.0011,
+          "elapsed_s": 42.9
+        },
+        {
+          "rung": "int4_g64",
+          "rho_margin_survival": -0.423,
+          "margin_mean": 0.544,
+          "margin_median": 0.5403,
+          "margin_std": 0.0481,
+          "survival_mean": 1.7277,
+          "survival_median": 1.7245,
+          "survival_std": 0.0695,
+          "elapsed_s": 42.74
+        },
+        {
+          "rung": "int3_g32",
+          "rho_margin_survival": -0.3884,
+          "margin_mean": 0.2634,
+          "margin_median": 0.2619,
+          "margin_std": 0.0232,
+          "survival_mean": 2.4322,
+          "survival_median": 2.4328,
+          "survival_std": 0.1085,
+          "elapsed_s": 45.36
+        },
+        {
+          "rung": "nf4_g64",
+          "rho_margin_survival": -0.4347,
+          "margin_mean": 0.6657,
+          "margin_median": 0.6596,
+          "margin_std": 0.0587,
+          "survival_mean": 1.5695,
+          "survival_median": 1.5655,
+          "survival_std": 0.0584,
+          "elapsed_s": 162.4
+        }
+      ],
+      "transition_rung": "int3_g32",
+      "transition_survival_std": 0.1085,
+      "transition_rho": -0.3884
+    },
+    {
+      "bank": {
+        "path": "results/vectors/vectors_qv_llama1b_rome_cf_L12_s0.npz",
+        "model": "data/models/Llama-3.2-1B",
+        "editor": "rome",
+        "layer": 12,
+        "seed": 0,
+        "N": 200
+      },
+      "rungs": [
+        {
+          "rung": "int8_g64",
+          "rho_margin_survival": -0.8007,
+          "margin_mean": 8.3669,
+          "margin_median": 8.3318,
+          "margin_std": 1.3836,
+          "survival_mean": 1.0098,
+          "survival_median": 1.0091,
+          "survival_std": 0.0035,
+          "elapsed_s": 42.33
+        },
+        {
+          "rung": "int4_g64",
+          "rho_margin_survival": -0.682,
+          "margin_mean": 0.4615,
+          "margin_median": 0.4603,
+          "margin_std": 0.0762,
+          "survival_mean": 1.832,
+          "survival_median": 1.8161,
+          "survival_std": 0.1543,
+          "elapsed_s": 42.3
+        },
+        {
+          "rung": "int3_g32",
+          "rho_margin_survival": -0.6718,
+          "margin_mean": 0.2206,
+          "margin_median": 0.2197,
+          "margin_std": 0.0365,
+          "survival_mean": 2.5979,
+          "survival_median": 2.5808,
+          "survival_std": 0.2432,
+          "elapsed_s": 44.86
+        },
+        {
+          "rung": "nf4_g64",
+          "rho_margin_survival": -0.6845,
+          "margin_mean": 0.5482,
+          "margin_median": 0.5465,
+          "margin_std": 0.0908,
+          "survival_mean": 1.668,
+          "survival_median": 1.6526,
+          "survival_std": 0.1321,
+          "elapsed_s": 158.58
+        }
+      ],
+      "transition_rung": "int3_g32",
+      "transition_survival_std": 0.2432,
+      "transition_rho": -0.6718
+    }
+  ],
+  "notes": [
+    "SIMULATED quant survival oracle \u2014 hand-rolled numpy RTN/NF4, not a real quantized-model behavioral eval (that is E1, ~140 GPU-min, deferred pending this gate).",
+    "Single seed per layer (s0) \u2014 no cross-seed variance yet; that is E2 in the ladder.",
+    "Group sizes (64 uniform / 32 for int3) are a documented choice, not swept.",
+    "NF4 scale constants are NOT double-quantized (bnb does this for extra compression; skipped here as out of scope for the closed-form margin claim).",
+    "Margin uses a row-median aggregate (not mean/min/quantile) \u2014 an unexplored aggregation-sensitivity axis."
+  ]
+}

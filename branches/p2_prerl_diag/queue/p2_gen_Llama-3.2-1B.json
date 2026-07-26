@@ -1,0 +1,27 @@
+{
+ "job_kind": "gen",
+ "job_id": "p2_gen_Llama-3.2-1B",
+ "gpu_required": true,
+ "created": "2026-07-01T03:05:31.838129+00:00",
+ "checkpoint_id": "Llama-3.2-1B",
+ "model_path": "edit-harness/data/models/Llama-3.2-1B",
+ "env": "dl",
+ "_note": "k-sample GSM8K generation from the PRE-RL checkpoint (no training). Greedy=False; sample k independent CoT traces per problem, grade the final \\boxed{} against GSM8K gold, record {text,len,correct}.",
+ "spec": {
+  "dataset": "openai/gsm8k",
+  "dataset_config": "main",
+  "split": "test",
+  "n_problems": 200,
+  "k": 8,
+  "temperature": 0.9,
+  "top_p": 1.0,
+  "max_new_tokens": 640,
+  "len_unit": "generated_tokens",
+  "grader": "boxed_gsm8k",
+  "seed": 0,
+  "out": "branches/p2_prerl_diag/samples/Llama-3.2-1B.json"
+ },
+ "cmd": "env -u ALL_PROXY -u all_proxy conda run -n dl python3 branches/p2_prerl_diag/sample_ckpt.py --model edit-harness/data/models/Llama-3.2-1B --dataset openai/gsm8k --config main --split test --n-problems 200 --k 8 --temperature 0.9 --top-p 1.0 --max-new-tokens 640 --seed 0 --out branches/p2_prerl_diag/samples/Llama-3.2-1B.json",
+ "_cmd_note": "sample_ckpt.py is the GPU sampler (NOT in this branch yet \u2014 it is the queued work). It must import transformers/torch and therefore only runs in dl-rl. Its output JSON is the input contract of run_diag.py.",
+ "_env_note": "env corrected dl-rl->dl 2026-07-04 (u4 review CRITICAL-1: dl-rl was never created; dl verified to carry torch/transformers/datasets)"
+}

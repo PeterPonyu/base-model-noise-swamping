@@ -1,0 +1,107 @@
+{
+ "n": 17,
+ "rows": [
+  {
+   "json": "results/egl_llama1b_alpha_cf_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/egl_llama1b_ft_cf_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.915
+  },
+  {
+   "json": "results/egl_llama1b_ft_cf_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.895
+  },
+  {
+   "json": "results/egl_llama1b_ft_cf_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.915
+  },
+  {
+   "json": "results/egl_llama1b_ftkl030_cf_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/egl_llama1b_ftkl030_cf_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/egl_llama1b_ftkl030_cf_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/egl_llama1b_grace_cf_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/egl_llama1b_memit_cf_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/egl_llama1b_rome_cf_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L10_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L10_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L14_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.95
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L14_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.96
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_refusal_zsre_L10_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.985
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_refusal_zsre_L10_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/u1e0_llama3b_delete_refusal_L24_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.97
+  }
+ ]
+}

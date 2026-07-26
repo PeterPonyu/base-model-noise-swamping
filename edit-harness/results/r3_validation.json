@@ -1,0 +1,116 @@
+{
+ "n": 13,
+ "rows": [
+  {
+   "json": "results/equiv_llama1b_bf16_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "bfloat16"
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "float32"
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "float32"
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "float32"
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L8_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "float32"
+  },
+  {
+   "json": "results/gate_llama3b_rome_cf_L24_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "float32"
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L16_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "bfloat16"
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L24_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "bfloat16"
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L28_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "bfloat16"
+  },
+  {
+   "json": "results/sanity_gpt2xl_rome_cf_L17_s0.egl.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/sanity_gpt2xl_rome_cf_L17_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.795,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "float32"
+  },
+  {
+   "json": "results/sanity_gpt2xl_rome_cf_L5_s0.egl.json",
+   "npz_found": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/sanity_gpt2xl_rome_cf_L5_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.84,
+   "npz_keys_ok": true,
+   "all_nan": false,
+   "model_dtype": "float32"
+  }
+ ]
+}

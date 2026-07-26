@@ -1,0 +1,5324 @@
+{
+  "experiment": "RG_admission_benefit",
+  "status": "RETROSPECTIVE (spec frozen in submissions/d2-federation/canonical.md \u00a76 before implementation)",
+  "schema_version": "m0.v1",
+  "created": "2026-07-15T20:51:41",
+  "budgets": [
+    0.25,
+    0.5
+  ],
+  "small_g": [
+    2,
+    3,
+    5
+  ],
+  "gain_cut": 8.0,
+  "bundles": {
+    "Llama-3.1-8B_L24_RG": {
+      "gain": 22.2069,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.4098,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0695,
+            "mean_drop_magnitude": 0.1451,
+            "benefit_geometry_vs_random": 0.3403,
+            "benefit_magnitude_vs_random": 0.2647
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0766,
+            "mean_drop_magnitude": 0.1622,
+            "benefit_geometry_vs_random": 0.3333,
+            "benefit_magnitude_vs_random": 0.2477
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 0.784,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.2193,
+            "mean_drop_magnitude": 0.5382,
+            "benefit_geometry_vs_random": 0.5647,
+            "benefit_magnitude_vs_random": 0.2457
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.2841,
+            "mean_drop_magnitude": 0.6026,
+            "benefit_geometry_vs_random": 0.4998,
+            "benefit_magnitude_vs_random": 0.1814
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.7312,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.4875,
+            "mean_drop_magnitude": 1.2904,
+            "benefit_geometry_vs_random": 1.2436,
+            "benefit_magnitude_vs_random": 0.4408
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.8351,
+            "mean_drop_magnitude": 1.554,
+            "benefit_geometry_vs_random": 0.8961,
+            "benefit_magnitude_vs_random": 0.1772
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 4.7424,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.2795,
+            "mean_drop_magnitude": 4.8374,
+            "benefit_geometry_vs_random": 2.4629,
+            "benefit_magnitude_vs_random": -0.0951
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.232,
+            "mean_drop_magnitude": 4.9653,
+            "benefit_geometry_vs_random": 1.5103,
+            "benefit_magnitude_vs_random": -0.2229
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 11.1721,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 8.0543,
+            "mean_drop_magnitude": 11.815,
+            "benefit_geometry_vs_random": 3.1177,
+            "benefit_magnitude_vs_random": -0.6429
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 9.567,
+            "mean_drop_magnitude": 11.7257,
+            "benefit_geometry_vs_random": 1.605,
+            "benefit_magnitude_vs_random": -0.5536
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.3393,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1404,
+            "mean_drop_magnitude": 0.2396,
+            "benefit_geometry_vs_random": 0.1989,
+            "benefit_magnitude_vs_random": 0.0997
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1528,
+            "mean_drop_magnitude": 0.1887,
+            "benefit_geometry_vs_random": 0.1865,
+            "benefit_magnitude_vs_random": 0.1506
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 0.7044,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.2426,
+            "mean_drop_magnitude": 0.5165,
+            "benefit_geometry_vs_random": 0.4618,
+            "benefit_magnitude_vs_random": 0.188
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.3525,
+            "mean_drop_magnitude": 0.5458,
+            "benefit_geometry_vs_random": 0.3519,
+            "benefit_magnitude_vs_random": 0.1586
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.6052,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.7594,
+            "mean_drop_magnitude": 0.9827,
+            "benefit_geometry_vs_random": 0.8459,
+            "benefit_magnitude_vs_random": 0.6225
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.9513,
+            "mean_drop_magnitude": 1.3505,
+            "benefit_geometry_vs_random": 0.6539,
+            "benefit_magnitude_vs_random": 0.2547
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 4.5916,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.7402,
+            "mean_drop_magnitude": 4.2984,
+            "benefit_geometry_vs_random": 1.8514,
+            "benefit_magnitude_vs_random": 0.2932
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.1552,
+            "mean_drop_magnitude": 4.8203,
+            "benefit_geometry_vs_random": 1.4364,
+            "benefit_magnitude_vs_random": -0.2287
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 11.6405,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 9.9334,
+            "mean_drop_magnitude": 11.589,
+            "benefit_geometry_vs_random": 1.7072,
+            "benefit_magnitude_vs_random": 0.0516
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 10.4093,
+            "mean_drop_magnitude": 11.4439,
+            "benefit_geometry_vs_random": 1.2313,
+            "benefit_magnitude_vs_random": 0.1967
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2633,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0406,
+            "mean_drop_magnitude": 0.1173,
+            "benefit_geometry_vs_random": 0.2227,
+            "benefit_magnitude_vs_random": 0.1461
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0436,
+            "mean_drop_magnitude": 0.1105,
+            "benefit_geometry_vs_random": 0.2197,
+            "benefit_magnitude_vs_random": 0.1528
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 0.6865,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.0518,
+            "mean_drop_magnitude": 0.301,
+            "benefit_geometry_vs_random": 0.6347,
+            "benefit_magnitude_vs_random": 0.3855
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.3125,
+            "mean_drop_magnitude": 0.3885,
+            "benefit_geometry_vs_random": 0.374,
+            "benefit_magnitude_vs_random": 0.298
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.5636,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.5858,
+            "mean_drop_magnitude": 1.1641,
+            "benefit_geometry_vs_random": 0.9778,
+            "benefit_magnitude_vs_random": 0.3995
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.8009,
+            "mean_drop_magnitude": 1.3473,
+            "benefit_geometry_vs_random": 0.7627,
+            "benefit_magnitude_vs_random": 0.2163
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 4.2548,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.5455,
+            "mean_drop_magnitude": 4.0692,
+            "benefit_geometry_vs_random": 1.7093,
+            "benefit_magnitude_vs_random": 0.1856
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.9328,
+            "mean_drop_magnitude": 4.1417,
+            "benefit_geometry_vs_random": 1.3221,
+            "benefit_magnitude_vs_random": 0.1131
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 11.1159,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 9.4136,
+            "mean_drop_magnitude": 11.2307,
+            "benefit_geometry_vs_random": 1.7023,
+            "benefit_magnitude_vs_random": -0.1148
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 9.7416,
+            "mean_drop_magnitude": 11.1622,
+            "benefit_geometry_vs_random": 1.3743,
+            "benefit_magnitude_vs_random": -0.0464
+          }
+        }
+      }
+    },
+    "Llama-3.2-1B_L12_RG": {
+      "gain": 27.2068,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 2.5446,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.0479,
+            "mean_drop_magnitude": 1.6213,
+            "benefit_geometry_vs_random": 1.4967,
+            "benefit_magnitude_vs_random": 0.9233
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.6466,
+            "mean_drop_magnitude": 1.9639,
+            "benefit_geometry_vs_random": 0.898,
+            "benefit_magnitude_vs_random": 0.5807
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 4.8356,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 2.9592,
+            "mean_drop_magnitude": 3.8435,
+            "benefit_geometry_vs_random": 1.8764,
+            "benefit_magnitude_vs_random": 0.9921
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 3.7269,
+            "mean_drop_magnitude": 4.1425,
+            "benefit_geometry_vs_random": 1.1087,
+            "benefit_magnitude_vs_random": 0.6931
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 8.1991,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 7.1938,
+            "mean_drop_magnitude": 6.9093,
+            "benefit_geometry_vs_random": 1.0053,
+            "benefit_magnitude_vs_random": 1.2897
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 7.1697,
+            "mean_drop_magnitude": 7.9301,
+            "benefit_geometry_vs_random": 1.0293,
+            "benefit_magnitude_vs_random": 0.269
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 13.2983,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 12.8186,
+            "mean_drop_magnitude": 12.978,
+            "benefit_geometry_vs_random": 0.4797,
+            "benefit_magnitude_vs_random": 0.3204
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 13.1214,
+            "mean_drop_magnitude": 13.0361,
+            "benefit_geometry_vs_random": 0.177,
+            "benefit_magnitude_vs_random": 0.2623
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 17.2438,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 16.3268,
+            "mean_drop_magnitude": 16.8143,
+            "benefit_geometry_vs_random": 0.917,
+            "benefit_magnitude_vs_random": 0.4295
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 17.1626,
+            "mean_drop_magnitude": 16.8035,
+            "benefit_geometry_vs_random": 0.0813,
+            "benefit_magnitude_vs_random": 0.4403
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.7155,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.033,
+            "mean_drop_magnitude": 1.1978,
+            "benefit_geometry_vs_random": 0.6825,
+            "benefit_magnitude_vs_random": 0.5177
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.0872,
+            "mean_drop_magnitude": 1.3567,
+            "benefit_geometry_vs_random": 0.6283,
+            "benefit_magnitude_vs_random": 0.3588
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 3.2458,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 2.2314,
+            "mean_drop_magnitude": 2.1798,
+            "benefit_geometry_vs_random": 1.0144,
+            "benefit_magnitude_vs_random": 1.066
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 2.2615,
+            "mean_drop_magnitude": 2.6405,
+            "benefit_geometry_vs_random": 0.9843,
+            "benefit_magnitude_vs_random": 0.6053
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 6.4197,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.8987,
+            "mean_drop_magnitude": 5.2908,
+            "benefit_geometry_vs_random": 0.521,
+            "benefit_magnitude_vs_random": 1.1289
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.6577,
+            "mean_drop_magnitude": 5.8094,
+            "benefit_geometry_vs_random": 0.762,
+            "benefit_magnitude_vs_random": 0.6103
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 11.6952,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 10.7076,
+            "mean_drop_magnitude": 10.487,
+            "benefit_geometry_vs_random": 0.9876,
+            "benefit_magnitude_vs_random": 1.2083
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 11.3429,
+            "mean_drop_magnitude": 10.9741,
+            "benefit_geometry_vs_random": 0.3523,
+            "benefit_magnitude_vs_random": 0.7211
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 16.5763,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 15.7718,
+            "mean_drop_magnitude": 16.1714,
+            "benefit_geometry_vs_random": 0.8045,
+            "benefit_magnitude_vs_random": 0.4049
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 16.6535,
+            "mean_drop_magnitude": 16.568,
+            "benefit_geometry_vs_random": -0.0772,
+            "benefit_magnitude_vs_random": 0.0083
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.8989,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.7942,
+            "mean_drop_magnitude": 1.3068,
+            "benefit_geometry_vs_random": 1.1047,
+            "benefit_magnitude_vs_random": 0.5922
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.2714,
+            "mean_drop_magnitude": 1.5218,
+            "benefit_geometry_vs_random": 0.6276,
+            "benefit_magnitude_vs_random": 0.3772
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 3.8075,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 2.2574,
+            "mean_drop_magnitude": 3.4466,
+            "benefit_geometry_vs_random": 1.5501,
+            "benefit_magnitude_vs_random": 0.3609
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 2.7161,
+            "mean_drop_magnitude": 3.7108,
+            "benefit_geometry_vs_random": 1.0914,
+            "benefit_magnitude_vs_random": 0.0967
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 6.8872,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.6535,
+            "mean_drop_magnitude": 6.9328,
+            "benefit_geometry_vs_random": 1.2338,
+            "benefit_magnitude_vs_random": -0.0455
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.9633,
+            "mean_drop_magnitude": 6.8281,
+            "benefit_geometry_vs_random": 0.9239,
+            "benefit_magnitude_vs_random": 0.0592
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 12.1575,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 11.5424,
+            "mean_drop_magnitude": 11.9973,
+            "benefit_geometry_vs_random": 0.6151,
+            "benefit_magnitude_vs_random": 0.1602
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 11.5261,
+            "mean_drop_magnitude": 12.2028,
+            "benefit_geometry_vs_random": 0.6314,
+            "benefit_magnitude_vs_random": -0.0453
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 16.7003,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 16.5811,
+            "mean_drop_magnitude": 17.3126,
+            "benefit_geometry_vs_random": 0.1192,
+            "benefit_magnitude_vs_random": -0.6124
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 16.8799,
+            "mean_drop_magnitude": 16.9606,
+            "benefit_geometry_vs_random": -0.1796,
+            "benefit_magnitude_vs_random": -0.2603
+          }
+        }
+      }
+    },
+    "Llama-3.2-1B_L14_RG": {
+      "gain": 28.6648,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 3.5052,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.5955,
+            "mean_drop_magnitude": 1.9407,
+            "benefit_geometry_vs_random": 1.9098,
+            "benefit_magnitude_vs_random": 1.5645
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.27,
+            "mean_drop_magnitude": 2.5436,
+            "benefit_geometry_vs_random": 1.2353,
+            "benefit_magnitude_vs_random": 0.9616
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 6.3617,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 5.0277,
+            "mean_drop_magnitude": 4.9769,
+            "benefit_geometry_vs_random": 1.334,
+            "benefit_magnitude_vs_random": 1.3848
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 5.1055,
+            "mean_drop_magnitude": 5.3915,
+            "benefit_geometry_vs_random": 1.2562,
+            "benefit_magnitude_vs_random": 0.9702
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 10.3724,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 9.093,
+            "mean_drop_magnitude": 9.1995,
+            "benefit_geometry_vs_random": 1.2794,
+            "benefit_magnitude_vs_random": 1.1729
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 9.3042,
+            "mean_drop_magnitude": 9.5102,
+            "benefit_geometry_vs_random": 1.0682,
+            "benefit_magnitude_vs_random": 0.8622
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 15.5435,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 14.7391,
+            "mean_drop_magnitude": 14.0138,
+            "benefit_geometry_vs_random": 0.8044,
+            "benefit_magnitude_vs_random": 1.5296
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 14.9856,
+            "mean_drop_magnitude": 14.7513,
+            "benefit_geometry_vs_random": 0.5578,
+            "benefit_magnitude_vs_random": 0.7922
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 19.1786,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 18.4444,
+            "mean_drop_magnitude": 17.6289,
+            "benefit_geometry_vs_random": 0.7342,
+            "benefit_magnitude_vs_random": 1.5498
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 18.826,
+            "mean_drop_magnitude": 18.7033,
+            "benefit_geometry_vs_random": 0.3527,
+            "benefit_magnitude_vs_random": 0.4753
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 3.2458,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.678,
+            "mean_drop_magnitude": 1.5493,
+            "benefit_geometry_vs_random": 1.5679,
+            "benefit_magnitude_vs_random": 1.6966
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.567,
+            "mean_drop_magnitude": 2.7229,
+            "benefit_geometry_vs_random": 0.6789,
+            "benefit_magnitude_vs_random": 0.523
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 5.8907,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 3.4324,
+            "mean_drop_magnitude": 3.9172,
+            "benefit_geometry_vs_random": 2.4583,
+            "benefit_magnitude_vs_random": 1.9736
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 4.6179,
+            "mean_drop_magnitude": 4.731,
+            "benefit_geometry_vs_random": 1.2728,
+            "benefit_magnitude_vs_random": 1.1597
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 9.9173,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 8.1511,
+            "mean_drop_magnitude": 7.9147,
+            "benefit_geometry_vs_random": 1.7662,
+            "benefit_magnitude_vs_random": 2.0026
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 9.4212,
+            "mean_drop_magnitude": 8.7924,
+            "benefit_geometry_vs_random": 0.4961,
+            "benefit_magnitude_vs_random": 1.1249
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 15.4271,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 14.4784,
+            "mean_drop_magnitude": 14.9141,
+            "benefit_geometry_vs_random": 0.9487,
+            "benefit_magnitude_vs_random": 0.513
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 15.0002,
+            "mean_drop_magnitude": 14.6582,
+            "benefit_geometry_vs_random": 0.4269,
+            "benefit_magnitude_vs_random": 0.7689
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 19.5166,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 19.302,
+            "mean_drop_magnitude": 20.0105,
+            "benefit_geometry_vs_random": 0.2146,
+            "benefit_magnitude_vs_random": -0.4939
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 19.3197,
+            "mean_drop_magnitude": 19.5534,
+            "benefit_geometry_vs_random": 0.1968,
+            "benefit_magnitude_vs_random": -0.0368
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 3.3521,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.7666,
+            "mean_drop_magnitude": 1.6346,
+            "benefit_geometry_vs_random": 1.5854,
+            "benefit_magnitude_vs_random": 1.7175
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.4647,
+            "mean_drop_magnitude": 2.0072,
+            "benefit_geometry_vs_random": 0.8873,
+            "benefit_magnitude_vs_random": 1.3449
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 6.1386,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 4.6188,
+            "mean_drop_magnitude": 4.1123,
+            "benefit_geometry_vs_random": 1.5197,
+            "benefit_magnitude_vs_random": 2.0263
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 4.8728,
+            "mean_drop_magnitude": 4.8324,
+            "benefit_geometry_vs_random": 1.2658,
+            "benefit_magnitude_vs_random": 1.3062
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 9.8715,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 7.9791,
+            "mean_drop_magnitude": 7.4373,
+            "benefit_geometry_vs_random": 1.8925,
+            "benefit_magnitude_vs_random": 2.4342
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 9.0573,
+            "mean_drop_magnitude": 9.0586,
+            "benefit_geometry_vs_random": 0.8142,
+            "benefit_magnitude_vs_random": 0.813
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 14.6055,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 13.6195,
+            "mean_drop_magnitude": 13.2638,
+            "benefit_geometry_vs_random": 0.9859,
+            "benefit_magnitude_vs_random": 1.3417
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 13.8586,
+            "mean_drop_magnitude": 14.0103,
+            "benefit_geometry_vs_random": 0.7468,
+            "benefit_magnitude_vs_random": 0.5951
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 18.2861,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 17.8858,
+            "mean_drop_magnitude": 16.8996,
+            "benefit_geometry_vs_random": 0.4002,
+            "benefit_magnitude_vs_random": 1.3865
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 17.8528,
+            "mean_drop_magnitude": 17.6065,
+            "benefit_geometry_vs_random": 0.4332,
+            "benefit_magnitude_vs_random": 0.6796
+          }
+        }
+      }
+    },
+    "Llama-3.2-1B_L8_RG": {
+      "gain": 64.5242,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.9825,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.0738,
+            "mean_drop_magnitude": 1.8356,
+            "benefit_geometry_vs_random": 0.9088,
+            "benefit_magnitude_vs_random": 0.147
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.2623,
+            "mean_drop_magnitude": 1.6274,
+            "benefit_geometry_vs_random": 0.7203,
+            "benefit_magnitude_vs_random": 0.3552
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 3.6277,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 2.6896,
+            "mean_drop_magnitude": 2.998,
+            "benefit_geometry_vs_random": 0.9381,
+            "benefit_magnitude_vs_random": 0.6297
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 2.8307,
+            "mean_drop_magnitude": 3.2094,
+            "benefit_geometry_vs_random": 0.797,
+            "benefit_magnitude_vs_random": 0.4183
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 6.4977,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.3201,
+            "mean_drop_magnitude": 5.9742,
+            "benefit_geometry_vs_random": 1.1776,
+            "benefit_magnitude_vs_random": 0.5235
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.4352,
+            "mean_drop_magnitude": 5.9209,
+            "benefit_geometry_vs_random": 1.0625,
+            "benefit_magnitude_vs_random": 0.5768
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 11.263,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 9.9161,
+            "mean_drop_magnitude": 10.2308,
+            "benefit_geometry_vs_random": 1.3469,
+            "benefit_magnitude_vs_random": 1.0322
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 10.0515,
+            "mean_drop_magnitude": 10.5275,
+            "benefit_geometry_vs_random": 1.2116,
+            "benefit_magnitude_vs_random": 0.7355
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 15.9536,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 15.8241,
+            "mean_drop_magnitude": 15.5117,
+            "benefit_geometry_vs_random": 0.1295,
+            "benefit_magnitude_vs_random": 0.4419
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 15.2831,
+            "mean_drop_magnitude": 15.982,
+            "benefit_geometry_vs_random": 0.6705,
+            "benefit_magnitude_vs_random": -0.0284
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.809,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.5049,
+            "mean_drop_magnitude": 1.4695,
+            "benefit_geometry_vs_random": 0.3041,
+            "benefit_magnitude_vs_random": 0.3395
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.5954,
+            "mean_drop_magnitude": 1.5434,
+            "benefit_geometry_vs_random": 0.2136,
+            "benefit_magnitude_vs_random": 0.2656
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 3.5381,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 3.0805,
+            "mean_drop_magnitude": 3.1466,
+            "benefit_geometry_vs_random": 0.4576,
+            "benefit_magnitude_vs_random": 0.3915
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 2.9884,
+            "mean_drop_magnitude": 3.1032,
+            "benefit_geometry_vs_random": 0.5497,
+            "benefit_magnitude_vs_random": 0.4349
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 6.5721,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.148,
+            "mean_drop_magnitude": 5.8504,
+            "benefit_geometry_vs_random": 1.4241,
+            "benefit_magnitude_vs_random": 0.7217
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.4924,
+            "mean_drop_magnitude": 5.9022,
+            "benefit_geometry_vs_random": 1.0797,
+            "benefit_magnitude_vs_random": 0.6699
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 11.2086,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 10.8573,
+            "mean_drop_magnitude": 10.3724,
+            "benefit_geometry_vs_random": 0.3513,
+            "benefit_magnitude_vs_random": 0.8362
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 10.4034,
+            "mean_drop_magnitude": 10.7041,
+            "benefit_geometry_vs_random": 0.8053,
+            "benefit_magnitude_vs_random": 0.5046
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 15.5133,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 14.2903,
+            "mean_drop_magnitude": 15.1904,
+            "benefit_geometry_vs_random": 1.2231,
+            "benefit_magnitude_vs_random": 0.3229
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 15.0172,
+            "mean_drop_magnitude": 15.3491,
+            "benefit_geometry_vs_random": 0.4961,
+            "benefit_magnitude_vs_random": 0.1642
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.6697,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.0775,
+            "mean_drop_magnitude": 1.2371,
+            "benefit_geometry_vs_random": 0.5922,
+            "benefit_magnitude_vs_random": 0.4326
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.1776,
+            "mean_drop_magnitude": 1.5179,
+            "benefit_geometry_vs_random": 0.4922,
+            "benefit_magnitude_vs_random": 0.1518
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 3.5324,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 2.4893,
+            "mean_drop_magnitude": 3.4263,
+            "benefit_geometry_vs_random": 1.0431,
+            "benefit_magnitude_vs_random": 0.1062
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 2.7058,
+            "mean_drop_magnitude": 3.2881,
+            "benefit_geometry_vs_random": 0.8267,
+            "benefit_magnitude_vs_random": 0.2443
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 6.345,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.6648,
+            "mean_drop_magnitude": 5.8682,
+            "benefit_geometry_vs_random": 0.6802,
+            "benefit_magnitude_vs_random": 0.4767
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.8947,
+            "mean_drop_magnitude": 5.9893,
+            "benefit_geometry_vs_random": 0.4502,
+            "benefit_magnitude_vs_random": 0.3556
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 10.4768,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 10.1511,
+            "mean_drop_magnitude": 10.7639,
+            "benefit_geometry_vs_random": 0.3256,
+            "benefit_magnitude_vs_random": -0.2872
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 10.2025,
+            "mean_drop_magnitude": 10.251,
+            "benefit_geometry_vs_random": 0.2743,
+            "benefit_magnitude_vs_random": 0.2258
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 14.9625,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 14.8066,
+            "mean_drop_magnitude": 15.32,
+            "benefit_geometry_vs_random": 0.1559,
+            "benefit_magnitude_vs_random": -0.3575
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 14.7146,
+            "mean_drop_magnitude": 14.7277,
+            "benefit_geometry_vs_random": 0.2479,
+            "benefit_magnitude_vs_random": 0.2348
+          }
+        }
+      }
+    },
+    "Llama-3.2-3B_L21_RG": {
+      "gain": 32.0109,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.9653,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.3636,
+            "mean_drop_magnitude": 0.6723,
+            "benefit_geometry_vs_random": 0.6017,
+            "benefit_magnitude_vs_random": 0.293
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.4539,
+            "mean_drop_magnitude": 0.6173,
+            "benefit_geometry_vs_random": 0.5114,
+            "benefit_magnitude_vs_random": 0.3479
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 1.9185,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.947,
+            "mean_drop_magnitude": 1.5084,
+            "benefit_geometry_vs_random": 0.9715,
+            "benefit_magnitude_vs_random": 0.4101
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.2109,
+            "mean_drop_magnitude": 1.5918,
+            "benefit_geometry_vs_random": 0.7076,
+            "benefit_magnitude_vs_random": 0.3267
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 3.9308,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.5158,
+            "mean_drop_magnitude": 3.3697,
+            "benefit_geometry_vs_random": 1.415,
+            "benefit_magnitude_vs_random": 0.5611
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.8472,
+            "mean_drop_magnitude": 3.7568,
+            "benefit_geometry_vs_random": 1.0835,
+            "benefit_magnitude_vs_random": 0.1739
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 9.047,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 7.2363,
+            "mean_drop_magnitude": 9.1921,
+            "benefit_geometry_vs_random": 1.8107,
+            "benefit_magnitude_vs_random": -0.1451
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 7.8257,
+            "mean_drop_magnitude": 8.9331,
+            "benefit_geometry_vs_random": 1.2212,
+            "benefit_magnitude_vs_random": 0.1139
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 16.2298,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 15.8327,
+            "mean_drop_magnitude": 16.4218,
+            "benefit_geometry_vs_random": 0.397,
+            "benefit_magnitude_vs_random": -0.192
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 15.7418,
+            "mean_drop_magnitude": 16.3665,
+            "benefit_geometry_vs_random": 0.4879,
+            "benefit_magnitude_vs_random": -0.1367
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.8813,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.2523,
+            "mean_drop_magnitude": 0.4661,
+            "benefit_geometry_vs_random": 0.629,
+            "benefit_magnitude_vs_random": 0.4153
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.4126,
+            "mean_drop_magnitude": 0.5425,
+            "benefit_geometry_vs_random": 0.4687,
+            "benefit_magnitude_vs_random": 0.3388
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 1.8347,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.6446,
+            "mean_drop_magnitude": 1.3408,
+            "benefit_geometry_vs_random": 1.1901,
+            "benefit_magnitude_vs_random": 0.4939
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.1296,
+            "mean_drop_magnitude": 1.4562,
+            "benefit_geometry_vs_random": 0.7051,
+            "benefit_magnitude_vs_random": 0.3785
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 3.9917,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.2811,
+            "mean_drop_magnitude": 3.1792,
+            "benefit_geometry_vs_random": 1.7106,
+            "benefit_magnitude_vs_random": 0.8125
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.7891,
+            "mean_drop_magnitude": 3.7503,
+            "benefit_geometry_vs_random": 1.2026,
+            "benefit_magnitude_vs_random": 0.2414
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 9.0138,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 7.074,
+            "mean_drop_magnitude": 8.2695,
+            "benefit_geometry_vs_random": 1.9398,
+            "benefit_magnitude_vs_random": 0.7443
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 7.7109,
+            "mean_drop_magnitude": 8.8865,
+            "benefit_geometry_vs_random": 1.3029,
+            "benefit_magnitude_vs_random": 0.1273
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 15.6996,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 14.0665,
+            "mean_drop_magnitude": 15.0032,
+            "benefit_geometry_vs_random": 1.6331,
+            "benefit_magnitude_vs_random": 0.6964
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 14.4345,
+            "mean_drop_magnitude": 15.6779,
+            "benefit_geometry_vs_random": 1.2651,
+            "benefit_magnitude_vs_random": 0.0217
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.8558,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.3536,
+            "mean_drop_magnitude": 0.434,
+            "benefit_geometry_vs_random": 0.5022,
+            "benefit_magnitude_vs_random": 0.4217
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.3802,
+            "mean_drop_magnitude": 0.6421,
+            "benefit_geometry_vs_random": 0.4755,
+            "benefit_magnitude_vs_random": 0.2137
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 1.8638,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 1.0036,
+            "mean_drop_magnitude": 1.3724,
+            "benefit_geometry_vs_random": 0.8601,
+            "benefit_magnitude_vs_random": 0.4913
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.2409,
+            "mean_drop_magnitude": 1.6158,
+            "benefit_geometry_vs_random": 0.6229,
+            "benefit_magnitude_vs_random": 0.248
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 3.811,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.697,
+            "mean_drop_magnitude": 3.4107,
+            "benefit_geometry_vs_random": 1.114,
+            "benefit_magnitude_vs_random": 0.4003
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.0065,
+            "mean_drop_magnitude": 3.6169,
+            "benefit_geometry_vs_random": 0.8045,
+            "benefit_magnitude_vs_random": 0.1941
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 8.8738,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 7.8784,
+            "mean_drop_magnitude": 8.2323,
+            "benefit_geometry_vs_random": 0.9953,
+            "benefit_magnitude_vs_random": 0.6414
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 7.8397,
+            "mean_drop_magnitude": 8.7588,
+            "benefit_geometry_vs_random": 1.034,
+            "benefit_magnitude_vs_random": 0.1149
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 16.4055,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 16.0932,
+            "mean_drop_magnitude": 16.3007,
+            "benefit_geometry_vs_random": 0.3124,
+            "benefit_magnitude_vs_random": 0.1048
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 15.891,
+            "mean_drop_magnitude": 16.6435,
+            "benefit_geometry_vs_random": 0.5146,
+            "benefit_magnitude_vs_random": -0.238
+          }
+        }
+      }
+    },
+    "Mistral-7B-v0.3_L24_RG": {
+      "gain": 28.2951,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.3006,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0407,
+            "mean_drop_magnitude": 0.0897,
+            "benefit_geometry_vs_random": 0.3413,
+            "benefit_magnitude_vs_random": 0.2109
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0073,
+            "mean_drop_magnitude": 0.1099,
+            "benefit_geometry_vs_random": 0.2933,
+            "benefit_magnitude_vs_random": 0.1906
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 0.4766,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0184,
+            "mean_drop_magnitude": 0.4987,
+            "benefit_geometry_vs_random": 0.495,
+            "benefit_magnitude_vs_random": -0.0221
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.0241,
+            "mean_drop_magnitude": 0.3991,
+            "benefit_geometry_vs_random": 0.4525,
+            "benefit_magnitude_vs_random": 0.0775
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.047,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1554,
+            "mean_drop_magnitude": 1.3374,
+            "benefit_geometry_vs_random": 0.8916,
+            "benefit_magnitude_vs_random": -0.2904
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1853,
+            "mean_drop_magnitude": 1.2589,
+            "benefit_geometry_vs_random": 0.8617,
+            "benefit_magnitude_vs_random": -0.2119
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 2.4787,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.4989,
+            "mean_drop_magnitude": 3.0952,
+            "benefit_geometry_vs_random": 1.9798,
+            "benefit_magnitude_vs_random": -0.6165
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.8336,
+            "mean_drop_magnitude": 2.9014,
+            "benefit_geometry_vs_random": 1.6451,
+            "benefit_magnitude_vs_random": -0.4227
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 6.1927,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 3.3381,
+            "mean_drop_magnitude": 6.985,
+            "benefit_geometry_vs_random": 2.8546,
+            "benefit_magnitude_vs_random": -0.7923
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.8568,
+            "mean_drop_magnitude": 7.0548,
+            "benefit_geometry_vs_random": 2.3359,
+            "benefit_magnitude_vs_random": -0.8621
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.1545,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0475,
+            "mean_drop_magnitude": 0.0387,
+            "benefit_geometry_vs_random": 0.202,
+            "benefit_magnitude_vs_random": 0.1158
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0007,
+            "mean_drop_magnitude": 0.0998,
+            "benefit_geometry_vs_random": 0.1552,
+            "benefit_magnitude_vs_random": 0.0547
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 0.3149,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.0121,
+            "mean_drop_magnitude": 0.226,
+            "benefit_geometry_vs_random": 0.3028,
+            "benefit_magnitude_vs_random": 0.089
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.0608,
+            "mean_drop_magnitude": 0.2801,
+            "benefit_geometry_vs_random": 0.2542,
+            "benefit_magnitude_vs_random": 0.0348
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.6567,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1523,
+            "mean_drop_magnitude": 0.8376,
+            "benefit_geometry_vs_random": 0.5045,
+            "benefit_magnitude_vs_random": -0.1809
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.2285,
+            "mean_drop_magnitude": 0.8277,
+            "benefit_geometry_vs_random": 0.4282,
+            "benefit_magnitude_vs_random": -0.171
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 2.04,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.494,
+            "mean_drop_magnitude": 2.5177,
+            "benefit_geometry_vs_random": 1.5459,
+            "benefit_magnitude_vs_random": -0.4777
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.8559,
+            "mean_drop_magnitude": 2.1887,
+            "benefit_geometry_vs_random": 1.1841,
+            "benefit_magnitude_vs_random": -0.1487
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 5.4575,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 3.326,
+            "mean_drop_magnitude": 6.8954,
+            "benefit_geometry_vs_random": 2.1314,
+            "benefit_magnitude_vs_random": -1.4379
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.5298,
+            "mean_drop_magnitude": 5.6274,
+            "benefit_geometry_vs_random": 1.9277,
+            "benefit_magnitude_vs_random": -0.17
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.1304,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0102,
+            "mean_drop_magnitude": -0.0274,
+            "benefit_geometry_vs_random": 0.1202,
+            "benefit_magnitude_vs_random": 0.1578
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.01,
+            "mean_drop_magnitude": 0.0425,
+            "benefit_geometry_vs_random": 0.1203,
+            "benefit_magnitude_vs_random": 0.0879
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 0.403,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.0129,
+            "mean_drop_magnitude": 0.2887,
+            "benefit_geometry_vs_random": 0.3901,
+            "benefit_magnitude_vs_random": 0.1143
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.0999,
+            "mean_drop_magnitude": 0.3293,
+            "benefit_geometry_vs_random": 0.3031,
+            "benefit_magnitude_vs_random": 0.0737
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.7004,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.2195,
+            "mean_drop_magnitude": 0.5513,
+            "benefit_geometry_vs_random": 0.4809,
+            "benefit_magnitude_vs_random": 0.1491
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.3215,
+            "mean_drop_magnitude": 0.6351,
+            "benefit_geometry_vs_random": 0.3788,
+            "benefit_magnitude_vs_random": 0.0653
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 2.1489,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.0318,
+            "mean_drop_magnitude": 2.3547,
+            "benefit_geometry_vs_random": 1.117,
+            "benefit_magnitude_vs_random": -0.2058
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.1262,
+            "mean_drop_magnitude": 2.2265,
+            "benefit_geometry_vs_random": 1.0227,
+            "benefit_magnitude_vs_random": -0.0776
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 5.7454,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.304,
+            "mean_drop_magnitude": 6.9413,
+            "benefit_geometry_vs_random": 1.4413,
+            "benefit_magnitude_vs_random": -1.1959
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 4.229,
+            "mean_drop_magnitude": 6.1537,
+            "benefit_geometry_vs_random": 1.5164,
+            "benefit_magnitude_vs_random": -0.4084
+          }
+        }
+      }
+    },
+    "Phi-3.5-mini_L16_RG": {
+      "gain": 16.9271,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.6596,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.2972,
+            "mean_drop_magnitude": 0.6064,
+            "benefit_geometry_vs_random": 0.3625,
+            "benefit_magnitude_vs_random": 0.0532
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.394,
+            "mean_drop_magnitude": 0.5424,
+            "benefit_geometry_vs_random": 0.2656,
+            "benefit_magnitude_vs_random": 0.1173
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 1.3037,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.8638,
+            "mean_drop_magnitude": 1.4249,
+            "benefit_geometry_vs_random": 0.4399,
+            "benefit_magnitude_vs_random": -0.1211
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.7407,
+            "mean_drop_magnitude": 1.232,
+            "benefit_geometry_vs_random": 0.563,
+            "benefit_magnitude_vs_random": 0.0717
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 2.487,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.5063,
+            "mean_drop_magnitude": 1.2294,
+            "benefit_geometry_vs_random": 0.9808,
+            "benefit_magnitude_vs_random": 1.2577
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.5328,
+            "mean_drop_magnitude": 1.4172,
+            "benefit_geometry_vs_random": 0.9542,
+            "benefit_magnitude_vs_random": 1.0698
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 4.0287,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 3.867,
+            "mean_drop_magnitude": 1.5091,
+            "benefit_geometry_vs_random": 0.1617,
+            "benefit_magnitude_vs_random": 2.5196
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.334,
+            "mean_drop_magnitude": 2.5714,
+            "benefit_geometry_vs_random": 0.6948,
+            "benefit_magnitude_vs_random": 1.4573
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 12.3369,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 10.62,
+            "mean_drop_magnitude": 10.2304,
+            "benefit_geometry_vs_random": 1.7169,
+            "benefit_magnitude_vs_random": 2.1065
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 10.732,
+            "mean_drop_magnitude": 11.3332,
+            "benefit_geometry_vs_random": 1.6049,
+            "benefit_magnitude_vs_random": 1.0037
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.5979,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.3499,
+            "mean_drop_magnitude": 0.362,
+            "benefit_geometry_vs_random": 0.248,
+            "benefit_magnitude_vs_random": 0.2359
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.5193,
+            "mean_drop_magnitude": 0.4528,
+            "benefit_geometry_vs_random": 0.0786,
+            "benefit_magnitude_vs_random": 0.1451
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 1.159,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.7781,
+            "mean_drop_magnitude": 0.9598,
+            "benefit_geometry_vs_random": 0.3809,
+            "benefit_magnitude_vs_random": 0.1992
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.1613,
+            "mean_drop_magnitude": 1.3012,
+            "benefit_geometry_vs_random": -0.0023,
+            "benefit_magnitude_vs_random": -0.1421
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 2.0099,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.3077,
+            "mean_drop_magnitude": 1.4245,
+            "benefit_geometry_vs_random": -0.2979,
+            "benefit_magnitude_vs_random": 0.5854
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.9152,
+            "mean_drop_magnitude": 1.759,
+            "benefit_geometry_vs_random": 0.0947,
+            "benefit_magnitude_vs_random": 0.2509
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 3.5893,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.1814,
+            "mean_drop_magnitude": 3.2617,
+            "benefit_geometry_vs_random": -0.5922,
+            "benefit_magnitude_vs_random": 0.3276
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.3964,
+            "mean_drop_magnitude": 2.8398,
+            "benefit_geometry_vs_random": 0.1929,
+            "benefit_magnitude_vs_random": 0.7494
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 13.2732,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 7.1699,
+            "mean_drop_magnitude": 10.8914,
+            "benefit_geometry_vs_random": 6.1033,
+            "benefit_magnitude_vs_random": 2.3817
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 8.9993,
+            "mean_drop_magnitude": 12.455,
+            "benefit_geometry_vs_random": 4.2739,
+            "benefit_magnitude_vs_random": 0.8182
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.6772,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.2203,
+            "mean_drop_magnitude": 0.7322,
+            "benefit_geometry_vs_random": 0.457,
+            "benefit_magnitude_vs_random": -0.055
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.4068,
+            "mean_drop_magnitude": 0.5153,
+            "benefit_geometry_vs_random": 0.2704,
+            "benefit_magnitude_vs_random": 0.1619
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 1.121,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.6657,
+            "mean_drop_magnitude": 1.2749,
+            "benefit_geometry_vs_random": 0.4553,
+            "benefit_magnitude_vs_random": -0.1539
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.6463,
+            "mean_drop_magnitude": 0.8593,
+            "benefit_geometry_vs_random": 0.4747,
+            "benefit_magnitude_vs_random": 0.2617
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.2379,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.4756,
+            "mean_drop_magnitude": 1.4768,
+            "benefit_geometry_vs_random": 0.7623,
+            "benefit_magnitude_vs_random": -0.2388
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.7499,
+            "mean_drop_magnitude": 0.9796,
+            "benefit_geometry_vs_random": 0.488,
+            "benefit_magnitude_vs_random": 0.2584
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 2.3165,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.3871,
+            "mean_drop_magnitude": 0.832,
+            "benefit_geometry_vs_random": -0.0705,
+            "benefit_magnitude_vs_random": 1.4845
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.7894,
+            "mean_drop_magnitude": 1.815,
+            "benefit_geometry_vs_random": 0.5271,
+            "benefit_magnitude_vs_random": 0.5015
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 9.5011,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 8.8359,
+            "mean_drop_magnitude": 9.1858,
+            "benefit_geometry_vs_random": 0.6652,
+            "benefit_magnitude_vs_random": 0.3153
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 8.2743,
+            "mean_drop_magnitude": 9.0288,
+            "benefit_geometry_vs_random": 1.2268,
+            "benefit_magnitude_vs_random": 0.4723
+          }
+        }
+      }
+    },
+    "Phi-3.5-mini_L24_RG": {
+      "gain": 1.8668,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0194,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0113,
+            "mean_drop_magnitude": -0.0065,
+            "benefit_geometry_vs_random": -0.008,
+            "benefit_magnitude_vs_random": -0.0128
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0072,
+            "mean_drop_magnitude": -0.0025,
+            "benefit_geometry_vs_random": -0.0121,
+            "benefit_magnitude_vs_random": -0.0169
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": -0.098,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0543,
+            "mean_drop_magnitude": -0.0462,
+            "benefit_geometry_vs_random": -0.0438,
+            "benefit_magnitude_vs_random": -0.0519
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0023,
+            "mean_drop_magnitude": -0.0172,
+            "benefit_geometry_vs_random": -0.0958,
+            "benefit_magnitude_vs_random": -0.0808
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0424,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0792,
+            "mean_drop_magnitude": -0.0288,
+            "benefit_geometry_vs_random": 0.1216,
+            "benefit_magnitude_vs_random": 0.0713
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.1043,
+            "mean_drop_magnitude": -0.0741,
+            "benefit_geometry_vs_random": 0.1468,
+            "benefit_magnitude_vs_random": 0.1166
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.4737,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0042,
+            "mean_drop_magnitude": 0.1724,
+            "benefit_geometry_vs_random": 0.4695,
+            "benefit_magnitude_vs_random": 0.3013
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1431,
+            "mean_drop_magnitude": 0.0874,
+            "benefit_geometry_vs_random": 0.3306,
+            "benefit_magnitude_vs_random": 0.3864
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 2.6649,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.8435,
+            "mean_drop_magnitude": 1.9219,
+            "benefit_geometry_vs_random": 1.8214,
+            "benefit_magnitude_vs_random": 0.743
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.1448,
+            "mean_drop_magnitude": 2.0168,
+            "benefit_geometry_vs_random": 1.5201,
+            "benefit_magnitude_vs_random": 0.6482
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0038,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0063,
+            "mean_drop_magnitude": -0.0024,
+            "benefit_geometry_vs_random": 0.0101,
+            "benefit_magnitude_vs_random": 0.0062
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.011,
+            "mean_drop_magnitude": -0.0261,
+            "benefit_geometry_vs_random": 0.0148,
+            "benefit_magnitude_vs_random": 0.0299
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0089,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0346,
+            "mean_drop_magnitude": 0.0083,
+            "benefit_geometry_vs_random": 0.0257,
+            "benefit_magnitude_vs_random": -0.0172
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0327,
+            "mean_drop_magnitude": -0.0182,
+            "benefit_geometry_vs_random": 0.0239,
+            "benefit_magnitude_vs_random": 0.0093
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0096,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.1094,
+            "mean_drop_magnitude": -0.0616,
+            "benefit_geometry_vs_random": 0.119,
+            "benefit_magnitude_vs_random": 0.0712
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.1048,
+            "mean_drop_magnitude": -0.0202,
+            "benefit_geometry_vs_random": 0.1144,
+            "benefit_magnitude_vs_random": 0.0298
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.191,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.2454,
+            "mean_drop_magnitude": -0.0745,
+            "benefit_geometry_vs_random": 0.4364,
+            "benefit_magnitude_vs_random": 0.2656
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0056,
+            "mean_drop_magnitude": -0.163,
+            "benefit_geometry_vs_random": 0.1854,
+            "benefit_magnitude_vs_random": 0.354
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.6106,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.192,
+            "mean_drop_magnitude": 0.3188,
+            "benefit_geometry_vs_random": 1.4186,
+            "benefit_magnitude_vs_random": 1.2919
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.7816,
+            "mean_drop_magnitude": 1.07,
+            "benefit_geometry_vs_random": 0.8291,
+            "benefit_magnitude_vs_random": 0.5406
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0409,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0048,
+            "mean_drop_magnitude": -0.0068,
+            "benefit_geometry_vs_random": -0.0361,
+            "benefit_magnitude_vs_random": -0.0341
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0111,
+            "mean_drop_magnitude": -0.0204,
+            "benefit_geometry_vs_random": -0.0299,
+            "benefit_magnitude_vs_random": -0.0205
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": -0.05,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0256,
+            "mean_drop_magnitude": -0.0454,
+            "benefit_geometry_vs_random": -0.0245,
+            "benefit_magnitude_vs_random": -0.0046
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0346,
+            "mean_drop_magnitude": -0.0623,
+            "benefit_geometry_vs_random": -0.0154,
+            "benefit_magnitude_vs_random": 0.0122
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0341,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0565,
+            "mean_drop_magnitude": -0.0505,
+            "benefit_geometry_vs_random": 0.0906,
+            "benefit_magnitude_vs_random": 0.0846
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0615,
+            "mean_drop_magnitude": -0.0791,
+            "benefit_geometry_vs_random": 0.0956,
+            "benefit_magnitude_vs_random": 0.1132
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2545,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0698,
+            "mean_drop_magnitude": 0.0305,
+            "benefit_geometry_vs_random": 0.3242,
+            "benefit_magnitude_vs_random": 0.224
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0109,
+            "mean_drop_magnitude": -0.1145,
+            "benefit_geometry_vs_random": 0.2436,
+            "benefit_magnitude_vs_random": 0.3689
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.3326,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.5288,
+            "mean_drop_magnitude": 0.8576,
+            "benefit_geometry_vs_random": 0.8038,
+            "benefit_magnitude_vs_random": 0.475
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.6111,
+            "mean_drop_magnitude": 0.811,
+            "benefit_geometry_vs_random": 0.7215,
+            "benefit_magnitude_vs_random": 0.5216
+          }
+        }
+      }
+    },
+    "Qwen2.5-1.5B_L14_RG": {
+      "gain": 28.1487,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.672,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1539,
+            "mean_drop_magnitude": 0.2953,
+            "benefit_geometry_vs_random": 0.5181,
+            "benefit_magnitude_vs_random": 0.3767
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1819,
+            "mean_drop_magnitude": 0.5428,
+            "benefit_geometry_vs_random": 0.4901,
+            "benefit_magnitude_vs_random": 0.1292
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 1.1813,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.285,
+            "mean_drop_magnitude": 0.9163,
+            "benefit_geometry_vs_random": 0.8963,
+            "benefit_magnitude_vs_random": 0.265
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.5142,
+            "mean_drop_magnitude": 0.9611,
+            "benefit_geometry_vs_random": 0.6671,
+            "benefit_magnitude_vs_random": 0.2202
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 2.5563,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.2558,
+            "mean_drop_magnitude": 1.7699,
+            "benefit_geometry_vs_random": 1.3004,
+            "benefit_magnitude_vs_random": 0.7864
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.4315,
+            "mean_drop_magnitude": 2.2805,
+            "benefit_geometry_vs_random": 1.1248,
+            "benefit_magnitude_vs_random": 0.2758
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 6.0696,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.7963,
+            "mean_drop_magnitude": 5.3562,
+            "benefit_geometry_vs_random": 1.2733,
+            "benefit_magnitude_vs_random": 0.7134
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 4.4506,
+            "mean_drop_magnitude": 5.7985,
+            "benefit_geometry_vs_random": 1.619,
+            "benefit_magnitude_vs_random": 0.2711
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 11.277,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 10.146,
+            "mean_drop_magnitude": 9.5587,
+            "benefit_geometry_vs_random": 1.1311,
+            "benefit_magnitude_vs_random": 1.7183
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 10.22,
+            "mean_drop_magnitude": 10.9844,
+            "benefit_geometry_vs_random": 1.057,
+            "benefit_magnitude_vs_random": 0.2926
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.4392,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0812,
+            "mean_drop_magnitude": 0.1104,
+            "benefit_geometry_vs_random": 0.3581,
+            "benefit_magnitude_vs_random": 0.3288
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1464,
+            "mean_drop_magnitude": 0.1983,
+            "benefit_geometry_vs_random": 0.2929,
+            "benefit_magnitude_vs_random": 0.2409
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 0.7132,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.1489,
+            "mean_drop_magnitude": 0.4804,
+            "benefit_geometry_vs_random": 0.5642,
+            "benefit_magnitude_vs_random": 0.2328
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.3597,
+            "mean_drop_magnitude": 0.5741,
+            "benefit_geometry_vs_random": 0.3535,
+            "benefit_magnitude_vs_random": 0.1391
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 2.0835,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.6772,
+            "mean_drop_magnitude": 1.4346,
+            "benefit_geometry_vs_random": 1.4063,
+            "benefit_magnitude_vs_random": 0.6489
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.9211,
+            "mean_drop_magnitude": 1.958,
+            "benefit_geometry_vs_random": 1.1624,
+            "benefit_magnitude_vs_random": 0.1255
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 5.0534,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 3.1309,
+            "mean_drop_magnitude": 5.0239,
+            "benefit_geometry_vs_random": 1.9225,
+            "benefit_magnitude_vs_random": 0.0294
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.3604,
+            "mean_drop_magnitude": 4.7559,
+            "benefit_geometry_vs_random": 1.6929,
+            "benefit_magnitude_vs_random": 0.2975
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 10.9193,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 8.9997,
+            "mean_drop_magnitude": 10.1312,
+            "benefit_geometry_vs_random": 1.9196,
+            "benefit_magnitude_vs_random": 0.7882
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 9.0896,
+            "mean_drop_magnitude": 10.4633,
+            "benefit_geometry_vs_random": 1.8297,
+            "benefit_magnitude_vs_random": 0.4561
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.3119,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1139,
+            "mean_drop_magnitude": 0.121,
+            "benefit_geometry_vs_random": 0.1981,
+            "benefit_magnitude_vs_random": 0.1909
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.2336,
+            "mean_drop_magnitude": 0.2224,
+            "benefit_geometry_vs_random": 0.0783,
+            "benefit_magnitude_vs_random": 0.0896
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 0.7837,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.3002,
+            "mean_drop_magnitude": 0.6972,
+            "benefit_geometry_vs_random": 0.4834,
+            "benefit_magnitude_vs_random": 0.0865
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.2846,
+            "mean_drop_magnitude": 0.6836,
+            "benefit_geometry_vs_random": 0.499,
+            "benefit_magnitude_vs_random": 0.1001
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.923,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.8691,
+            "mean_drop_magnitude": 1.3183,
+            "benefit_geometry_vs_random": 1.0539,
+            "benefit_magnitude_vs_random": 0.6047
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.1005,
+            "mean_drop_magnitude": 1.498,
+            "benefit_geometry_vs_random": 0.8225,
+            "benefit_magnitude_vs_random": 0.425
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 4.9414,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 3.1668,
+            "mean_drop_magnitude": 4.611,
+            "benefit_geometry_vs_random": 1.7745,
+            "benefit_magnitude_vs_random": 0.3304
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.3908,
+            "mean_drop_magnitude": 4.3868,
+            "benefit_geometry_vs_random": 1.5506,
+            "benefit_magnitude_vs_random": 0.5546
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 10.7326,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 8.8949,
+            "mean_drop_magnitude": 9.5603,
+            "benefit_geometry_vs_random": 1.8377,
+            "benefit_magnitude_vs_random": 1.1722
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 9.8769,
+            "mean_drop_magnitude": 10.3521,
+            "benefit_geometry_vs_random": 0.8557,
+            "benefit_magnitude_vs_random": 0.3805
+          }
+        }
+      }
+    },
+    "Qwen2.5-1.5B_L21_RG": {
+      "gain": 3.2989,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0106,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0139,
+            "mean_drop_magnitude": 0.0108,
+            "benefit_geometry_vs_random": 0.0032,
+            "benefit_magnitude_vs_random": -0.0214
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0239,
+            "mean_drop_magnitude": -0.0287,
+            "benefit_geometry_vs_random": 0.0133,
+            "benefit_magnitude_vs_random": 0.0181
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0418,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0457,
+            "mean_drop_magnitude": -0.046,
+            "benefit_geometry_vs_random": 0.0039,
+            "benefit_magnitude_vs_random": 0.0042
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0627,
+            "mean_drop_magnitude": -0.0344,
+            "benefit_geometry_vs_random": 0.0209,
+            "benefit_magnitude_vs_random": -0.0074
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0503,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0175,
+            "mean_drop_magnitude": -0.0073,
+            "benefit_geometry_vs_random": 0.0328,
+            "benefit_magnitude_vs_random": 0.0576
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.044,
+            "mean_drop_magnitude": -0.0104,
+            "benefit_geometry_vs_random": 0.0943,
+            "benefit_magnitude_vs_random": 0.0607
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.4455,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0282,
+            "mean_drop_magnitude": 0.2886,
+            "benefit_geometry_vs_random": 0.4737,
+            "benefit_magnitude_vs_random": 0.1568
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.113,
+            "mean_drop_magnitude": 0.3161,
+            "benefit_geometry_vs_random": 0.3325,
+            "benefit_magnitude_vs_random": 0.1294
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.7148,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.7994,
+            "mean_drop_magnitude": 1.8221,
+            "benefit_geometry_vs_random": 0.9154,
+            "benefit_magnitude_vs_random": -0.1073
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.2101,
+            "mean_drop_magnitude": 1.79,
+            "benefit_geometry_vs_random": 0.5047,
+            "benefit_magnitude_vs_random": -0.0752
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.013,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0031,
+            "mean_drop_magnitude": -0.0161,
+            "benefit_geometry_vs_random": -0.0161,
+            "benefit_magnitude_vs_random": 0.0031
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0146,
+            "mean_drop_magnitude": -0.0032,
+            "benefit_geometry_vs_random": 0.0016,
+            "benefit_magnitude_vs_random": -0.0098
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0381,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0091,
+            "mean_drop_magnitude": 0.0136,
+            "benefit_geometry_vs_random": -0.029,
+            "benefit_magnitude_vs_random": -0.0518
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0095,
+            "mean_drop_magnitude": -0.0418,
+            "benefit_geometry_vs_random": -0.0286,
+            "benefit_magnitude_vs_random": 0.0037
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0754,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0497,
+            "mean_drop_magnitude": 0.0564,
+            "benefit_geometry_vs_random": 0.0258,
+            "benefit_magnitude_vs_random": 0.019
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.002,
+            "mean_drop_magnitude": 0.0891,
+            "benefit_geometry_vs_random": 0.0735,
+            "benefit_magnitude_vs_random": -0.0137
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.3825,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.2455,
+            "mean_drop_magnitude": 0.274,
+            "benefit_geometry_vs_random": 0.137,
+            "benefit_magnitude_vs_random": 0.1085
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.2423,
+            "mean_drop_magnitude": 0.3763,
+            "benefit_geometry_vs_random": 0.1402,
+            "benefit_magnitude_vs_random": 0.0062
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.466,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.0663,
+            "mean_drop_magnitude": 1.326,
+            "benefit_geometry_vs_random": 0.3997,
+            "benefit_magnitude_vs_random": 0.14
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.2416,
+            "mean_drop_magnitude": 1.3761,
+            "benefit_geometry_vs_random": 0.2244,
+            "benefit_magnitude_vs_random": 0.0899
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0375,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0105,
+            "mean_drop_magnitude": -0.0469,
+            "benefit_geometry_vs_random": -0.027,
+            "benefit_magnitude_vs_random": 0.0094
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0249,
+            "mean_drop_magnitude": -0.0133,
+            "benefit_geometry_vs_random": -0.0126,
+            "benefit_magnitude_vs_random": -0.0242
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 0.0155,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0056,
+            "mean_drop_magnitude": 0.0116,
+            "benefit_geometry_vs_random": 0.0211,
+            "benefit_magnitude_vs_random": 0.0039
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.0209,
+            "mean_drop_magnitude": 0.0443,
+            "benefit_geometry_vs_random": -0.0054,
+            "benefit_magnitude_vs_random": -0.0288
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0864,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0402,
+            "mean_drop_magnitude": 0.0271,
+            "benefit_geometry_vs_random": 0.1266,
+            "benefit_magnitude_vs_random": 0.0593
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0033,
+            "mean_drop_magnitude": -0.026,
+            "benefit_geometry_vs_random": 0.0897,
+            "benefit_magnitude_vs_random": 0.1124
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.5589,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0964,
+            "mean_drop_magnitude": 0.3284,
+            "benefit_geometry_vs_random": 0.4625,
+            "benefit_magnitude_vs_random": 0.2305
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1794,
+            "mean_drop_magnitude": 0.4211,
+            "benefit_geometry_vs_random": 0.3795,
+            "benefit_magnitude_vs_random": 0.1378
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.9062,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.9681,
+            "mean_drop_magnitude": 1.4456,
+            "benefit_geometry_vs_random": 0.9381,
+            "benefit_magnitude_vs_random": 0.4606
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.3818,
+            "mean_drop_magnitude": 1.7105,
+            "benefit_geometry_vs_random": 0.5243,
+            "benefit_magnitude_vs_random": 0.1957
+          }
+        }
+      }
+    },
+    "Qwen2.5-1.5B_L24_RG": {
+      "gain": 1.1101,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0037,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0025,
+            "mean_drop_magnitude": 0.0001,
+            "benefit_geometry_vs_random": -0.0062,
+            "benefit_magnitude_vs_random": -0.0038
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0016,
+            "mean_drop_magnitude": -0.0006,
+            "benefit_geometry_vs_random": -0.0021,
+            "benefit_magnitude_vs_random": -0.0031
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0176,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0006,
+            "mean_drop_magnitude": -0.003,
+            "benefit_geometry_vs_random": -0.017,
+            "benefit_magnitude_vs_random": -0.0146
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0069,
+            "mean_drop_magnitude": -0.0065,
+            "benefit_geometry_vs_random": -0.0107,
+            "benefit_magnitude_vs_random": -0.011
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0379,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0017,
+            "mean_drop_magnitude": -0.0174,
+            "benefit_geometry_vs_random": 0.0396,
+            "benefit_magnitude_vs_random": 0.0553
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0044,
+            "mean_drop_magnitude": -0.0121,
+            "benefit_geometry_vs_random": 0.0423,
+            "benefit_magnitude_vs_random": 0.05
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2999,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0862,
+            "mean_drop_magnitude": 0.0,
+            "benefit_geometry_vs_random": 0.386,
+            "benefit_magnitude_vs_random": 0.2999
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0566,
+            "mean_drop_magnitude": 0.0264,
+            "benefit_geometry_vs_random": 0.2433,
+            "benefit_magnitude_vs_random": 0.2734
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.1216,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.7954,
+            "mean_drop_magnitude": 0.7122,
+            "benefit_geometry_vs_random": 0.3261,
+            "benefit_magnitude_vs_random": 0.4094
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.7875,
+            "mean_drop_magnitude": 0.6469,
+            "benefit_geometry_vs_random": 0.3341,
+            "benefit_magnitude_vs_random": 0.4746
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0156,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0038,
+            "mean_drop_magnitude": 0.0003,
+            "benefit_geometry_vs_random": -0.0195,
+            "benefit_magnitude_vs_random": -0.0159
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0003,
+            "mean_drop_magnitude": -0.004,
+            "benefit_geometry_vs_random": -0.0153,
+            "benefit_magnitude_vs_random": -0.0116
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0088,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0022,
+            "mean_drop_magnitude": -0.0061,
+            "benefit_geometry_vs_random": -0.0066,
+            "benefit_magnitude_vs_random": -0.0028
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0013,
+            "mean_drop_magnitude": -0.015,
+            "benefit_geometry_vs_random": -0.0076,
+            "benefit_magnitude_vs_random": 0.0061
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0459,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.005,
+            "mean_drop_magnitude": 0.0047,
+            "benefit_geometry_vs_random": 0.0409,
+            "benefit_magnitude_vs_random": 0.0413
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0133,
+            "mean_drop_magnitude": -0.0066,
+            "benefit_geometry_vs_random": 0.0592,
+            "benefit_magnitude_vs_random": 0.0525
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.4497,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1765,
+            "mean_drop_magnitude": 0.0436,
+            "benefit_geometry_vs_random": 0.2732,
+            "benefit_magnitude_vs_random": 0.406
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1833,
+            "mean_drop_magnitude": 0.1529,
+            "benefit_geometry_vs_random": 0.2664,
+            "benefit_magnitude_vs_random": 0.2967
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.5046,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.4594,
+            "mean_drop_magnitude": 0.4625,
+            "benefit_geometry_vs_random": 1.0452,
+            "benefit_magnitude_vs_random": 1.0421
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.0148,
+            "mean_drop_magnitude": 0.8882,
+            "benefit_geometry_vs_random": 0.4898,
+            "benefit_magnitude_vs_random": 0.6164
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0436,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0016,
+            "mean_drop_magnitude": -0.0006,
+            "benefit_geometry_vs_random": -0.0419,
+            "benefit_magnitude_vs_random": -0.0429
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0055,
+            "mean_drop_magnitude": -0.0058,
+            "benefit_geometry_vs_random": -0.0381,
+            "benefit_magnitude_vs_random": -0.0377
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0378,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0082,
+            "mean_drop_magnitude": -0.0073,
+            "benefit_geometry_vs_random": -0.0296,
+            "benefit_magnitude_vs_random": -0.0305
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.007,
+            "mean_drop_magnitude": -0.004,
+            "benefit_geometry_vs_random": -0.0308,
+            "benefit_magnitude_vs_random": -0.0338
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0043,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0028,
+            "mean_drop_magnitude": -0.0154,
+            "benefit_geometry_vs_random": -0.0016,
+            "benefit_magnitude_vs_random": 0.0111
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0373,
+            "mean_drop_magnitude": -0.044,
+            "benefit_geometry_vs_random": 0.033,
+            "benefit_magnitude_vs_random": 0.0397
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2332,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1477,
+            "mean_drop_magnitude": 0.1209,
+            "benefit_geometry_vs_random": 0.0855,
+            "benefit_magnitude_vs_random": 0.1123
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.2513,
+            "mean_drop_magnitude": 0.1642,
+            "benefit_geometry_vs_random": -0.0181,
+            "benefit_magnitude_vs_random": 0.069
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.0389,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.1505,
+            "mean_drop_magnitude": 0.9323,
+            "benefit_geometry_vs_random": -0.1116,
+            "benefit_magnitude_vs_random": 0.1066
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.9497,
+            "mean_drop_magnitude": 0.8365,
+            "benefit_geometry_vs_random": 0.0892,
+            "benefit_magnitude_vs_random": 0.2024
+          }
+        }
+      }
+    },
+    "Qwen2.5-14B_L36_RG": {
+      "gain": 3.102,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.097,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0132,
+            "mean_drop_magnitude": -0.0425,
+            "benefit_geometry_vs_random": -0.0839,
+            "benefit_magnitude_vs_random": -0.0545
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0439,
+            "mean_drop_magnitude": -0.0744,
+            "benefit_geometry_vs_random": -0.0531,
+            "benefit_magnitude_vs_random": -0.0226
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": -0.1845,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0643,
+            "mean_drop_magnitude": -0.1309,
+            "benefit_geometry_vs_random": -0.1202,
+            "benefit_magnitude_vs_random": -0.0536
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.1196,
+            "mean_drop_magnitude": -0.1661,
+            "benefit_geometry_vs_random": -0.0649,
+            "benefit_magnitude_vs_random": -0.0183
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.3271,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.1667,
+            "mean_drop_magnitude": -0.2791,
+            "benefit_geometry_vs_random": -0.1604,
+            "benefit_magnitude_vs_random": -0.048
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.231,
+            "mean_drop_magnitude": -0.2747,
+            "benefit_geometry_vs_random": -0.0961,
+            "benefit_magnitude_vs_random": -0.0524
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.4199,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.2995,
+            "mean_drop_magnitude": -0.4253,
+            "benefit_geometry_vs_random": -0.1204,
+            "benefit_magnitude_vs_random": 0.0053
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.4033,
+            "mean_drop_magnitude": -0.4449,
+            "benefit_geometry_vs_random": -0.0166,
+            "benefit_magnitude_vs_random": 0.025
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.1188,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.4034,
+            "mean_drop_magnitude": -0.3441,
+            "benefit_geometry_vs_random": 0.2846,
+            "benefit_magnitude_vs_random": 0.2254
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.3715,
+            "mean_drop_magnitude": -0.2457,
+            "benefit_geometry_vs_random": 0.2527,
+            "benefit_magnitude_vs_random": 0.127
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0915,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0167,
+            "mean_drop_magnitude": -0.0244,
+            "benefit_geometry_vs_random": -0.0749,
+            "benefit_magnitude_vs_random": -0.0671
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0337,
+            "mean_drop_magnitude": -0.0525,
+            "benefit_geometry_vs_random": -0.0578,
+            "benefit_magnitude_vs_random": -0.0391
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": -0.1698,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0626,
+            "mean_drop_magnitude": -0.1037,
+            "benefit_geometry_vs_random": -0.1071,
+            "benefit_magnitude_vs_random": -0.066
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0978,
+            "mean_drop_magnitude": -0.1351,
+            "benefit_geometry_vs_random": -0.072,
+            "benefit_magnitude_vs_random": -0.0346
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.2718,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.108,
+            "mean_drop_magnitude": -0.1557,
+            "benefit_geometry_vs_random": -0.1638,
+            "benefit_magnitude_vs_random": -0.1161
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.1774,
+            "mean_drop_magnitude": -0.2397,
+            "benefit_geometry_vs_random": -0.0944,
+            "benefit_magnitude_vs_random": -0.032
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.426,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.303,
+            "mean_drop_magnitude": -0.3425,
+            "benefit_geometry_vs_random": -0.123,
+            "benefit_magnitude_vs_random": -0.0835
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.3632,
+            "mean_drop_magnitude": -0.4288,
+            "benefit_geometry_vs_random": -0.0628,
+            "benefit_magnitude_vs_random": 0.0028
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.2818,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.3234,
+            "mean_drop_magnitude": -0.2917,
+            "benefit_geometry_vs_random": 0.0416,
+            "benefit_magnitude_vs_random": 0.0099
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.4679,
+            "mean_drop_magnitude": -0.3191,
+            "benefit_geometry_vs_random": 0.1861,
+            "benefit_magnitude_vs_random": 0.0373
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.098,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.006,
+            "mean_drop_magnitude": -0.0366,
+            "benefit_geometry_vs_random": -0.0921,
+            "benefit_magnitude_vs_random": -0.0615
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0409,
+            "mean_drop_magnitude": -0.0737,
+            "benefit_geometry_vs_random": -0.0572,
+            "benefit_magnitude_vs_random": -0.0244
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": -0.1718,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0616,
+            "mean_drop_magnitude": -0.1164,
+            "benefit_geometry_vs_random": -0.1102,
+            "benefit_magnitude_vs_random": -0.0554
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.1018,
+            "mean_drop_magnitude": -0.1379,
+            "benefit_geometry_vs_random": -0.0699,
+            "benefit_magnitude_vs_random": -0.0339
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.318,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.149,
+            "mean_drop_magnitude": -0.2391,
+            "benefit_geometry_vs_random": -0.1689,
+            "benefit_magnitude_vs_random": -0.0788
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.1787,
+            "mean_drop_magnitude": -0.2693,
+            "benefit_geometry_vs_random": -0.1392,
+            "benefit_magnitude_vs_random": -0.0487
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.4556,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.2785,
+            "mean_drop_magnitude": -0.4927,
+            "benefit_geometry_vs_random": -0.1771,
+            "benefit_magnitude_vs_random": 0.037
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.3856,
+            "mean_drop_magnitude": -0.4196,
+            "benefit_geometry_vs_random": -0.0701,
+            "benefit_magnitude_vs_random": -0.036
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.2623,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.3388,
+            "mean_drop_magnitude": -0.4053,
+            "benefit_geometry_vs_random": 0.0765,
+            "benefit_magnitude_vs_random": 0.143
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.3586,
+            "mean_drop_magnitude": -0.2685,
+            "benefit_geometry_vs_random": 0.0963,
+            "benefit_magnitude_vs_random": 0.0062
+          }
+        }
+      }
+    },
+    "Qwen2.5-3B_L18_RG": {
+      "gain": 37.2405,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2126,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0595,
+            "mean_drop_magnitude": 0.1937,
+            "benefit_geometry_vs_random": 0.1531,
+            "benefit_magnitude_vs_random": 0.019
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0514,
+            "mean_drop_magnitude": 0.1706,
+            "benefit_geometry_vs_random": 0.1612,
+            "benefit_magnitude_vs_random": 0.042
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 0.5649,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.1635,
+            "mean_drop_magnitude": 0.5992,
+            "benefit_geometry_vs_random": 0.4015,
+            "benefit_magnitude_vs_random": -0.0342
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.1605,
+            "mean_drop_magnitude": 0.6464,
+            "benefit_geometry_vs_random": 0.4044,
+            "benefit_magnitude_vs_random": -0.0815
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.9812,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1806,
+            "mean_drop_magnitude": 1.1978,
+            "benefit_geometry_vs_random": 0.8006,
+            "benefit_magnitude_vs_random": -0.2165
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.603,
+            "mean_drop_magnitude": 0.9488,
+            "benefit_geometry_vs_random": 0.3782,
+            "benefit_magnitude_vs_random": 0.0324
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 2.5762,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.1371,
+            "mean_drop_magnitude": 1.822,
+            "benefit_geometry_vs_random": 1.4391,
+            "benefit_magnitude_vs_random": 0.7542
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.364,
+            "mean_drop_magnitude": 2.1652,
+            "benefit_geometry_vs_random": 0.2121,
+            "benefit_magnitude_vs_random": 0.411
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 5.7413,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.8427,
+            "mean_drop_magnitude": 6.1443,
+            "benefit_geometry_vs_random": 0.8986,
+            "benefit_magnitude_vs_random": -0.403
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.2488,
+            "mean_drop_magnitude": 5.6498,
+            "benefit_geometry_vs_random": 0.4925,
+            "benefit_magnitude_vs_random": 0.0915
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.1663,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0032,
+            "mean_drop_magnitude": 0.1381,
+            "benefit_geometry_vs_random": 0.1631,
+            "benefit_magnitude_vs_random": 0.0282
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0683,
+            "mean_drop_magnitude": 0.1885,
+            "benefit_geometry_vs_random": 0.0981,
+            "benefit_magnitude_vs_random": -0.0221
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 0.3547,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0996,
+            "mean_drop_magnitude": 0.4638,
+            "benefit_geometry_vs_random": 0.4544,
+            "benefit_magnitude_vs_random": -0.1091
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.039,
+            "mean_drop_magnitude": 0.3192,
+            "benefit_geometry_vs_random": 0.3157,
+            "benefit_magnitude_vs_random": 0.0355
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.0985,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.3466,
+            "mean_drop_magnitude": 0.7425,
+            "benefit_geometry_vs_random": 0.7519,
+            "benefit_magnitude_vs_random": 0.3559
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.4641,
+            "mean_drop_magnitude": 0.7265,
+            "benefit_geometry_vs_random": 0.6344,
+            "benefit_magnitude_vs_random": 0.372
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 2.9427,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.7064,
+            "mean_drop_magnitude": 2.8565,
+            "benefit_geometry_vs_random": 1.2363,
+            "benefit_magnitude_vs_random": 0.0861
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.313,
+            "mean_drop_magnitude": 2.3873,
+            "benefit_geometry_vs_random": 0.6297,
+            "benefit_magnitude_vs_random": 0.5554
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 6.6772,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.3537,
+            "mean_drop_magnitude": 6.9091,
+            "benefit_geometry_vs_random": 2.3235,
+            "benefit_magnitude_vs_random": -0.2319
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.2961,
+            "mean_drop_magnitude": 6.8919,
+            "benefit_geometry_vs_random": 1.3811,
+            "benefit_magnitude_vs_random": -0.2147
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2012,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0278,
+            "mean_drop_magnitude": 0.1029,
+            "benefit_geometry_vs_random": 0.1734,
+            "benefit_magnitude_vs_random": 0.0984
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0093,
+            "mean_drop_magnitude": 0.1017,
+            "benefit_geometry_vs_random": 0.1919,
+            "benefit_magnitude_vs_random": 0.0996
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 0.3928,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.2935,
+            "mean_drop_magnitude": 0.3773,
+            "benefit_geometry_vs_random": 0.0993,
+            "benefit_magnitude_vs_random": 0.0154
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.3674,
+            "mean_drop_magnitude": 0.3076,
+            "benefit_geometry_vs_random": 0.0254,
+            "benefit_magnitude_vs_random": 0.0851
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.8891,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.4024,
+            "mean_drop_magnitude": 0.7195,
+            "benefit_geometry_vs_random": 0.4867,
+            "benefit_magnitude_vs_random": 0.1696
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.5613,
+            "mean_drop_magnitude": 0.8229,
+            "benefit_geometry_vs_random": 0.3278,
+            "benefit_magnitude_vs_random": 0.0661
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 2.6171,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.0164,
+            "mean_drop_magnitude": 2.051,
+            "benefit_geometry_vs_random": 0.6007,
+            "benefit_magnitude_vs_random": 0.5661
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.6662,
+            "mean_drop_magnitude": 2.6463,
+            "benefit_geometry_vs_random": 0.9509,
+            "benefit_magnitude_vs_random": -0.0292
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 6.4308,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.5712,
+            "mean_drop_magnitude": 6.5287,
+            "benefit_geometry_vs_random": 0.8597,
+            "benefit_magnitude_vs_random": -0.0978
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.156,
+            "mean_drop_magnitude": 6.8218,
+            "benefit_geometry_vs_random": 1.2748,
+            "benefit_magnitude_vs_random": -0.391
+          }
+        }
+      }
+    },
+    "Qwen2.5-3B_L27_RG": {
+      "gain": 3.6248,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0202,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0313,
+            "mean_drop_magnitude": -0.0246,
+            "benefit_geometry_vs_random": 0.0111,
+            "benefit_magnitude_vs_random": 0.0043
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0586,
+            "mean_drop_magnitude": -0.0111,
+            "benefit_geometry_vs_random": 0.0384,
+            "benefit_magnitude_vs_random": -0.0091
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0504,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0583,
+            "mean_drop_magnitude": -0.0231,
+            "benefit_geometry_vs_random": 0.0079,
+            "benefit_magnitude_vs_random": -0.0273
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0835,
+            "mean_drop_magnitude": -0.06,
+            "benefit_geometry_vs_random": 0.0331,
+            "benefit_magnitude_vs_random": 0.0096
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.249,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.1167,
+            "mean_drop_magnitude": 0.0992,
+            "benefit_geometry_vs_random": 0.3657,
+            "benefit_magnitude_vs_random": 0.1497
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0875,
+            "mean_drop_magnitude": 0.1566,
+            "benefit_geometry_vs_random": 0.3364,
+            "benefit_magnitude_vs_random": 0.0924
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.2851,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.01,
+            "mean_drop_magnitude": 0.5786,
+            "benefit_geometry_vs_random": 1.2951,
+            "benefit_magnitude_vs_random": 0.7065
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.2149,
+            "mean_drop_magnitude": 0.9137,
+            "benefit_geometry_vs_random": 1.0702,
+            "benefit_magnitude_vs_random": 0.3714
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 2.8294,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.839,
+            "mean_drop_magnitude": 1.7264,
+            "benefit_geometry_vs_random": 1.9904,
+            "benefit_magnitude_vs_random": 1.103
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.3686,
+            "mean_drop_magnitude": 2.4328,
+            "benefit_geometry_vs_random": 1.4608,
+            "benefit_magnitude_vs_random": 0.3965
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0195,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0274,
+            "mean_drop_magnitude": -0.0317,
+            "benefit_geometry_vs_random": 0.0078,
+            "benefit_magnitude_vs_random": 0.0122
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0262,
+            "mean_drop_magnitude": -0.004,
+            "benefit_geometry_vs_random": 0.0067,
+            "benefit_magnitude_vs_random": -0.0155
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 0.0039,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0413,
+            "mean_drop_magnitude": 0.0057,
+            "benefit_geometry_vs_random": 0.0452,
+            "benefit_magnitude_vs_random": -0.0018
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0427,
+            "mean_drop_magnitude": -0.0407,
+            "benefit_geometry_vs_random": 0.0466,
+            "benefit_magnitude_vs_random": 0.0446
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2391,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.13,
+            "mean_drop_magnitude": 0.004,
+            "benefit_geometry_vs_random": 0.369,
+            "benefit_magnitude_vs_random": 0.2351
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0564,
+            "mean_drop_magnitude": 0.1006,
+            "benefit_geometry_vs_random": 0.2954,
+            "benefit_magnitude_vs_random": 0.1385
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.0296,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0063,
+            "mean_drop_magnitude": 0.7809,
+            "benefit_geometry_vs_random": 1.0233,
+            "benefit_magnitude_vs_random": 0.2487
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.3009,
+            "mean_drop_magnitude": 0.7418,
+            "benefit_geometry_vs_random": 0.7287,
+            "benefit_magnitude_vs_random": 0.2878
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 2.6421,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.7932,
+            "mean_drop_magnitude": 2.282,
+            "benefit_geometry_vs_random": 1.8488,
+            "benefit_magnitude_vs_random": 0.36
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.5017,
+            "mean_drop_magnitude": 2.1778,
+            "benefit_geometry_vs_random": 1.1404,
+            "benefit_magnitude_vs_random": 0.4643
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0332,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0022,
+            "mean_drop_magnitude": -0.0115,
+            "benefit_geometry_vs_random": -0.031,
+            "benefit_magnitude_vs_random": -0.0218
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0451,
+            "mean_drop_magnitude": -0.0328,
+            "benefit_geometry_vs_random": 0.0118,
+            "benefit_magnitude_vs_random": -0.0005
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0205,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.0008,
+            "mean_drop_magnitude": 0.0296,
+            "benefit_geometry_vs_random": -0.0213,
+            "benefit_magnitude_vs_random": -0.0501
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.063,
+            "mean_drop_magnitude": -0.0239,
+            "benefit_geometry_vs_random": 0.0424,
+            "benefit_magnitude_vs_random": 0.0034
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.1765,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0796,
+            "mean_drop_magnitude": 0.0361,
+            "benefit_geometry_vs_random": 0.2561,
+            "benefit_magnitude_vs_random": 0.1404
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0098,
+            "mean_drop_magnitude": 0.1167,
+            "benefit_geometry_vs_random": 0.1864,
+            "benefit_magnitude_vs_random": 0.0598
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.8975,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0684,
+            "mean_drop_magnitude": 0.318,
+            "benefit_geometry_vs_random": 0.9658,
+            "benefit_magnitude_vs_random": 0.5794
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0991,
+            "mean_drop_magnitude": 0.6168,
+            "benefit_geometry_vs_random": 0.7984,
+            "benefit_magnitude_vs_random": 0.2807
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 2.4983,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.9152,
+            "mean_drop_magnitude": 2.0245,
+            "benefit_geometry_vs_random": 1.5831,
+            "benefit_magnitude_vs_random": 0.4738
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.2217,
+            "mean_drop_magnitude": 2.0654,
+            "benefit_geometry_vs_random": 1.2766,
+            "benefit_magnitude_vs_random": 0.4329
+          }
+        }
+      }
+    },
+    "Qwen2.5-7B_L21_RG": {
+      "gain": 3.4511,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0093,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0295,
+            "mean_drop_magnitude": 0.0328,
+            "benefit_geometry_vs_random": 0.0388,
+            "benefit_magnitude_vs_random": -0.0236
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0128,
+            "mean_drop_magnitude": 0.0127,
+            "benefit_geometry_vs_random": 0.0221,
+            "benefit_magnitude_vs_random": -0.0034
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 0.0744,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0557,
+            "mean_drop_magnitude": 0.0819,
+            "benefit_geometry_vs_random": 0.13,
+            "benefit_magnitude_vs_random": -0.0076
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0237,
+            "mean_drop_magnitude": 0.0865,
+            "benefit_geometry_vs_random": 0.0981,
+            "benefit_magnitude_vs_random": -0.0122
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2516,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0249,
+            "mean_drop_magnitude": 0.1424,
+            "benefit_geometry_vs_random": 0.2765,
+            "benefit_magnitude_vs_random": 0.1092
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0149,
+            "mean_drop_magnitude": 0.1602,
+            "benefit_geometry_vs_random": 0.2368,
+            "benefit_magnitude_vs_random": 0.0914
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.7622,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1294,
+            "mean_drop_magnitude": 0.6899,
+            "benefit_geometry_vs_random": 0.6328,
+            "benefit_magnitude_vs_random": 0.0722
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.275,
+            "mean_drop_magnitude": 0.7875,
+            "benefit_geometry_vs_random": 0.4871,
+            "benefit_magnitude_vs_random": -0.0253
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.8239,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.9273,
+            "mean_drop_magnitude": 1.7719,
+            "benefit_geometry_vs_random": 0.8965,
+            "benefit_magnitude_vs_random": 0.052
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.0974,
+            "mean_drop_magnitude": 1.7722,
+            "benefit_geometry_vs_random": 0.7265,
+            "benefit_magnitude_vs_random": 0.0517
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0431,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0399,
+            "mean_drop_magnitude": -0.0429,
+            "benefit_geometry_vs_random": 0.0831,
+            "benefit_magnitude_vs_random": 0.086
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0147,
+            "mean_drop_magnitude": 0.0166,
+            "benefit_geometry_vs_random": 0.0578,
+            "benefit_magnitude_vs_random": 0.0265
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 0.1055,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0604,
+            "mean_drop_magnitude": 0.0614,
+            "benefit_geometry_vs_random": 0.1659,
+            "benefit_magnitude_vs_random": 0.0441
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0086,
+            "mean_drop_magnitude": 0.0619,
+            "benefit_geometry_vs_random": 0.1141,
+            "benefit_magnitude_vs_random": 0.0436
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2863,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0226,
+            "mean_drop_magnitude": 0.1738,
+            "benefit_geometry_vs_random": 0.2637,
+            "benefit_magnitude_vs_random": 0.1125
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1237,
+            "mean_drop_magnitude": 0.2749,
+            "benefit_geometry_vs_random": 0.1626,
+            "benefit_magnitude_vs_random": 0.0114
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.6455,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1832,
+            "mean_drop_magnitude": 0.5121,
+            "benefit_geometry_vs_random": 0.4623,
+            "benefit_magnitude_vs_random": 0.1334
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.345,
+            "mean_drop_magnitude": 0.5827,
+            "benefit_geometry_vs_random": 0.3005,
+            "benefit_magnitude_vs_random": 0.0628
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.7247,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.9928,
+            "mean_drop_magnitude": 1.5372,
+            "benefit_geometry_vs_random": 0.7319,
+            "benefit_magnitude_vs_random": 0.1875
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.217,
+            "mean_drop_magnitude": 1.542,
+            "benefit_geometry_vs_random": 0.5077,
+            "benefit_magnitude_vs_random": 0.1827
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.0107,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0084,
+            "mean_drop_magnitude": 0.001,
+            "benefit_geometry_vs_random": 0.0191,
+            "benefit_magnitude_vs_random": 0.0097
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0129,
+            "mean_drop_magnitude": -0.01,
+            "benefit_geometry_vs_random": 0.0236,
+            "benefit_magnitude_vs_random": 0.0206
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 0.0757,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.007,
+            "mean_drop_magnitude": 0.0084,
+            "benefit_geometry_vs_random": 0.0687,
+            "benefit_magnitude_vs_random": 0.0672
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0032,
+            "mean_drop_magnitude": 0.0376,
+            "benefit_geometry_vs_random": 0.0788,
+            "benefit_magnitude_vs_random": 0.0381
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.289,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0134,
+            "mean_drop_magnitude": 0.3084,
+            "benefit_geometry_vs_random": 0.2756,
+            "benefit_magnitude_vs_random": -0.0194
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0812,
+            "mean_drop_magnitude": 0.2614,
+            "benefit_geometry_vs_random": 0.2078,
+            "benefit_magnitude_vs_random": 0.0276
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.9065,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.26,
+            "mean_drop_magnitude": 0.9077,
+            "benefit_geometry_vs_random": 0.6465,
+            "benefit_magnitude_vs_random": -0.0012
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.4817,
+            "mean_drop_magnitude": 0.933,
+            "benefit_geometry_vs_random": 0.4248,
+            "benefit_magnitude_vs_random": -0.0265
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 2.1648,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.2061,
+            "mean_drop_magnitude": 2.0432,
+            "benefit_geometry_vs_random": 0.9587,
+            "benefit_magnitude_vs_random": 0.1216
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.4278,
+            "mean_drop_magnitude": 2.2954,
+            "benefit_geometry_vs_random": 0.737,
+            "benefit_magnitude_vs_random": -0.1306
+          }
+        }
+      }
+    },
+    "gemma-2-2b_L13_RG": {
+      "gain": 20.017,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.2476,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.1128,
+            "mean_drop_magnitude": 0.3892,
+            "benefit_geometry_vs_random": 0.1348,
+            "benefit_magnitude_vs_random": -0.1416
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0098,
+            "mean_drop_magnitude": 0.4804,
+            "benefit_geometry_vs_random": 0.2574,
+            "benefit_magnitude_vs_random": -0.2328
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 0.8711,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.6364,
+            "mean_drop_magnitude": 0.432,
+            "benefit_geometry_vs_random": 0.2347,
+            "benefit_magnitude_vs_random": 0.4391
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 0.3965,
+            "mean_drop_magnitude": 0.8321,
+            "benefit_geometry_vs_random": 0.4746,
+            "benefit_magnitude_vs_random": 0.039
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.1294,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.5988,
+            "mean_drop_magnitude": 1.1323,
+            "benefit_geometry_vs_random": 0.5305,
+            "benefit_magnitude_vs_random": -0.003
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.9856,
+            "mean_drop_magnitude": 1.1513,
+            "benefit_geometry_vs_random": 0.1438,
+            "benefit_magnitude_vs_random": -0.022
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 3.2437,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.3306,
+            "mean_drop_magnitude": 4.0143,
+            "benefit_geometry_vs_random": 0.9131,
+            "benefit_magnitude_vs_random": -0.7706
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.1628,
+            "mean_drop_magnitude": 3.4963,
+            "benefit_geometry_vs_random": 0.0809,
+            "benefit_magnitude_vs_random": -0.2526
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 5.706,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.1931,
+            "mean_drop_magnitude": 6.8614,
+            "benefit_geometry_vs_random": 0.5129,
+            "benefit_magnitude_vs_random": -1.1554
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.8475,
+            "mean_drop_magnitude": 5.7422,
+            "benefit_geometry_vs_random": -0.1416,
+            "benefit_magnitude_vs_random": -0.0363
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.7347,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.429,
+            "mean_drop_magnitude": 0.7421,
+            "benefit_geometry_vs_random": 0.3057,
+            "benefit_magnitude_vs_random": -0.0074
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.5777,
+            "mean_drop_magnitude": 0.6311,
+            "benefit_geometry_vs_random": 0.1571,
+            "benefit_magnitude_vs_random": 0.1036
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 1.0247,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 1.6187,
+            "mean_drop_magnitude": 1.1351,
+            "benefit_geometry_vs_random": -0.594,
+            "benefit_magnitude_vs_random": -0.1105
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.343,
+            "mean_drop_magnitude": 1.0905,
+            "benefit_geometry_vs_random": -0.3183,
+            "benefit_magnitude_vs_random": -0.0658
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 2.2662,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.8091,
+            "mean_drop_magnitude": 2.6913,
+            "benefit_geometry_vs_random": 0.4571,
+            "benefit_magnitude_vs_random": -0.4251
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.5559,
+            "mean_drop_magnitude": 2.0809,
+            "benefit_geometry_vs_random": -0.2898,
+            "benefit_magnitude_vs_random": 0.1853
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 4.1074,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 3.6553,
+            "mean_drop_magnitude": 3.727,
+            "benefit_geometry_vs_random": 0.4521,
+            "benefit_magnitude_vs_random": 0.3805
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.8646,
+            "mean_drop_magnitude": 3.7479,
+            "benefit_geometry_vs_random": 0.2428,
+            "benefit_magnitude_vs_random": 0.3595
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 6.3882,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.898,
+            "mean_drop_magnitude": 6.9839,
+            "benefit_geometry_vs_random": 0.4902,
+            "benefit_magnitude_vs_random": -0.5957
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 6.2754,
+            "mean_drop_magnitude": 6.7232,
+            "benefit_geometry_vs_random": 0.1128,
+            "benefit_magnitude_vs_random": -0.335
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.6553,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.5072,
+            "mean_drop_magnitude": 1.0361,
+            "benefit_geometry_vs_random": 0.1481,
+            "benefit_magnitude_vs_random": -0.3808
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.6227,
+            "mean_drop_magnitude": 0.8395,
+            "benefit_geometry_vs_random": 0.0326,
+            "benefit_magnitude_vs_random": -0.1842
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 1.066,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.8747,
+            "mean_drop_magnitude": 1.4065,
+            "benefit_geometry_vs_random": 0.1913,
+            "benefit_magnitude_vs_random": -0.3405
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.124,
+            "mean_drop_magnitude": 1.2409,
+            "benefit_geometry_vs_random": -0.058,
+            "benefit_magnitude_vs_random": -0.1749
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.7554,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.1937,
+            "mean_drop_magnitude": 1.3366,
+            "benefit_geometry_vs_random": -0.4382,
+            "benefit_magnitude_vs_random": 0.4188
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.7127,
+            "mean_drop_magnitude": 1.5058,
+            "benefit_geometry_vs_random": 0.0428,
+            "benefit_magnitude_vs_random": 0.2496
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 3.4149,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.1707,
+            "mean_drop_magnitude": 4.1403,
+            "benefit_geometry_vs_random": -0.7558,
+            "benefit_magnitude_vs_random": -0.7254
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.3194,
+            "mean_drop_magnitude": 3.7918,
+            "benefit_geometry_vs_random": 0.0955,
+            "benefit_magnitude_vs_random": -0.3769
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 5.5616,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 6.6128,
+            "mean_drop_magnitude": 6.9038,
+            "benefit_geometry_vs_random": -1.0511,
+            "benefit_magnitude_vs_random": -1.3422
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 6.0226,
+            "mean_drop_magnitude": 6.3774,
+            "benefit_geometry_vs_random": -0.4609,
+            "benefit_magnitude_vs_random": -0.8157
+          }
+        }
+      }
+    },
+    "gemma-2-2b_L19_RG": {
+      "gain": 12.4829,
+      "regime": "high_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 1.5557,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.0733,
+            "mean_drop_magnitude": 0.8415,
+            "benefit_geometry_vs_random": 0.4824,
+            "benefit_magnitude_vs_random": 0.7142
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.06,
+            "mean_drop_magnitude": 1.1799,
+            "benefit_geometry_vs_random": 0.4957,
+            "benefit_magnitude_vs_random": 0.3758
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": 2.6859,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 2.1802,
+            "mean_drop_magnitude": 2.5798,
+            "benefit_geometry_vs_random": 0.5058,
+            "benefit_magnitude_vs_random": 0.1061
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 2.3246,
+            "mean_drop_magnitude": 2.4724,
+            "benefit_geometry_vs_random": 0.3613,
+            "benefit_magnitude_vs_random": 0.2135
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 4.3088,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.0018,
+            "mean_drop_magnitude": 3.4105,
+            "benefit_geometry_vs_random": 0.307,
+            "benefit_magnitude_vs_random": 0.8983
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.7874,
+            "mean_drop_magnitude": 3.9283,
+            "benefit_geometry_vs_random": 0.5214,
+            "benefit_magnitude_vs_random": 0.3805
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 6.4102,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.7228,
+            "mean_drop_magnitude": 6.0086,
+            "benefit_geometry_vs_random": 0.6874,
+            "benefit_magnitude_vs_random": 0.4015
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 6.0007,
+            "mean_drop_magnitude": 5.7653,
+            "benefit_geometry_vs_random": 0.4095,
+            "benefit_magnitude_vs_random": 0.6449
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 8.9411,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 8.7788,
+            "mean_drop_magnitude": 7.785,
+            "benefit_geometry_vs_random": 0.1623,
+            "benefit_magnitude_vs_random": 1.1562
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 8.507,
+            "mean_drop_magnitude": 8.2682,
+            "benefit_geometry_vs_random": 0.4341,
+            "benefit_magnitude_vs_random": 0.6729
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 1.3724,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.3643,
+            "mean_drop_magnitude": 1.2208,
+            "benefit_geometry_vs_random": 0.0081,
+            "benefit_magnitude_vs_random": 0.1516
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.2731,
+            "mean_drop_magnitude": 1.2822,
+            "benefit_geometry_vs_random": 0.0992,
+            "benefit_magnitude_vs_random": 0.0902
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": 2.1125,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 1.6391,
+            "mean_drop_magnitude": 1.4104,
+            "benefit_geometry_vs_random": 0.4734,
+            "benefit_magnitude_vs_random": 0.7021
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.3242,
+            "mean_drop_magnitude": 1.708,
+            "benefit_geometry_vs_random": 0.7883,
+            "benefit_magnitude_vs_random": 0.4046
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 3.482,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 2.0321,
+            "mean_drop_magnitude": 2.991,
+            "benefit_geometry_vs_random": 1.4499,
+            "benefit_magnitude_vs_random": 0.491
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 2.6234,
+            "mean_drop_magnitude": 2.4989,
+            "benefit_geometry_vs_random": 0.8585,
+            "benefit_magnitude_vs_random": 0.9831
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 6.3216,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 4.9027,
+            "mean_drop_magnitude": 5.2736,
+            "benefit_geometry_vs_random": 1.4189,
+            "benefit_magnitude_vs_random": 1.048
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.7025,
+            "mean_drop_magnitude": 5.9077,
+            "benefit_geometry_vs_random": 0.6191,
+            "benefit_magnitude_vs_random": 0.414
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 8.8454,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 7.3564,
+            "mean_drop_magnitude": 8.5606,
+            "benefit_geometry_vs_random": 1.489,
+            "benefit_magnitude_vs_random": 0.2849
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 8.1089,
+            "mean_drop_magnitude": 8.4939,
+            "benefit_geometry_vs_random": 0.7365,
+            "benefit_magnitude_vs_random": 0.3515
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 1.3006,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 1.4007,
+            "mean_drop_magnitude": 1.1831,
+            "benefit_geometry_vs_random": -0.1001,
+            "benefit_magnitude_vs_random": 0.1175
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 1.1237,
+            "mean_drop_magnitude": 1.1348,
+            "benefit_geometry_vs_random": 0.1769,
+            "benefit_magnitude_vs_random": 0.1658
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": 2.1387,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 1.7636,
+            "mean_drop_magnitude": 1.7083,
+            "benefit_geometry_vs_random": 0.3751,
+            "benefit_magnitude_vs_random": 0.4304
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": 1.7494,
+            "mean_drop_magnitude": 1.837,
+            "benefit_geometry_vs_random": 0.3893,
+            "benefit_magnitude_vs_random": 0.3017
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 4.0191,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 3.1579,
+            "mean_drop_magnitude": 2.8821,
+            "benefit_geometry_vs_random": 0.8612,
+            "benefit_magnitude_vs_random": 1.1371
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 3.804,
+            "mean_drop_magnitude": 3.4724,
+            "benefit_geometry_vs_random": 0.2151,
+            "benefit_magnitude_vs_random": 0.5467
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 6.365,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 5.7736,
+            "mean_drop_magnitude": 4.3043,
+            "benefit_geometry_vs_random": 0.5914,
+            "benefit_magnitude_vs_random": 2.0607
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 5.9184,
+            "mean_drop_magnitude": 5.1042,
+            "benefit_geometry_vs_random": 0.4466,
+            "benefit_magnitude_vs_random": 1.2608
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 8.8398,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 8.0271,
+            "mean_drop_magnitude": 6.4555,
+            "benefit_geometry_vs_random": 0.8126,
+            "benefit_magnitude_vs_random": 2.3843
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 8.6727,
+            "mean_drop_magnitude": 7.3831,
+            "benefit_geometry_vs_random": 0.1671,
+            "benefit_magnitude_vs_random": 1.4567
+          }
+        }
+      }
+    },
+    "gpt2-xl_L24_RG": {
+      "gain": 3.4101,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0928,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0313,
+            "mean_drop_magnitude": -0.0988,
+            "benefit_geometry_vs_random": -0.0615,
+            "benefit_magnitude_vs_random": 0.006
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0566,
+            "mean_drop_magnitude": -0.0768,
+            "benefit_geometry_vs_random": -0.0363,
+            "benefit_magnitude_vs_random": -0.0161
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": -0.1707,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.1507,
+            "mean_drop_magnitude": -0.1569,
+            "benefit_geometry_vs_random": -0.0199,
+            "benefit_magnitude_vs_random": -0.0137
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.1472,
+            "mean_drop_magnitude": -0.1852,
+            "benefit_geometry_vs_random": -0.0235,
+            "benefit_magnitude_vs_random": 0.0145
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.194,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.1822,
+            "mean_drop_magnitude": -0.2516,
+            "benefit_geometry_vs_random": -0.0117,
+            "benefit_magnitude_vs_random": 0.0576
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.2034,
+            "mean_drop_magnitude": -0.2067,
+            "benefit_geometry_vs_random": 0.0095,
+            "benefit_magnitude_vs_random": 0.0127
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.1305,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.2777,
+            "mean_drop_magnitude": -0.0243,
+            "benefit_geometry_vs_random": 0.1472,
+            "benefit_magnitude_vs_random": -0.1061
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.3302,
+            "mean_drop_magnitude": -0.1044,
+            "benefit_geometry_vs_random": 0.1997,
+            "benefit_magnitude_vs_random": -0.0261
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": 0.511,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.3441,
+            "mean_drop_magnitude": 0.6345,
+            "benefit_geometry_vs_random": 0.1669,
+            "benefit_magnitude_vs_random": -0.1235
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1868,
+            "mean_drop_magnitude": 0.5608,
+            "benefit_geometry_vs_random": 0.3242,
+            "benefit_magnitude_vs_random": -0.0498
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.1049,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0746,
+            "mean_drop_magnitude": -0.0936,
+            "benefit_geometry_vs_random": -0.0303,
+            "benefit_magnitude_vs_random": -0.0113
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.095,
+            "mean_drop_magnitude": -0.0899,
+            "benefit_geometry_vs_random": -0.0099,
+            "benefit_magnitude_vs_random": -0.0151
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": -0.1624,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.072,
+            "mean_drop_magnitude": -0.1179,
+            "benefit_geometry_vs_random": -0.0904,
+            "benefit_magnitude_vs_random": -0.0444
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.1382,
+            "mean_drop_magnitude": -0.1211,
+            "benefit_geometry_vs_random": -0.0242,
+            "benefit_magnitude_vs_random": -0.0413
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.28,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.2388,
+            "mean_drop_magnitude": -0.1802,
+            "benefit_geometry_vs_random": -0.0412,
+            "benefit_magnitude_vs_random": -0.0998
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.2529,
+            "mean_drop_magnitude": -0.2562,
+            "benefit_geometry_vs_random": -0.0271,
+            "benefit_magnitude_vs_random": -0.0239
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.34,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.293,
+            "mean_drop_magnitude": -0.0878,
+            "benefit_geometry_vs_random": -0.047,
+            "benefit_magnitude_vs_random": -0.2523
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.3362,
+            "mean_drop_magnitude": -0.2132,
+            "benefit_geometry_vs_random": -0.0038,
+            "benefit_magnitude_vs_random": -0.1268
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": 0.1273,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.2246,
+            "mean_drop_magnitude": 0.4207,
+            "benefit_geometry_vs_random": -0.0973,
+            "benefit_magnitude_vs_random": -0.2934
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.1671,
+            "mean_drop_magnitude": 0.1837,
+            "benefit_geometry_vs_random": -0.0398,
+            "benefit_magnitude_vs_random": -0.0565
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0906,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.058,
+            "mean_drop_magnitude": -0.0675,
+            "benefit_geometry_vs_random": -0.0326,
+            "benefit_magnitude_vs_random": -0.0231
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0806,
+            "mean_drop_magnitude": -0.0749,
+            "benefit_geometry_vs_random": -0.01,
+            "benefit_magnitude_vs_random": -0.0157
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": -0.1338,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.1123,
+            "mean_drop_magnitude": -0.1658,
+            "benefit_geometry_vs_random": -0.0215,
+            "benefit_magnitude_vs_random": 0.0319
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.122,
+            "mean_drop_magnitude": -0.128,
+            "benefit_geometry_vs_random": -0.0118,
+            "benefit_magnitude_vs_random": -0.0058
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.228,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.187,
+            "mean_drop_magnitude": -0.2456,
+            "benefit_geometry_vs_random": -0.0409,
+            "benefit_magnitude_vs_random": 0.0176
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.1925,
+            "mean_drop_magnitude": -0.2129,
+            "benefit_geometry_vs_random": -0.0355,
+            "benefit_magnitude_vs_random": -0.0151
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.1717,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.2049,
+            "mean_drop_magnitude": -0.1735,
+            "benefit_geometry_vs_random": 0.0332,
+            "benefit_magnitude_vs_random": 0.0018
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.2044,
+            "mean_drop_magnitude": -0.26,
+            "benefit_geometry_vs_random": 0.0326,
+            "benefit_magnitude_vs_random": 0.0883
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": 0.5662,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.6472,
+            "mean_drop_magnitude": 0.2481,
+            "benefit_geometry_vs_random": -0.0811,
+            "benefit_magnitude_vs_random": 0.3181
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.5094,
+            "mean_drop_magnitude": 0.4891,
+            "benefit_geometry_vs_random": 0.0568,
+            "benefit_magnitude_vs_random": 0.077
+          }
+        }
+      }
+    },
+    "gpt2-xl_L36_RG": {
+      "gain": 0.8413,
+      "regime": "low_gain",
+      "cells": {
+        "g2_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0129,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0023,
+            "mean_drop_magnitude": -0.0029,
+            "benefit_geometry_vs_random": -0.0152,
+            "benefit_magnitude_vs_random": -0.01
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.001,
+            "mean_drop_magnitude": -0.0054,
+            "benefit_geometry_vs_random": -0.0139,
+            "benefit_magnitude_vs_random": -0.0076
+          }
+        },
+        "g3_s0": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0363,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.0018,
+            "mean_drop_magnitude": -0.0001,
+            "benefit_geometry_vs_random": -0.0382,
+            "benefit_magnitude_vs_random": -0.0363
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0089,
+            "mean_drop_magnitude": -0.0226,
+            "benefit_geometry_vs_random": -0.0275,
+            "benefit_magnitude_vs_random": -0.0137
+          }
+        },
+        "g5_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0558,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0165,
+            "mean_drop_magnitude": -0.012,
+            "benefit_geometry_vs_random": -0.0392,
+            "benefit_magnitude_vs_random": -0.0437
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0268,
+            "mean_drop_magnitude": -0.0548,
+            "benefit_geometry_vs_random": -0.029,
+            "benefit_magnitude_vs_random": -0.001
+          }
+        },
+        "g10_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.1258,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0623,
+            "mean_drop_magnitude": -0.1029,
+            "benefit_geometry_vs_random": -0.0635,
+            "benefit_magnitude_vs_random": -0.0229
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0849,
+            "mean_drop_magnitude": -0.1144,
+            "benefit_geometry_vs_random": -0.0409,
+            "benefit_magnitude_vs_random": -0.0114
+          }
+        },
+        "g20_s0": {
+          "n_obs": 200,
+          "mean_drop_random": -0.2218,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.1691,
+            "mean_drop_magnitude": -0.2329,
+            "benefit_geometry_vs_random": -0.0527,
+            "benefit_magnitude_vs_random": 0.0111
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.2009,
+            "mean_drop_magnitude": -0.1828,
+            "benefit_geometry_vs_random": -0.0209,
+            "benefit_magnitude_vs_random": -0.039
+          }
+        },
+        "g2_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0104,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": 0.0005,
+            "mean_drop_magnitude": 0.0026,
+            "benefit_geometry_vs_random": -0.0108,
+            "benefit_magnitude_vs_random": -0.0129
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": 0.0001,
+            "mean_drop_magnitude": -0.0017,
+            "benefit_geometry_vs_random": -0.0105,
+            "benefit_magnitude_vs_random": -0.0087
+          }
+        },
+        "g3_s1": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0336,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": 0.0033,
+            "mean_drop_magnitude": 0.0027,
+            "benefit_geometry_vs_random": -0.0369,
+            "benefit_magnitude_vs_random": -0.0364
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0069,
+            "mean_drop_magnitude": -0.0152,
+            "benefit_geometry_vs_random": -0.0267,
+            "benefit_magnitude_vs_random": -0.0184
+          }
+        },
+        "g5_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0568,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0204,
+            "mean_drop_magnitude": -0.0391,
+            "benefit_geometry_vs_random": -0.0365,
+            "benefit_magnitude_vs_random": -0.0177
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0276,
+            "mean_drop_magnitude": -0.0441,
+            "benefit_geometry_vs_random": -0.0293,
+            "benefit_magnitude_vs_random": -0.0127
+          }
+        },
+        "g10_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.1126,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0416,
+            "mean_drop_magnitude": -0.1066,
+            "benefit_geometry_vs_random": -0.071,
+            "benefit_magnitude_vs_random": -0.006
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0651,
+            "mean_drop_magnitude": -0.091,
+            "benefit_geometry_vs_random": -0.0475,
+            "benefit_magnitude_vs_random": -0.0216
+          }
+        },
+        "g20_s1": {
+          "n_obs": 200,
+          "mean_drop_random": -0.2032,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.1135,
+            "mean_drop_magnitude": -0.1771,
+            "benefit_geometry_vs_random": -0.0898,
+            "benefit_magnitude_vs_random": -0.0262
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.1699,
+            "mean_drop_magnitude": -0.1768,
+            "benefit_geometry_vs_random": -0.0333,
+            "benefit_magnitude_vs_random": -0.0264
+          }
+        },
+        "g2_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0271,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0032,
+            "mean_drop_magnitude": -0.0033,
+            "benefit_geometry_vs_random": -0.0239,
+            "benefit_magnitude_vs_random": -0.0238
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.008,
+            "mean_drop_magnitude": -0.0142,
+            "benefit_geometry_vs_random": -0.0191,
+            "benefit_magnitude_vs_random": -0.013
+          }
+        },
+        "g3_s2": {
+          "n_obs": 198,
+          "mean_drop_random": -0.0332,
+          "q25": {
+            "k_admitted": 49,
+            "mean_drop_geometry": -0.0045,
+            "mean_drop_magnitude": -0.0071,
+            "benefit_geometry_vs_random": -0.0287,
+            "benefit_magnitude_vs_random": -0.0261
+          },
+          "q50": {
+            "k_admitted": 99,
+            "mean_drop_geometry": -0.0154,
+            "mean_drop_magnitude": -0.0181,
+            "benefit_geometry_vs_random": -0.0178,
+            "benefit_magnitude_vs_random": -0.0152
+          }
+        },
+        "g5_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.0876,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0229,
+            "mean_drop_magnitude": -0.0533,
+            "benefit_geometry_vs_random": -0.0647,
+            "benefit_magnitude_vs_random": -0.0343
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.0509,
+            "mean_drop_magnitude": -0.0672,
+            "benefit_geometry_vs_random": -0.0368,
+            "benefit_magnitude_vs_random": -0.0204
+          }
+        },
+        "g10_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.1899,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.0628,
+            "mean_drop_magnitude": -0.1226,
+            "benefit_geometry_vs_random": -0.1271,
+            "benefit_magnitude_vs_random": -0.0673
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.1051,
+            "mean_drop_magnitude": -0.1451,
+            "benefit_geometry_vs_random": -0.0848,
+            "benefit_magnitude_vs_random": -0.0448
+          }
+        },
+        "g20_s2": {
+          "n_obs": 200,
+          "mean_drop_random": -0.2902,
+          "q25": {
+            "k_admitted": 50,
+            "mean_drop_geometry": -0.1692,
+            "mean_drop_magnitude": -0.2737,
+            "benefit_geometry_vs_random": -0.121,
+            "benefit_magnitude_vs_random": -0.0165
+          },
+          "q50": {
+            "k_admitted": 100,
+            "mean_drop_geometry": -0.2167,
+            "mean_drop_magnitude": -0.2727,
+            "benefit_geometry_vs_random": -0.0735,
+            "benefit_magnitude_vs_random": -0.0175
+          }
+        }
+      }
+    }
+  },
+  "regime_aggregates_small_g": {
+    "high_gain_q25": {
+      "benefit_geometry_by_seed": {
+        "0": 0.8133,
+        "1": 0.6779,
+        "2": 0.6579
+      },
+      "benefit_magnitude_by_seed": {
+        "0": 0.4588,
+        "1": 0.4788,
+        "2": 0.3899
+      },
+      "benefit_geometry_mean": 0.7164,
+      "benefit_magnitude_mean": 0.4425,
+      "n_cell_g_points": 99
+    },
+    "high_gain_q50": {
+      "benefit_geometry_by_seed": {
+        "0": 0.669,
+        "1": 0.4665,
+        "2": 0.4672
+      },
+      "benefit_magnitude_by_seed": {
+        "0": 0.2978,
+        "1": 0.3042,
+        "2": 0.2652
+      },
+      "benefit_geometry_mean": 0.5342,
+      "benefit_magnitude_mean": 0.2891,
+      "n_cell_g_points": 99
+    },
+    "low_gain_q25": {
+      "benefit_geometry_by_seed": {
+        "0": 0.0169,
+        "1": 0.0205,
+        "2": 0.0026
+      },
+      "benefit_magnitude_by_seed": {
+        "0": 0.0038,
+        "1": 0.0029,
+        "2": -0.003
+      },
+      "benefit_geometry_mean": 0.0133,
+      "benefit_magnitude_mean": 0.0013,
+      "n_cell_g_points": 72
+    },
+    "low_gain_q50": {
+      "benefit_geometry_by_seed": {
+        "0": 0.0261,
+        "1": 0.0236,
+        "2": 0.01
+      },
+      "benefit_magnitude_by_seed": {
+        "0": 0.0079,
+        "1": 0.005,
+        "2": 0.0037
+      },
+      "benefit_geometry_mean": 0.0199,
+      "benefit_magnitude_mean": 0.0055,
+      "n_cell_g_points": 72
+    }
+  }
+}

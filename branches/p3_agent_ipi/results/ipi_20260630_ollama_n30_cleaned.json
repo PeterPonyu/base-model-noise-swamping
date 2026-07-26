@@ -1,0 +1,129 @@
+{
+  "source": "ipi_20260630_ollama_n30.json",
+  "dead_models_excluded": [
+    "deepseek-r1:1.5b",
+    "deepseek-r1:7b",
+    "deepseek-r1:8b",
+    "gemma2:9b-instruct-q8_0"
+  ],
+  "dead_reason": "every per-model record carries an error (HTTP 400: supports_tools=false vs Ollama tool API) \u2014 all-zero rows are API artifacts, not injection resistance",
+  "n_models_kept": 5,
+  "per_model_asr_kept": {
+    "qwen2.5:1.5b": 0.1,
+    "qwen2.5:7b-instruct-q8_0": 0.5666666666666667,
+    "qwen3:8b": 0.9,
+    "llama3.1:8b-instruct-q4_K_M": 0.26666666666666666,
+    "mistral:7b-instruct-v0.3-q4_K_M": 0.1
+  },
+  "cleaned_contrast": {
+    "metric": "pearson",
+    "n_models": 5,
+    "n_items": 30,
+    "null_type": "within_model_item_permutation",
+    "lineage_pairs": [
+      [
+        "qwen2.5:1.5b",
+        "qwen2.5:7b-instruct-q8_0"
+      ],
+      [
+        "qwen2.5:1.5b",
+        "qwen3:8b"
+      ],
+      [
+        "qwen2.5:7b-instruct-q8_0",
+        "qwen3:8b"
+      ]
+    ],
+    "architecture_pairs": [],
+    "n_outgroup_pairs": 7,
+    "mean_lineage_corr": 0.037037037037037056,
+    "mean_architecture_corr": NaN,
+    "mean_outgroup_corr": -0.08445797124045204,
+    "observed_diff": NaN,
+    "n_perm": 1000,
+    "p_value": 0.0,
+    "label_perm_p": 0.0,
+    "label_perm_floor": 0.1,
+    "null_mean": NaN,
+    "null_max": NaN,
+    "lineage_gt_architecture": false,
+    "similarity_matrices": {
+      "pearson": [
+        [
+          1.0,
+          0.06726727939963126,
+          0.11111111111111112,
+          -0.2010075630518424,
+          -0.11111111111111112
+        ],
+        [
+          0.06726727939963126,
+          1.0,
+          -0.06726727939963122,
+          -0.23324125036551557,
+          -0.15695698526580623
+        ],
+        [
+          0.11111111111111112,
+          -0.06726727939963122,
+          1.0,
+          -0.3015113445777636,
+          0.11111111111111112
+        ],
+        [
+          -0.2010075630518424,
+          -0.23324125036551557,
+          -0.3015113445777636,
+          1.0,
+          0.3015113445777636
+        ],
+        [
+          -0.11111111111111112,
+          -0.15695698526580623,
+          0.11111111111111112,
+          0.3015113445777636,
+          1.0
+        ]
+      ],
+      "jaccard": [
+        [
+          1.0,
+          0.1111111111111111,
+          0.1111111111111111,
+          0.0,
+          0.0
+        ],
+        [
+          0.1111111111111111,
+          1.0,
+          0.5172413793103449,
+          0.13636363636363635,
+          0.05263157894736842
+        ],
+        [
+          0.1111111111111111,
+          0.5172413793103449,
+          1.0,
+          0.20689655172413793,
+          0.1111111111111111
+        ],
+        [
+          0.0,
+          0.13636363636363635,
+          0.20689655172413793,
+          1.0,
+          0.2222222222222222
+        ],
+        [
+          0.0,
+          0.05263157894736842,
+          0.1111111111111111,
+          0.2222222222222222,
+          1.0
+        ]
+      ]
+    }
+  },
+  "design_testable_after_exclusion": false,
+  "verdict": "DEGENERATE: excluding the API-dead models kills the entire r1-distill lineage group (all 3 r1 rows dead), so no architecture-matched lineage-vs-base pair survives (observed_diff=NaN). The lineage-vs-architecture hypothesis is UNTESTED by this run, not null. A valid run needs a tool-call transport that works for non-tool-API models (prompt-format tool calling), or an r1-distill served with a tool API."
+}

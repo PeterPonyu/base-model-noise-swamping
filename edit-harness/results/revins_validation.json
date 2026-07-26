@@ -1,0 +1,131 @@
+{
+ "n": 18,
+ "rows": [
+  {
+   "json": "results/g4_llama1b_alphaHO_mquake_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.9
+  },
+  {
+   "json": "results/g4_llama1b_alphaHO_mquake_L12_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.935
+  },
+  {
+   "json": "results/g4_llama1b_alphaHO_mquake_L12_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.865
+  },
+  {
+   "json": "results/g4_gptj_alphaHO_cf_L21_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.795
+  },
+  {
+   "json": "results/g4_gptj_alphaHO_cf_L21_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.79
+  },
+  {
+   "json": "results/g4_gptj_alphaHO_cf_L21_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.795
+  },
+  {
+   "json": "results/GRADSIM_TRUE_Llama-3.2-1B_L10_s0.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s0.json",
+   "npz_found": false,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s1.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s2.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/GRADSIM_TRUE_Llama-3.2-1B_L14_s0.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/GRADSIM_TRUE_Llama-3.2-1B_L8_s0.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_llama1b_grace_cf_L12_s0.egl.json",
+   "npz_found": false,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_llama1b_grace_cf_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/egl_llama1b_grace_cf_L12_s1.egl.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_llama1b_grace_cf_L12_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/egl_llama1b_grace_cf_L12_s2.egl.json",
+   "npz_found": false,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": null
+  },
+  {
+   "json": "results/egl_llama1b_grace_cf_L12_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 1.0
+  }
+ ]
+}

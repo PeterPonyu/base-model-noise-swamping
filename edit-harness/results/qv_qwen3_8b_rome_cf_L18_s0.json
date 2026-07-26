@@ -1,0 +1,54 @@
+{
+  "model": "/root/autodl-tmp/models/Qwen3-8B-Base",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 18,
+  "n_edits": 200,
+  "n_probes": 100,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.995,
+  "mean_residual_norm": 42.2817,
+  "frac_probes_known(pre_p>0.05)": 0.31,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 20000,
+    "spearman_cos_damage": -0.0856,
+    "spearman_normgrowth_damage": 0.0076,
+    "auroc_cos_broken": 0.643,
+    "auroc_normgrowth_broken": 0.5493,
+    "mean_damage_logit": -0.00213,
+    "mean_cosine": 0.1762
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 6200,
+    "spearman_cos_damage": -0.0904,
+    "spearman_normgrowth_damage": 0.0495,
+    "auroc_cos_broken": 0.5806,
+    "auroc_normgrowth_broken": 0.5603,
+    "mean_damage_logit": 0.0124,
+    "mean_cosine": 0.177
+  },
+  "runtime_s": 955.0,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0904,
+    "auroc": 0.5806,
+    "beats_normgrowth": true
+  },
+  "vectors_npz": "/root/edit-harness/results/vectors/vectors_qv_qwen3_8b_rome_cf_L18_s0.npz",
+  "vectors_valid": false
+}

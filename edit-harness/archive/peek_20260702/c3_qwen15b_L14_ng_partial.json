@@ -1,0 +1,1 @@
+{"glob": "results/matrices/gate_qwen15b_rome_cf_L14_s*.npz", "raw_within_probe": [-0.1696, -0.1878, -0.1574], "NG_partialled": [-0.1765, -0.1887, -0.1713], "raw_mean": -0.1716, "NG_partialled_mean": -0.1788}

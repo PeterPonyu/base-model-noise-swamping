@@ -1,0 +1,454 @@
+{
+  "definition": "within-probe Spearman(|key-cos|, |damage|), tie-averaged, partialled by holding probe identity fixed down each column",
+  "metric": "logit",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "n_perm_editlevel": 1000,
+  "families_transfer_PASS": "2/4",
+  "headline": {
+    "gemma9b_L21": {
+      "mean_abs": 0.0653,
+      "std_abs": 0.0441,
+      "n_seeds": 3,
+      "verdict": "DEAD"
+    },
+    "gemma9b_L26": {
+      "mean_abs": 0.0914,
+      "std_abs": 0.051,
+      "n_seeds": 3,
+      "verdict": "DEAD"
+    },
+    "gemma9b_L31": {
+      "mean_abs": 0.3419,
+      "std_abs": 0.0117,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    },
+    "gemma9b_L36": {
+      "mean_abs": 0.2157,
+      "std_abs": 0.004,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    }
+  },
+  "families": [
+    {
+      "family": "gemma9b_L21",
+      "name": "gemma9b_L21",
+      "within_probe_mean_across_seeds": 0.0653,
+      "within_probe_std_across_seeds": 0.0441,
+      "pattern": "results/matrices/gate_gemma9b_rome_cf_L21_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_gemma9b_rome_cf_L21_s0.npz",
+        "gate_gemma9b_rome_cf_L21_s1.npz",
+        "gate_gemma9b_rome_cf_L21_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.0653,
+      "within_probe_std_abs_across_seeds": 0.0441,
+      "per_edit_mean_abs_across_seeds": 0.1471,
+      "max_within_probe_perm_p_editlevel": 0.6154,
+      "VERDICT": "DEAD \u2014 within-probe |rho| < 0.10; magnitude law does NOT transfer here",
+      "per_seed": [
+        {
+          "npz": "gate_gemma9b_rome_cf_L21_s0.npz",
+          "shape": [
+            183,
+            198
+          ],
+          "flat_spearman_abs_INFLATED": 0.0757,
+          "within_probe_mean_abs": 0.0619,
+          "within_probe_ci95": [
+            0.047,
+            0.0773
+          ],
+          "within_probe_ci95_editcluster": [
+            0.0128,
+            0.1124
+          ],
+          "within_probe_frac_positive": 0.697,
+          "per_edit_mean_abs": 0.1297,
+          "per_edit_ci95": [
+            0.1167,
+            0.1421
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.018,
+          "editlevel_null_mean": -0.0003,
+          "editlevel_null_std": 0.0261,
+          "editlevel_z": 2.38
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L21_s1.npz",
+          "shape": [
+            187,
+            187
+          ],
+          "flat_spearman_abs_INFLATED": 0.1326,
+          "within_probe_mean_abs": 0.121,
+          "within_probe_ci95": [
+            0.1059,
+            0.1374
+          ],
+          "within_probe_ci95_editcluster": [
+            0.0636,
+            0.1733
+          ],
+          "within_probe_frac_positive": 0.856,
+          "per_edit_mean_abs": 0.147,
+          "per_edit_ci95": [
+            0.1308,
+            0.1631
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0003,
+          "editlevel_null_std": 0.0264,
+          "editlevel_z": 4.57
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L21_s2.npz",
+          "shape": [
+            181,
+            200
+          ],
+          "flat_spearman_abs_INFLATED": 0.0601,
+          "within_probe_mean_abs": 0.0131,
+          "within_probe_ci95": [
+            -0.0027,
+            0.0286
+          ],
+          "within_probe_ci95_editcluster": [
+            -0.0373,
+            0.061
+          ],
+          "within_probe_frac_positive": 0.515,
+          "per_edit_mean_abs": 0.1647,
+          "per_edit_ci95": [
+            0.1493,
+            0.179
+          ],
+          "within_probe_perm_p": 0.0133,
+          "within_probe_perm_p_editlevel": 0.6154,
+          "editlevel_null_mean": 0.0009,
+          "editlevel_null_std": 0.0257,
+          "editlevel_z": 0.48
+        }
+      ]
+    },
+    {
+      "family": "gemma9b_L26",
+      "name": "gemma9b_L26",
+      "within_probe_mean_across_seeds": 0.0914,
+      "within_probe_std_across_seeds": 0.051,
+      "pattern": "results/matrices/gate_gemma9b_rome_cf_L26_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_gemma9b_rome_cf_L26_s0.npz",
+        "gate_gemma9b_rome_cf_L26_s1.npz",
+        "gate_gemma9b_rome_cf_L26_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.0914,
+      "within_probe_std_abs_across_seeds": 0.051,
+      "per_edit_mean_abs_across_seeds": 0.1058,
+      "max_within_probe_perm_p_editlevel": 0.3177,
+      "VERDICT": "DEAD \u2014 within-probe |rho| < 0.10; magnitude law does NOT transfer here",
+      "per_seed": [
+        {
+          "npz": "gate_gemma9b_rome_cf_L26_s0.npz",
+          "shape": [
+            172,
+            198
+          ],
+          "flat_spearman_abs_INFLATED": 0.12,
+          "within_probe_mean_abs": 0.1583,
+          "within_probe_ci95": [
+            0.1462,
+            0.171
+          ],
+          "within_probe_ci95_editcluster": [
+            0.0847,
+            0.2354
+          ],
+          "within_probe_frac_positive": 0.96,
+          "per_edit_mean_abs": 0.0949,
+          "per_edit_ci95": [
+            0.0793,
+            0.1101
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0023,
+          "editlevel_null_std": 0.035,
+          "editlevel_z": 4.46
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L26_s1.npz",
+          "shape": [
+            179,
+            187
+          ],
+          "flat_spearman_abs_INFLATED": 0.0872,
+          "within_probe_mean_abs": 0.0813,
+          "within_probe_ci95": [
+            0.0684,
+            0.0944
+          ],
+          "within_probe_ci95_editcluster": [
+            0.0141,
+            0.1485
+          ],
+          "within_probe_frac_positive": 0.807,
+          "per_edit_mean_abs": 0.1075,
+          "per_edit_ci95": [
+            0.0921,
+            0.123
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.02,
+          "editlevel_null_mean": 0.0017,
+          "editlevel_null_std": 0.0333,
+          "editlevel_z": 2.39
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L26_s2.npz",
+          "shape": [
+            173,
+            200
+          ],
+          "flat_spearman_abs_INFLATED": 0.04,
+          "within_probe_mean_abs": 0.0346,
+          "within_probe_ci95": [
+            0.0216,
+            0.0475
+          ],
+          "within_probe_ci95_editcluster": [
+            -0.0477,
+            0.1085
+          ],
+          "within_probe_frac_positive": 0.655,
+          "per_edit_mean_abs": 0.1149,
+          "per_edit_ci95": [
+            0.0979,
+            0.132
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.3177,
+          "editlevel_null_mean": -0.0001,
+          "editlevel_null_std": 0.035,
+          "editlevel_z": 0.99
+        }
+      ]
+    },
+    {
+      "family": "gemma9b_L31",
+      "name": "gemma9b_L31",
+      "within_probe_mean_across_seeds": 0.3419,
+      "within_probe_std_across_seeds": 0.0117,
+      "pattern": "results/matrices/gate_gemma9b_rome_cf_L31_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_gemma9b_rome_cf_L31_s0.npz",
+        "gate_gemma9b_rome_cf_L31_s1.npz",
+        "gate_gemma9b_rome_cf_L31_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.3419,
+      "within_probe_std_abs_across_seeds": 0.0117,
+      "per_edit_mean_abs_across_seeds": 0.0527,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_gemma9b_rome_cf_L31_s0.npz",
+          "shape": [
+            191,
+            198
+          ],
+          "flat_spearman_abs_INFLATED": 0.236,
+          "within_probe_mean_abs": 0.3515,
+          "within_probe_ci95": [
+            0.3307,
+            0.3721
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2768,
+            0.4189
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.0413,
+          "per_edit_ci95": [
+            0.0263,
+            0.0555
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0023,
+          "editlevel_null_std": 0.0475,
+          "editlevel_z": 7.45
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L31_s1.npz",
+          "shape": [
+            192,
+            187
+          ],
+          "flat_spearman_abs_INFLATED": 0.2579,
+          "within_probe_mean_abs": 0.3488,
+          "within_probe_ci95": [
+            0.326,
+            0.3715
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2781,
+            0.4145
+          ],
+          "within_probe_frac_positive": 0.979,
+          "per_edit_mean_abs": 0.1031,
+          "per_edit_ci95": [
+            0.0864,
+            0.1206
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0011,
+          "editlevel_null_std": 0.0447,
+          "editlevel_z": 7.78
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L31_s2.npz",
+          "shape": [
+            188,
+            200
+          ],
+          "flat_spearman_abs_INFLATED": 0.2121,
+          "within_probe_mean_abs": 0.3255,
+          "within_probe_ci95": [
+            0.303,
+            0.3465
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2469,
+            0.3973
+          ],
+          "within_probe_frac_positive": 0.965,
+          "per_edit_mean_abs": 0.0136,
+          "per_edit_ci95": [
+            -0.0025,
+            0.0302
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0029,
+          "editlevel_null_std": 0.0475,
+          "editlevel_z": 6.8
+        }
+      ]
+    },
+    {
+      "family": "gemma9b_L36",
+      "name": "gemma9b_L36",
+      "within_probe_mean_across_seeds": 0.2157,
+      "within_probe_std_across_seeds": 0.004,
+      "pattern": "results/matrices/gate_gemma9b_rome_cf_L36_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_gemma9b_rome_cf_L36_s0.npz",
+        "gate_gemma9b_rome_cf_L36_s1.npz",
+        "gate_gemma9b_rome_cf_L36_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.2157,
+      "within_probe_std_abs_across_seeds": 0.004,
+      "per_edit_mean_abs_across_seeds": -0.0076,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_gemma9b_rome_cf_L36_s0.npz",
+          "shape": [
+            177,
+            198
+          ],
+          "flat_spearman_abs_INFLATED": 0.116,
+          "within_probe_mean_abs": 0.2208,
+          "within_probe_ci95": [
+            0.2081,
+            0.2338
+          ],
+          "within_probe_ci95_editcluster": [
+            0.1197,
+            0.3098
+          ],
+          "within_probe_frac_positive": 0.97,
+          "per_edit_mean_abs": -0.0084,
+          "per_edit_ci95": [
+            -0.0227,
+            0.006
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0011,
+          "editlevel_null_std": 0.0481,
+          "editlevel_z": 4.62
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L36_s1.npz",
+          "shape": [
+            179,
+            187
+          ],
+          "flat_spearman_abs_INFLATED": 0.1171,
+          "within_probe_mean_abs": 0.2109,
+          "within_probe_ci95": [
+            0.1985,
+            0.2231
+          ],
+          "within_probe_ci95_editcluster": [
+            0.1175,
+            0.2953
+          ],
+          "within_probe_frac_positive": 0.989,
+          "per_edit_mean_abs": 0.0109,
+          "per_edit_ci95": [
+            -0.0028,
+            0.0262
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0021,
+          "editlevel_null_std": 0.0467,
+          "editlevel_z": 4.47
+        },
+        {
+          "npz": "gate_gemma9b_rome_cf_L36_s2.npz",
+          "shape": [
+            173,
+            200
+          ],
+          "flat_spearman_abs_INFLATED": 0.1145,
+          "within_probe_mean_abs": 0.2155,
+          "within_probe_ci95": [
+            0.2019,
+            0.2296
+          ],
+          "within_probe_ci95_editcluster": [
+            0.1165,
+            0.3027
+          ],
+          "within_probe_frac_positive": 0.98,
+          "per_edit_mean_abs": -0.0253,
+          "per_edit_ci95": [
+            -0.0416,
+            -0.0086
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0006,
+          "editlevel_null_std": 0.0483,
+          "editlevel_z": 4.48
+        }
+      ]
+    }
+  ]
+}

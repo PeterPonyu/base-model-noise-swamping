@@ -1,0 +1,45 @@
+{
+  "model": "data/models/Qwen2.5-0.5B",
+  "layer": 12,
+  "seed": 0,
+  "steps": 2,
+  "lr": 0.1,
+  "tasks": [
+    "sst2",
+    "mrpc",
+    "rte"
+  ],
+  "n_glue_samples": 3,
+  "checkpoints": [
+    0,
+    2,
+    4
+  ],
+  "trajectory": [
+    {
+      "n_edits": 0,
+      "accuracy": {
+        "sst2": 1.0,
+        "mrpc": 0.3333333333333333,
+        "rte": 1.0
+      }
+    },
+    {
+      "n_edits": 2,
+      "accuracy": {
+        "sst2": 1.0,
+        "mrpc": 0.3333333333333333,
+        "rte": 1.0
+      }
+    },
+    {
+      "n_edits": 4,
+      "accuracy": {
+        "sst2": 1.0,
+        "mrpc": 0.3333333333333333,
+        "rte": 1.0
+      }
+    }
+  ],
+  "runtime_s": 276.2
+}

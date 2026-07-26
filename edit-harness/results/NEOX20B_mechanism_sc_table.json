@@ -1,0 +1,89 @@
+{
+  "statistic": "S=mean||v-Wk||/||k||=mean||DW||_F (from norm_growth; Eq.2), |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg). mean_S_resid_norm_unnormalized is provenance-only, NOT a valid S.",
+  "rho_SC_validity": "within_probe_rho_SC is the closed-form single-layer rank-one ROME identity S*|cos|. It is a valid S x C statistic ONLY for editor==rome (rho_SC_valid_sxc==true). For MEMIT (multi-layer aggregate edit) and non-ROME editors it is NOT a valid S x C measurement \u2014 quote rho_C only. See findings-MEMIT-SC-RECONCILIATION-2026-07-04.md.",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "results/matrices/gate_neox20b_rome_cf_L*_s*.npz"
+  ],
+  "groups": [
+    {
+      "model": "neox20b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 11,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 67174,
+      "mean_S": 1.8604,
+      "mean_S_resid_norm_unnormalized": 56.3553,
+      "S_available": true,
+      "mean_absC": 0.1321,
+      "within_probe_rho_C": 0.0336,
+      "within_probe_rho_SC": 0.0345
+    },
+    {
+      "model": "neox20b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 16,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 60974,
+      "mean_S": 2.1572,
+      "mean_S_resid_norm_unnormalized": 60.5059,
+      "S_available": true,
+      "mean_absC": 0.2063,
+      "within_probe_rho_C": 0.0548,
+      "within_probe_rho_SC": 0.0811
+    },
+    {
+      "model": "neox20b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 22,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 34492,
+      "mean_S": 2.2806,
+      "mean_S_resid_norm_unnormalized": 67.2509,
+      "S_available": true,
+      "mean_absC": 0.2387,
+      "within_probe_rho_C": 0.056,
+      "within_probe_rho_SC": 0.1387
+    },
+    {
+      "model": "neox20b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 28,
+      "rho_SC_valid_sxc": true,
+      "n_files": 1,
+      "n_pairs": 468,
+      "mean_S": 1.418,
+      "mean_S_resid_norm_unnormalized": 48.5258,
+      "S_available": true,
+      "mean_absC": 0.2582,
+      "within_probe_rho_C": 0.234,
+      "within_probe_rho_SC": 0.1047
+    },
+    {
+      "model": "neox20b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 33,
+      "rho_SC_valid_sxc": true,
+      "n_files": 1,
+      "n_pairs": 234,
+      "mean_S": 0.9688,
+      "mean_S_resid_norm_unnormalized": 29.6465,
+      "S_available": true,
+      "mean_absC": 0.1899,
+      "within_probe_rho_C": NaN,
+      "within_probe_rho_SC": NaN
+    }
+  ],
+  "notes": []
+}

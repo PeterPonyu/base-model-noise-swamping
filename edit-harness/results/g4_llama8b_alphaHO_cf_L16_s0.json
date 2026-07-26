@@ -1,0 +1,57 @@
+{
+  "model": "data/models/Llama-3.1-8B",
+  "editor": "alpha",
+  "dataset": "counterfact",
+  "layer": 16,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": "holdout",
+  "provenance": {
+    "torch": "2.12.1+cu130",
+    "transformers": "5.12.1",
+    "numpy": "2.3.4",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20,
+    "alpha_proj_source": "holdout",
+    "keep_ratio": 0.99,
+    "n_proj_fit_keys": 500,
+    "proj_disjoint_from_probes": true
+  },
+  "edit_success_rate": 1.0,
+  "mean_residual_norm": 30.1637,
+  "frac_probes_known(pre_p>0.05)": 0.408,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": -0.0262,
+    "spearman_normgrowth_damage": 0.0322,
+    "auroc_cos_broken": 0.5366,
+    "auroc_normgrowth_broken": 0.587,
+    "mean_damage_logit": 0.02444,
+    "mean_cosine": 0.1846
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 40800,
+    "spearman_cos_damage": 0.0068,
+    "spearman_normgrowth_damage": 0.0362,
+    "auroc_cos_broken": 0.5396,
+    "auroc_normgrowth_broken": 0.5643,
+    "mean_damage_logit": 0.03724,
+    "mean_cosine": 0.1871
+  },
+  "runtime_s": 2684.0,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0068,
+    "auroc": 0.5396,
+    "beats_normgrowth": false
+  },
+  "matrices_npz": "results/matrices/g4_llama8b_alphaHO_cf_L16_s0.npz"
+}

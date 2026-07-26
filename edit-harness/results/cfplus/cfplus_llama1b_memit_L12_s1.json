@@ -1,0 +1,347 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 12,
+  "editor": "memit",
+  "seed": 1,
+  "steps": 20,
+  "max_neighborhood": 5,
+  "n_fit": 100,
+  "memit_layers": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "records": [
+    {
+      "subject": "Carnegie Vanguard High School",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.0164939405862242,
+      "KL_hard_mean": 1.5504731774330138,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "FIDE",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.01789239696227014,
+      "KL_hard_mean": 8.067740154266357,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Seychelles",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.016813060303684325,
+      "KL_hard_mean": 2.9523972034454347,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Francis Ponge",
+      "NS": 0.4,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.3779766871855827,
+      "KL_hard_mean": 4.2625386893749235,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Celestine IV",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 5.009482604265213,
+      "KL_hard_mean": 8.815450429916382,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Pyotr Vyazemsky",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.833180681243539,
+      "KL_hard_mean": 3.3185488015413283,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "2013 WTA Tour Championships",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.0005871638422831893,
+      "KL_hard_mean": 0.9437190532684326,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Gaspard Gourgaud",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.0089317258563824,
+      "KL_hard_mean": 7.022035408020019,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Mesud I",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.0004053861368447542,
+      "KL_hard_mean": 6.579796218872071,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Steve Stavro",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.0007815848686732352,
+      "KL_hard_mean": 3.1712718486785887,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "The Nanny",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.05947237154468894,
+      "KL_hard_mean": 8.956775188446045,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Casiquiare canal",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.006628642091527581,
+      "KL_hard_mean": 5.771620082855224,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Pierre Poilievre",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.2028671824373305,
+      "KL_hard_mean": 7.7397253036499025,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Coulter Heights",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.0018113139551132918,
+      "KL_hard_mean": 3.43854394312948,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Kye Palmer",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.1049136707559228,
+      "KL_hard_mean": 11.295866394042969,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Komban",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.09052280455362052,
+      "KL_hard_mean": 1.191133987903595,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Philip Pullman",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.20114156253403054,
+      "KL_hard_mean": 8.310432624816894,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Husayn ibn Ali",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.416806185245514,
+      "KL_hard_mean": 9.923394870758056,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Miss Montana USA",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.0073222946550231425,
+      "KL_hard_mean": 13.182751274108886,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Sheffield United F.C.",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.4345848582684995,
+      "KL_hard_mean": 10.955901336669921,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Halchidhoma",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.004081659158691764,
+      "KL_hard_mean": 10.469628524780273,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Wolfgang Schuster",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.18900368958711625,
+      "KL_hard_mean": 8.46763572692871,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Lupus of Sens",
+      "NS": 0.4,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.00029527314400183967,
+      "KL_hard_mean": 7.224636507034302,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Jacques Jouanneau",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.017864128877408802,
+      "KL_hard_mean": 5.257536768913269,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Apple II",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.3292404532432556,
+      "KL_hard_mean": 13.012415885925293,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Thuppakki",
+      "NS": 0.4,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.772254388872534,
+      "KL_hard_mean": 5.477841567993164,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Slumdog Millionaire",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.5657911341637374,
+      "KL_hard_mean": 3.4551461219787596,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Barry Creyton",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.01430285272654146,
+      "KL_hard_mean": 8.008562660217285,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Edward Gibbon",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.09183632154017687,
+      "KL_hard_mean": 4.148383069038391,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Prairie Schooner",
+      "NS": 0.4,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.047708881786093116,
+      "KL_hard_mean": 0.5822373196482659,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Uromi",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.2930476423120125,
+      "KL_hard_mean": 1.1936621807515622,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Kim Nekroman",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.007235969789326191,
+      "KL_hard_mean": 5.476180839538574,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Lais of Marie de France",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.018573258980177344,
+      "KL_hard_mean": 6.085426235198975,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Ma vie en rose",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.8094135403633118,
+      "KL_hard_mean": 4.183672952651977,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Spyder Games",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.020629157312214375,
+      "KL_hard_mean": 11.182583045959472,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Mimar Sinan Fine Arts University",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.09203849658370018,
+      "KL_hard_mean": 0.5484214007854462,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Sydney",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.780837173014879,
+      "KL_hard_mean": 9.046351528167724,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Mexico City",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.1725766645744443,
+      "KL_hard_mean": 4.295237684249878,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Da'i",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.003435270435875282,
+      "KL_hard_mean": 7.485703563690185,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Sir William Dunn, 1st Baronet, of Lakenheath",
+      "NS": 1.0,
+      "NS_hard": 0.2,
+      "KL_std_mean": 0.0051590635106549595,
+      "KL_hard_mean": 0.572373452782631,
+      "n_neighborhood": 5
+    }
+  ],
+  "summary": {
+    "n_edits": 40,
+    "NS": 0.5650000000000001,
+    "NS_hard": 0.005,
+    "KL_std_mean": 0.7510985284317031,
+    "KL_hard_mean": 6.090593825685792,
+    "hard_ns_le_std_ns": true,
+    "hard_ns_le_std_ns_note": "HYPOTHESIS, not asserted: CF+'s harder distribution-shifted prompts are expected to expose MORE collateral damage than standard neighborhood prompts, i.e. NS_hard <= NS. Reported, not gated on."
+  },
+  "runtime_s": 359.6
+}

@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.069,
+    "within_probe_std_across_seeds": 0.0,
+    "per_edit_mean_across_seeds": -0.0044,
+    "max_within_probe_perm_p": 0.2924,
+    "max_within_probe_perm_p_editlevel": 0.8521,
+    "VERDICT": "DEAD \u2014 within-probe rho < 0.10; demote headline, pivot to Qwen-null / FT-overcollateral"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_qwen25_7b_rome_cf_L24_s0.npz",
+      "shape": [
+        0,
+        144
+      ],
+      "flat_spearman_INFLATED": NaN,
+      "within_probe_mean": NaN,
+      "within_probe_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_ci95_editcluster": [
+        NaN,
+        NaN
+      ],
+      "within_probe_frac_positive": 0.0,
+      "per_edit_mean": NaN,
+      "per_edit_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": NaN,
+      "editlevel_null_std": NaN,
+      "editlevel_z": null,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": NaN,
+      "mean_residual_norm(S)": 10.4609
+    },
+    {
+      "npz": "gate_qwen25_7b_rome_cf_L24_s1.npz",
+      "shape": [
+        3,
+        142
+      ],
+      "flat_spearman_INFLATED": -0.092,
+      "within_probe_mean": 0.069,
+      "within_probe_ci95": [
+        -0.0691,
+        0.2023
+      ],
+      "within_probe_ci95_editcluster": [
+        NaN,
+        NaN
+      ],
+      "within_probe_frac_positive": 0.31,
+      "per_edit_mean": -0.1113,
+      "per_edit_ci95": [
+        -0.1202,
+        -0.1013
+      ],
+      "within_probe_perm_p": 0.2924,
+      "within_probe_perm_p_editlevel": 0.8521,
+      "editlevel_null_mean": -0.005,
+      "editlevel_null_std": 0.1639,
+      "editlevel_z": 0.45,
+      "flat_perm_p": 0.0799,
+      "within_probe_mean_normgrowth": -0.1751,
+      "mean_residual_norm(S)": 11.2251
+    },
+    {
+      "npz": "gate_qwen25_7b_rome_cf_L24_s2.npz",
+      "shape": [
+        1,
+        159
+      ],
+      "flat_spearman_INFLATED": 0.1024,
+      "within_probe_mean": NaN,
+      "within_probe_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_ci95_editcluster": [
+        NaN,
+        NaN
+      ],
+      "within_probe_frac_positive": 0.0,
+      "per_edit_mean": 0.1024,
+      "per_edit_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": NaN,
+      "editlevel_null_std": NaN,
+      "editlevel_z": null,
+      "flat_perm_p": 0.2108,
+      "within_probe_mean_normgrowth": NaN,
+      "mean_residual_norm(S)": 11.8513
+    }
+  ]
+}

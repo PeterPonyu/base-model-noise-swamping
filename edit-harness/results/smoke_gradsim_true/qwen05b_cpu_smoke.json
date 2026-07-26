@@ -1,0 +1,81 @@
+{
+  "model": "data/models/Qwen2.5-0.5B",
+  "layer": 12,
+  "seed": 0,
+  "dataset": "counterfact",
+  "mode": "self_contained",
+  "gate_npz": null,
+  "mech_npz": null,
+  "filters": {
+    "known": false,
+    "edit_ok": false
+  },
+  "n_edits_total": 3,
+  "n_probes_total": 8,
+  "n_edits_used": 3,
+  "n_probes_used": 8,
+  "key_norm_crosscheck": null,
+  "influence_form_implemented": {
+    "direct": "<grad_W l_p, DW_e>_F via the exact rank-one shortcut r_e^T (grad_W l_p) k_e / (k_e.k_e); grad_W l_p is the FULL weight gradient (no A2 assumption); l_p = raw target_true logit at the prompt's last token.",
+    "factorized": "Eq.3 alpha(e,p)*S_e*C_ep, alpha=cos(g_p,r_e)*||g_p||, g_p=grad_{r_p} l_p at r_p=W k_p (probe's own subject-token position) -- the A2-approximate form. ||k_p|| dropped (within-probe-column constant; cancels in Spearman rank)."
+  },
+  "prop1_identity_check": {
+    "n_pairs_checked": 24,
+    "n_edits_checked": 3,
+    "n_probes_checked": 8,
+    "max_bound_ratio": 0.000264,
+    "atol": 0.0001,
+    "rtol": 0.001,
+    "PASS": true
+  },
+  "within_probe_rho": {
+    "direct_vs_damage": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "n": 8
+    },
+    "factorized_vs_damage": {
+      "mean": 0.875,
+      "median": 1.0,
+      "std": 0.2165,
+      "n": 8
+    },
+    "SC_vs_damage_reference": {
+      "mean": -0.125,
+      "median": -0.5,
+      "std": 0.6495,
+      "n": 8
+    }
+  },
+  "rank_agreement": {
+    "direct_vs_SC": {
+      "mean": -0.125,
+      "median": -0.5,
+      "std": 0.6495,
+      "n": 8
+    },
+    "direct_vs_factorized_A2_check": {
+      "mean": 0.875,
+      "median": 1.0,
+      "std": 0.2165,
+      "n": 8
+    }
+  },
+  "alpha_A4_test": {
+    "sign_consistency_rate": {
+      "mean": 0.7917,
+      "median": 0.6667,
+      "std": 0.1614,
+      "n": 8
+    },
+    "coefficient_of_variation": {
+      "mean": 9.2398,
+      "median": 1.7279,
+      "std": 20.531,
+      "n": 8
+    },
+    "note": "A4' requires HIGH sign-consistency AND LOW CV per probe (section 2, docs/findings/THEOREM-SXC-DRAFT-2026-07-06.md). sign_consistency_rate 1.0 = alpha never changes sign for that probe across edits."
+  },
+  "runtime_s": 8.8
+}

@@ -1,0 +1,55 @@
+{
+  "records": [
+    {
+      "subject": "Ugo Rondinone",
+      "ES": 0.0,
+      "PS": 0.5,
+      "n_paraphrase": 2,
+      "NS": 0.7,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Heath Brothers",
+      "ES": 1.0,
+      "PS": 0.5,
+      "n_paraphrase": 2,
+      "NS": 0.2,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "English Vinglish",
+      "ES": 0.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.8,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Matthew Henry",
+      "ES": 0.0,
+      "PS": 0.5,
+      "n_paraphrase": 2,
+      "NS": 0.3,
+      "n_neighborhood": 10
+    }
+  ],
+  "summary": {
+    "n_edits": 4,
+    "ES": 0.25,
+    "PS": 0.625,
+    "NS": 0.5,
+    "n_paraphrase_total": 8,
+    "n_neighborhood_total": 40,
+    "n_paraphrase_missing": 0,
+    "n_neighborhood_missing": 0
+  },
+  "model": "sshleifer/tiny-gpt2",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 1,
+  "seed": 0,
+  "steps": 2,
+  "alpha_proj_source": null,
+  "egl_max_neighborhood": 10,
+  "egl_max_paraphrase": 2
+}

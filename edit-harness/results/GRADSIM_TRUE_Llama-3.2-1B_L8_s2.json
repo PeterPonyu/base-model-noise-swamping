@@ -1,0 +1,85 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 8,
+  "seed": 2,
+  "dataset": "counterfact",
+  "mode": "external",
+  "gate_npz": "results/matrices/gate_llama1b_rome_cf_L8_s2.npz",
+  "mech_npz": "results/mechanism/s2/Llama-3.2-1B_L8.npz",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "n_edits_total": 200,
+  "n_probes_total": 500,
+  "n_edits_used": 196,
+  "n_probes_used": 154,
+  "key_norm_crosscheck": {
+    "max_rel_diff": 0.0,
+    "tol": 0.01,
+    "note": "recomputed edit keys vs mechanism_dump.py's key_norm -- large values would mean key capture drifted between runs"
+  },
+  "influence_form_implemented": {
+    "direct": "<grad_W l_p, DW_e>_F via the exact rank-one shortcut r_e^T (grad_W l_p) k_e / (k_e.k_e); grad_W l_p is the FULL weight gradient (no A2 assumption); l_p = raw target_true logit at the prompt's last token.",
+    "factorized": "Eq.3 alpha(e,p)*S_e*C_ep, alpha=cos(g_p,r_e)*||g_p||, g_p=grad_{r_p} l_p at r_p=W k_p (probe's own subject-token position) -- the A2-approximate form. ||k_p|| dropped (within-probe-column constant; cancels in Spearman rank)."
+  },
+  "prop1_identity_check": {
+    "n_pairs_checked": 200,
+    "n_edits_checked": 10,
+    "n_probes_checked": 20,
+    "max_bound_ratio": 0.002059,
+    "atol": 0.0001,
+    "rtol": 0.001,
+    "PASS": true
+  },
+  "within_probe_rho": {
+    "direct_vs_damage": {
+      "mean": 0.2117,
+      "median": 0.2095,
+      "std": 0.1652,
+      "n": 154
+    },
+    "factorized_vs_damage": {
+      "mean": 0.1714,
+      "median": 0.1584,
+      "std": 0.1866,
+      "n": 154
+    },
+    "SC_vs_damage_reference": {
+      "mean": 0.3862,
+      "median": 0.3887,
+      "std": 0.0895,
+      "n": 154
+    }
+  },
+  "rank_agreement": {
+    "direct_vs_SC": {
+      "mean": -0.0504,
+      "median": -0.0426,
+      "std": 0.1098,
+      "n": 154
+    },
+    "direct_vs_factorized_A2_check": {
+      "mean": 0.8048,
+      "median": 0.8491,
+      "std": 0.1615,
+      "n": 154
+    }
+  },
+  "alpha_A4_test": {
+    "sign_consistency_rate": {
+      "mean": 0.6737,
+      "median": 0.6837,
+      "std": 0.1075,
+      "n": 154
+    },
+    "coefficient_of_variation": {
+      "mean": 6.9924,
+      "median": 2.1949,
+      "std": 18.3112,
+      "n": 154
+    },
+    "note": "A4' requires HIGH sign-consistency AND LOW CV per probe (section 2, docs/findings/THEOREM-SXC-DRAFT-2026-07-06.md). sign_consistency_rate 1.0 = alpha never changes sign for that probe across edits."
+  },
+  "runtime_s": 9.2
+}

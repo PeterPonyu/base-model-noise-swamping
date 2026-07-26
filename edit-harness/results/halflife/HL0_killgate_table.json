@@ -1,0 +1,336 @@
+{
+  "unit_of_analysis": "per-EDIT (one scalar erasure + one predictor P_i per edit; N=#edits). Contrast: killgate_keygeom is per-PROBE.",
+  "predictor": "P_i = ||tau_L . k_edit_i|| (task vector tau computed once, fp32)",
+  "erasure": "margin drop = margin_edited - margin_proxy (logit(target_new)-logit(target_true) at the edit prompt); NOT binary.",
+  "statistic": "signed midrank Spearman; rank-space partial correlation; Freedman-Lane residual permutation null; RNG_SEED=12345.",
+  "confound_order": [
+    "knorm",
+    "norm_growth",
+    "S",
+    "target_freq",
+    "pre_edit_ptarget"
+  ],
+  "alphas": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "alpha_headline": 1.0,
+  "n_perm": 2000,
+  "arms": {
+    "mlp": {
+      "n_edits": 200,
+      "by_alpha": {
+        "0.5": {
+          "raw_rho": 0.0417,
+          "raw_perm_p": 0.5572,
+          "raw_null_mean": 0.0004,
+          "raw_null_std": 0.0717,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": -0.0144,
+              "perm_p": 0.8476
+            },
+            "norm_growth": {
+              "partial_rho": 0.0512,
+              "perm_p": 0.4693
+            },
+            "S": {
+              "partial_rho": 0.0445,
+              "perm_p": 0.5412
+            },
+            "target_freq": {
+              "partial_rho": 0.0411,
+              "perm_p": 0.5637
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.0335,
+              "perm_p": 0.6477
+            }
+          },
+          "joint_partial_rho": -0.0109,
+          "joint_partial_perm_p": 0.8846,
+          "n_edits_used": 200,
+          "erasure_std": 0.2763,
+          "erasure_mean": -0.1618,
+          "control_drift_mean": 0.0903,
+          "control_drift_p90": 0.3161,
+          "edit_erasure_over_control_mean": -1.7904
+        },
+        "1.0": {
+          "raw_rho": 0.06,
+          "raw_perm_p": 0.4028,
+          "raw_null_mean": 0.0002,
+          "raw_null_std": 0.0717,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.0023,
+              "perm_p": 0.97
+            },
+            "norm_growth": {
+              "partial_rho": 0.0666,
+              "perm_p": 0.3408
+            },
+            "S": {
+              "partial_rho": 0.0628,
+              "perm_p": 0.3813
+            },
+            "target_freq": {
+              "partial_rho": 0.0587,
+              "perm_p": 0.4143
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.0525,
+              "perm_p": 0.4663
+            }
+          },
+          "joint_partial_rho": 0.0056,
+          "joint_partial_perm_p": 0.9365,
+          "n_edits_used": 200,
+          "erasure_std": 0.5637,
+          "erasure_mean": -0.2859,
+          "control_drift_mean": 0.203,
+          "control_drift_p90": 0.7048,
+          "edit_erasure_over_control_mean": -1.4084
+        },
+        "2.0": {
+          "raw_rho": 0.0991,
+          "raw_perm_p": 0.1724,
+          "raw_null_mean": 0.0001,
+          "raw_null_std": 0.0713,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.0413,
+              "perm_p": 0.5617
+            },
+            "norm_growth": {
+              "partial_rho": 0.104,
+              "perm_p": 0.1459
+            },
+            "S": {
+              "partial_rho": 0.1021,
+              "perm_p": 0.1569
+            },
+            "target_freq": {
+              "partial_rho": 0.0975,
+              "perm_p": 0.1784
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.0906,
+              "perm_p": 0.2094
+            }
+          },
+          "joint_partial_rho": 0.0417,
+          "joint_partial_perm_p": 0.5607,
+          "n_edits_used": 200,
+          "erasure_std": 1.166,
+          "erasure_mean": -0.4119,
+          "control_drift_mean": 0.5444,
+          "control_drift_p90": 1.9589,
+          "edit_erasure_over_control_mean": -0.7567
+        }
+      }
+    },
+    "full": {
+      "n_edits": 200,
+      "by_alpha": {
+        "0.5": {
+          "raw_rho": 0.1327,
+          "raw_perm_p": 0.065,
+          "raw_null_mean": -0.0,
+          "raw_null_std": 0.0698,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.1053,
+              "perm_p": 0.1424
+            },
+            "norm_growth": {
+              "partial_rho": 0.0683,
+              "perm_p": 0.3333
+            },
+            "S": {
+              "partial_rho": 0.1295,
+              "perm_p": 0.072
+            },
+            "target_freq": {
+              "partial_rho": 0.1273,
+              "perm_p": 0.075
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.1334,
+              "perm_p": 0.0605
+            }
+          },
+          "joint_partial_rho": 0.0864,
+          "joint_partial_perm_p": 0.2379,
+          "n_edits_used": 200,
+          "erasure_std": 3.0669,
+          "erasure_mean": 3.7352,
+          "control_drift_mean": -2.0695,
+          "control_drift_p90": 0.5844,
+          "edit_erasure_over_control_mean": 1.8048
+        },
+        "1.0": {
+          "raw_rho": 0.0404,
+          "raw_perm_p": 0.5882,
+          "raw_null_mean": 0.0003,
+          "raw_null_std": 0.0716,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.0211,
+              "perm_p": 0.7806
+            },
+            "norm_growth": {
+              "partial_rho": 0.0386,
+              "perm_p": 0.6027
+            },
+            "S": {
+              "partial_rho": 0.0407,
+              "perm_p": 0.5837
+            },
+            "target_freq": {
+              "partial_rho": 0.0564,
+              "perm_p": 0.4373
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.0297,
+              "perm_p": 0.6772
+            }
+          },
+          "joint_partial_rho": 0.0259,
+          "joint_partial_perm_p": 0.7231,
+          "n_edits_used": 200,
+          "erasure_std": 4.7475,
+          "erasure_mean": 10.4806,
+          "control_drift_mean": -3.9961,
+          "control_drift_p90": 0.0601,
+          "edit_erasure_over_control_mean": 2.6227
+        },
+        "2.0": {
+          "raw_rho": -0.0285,
+          "raw_perm_p": 0.7056,
+          "raw_null_mean": 0.0001,
+          "raw_null_std": 0.0715,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.0285,
+              "perm_p": 0.7031
+            },
+            "norm_growth": {
+              "partial_rho": 0.0249,
+              "perm_p": 0.7386
+            },
+            "S": {
+              "partial_rho": -0.0271,
+              "perm_p": 0.7186
+            },
+            "target_freq": {
+              "partial_rho": -0.0081,
+              "perm_p": 0.9185
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": -0.0386,
+              "perm_p": 0.5972
+            }
+          },
+          "joint_partial_rho": 0.0542,
+          "joint_partial_perm_p": 0.4678,
+          "n_edits_used": 200,
+          "erasure_std": 4.8973,
+          "erasure_mean": 14.3307,
+          "control_drift_mean": -4.1258,
+          "control_drift_p90": 0.9165,
+          "edit_erasure_over_control_mean": 3.4734
+        }
+      }
+    }
+  },
+  "provenance": {
+    "tau_arms": [
+      "mlp",
+      "full"
+    ],
+    "arms_analyzed": [
+      "mlp",
+      "full"
+    ],
+    "arms_dropped_no_s3_erasure": [],
+    "s2_npz": "hl0_s2_edits.npz",
+    "s3_npz": "hl0_s3_proxy.npz",
+    "s4_present": true,
+    "target_freq_provenance": "within_slice_unigram_approx",
+    "n_edits": 200
+  },
+  "frequency_head_to_head": {
+    "arm": "mlp",
+    "alpha": 1.0,
+    "freq_baseline_rho": 0.0152,
+    "tauk_raw_rho": 0.06,
+    "tauk_partialled_by_freq_rho": 0.0587,
+    "tauk_partialled_by_freq_perm_p": 0.4143,
+    "tauk_beats_freq": true,
+    "baseline_is_approximate": true,
+    "baseline_provenance": "within_slice_unigram_approx",
+    "beats_freq_is_paper_claimable": false
+  },
+  "proxy_fidelity": {
+    "arm": "mlp",
+    "alpha": 1.0,
+    "n_real": 40,
+    "spearman_proxy_vs_real": 0.4221,
+    "boot_ci95": [
+      0.0637,
+      0.6998
+    ],
+    "ci_lower": 0.0637,
+    "note": "s3 proxy is MECHANICALLY loaded toward P (applied perturbation norm == alpha*P_i to machine precision); high fidelity here is necessary but partly tautological \u2014 see nontautological_predictor_vs_realft for the clean test."
+  },
+  "nontautological_predictor_vs_realft": {
+    "arm": "mlp",
+    "n_real": 40,
+    "spearman_P_vs_realFT": 0.2103,
+    "boot_ci95": [
+      -0.1437,
+      0.5283
+    ],
+    "ci_lower": -0.1437,
+    "perm_p": 0.1914,
+    "note": "LEAST-CIRCULAR evidence: a-priori ||tau_L k|| vs a REAL gradient-descent gsm8k FT erasure. Unlike the s3 proxy this is not mechanically P-loaded; it (not proxy_fidelity) carries the non-tautological weight. n=40 is small \u2014 read the CI, not the point estimate."
+  },
+  "verdict_criteria": {
+    "erasure_variance_nil": {
+      "kill": false,
+      "min_erasure_std": 0.2763
+    },
+    "mlp_joint_partialled_rho_lt_0.2": {
+      "kill": true,
+      "mlp_joint_partial_rho": 0.0056,
+      "arm": "mlp",
+      "alpha": 1.0,
+      "sign_aware": "require rho>0 (not |rho|)"
+    },
+    "loses_to_frequency_baseline": {
+      "kill": false,
+      "tauk_raw_rho": 0.06,
+      "freq_baseline_rho": 0.0152,
+      "baseline_is_approximate": true,
+      "status": "APPROXIMATE-BASELINE-ONLY \u2014 within-slice unigram proxy; a real pretraining-frequency head-to-head needs a large-corpus unigram table (absent). 'beats frequency' is NOT paper-claimable here; only a LOSS kills."
+    },
+    "proxy_fidelity_ci_lower_lt_0.3": {
+      "kill": true,
+      "ci_lower": 0.0637,
+      "note": "s3-vs-s4; partly tautological, see nontautological_predictor_vs_realft"
+    },
+    "full_arm": {
+      "scope_down_kill": false,
+      "scope_down": false,
+      "evaluated": true,
+      "unevaluated": false,
+      "descriptive_only": true,
+      "full_joint_partial_rho": 0.0259,
+      "mlp_passes": false,
+      "note": "SCOPE-DOWN (not a kill) requires the full arm to be EVALUATED and weak (<0.15, sign-aware); if UNEVALUATED the criterion is INCOMPLETE, never a scope-down. descriptive_only=true means the full arm is measured but the MLP arm already KILLed \u2014 reported for completeness, does not affect the verdict."
+    }
+  },
+  "VERDICT": "KILL \u2014 mlp_joint_partialled_rho_lt_0.2; proxy_fidelity_ci_lower_lt_0.3"
+}

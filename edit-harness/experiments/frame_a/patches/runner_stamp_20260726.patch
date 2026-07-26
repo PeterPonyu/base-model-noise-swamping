@@ -1,0 +1,134 @@
+# APPLY AFTER THE LIVE FRAME-A GPU WAVE HAS FULLY DRAINED.
+# From edit-harness/experiments/frame_a/ run:
+#   patch --dry-run -p0 < patches/runner_stamp_20260726.patch
+#   patch -p0 < patches/runner_stamp_20260726.patch
+# Then rerun the Frame-A smoke gate before launching another wave.
+--- run_stream.py
++++ run_stream.py
+@@ -18,8 +18,14 @@
+ from __future__ import annotations
+ 
+ import argparse
++import datetime
++import hashlib
+ import json
+ import os
++import socket
++import subprocess
++import tempfile
++import time
+ from typing import Dict, List, Optional, Tuple
+ 
+ from . import config as C
+@@ -35,6 +41,68 @@
+ POLICIES = ("both", "cost_only", "damage_only", "oracle",
+             "always_edit", "always_grace", "always_rag", "always_ft", "always_reject",
+             "random", "ft_merge")
++
++
++def _runner_code_sha256() -> str:
++    """Hash the exact runner and frozen config bytes that produced a cell."""
++    digest = hashlib.sha256()
++    for path in (__file__, os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.py")):
++        with open(path, "rb") as handle:
++            digest.update(handle.read())
++    return digest.hexdigest()
++
++
++def _nvidia_smi_sample() -> Dict:
++    """Capture one best-effort GPU utilization/memory sample after a cell completes."""
++    command = [
++        "nvidia-smi",
++        "--query-gpu=utilization.gpu,memory.used",
++        "--format=csv,noheader,nounits",
++    ]
++    try:
++        result = subprocess.run(command, check=True, capture_output=True, text=True, timeout=10)
++        line = next((item.strip() for item in result.stdout.splitlines() if item.strip()), "")
++        util, memory = [part.strip() for part in line.split(",", 1)]
++        return {"util_pct": int(util), "mem_mib": int(memory)}
++    except (OSError, subprocess.SubprocessError, StopIteration, ValueError) as error:
++        return {"util_pct": None, "mem_mib": None, "error": str(error)}
++
++
++def _utc_iso() -> str:
++    return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
++
++
++def _runner_stamp(wall_start: str, monotonic_start: float, gpu_sample: Dict) -> Dict:
++    return {
++        "code_sha256": _runner_code_sha256(),
++        "pid": os.getpid(),
++        "hostname": socket.gethostname(),
++        "wall_start": wall_start,
++        "wall_end": _utc_iso(),
++        "elapsed_s": time.monotonic() - monotonic_start,
++        "nvidia_smi_sample": gpu_sample,
++        "stamp_version": 1,
++    }
++
++
++def _atomic_json_dump(payload: Dict, path: str) -> None:
++    """Publish a complete cell and runner stamp in one atomic rename."""
++    directory = os.path.dirname(os.path.abspath(path))
++    os.makedirs(directory, exist_ok=True)
++    fd, temporary = tempfile.mkstemp(prefix=f".{os.path.basename(path)}.", suffix=".tmp",
++                                     dir=directory)
++    try:
++        with os.fdopen(fd, "w") as handle:
++            json.dump(payload, handle)
++            handle.flush()
++            os.fsync(handle.fileno())
++        os.replace(temporary, path)
++    except BaseException:
++        try:
++            os.unlink(temporary)
++        except FileNotFoundError:
++            pass
++        raise
+ 
+ 
+ def _make_router(policy: str, predictor: DamagePredictor, seed: int):
+@@ -194,11 +262,15 @@
+                 path = os.path.join(out_cells, f"cell_{model_tag}_{provenance}_{mix}_{policy}_s{seed}.json")
+                 if os.path.exists(path) and not force:
+                     written.append(path); continue
++                wall_start = _utc_iso()
++                monotonic_start = time.monotonic()
+                 cell = run_cell(builder, mix, seed, policy, predictor, lam)
++                gpu_sample = _nvidia_smi_sample()
+                 cell["calibrated_lambda"] = lam
+                 cell["model"] = model_tag
+                 cell["provenance"] = provenance
+-                json.dump(cell, open(path, "w"))
++                cell["runner_stamp"] = _runner_stamp(wall_start, monotonic_start, gpu_sample)
++                _atomic_json_dump(cell, path)
+                 written.append(path)
+     # MIX-C structural P2 (namespaced to match its cells).
+     if "MIX_C" in mixes:
+@@ -397,6 +469,8 @@
+                 path = os.path.join(out_cells, f"cell_{model_tag}_real_{mix}_{policy}_s{seed}.json")
+                 if os.path.exists(path) and not force:
+                     written.append(path); continue
++                wall_start = _utc_iso()
++                monotonic_start = time.monotonic()
+                 # A1+A2+A3: restore base weights + clear_grace + checksum-verify + re-point harness.
+                 harness.restore_and_verify(base_state, base_checksum, model)
+                 updates, manifest = builder.build_stream(mix, seed)
+@@ -404,13 +478,15 @@
+                 if policy in ("both", "cost_only", "damage_only"):
+                     router.lambda_cost = lam
+                 rows, routing = replay_real(updates, router, harness, probe_bank)
++                gpu_sample = _nvidia_smi_sample()
+                 if mix == "MIX_C":
+                     for a in ("edit", "rag"):
+                         real_serve_mixC[a][0] += routing["serve_gpu_s_by_arm"].get(a, 0.0)
+                         real_serve_mixC[a][1] += routing["arm_counts"].get(a, 0)
+                 cell = _score_real_rows(mix, policy, seed, rows, routing, lam, model_tag)
+                 cell["stream_hash"] = manifest["stream_hash"]
+-                json.dump(cell, open(path, "w"))
++                cell["runner_stamp"] = _runner_stamp(wall_start, monotonic_start, gpu_sample)
++                _atomic_json_dump(cell, path)
+                 written.append(path)
+     # MIX-C structural P2, NAMESPACED to the real provenance (contract condition 3 — without this
+     # a real analyze reports "MIX_C _p2 missing" and P2 cannot be adjudicated). The P2 structural

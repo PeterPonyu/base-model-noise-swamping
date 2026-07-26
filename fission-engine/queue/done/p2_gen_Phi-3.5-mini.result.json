@@ -1,0 +1,17 @@
+{
+  "id": "p2_gen_Phi-3.5-mini",
+  "status": "done",
+  "returncode": 0,
+  "reason": "ok",
+  "started": "2026-07-10T18:11:52",
+  "finished": "2026-07-10T18:56:52",
+  "duration_s": 2700.1814494132996,
+  "cmd": "env -u ALL_PROXY -u all_proxy conda run -n dl python3 branches/p2_prerl_diag/sample_ckpt.py --model edit-harness/data/models/Phi-3.5-mini --dataset openai/gsm8k --config main --split test --n-problems 200 --k 8 --temperature 0.9 --top-p 1.0 --max-new-tokens 640 --model_dtype bf16 --seed 0 --out branches/p2_prerl_diag/samples/Phi-3.5-mini.json",
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis",
+  "outputs_present": [
+    "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/samples/Phi-3.5-mini.json"
+  ],
+  "outputs_missing": [],
+  "log_path": "/home/zeyufu/Desktop/idea-feasibility-analysis/fission-engine/queue/done/p2_gen_Phi-3.5-mini.log",
+  "branch": "P2"
+}

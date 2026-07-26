@@ -1,0 +1,74 @@
+{
+  "statistic": "S=mean||v-Wk||/||k||=mean||DW||_F (from norm_growth; Eq.2), |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg). mean_S_resid_norm_unnormalized is provenance-only, NOT a valid S.",
+  "rho_SC_validity": "within_probe_rho_SC is the closed-form single-layer rank-one ROME identity S*|cos|. It is a valid S x C statistic ONLY for editor==rome (rho_SC_valid_sxc==true). For MEMIT (multi-layer aggregate edit) and non-ROME editors it is NOT a valid S x C measurement \u2014 quote rho_C only. See findings-MEMIT-SC-RECONCILIATION-2026-07-04.md.",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "/root/edit-harness/results/matrices/gate_mistral7b_rome_cf_L*_s*.npz"
+  ],
+  "groups": [
+    {
+      "model": "mistral7b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 16,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 112902,
+      "mean_S": 2.9129,
+      "mean_S_resid_norm_unnormalized": 30.1011,
+      "S_available": true,
+      "mean_absC": 0.1681,
+      "within_probe_rho_C": 0.3254,
+      "within_probe_rho_SC": 0.366
+    },
+    {
+      "model": "mistral7b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 20,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 109462,
+      "mean_S": 1.4277,
+      "mean_S_resid_norm_unnormalized": 30.1361,
+      "S_available": true,
+      "mean_absC": 0.1285,
+      "within_probe_rho_C": 0.1233,
+      "within_probe_rho_SC": 0.1387
+    },
+    {
+      "model": "mistral7b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 24,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 109856,
+      "mean_S": 1.4667,
+      "mean_S_resid_norm_unnormalized": 30.9223,
+      "S_available": true,
+      "mean_absC": 0.091,
+      "within_probe_rho_C": -0.0229,
+      "within_probe_rho_SC": -0.0252
+    },
+    {
+      "model": "mistral7b",
+      "editor": "rome",
+      "dataset": "cf",
+      "layer": 28,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 111379,
+      "mean_S": 1.1192,
+      "mean_S_resid_norm_unnormalized": 34.6079,
+      "S_available": true,
+      "mean_absC": 0.2192,
+      "within_probe_rho_C": 0.078,
+      "within_probe_rho_SC": 0.1311
+    }
+  ],
+  "notes": []
+}

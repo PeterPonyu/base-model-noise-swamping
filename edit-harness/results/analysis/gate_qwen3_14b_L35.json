@@ -1,0 +1,80 @@
+{
+  "aggregate": {
+    "n_seeds": 2,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": NaN,
+    "within_probe_std_across_seeds": NaN,
+    "per_edit_mean_across_seeds": -0.0357,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "UNDETERMINED"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_qwen3_14b_rome_cf_L35_s0.npz",
+      "shape": [
+        1,
+        167
+      ],
+      "flat_spearman_INFLATED": -0.0357,
+      "within_probe_mean": NaN,
+      "within_probe_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_ci95_editcluster": [
+        NaN,
+        NaN
+      ],
+      "within_probe_frac_positive": 0.0,
+      "per_edit_mean": -0.0357,
+      "per_edit_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": NaN,
+      "editlevel_null_std": NaN,
+      "editlevel_z": null,
+      "flat_perm_p": 0.6424,
+      "within_probe_mean_normgrowth": NaN,
+      "mean_residual_norm(S)": 5.4635
+    },
+    {
+      "npz": "gate_qwen3_14b_rome_cf_L35_s1.npz",
+      "shape": [
+        0,
+        163
+      ],
+      "flat_spearman_INFLATED": NaN,
+      "within_probe_mean": NaN,
+      "within_probe_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_ci95_editcluster": [
+        NaN,
+        NaN
+      ],
+      "within_probe_frac_positive": 0.0,
+      "per_edit_mean": NaN,
+      "per_edit_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": NaN,
+      "editlevel_null_std": NaN,
+      "editlevel_z": null,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": NaN,
+      "mean_residual_norm(S)": 5.6868
+    }
+  ]
+}

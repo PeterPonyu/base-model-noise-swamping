@@ -1,0 +1,44 @@
+{
+  "schema_version": "editors.v1",
+  "experiment": "RG_editors",
+  "model": "/root/autodl-tmp/models/gpt2-xl",
+  "model_tag": "gpt2-xl",
+  "editor": "alpha",
+  "edited_layers": [
+    36
+  ],
+  "dataset": "cf",
+  "layer": 36,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "keep_ratio": 0.99,
+  "memit_cov": "identity",
+  "memit_cov_resolved": "identity",
+  "device": "cuda",
+  "esr_by_seed": {
+    "0": 0.03,
+    "1": 0.02,
+    "2": 0.02
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 1.8596054474073753e-07,
+    "1": 1.5639805894807068e-07,
+    "2": 1.7363734627906524e-07
+  },
+  "torch": "2.8.0+cu128",
+  "transformers": "5.13.0",
+  "numpy": "2.3.2"
+}

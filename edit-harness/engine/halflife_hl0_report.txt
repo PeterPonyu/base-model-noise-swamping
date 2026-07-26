@@ -1,0 +1,19 @@
+RUN_HALFLIFE_HL0 REPORT 2026-07-12 00:54:23  jobs: 4 done / 1 fail / 0 skipped  elapsed 8m/342m  abort=0
+VERDICT: KILL — mlp_joint_partialled_rho_lt_0.2; proxy_fidelity_ci_lower_lt_0.3
+[2026-07-12 00:40:42] gate OK: model Llama-3.2-1B
+[2026-07-12 00:40:42] gate OK: gsm8k train arrow -> /home/zeyufu/.cache/huggingface/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866/gsm8k-train.arrow
+[2026-07-12 00:46:12] RUN s1 [SCIENCE] (est 15m, cap 3600s, elapsed 0m) -> engine/halflife_s1.log
+[2026-07-12 00:46:30] FAIL s1 (rc 1, 18s) FAST/CONFIG -- not counted toward wedge abort
+[2026-07-12 00:46:30] PROGRESS jobs=0done/1fail/0skip elapsed=0m budget_left=342m
+[2026-07-12 00:46:30] RUN s2 [SCIENCE] (est 70m, cap 13500s, elapsed 0m) -> engine/halflife_s2.log
+[2026-07-12 00:48:23] done s2 (113s)
+[2026-07-12 00:48:23] PROGRESS jobs=1done/1fail/0skip elapsed=2m budget_left=340m
+[2026-07-12 00:48:23] RUN s3 [SCIENCE] (est 90m, cap 17100s, elapsed 2m) -> engine/halflife_s3.log
+[2026-07-12 00:48:46] done s3 (23s)
+[2026-07-12 00:48:46] PROGRESS jobs=2done/1fail/0skip elapsed=2m budget_left=340m
+[2026-07-12 00:48:46] RUN s4 [SCIENCE] (est 40m, cap 8100s, elapsed 2m) -> engine/halflife_s4.log
+[2026-07-12 00:54:21] done s4 (335s)
+[2026-07-12 00:54:21] PROGRESS jobs=3done/1fail/0skip elapsed=8m budget_left=334m
+[2026-07-12 00:54:21] RUN s5 [CPU] (est 2m, cap 1260s, elapsed 8m) -> engine/halflife_s5.log
+[2026-07-12 00:54:23] done s5 (2s)
+[2026-07-12 00:54:23] PROGRESS jobs=4done/1fail/0skip elapsed=8m budget_left=334m

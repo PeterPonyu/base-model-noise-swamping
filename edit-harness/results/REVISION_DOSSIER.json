@@ -1,0 +1,679 @@
+{
+  "generated_from": [
+    "results/C3_mquake_alpha_L12_3seed.json",
+    "results/C4_causal_8b_table_3seed.json",
+    "results/C4_causal_gptj_table_3seed.json",
+    "results/C4_causal_instruct_table_3seed.json",
+    "results/C4_causal_mquake_holdout_table_3seed.json",
+    "results/C4_causal_mquake_table_3seed_probesrc.json",
+    "results/GRACE_damage_report_revins.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L10_s0.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L10_s1.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L10_s2.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s0.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s1.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s2.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L14_s0.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L14_s1.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L14_s2.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L8_s0.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L8_s1.json",
+    "results/GRADSIM_TRUE_Llama-3.2-1B_L8_s2.json",
+    "results/RIPPLE_depth_profile.json",
+    "results/g4_gptj_alphaHO_cf_L21_s0.json",
+    "results/g4_gptj_alphaHO_cf_L21_s1.json",
+    "results/g4_gptj_alphaHO_cf_L21_s2.json",
+    "results/g4_instruct_alphaHO_cf_L12_s0.json",
+    "results/g4_instruct_alphaHO_cf_L12_s1.json",
+    "results/g4_instruct_alphaHO_cf_L12_s2.json",
+    "results/g4_llama1b_alphaHO_mquake_L12_s0.json",
+    "results/g4_llama1b_alphaHO_mquake_L12_s1.json",
+    "results/g4_llama1b_alphaHO_mquake_L12_s2.json",
+    "results/g4_llama8b_alphaHO_cf_L16_s0.json",
+    "results/g4_llama8b_alphaHO_cf_L16_s1.json",
+    "results/g4_llama8b_alphaHO_cf_L16_s2.json",
+    "results/g4_llama8b_alphaHO_cf_L24_s0.json",
+    "results/g4_llama8b_alphaHO_cf_L24_s1.json",
+    "results/g4_llama8b_alphaHO_cf_L24_s2.json",
+    "results/g4_llama8b_alphaHO_cf_L28_s0.json",
+    "results/g4_llama8b_alphaHO_cf_L28_s1.json",
+    "results/g4_llama8b_alphaHO_cf_L28_s2.json",
+    "results/gate_llama1b_alpha_mquake_L12_s0.json",
+    "results/gate_llama1b_alpha_mquake_L12_s1.json",
+    "results/gate_llama1b_alpha_mquake_L12_s2.json",
+    "results/ripple_llama1b_alpha_popular_L12_s0.json",
+    "results/ripple_llama1b_alpha_popular_L12_s1.json",
+    "results/ripple_llama1b_alpha_popular_L12_s2.json",
+    "results/ripple_llama1b_rome_popular_L10_s0.json",
+    "results/ripple_llama1b_rome_popular_L10_s1.json",
+    "results/ripple_llama1b_rome_popular_L10_s2.json",
+    "results/ripple_llama1b_rome_popular_L12_s0.json",
+    "results/ripple_llama1b_rome_popular_L12_s1.json",
+    "results/ripple_llama1b_rome_popular_L12_s2.json",
+    "results/ripple_llama1b_rome_popular_L14_s0.json",
+    "results/ripple_llama1b_rome_popular_L14_s1.json",
+    "results/ripple_llama1b_rome_popular_L14_s2.json",
+    "results/ripple_llama1b_rome_popular_L8_s0.json",
+    "results/ripple_llama1b_rome_popular_L8_s1.json",
+    "results/ripple_llama1b_rome_popular_L8_s2.json"
+  ],
+  "pending": [],
+  "cells": {
+    "instruct_alphaHO_L12": {
+      "metric": "within_probe_spearman(key-cos, damage_removed) \u2014 causal AlphaEdit(-holdout) collateral-damage-removed vs ROME",
+      "source": "results/C4_causal_instruct_table_3seed.json",
+      "s0": 0.5675,
+      "per_seed": {
+        "s0": 0.5675,
+        "s1": 0.5335,
+        "s2": 0.555
+      },
+      "mean": 0.552,
+      "sd": 0.017197383521919858,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 0.995,
+        "s1": 0.995,
+        "s2": 1.0
+      },
+      "raw_alpha_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "raw_rome_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "aggregate_seeds_used": [
+        0,
+        1,
+        2
+      ]
+    },
+    "8b_alphaHO_L16": {
+      "metric": "within_probe_spearman(key-cos, damage_removed) \u2014 causal AlphaEdit(-holdout) collateral-damage-removed vs ROME",
+      "source": "results/C4_causal_8b_table_3seed.json",
+      "s0": 0.1852,
+      "per_seed": {
+        "s0": 0.1852,
+        "s1": 0.2474,
+        "s2": 0.204
+      },
+      "mean": 0.2122,
+      "sd": 0.03190047021597018,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 0.99
+      },
+      "raw_alpha_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "raw_rome_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "aggregate_seeds_used": [
+        0,
+        1,
+        2
+      ]
+    },
+    "8b_alphaHO_L24": {
+      "metric": "within_probe_spearman(key-cos, damage_removed) \u2014 causal AlphaEdit(-holdout) collateral-damage-removed vs ROME",
+      "source": "results/C4_causal_8b_table_3seed.json",
+      "s0": -0.1016,
+      "per_seed": {
+        "s0": -0.1016,
+        "s1": -0.081,
+        "s2": -0.0781
+      },
+      "mean": -0.0869,
+      "sd": 0.012812884140582865,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 0.99
+      },
+      "raw_alpha_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "raw_rome_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "aggregate_seeds_used": [
+        0,
+        1,
+        2
+      ]
+    },
+    "8b_alphaHO_L28": {
+      "metric": "within_probe_spearman(key-cos, damage_removed) \u2014 causal AlphaEdit(-holdout) collateral-damage-removed vs ROME",
+      "source": "results/C4_causal_8b_table_3seed.json",
+      "s0": 0.1543,
+      "per_seed": {
+        "s0": 0.1543,
+        "s1": 0.0865,
+        "s2": 0.1266
+      },
+      "mean": 0.12246666666666665,
+      "sd": 0.03408846334661234,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 0.995,
+        "s2": 0.99
+      },
+      "raw_alpha_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "raw_rome_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "aggregate_seeds_used": [
+        0,
+        1,
+        2
+      ]
+    },
+    "mquake_causal_L12": {
+      "metric": "within_probe_spearman(key-cos, damage_removed) \u2014 causal AlphaEdit(-holdout) collateral-damage-removed vs ROME",
+      "source": "results/C4_causal_mquake_table_3seed_probesrc.json",
+      "s0": 0.5784,
+      "per_seed": {
+        "s0": 0.5784,
+        "s1": 0.4977,
+        "s2": 0.5224
+      },
+      "mean": 0.5328333333333333,
+      "sd": 0.041349284556487016,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": true,
+      "esr_per_seed": {
+        "s0": 0.885,
+        "s1": 0.9,
+        "s2": 0.865
+      },
+      "raw_alpha_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "raw_rome_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "aggregate_seeds_used": [
+        0,
+        1,
+        2
+      ]
+    },
+    "mquake_causal_holdout_L12": {
+      "metric": "within_probe_spearman(key-cos, damage_removed) \u2014 causal AlphaEdit(-holdout) collateral-damage-removed vs ROME",
+      "source": "results/C4_causal_mquake_holdout_table_3seed.json",
+      "s0": 0.4986,
+      "per_seed": {
+        "s0": 0.4986,
+        "s1": 0.4917,
+        "s2": 0.4944
+      },
+      "mean": 0.4949,
+      "sd": 0.003477067730142723,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": true,
+      "esr_per_seed": {
+        "s0": 0.9,
+        "s1": 0.935,
+        "s2": 0.865
+      },
+      "raw_alpha_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "raw_rome_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "aggregate_seeds_used": [
+        0,
+        1,
+        2
+      ]
+    },
+    "gptj_alphaHO_L21": {
+      "metric": "within_probe_spearman(key-cos, damage_removed) \u2014 causal AlphaEdit(-holdout) collateral-damage-removed vs ROME",
+      "source": "results/C4_causal_gptj_table_3seed.json",
+      "s0": -0.2043,
+      "per_seed": {
+        "s0": -0.2043,
+        "s1": -0.1696,
+        "s2": -0.1786
+      },
+      "mean": -0.18416666666666667,
+      "sd": 0.018007313329126404,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": true,
+      "esr_per_seed": {
+        "s0": 0.795,
+        "s1": 0.79,
+        "s2": 0.795
+      },
+      "raw_alpha_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "raw_rome_seeds_on_disk": [
+        0,
+        1,
+        2
+      ],
+      "aggregate_seeds_used": [
+        0,
+        1,
+        2
+      ]
+    },
+    "mquake_gate_L12": {
+      "metric": "within_probe_mean(key-cos, damage) \u2014 standalone AlphaEdit gate test, partialled Spearman",
+      "source": "results/C3_mquake_alpha_L12_3seed.json",
+      "s0": -0.0741,
+      "per_seed": {
+        "s0": -0.0741,
+        "s1": 0.0216,
+        "s2": -0.066
+      },
+      "mean": -0.0395,
+      "sd": 0.05306891745645468,
+      "sign_consistent": false,
+      "n_seeds_available": 3,
+      "verdict": "STABLE_NULL",
+      "esr_warn": true,
+      "esr_per_seed": {
+        "s0": 0.885,
+        "s1": 0.9,
+        "s2": 0.865
+      },
+      "raw_seeds_on_disk": [
+        0,
+        1,
+        2
+      ]
+    },
+    "ripple_rome_L8_ripple": {
+      "metric": "within_probe_rho_logit.ripple (RippleEdits ripple probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L8_s{seed}.json",
+      "layer": 8,
+      "s0": 0.4567541125360144,
+      "per_seed": {
+        "s0": 0.4567541125360144,
+        "s1": 0.44749683065085183,
+        "s2": 0.4573286894672367
+      },
+      "mean": 0.45385987755136764,
+      "sd": 0.005518043951990246,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_rome_L8_unrelated": {
+      "metric": "within_probe_rho_logit.unrelated (RippleEdits unrelated probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L8_s{seed}.json",
+      "layer": 8,
+      "s0": 0.46837627048809183,
+      "per_seed": {
+        "s0": 0.46837627048809183,
+        "s1": 0.47639438775863385,
+        "s2": 0.47877452936323417
+      },
+      "mean": 0.47451506253665326,
+      "sd": 0.005447921105898868,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_rome_L10_ripple": {
+      "metric": "within_probe_rho_logit.ripple (RippleEdits ripple probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L10_s{seed}.json",
+      "layer": 10,
+      "s0": 0.4476270265417188,
+      "per_seed": {
+        "s0": 0.4476270265417188,
+        "s1": 0.47101818114272687,
+        "s2": 0.4773762135736407
+      },
+      "mean": 0.46534047375269544,
+      "sd": 0.015666231300800457,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_rome_L10_unrelated": {
+      "metric": "within_probe_rho_logit.unrelated (RippleEdits unrelated probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L10_s{seed}.json",
+      "layer": 10,
+      "s0": 0.5149398232898155,
+      "per_seed": {
+        "s0": 0.5149398232898155,
+        "s1": 0.5732594133845277,
+        "s2": 0.5481517362934074
+      },
+      "mean": 0.5454503243225836,
+      "sd": 0.029253493247489208,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_rome_L12_ripple": {
+      "metric": "within_probe_rho_logit.ripple (RippleEdits ripple probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L12_s{seed}.json",
+      "layer": 12,
+      "s0": 0.2769332554549745,
+      "per_seed": {
+        "s0": 0.2769332554549745,
+        "s1": 0.28063162932417574,
+        "s2": 0.26460219516546457
+      },
+      "mean": 0.2740556933148716,
+      "sd": 0.00839320932449139,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_rome_L12_unrelated": {
+      "metric": "within_probe_rho_logit.unrelated (RippleEdits unrelated probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L12_s{seed}.json",
+      "layer": 12,
+      "s0": 0.3171942195116971,
+      "per_seed": {
+        "s0": 0.3171942195116971,
+        "s1": 0.3625114259041605,
+        "s2": 0.31773961329588085
+      },
+      "mean": 0.3324817529039128,
+      "sd": 0.026007889360178983,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_rome_L14_ripple": {
+      "metric": "within_probe_rho_logit.ripple (RippleEdits ripple probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L14_s{seed}.json",
+      "layer": 14,
+      "s0": 0.479592562979834,
+      "per_seed": {
+        "s0": 0.479592562979834,
+        "s1": 0.5022687061423994,
+        "s2": 0.4927798453858801
+      },
+      "mean": 0.4915470381693712,
+      "sd": 0.011388227579702544,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_rome_L14_unrelated": {
+      "metric": "within_probe_rho_logit.unrelated (RippleEdits unrelated probes, direct per-seed)",
+      "source": "results/ripple_llama1b_rome_popular_L14_s{seed}.json",
+      "layer": 14,
+      "s0": 0.4525341109116607,
+      "per_seed": {
+        "s0": 0.4525341109116607,
+        "s1": 0.4383647158917848,
+        "s2": 0.45673243132720237
+      },
+      "mean": 0.4492104193768826,
+      "sd": 0.009624366817764482,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_alpha_L12_ripple": {
+      "metric": "within_probe_rho_logit.ripple (RippleEdits ripple probes, direct per-seed)",
+      "source": "results/ripple_llama1b_alpha_popular_L12_s{seed}.json",
+      "layer": 12,
+      "s0": 0.16857891266325542,
+      "per_seed": {
+        "s0": 0.16857891266325542,
+        "s1": 0.14898967330237317,
+        "s2": 0.1284491527633615
+      },
+      "mean": 0.14867257957633004,
+      "sd": 0.02006675904896218,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "ripple_alpha_L12_unrelated": {
+      "metric": "within_probe_rho_logit.unrelated (RippleEdits unrelated probes, direct per-seed)",
+      "source": "results/ripple_llama1b_alpha_popular_L12_s{seed}.json",
+      "layer": 12,
+      "s0": 0.011414894601755923,
+      "per_seed": {
+        "s0": 0.011414894601755923,
+        "s1": 0.0350546108817567,
+        "s2": 0.01814164611109008
+      },
+      "mean": 0.021537050531534235,
+      "sd": 0.012180132381608677,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE_NULL",
+      "esr_warn": false,
+      "esr_per_seed": {
+        "s0": 1.0,
+        "s1": 1.0,
+        "s2": 1.0
+      }
+    },
+    "gradsim_true_L8": {
+      "metric": "rank_agreement.direct_vs_SC.mean \u2014 TRUE-backprop direct influence vs S\u00d7C surrogate rank agreement (A4' de-tautologization test)",
+      "source": "results/GRADSIM_TRUE_Llama-3.2-1B_L8_s{seed}.json",
+      "layer": 8,
+      "s0": -0.0867,
+      "per_seed": {
+        "s0": -0.0867,
+        "s1": -0.0786,
+        "s2": -0.0504
+      },
+      "mean": -0.0719,
+      "sd": 0.019054920624342678,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE_NULL",
+      "esr_warn": false,
+      "raw_seeds_on_disk": [
+        0,
+        1,
+        2
+      ]
+    },
+    "gradsim_true_L10": {
+      "metric": "rank_agreement.direct_vs_SC.mean \u2014 TRUE-backprop direct influence vs S\u00d7C surrogate rank agreement (A4' de-tautologization test)",
+      "source": "results/GRADSIM_TRUE_Llama-3.2-1B_L10_s{seed}.json",
+      "layer": 10,
+      "s0": -0.0336,
+      "per_seed": {
+        "s0": -0.0336,
+        "s1": -0.0315,
+        "s2": -0.027
+      },
+      "mean": -0.030699999999999998,
+      "sd": 0.0033719430600174724,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE_NULL",
+      "esr_warn": false,
+      "raw_seeds_on_disk": [
+        0,
+        1,
+        2
+      ]
+    },
+    "gradsim_true_L12": {
+      "metric": "rank_agreement.direct_vs_SC.mean \u2014 TRUE-backprop direct influence vs S\u00d7C surrogate rank agreement (A4' de-tautologization test)",
+      "source": "results/GRADSIM_TRUE_Llama-3.2-1B_L12_s{seed}.json",
+      "layer": 12,
+      "s0": 0.0874,
+      "per_seed": {
+        "s0": 0.0874,
+        "s1": 0.0706,
+        "s2": 0.066
+      },
+      "mean": 0.07466666666666667,
+      "sd": 0.011264694107401824,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE_NULL",
+      "esr_warn": false,
+      "raw_seeds_on_disk": [
+        0,
+        1,
+        2
+      ]
+    },
+    "gradsim_true_L14": {
+      "metric": "rank_agreement.direct_vs_SC.mean \u2014 TRUE-backprop direct influence vs S\u00d7C surrogate rank agreement (A4' de-tautologization test)",
+      "source": "results/GRADSIM_TRUE_Llama-3.2-1B_L14_s{seed}.json",
+      "layer": 14,
+      "s0": -0.0448,
+      "per_seed": {
+        "s0": -0.0448,
+        "s1": -0.0845,
+        "s2": -0.0531
+      },
+      "mean": -0.0608,
+      "sd": 0.020940152817016406,
+      "sign_consistent": true,
+      "n_seeds_available": 3,
+      "verdict": "STABLE_NULL",
+      "esr_warn": false,
+      "raw_seeds_on_disk": [
+        0,
+        1,
+        2
+      ]
+    },
+    "grace_damage_L12": {
+      "metric": "damage_logit identically-zero check (descriptive, NOT a Spearman rho \u2014 see run_revins.sh Cell B header / GRACE_damage_report_revins.json)",
+      "source": "results/GRACE_damage_report_revins.json",
+      "descriptive": true,
+      "s0": null,
+      "mean": null,
+      "sd": null,
+      "sign_consistent": null,
+      "esr_warn": false,
+      "per_seed": {
+        "s0": true,
+        "s1": true,
+        "s2": true
+      },
+      "n_seeds_available": 3,
+      "verdict": "DESCRIPTIVE_CONFIRMED",
+      "damage_identically_zero_all_seeds": true
+    }
+  },
+  "summary": {
+    "n_cells": 23,
+    "n_stable": 22,
+    "n_shifted": 0,
+    "n_pending": 0,
+    "n_descriptive_confirmed": 1,
+    "n_descriptive_anomaly": 0,
+    "n_esr_warn": 4,
+    "notes": [
+      "mquake_causal_holdout_L12 (0.495) confirms the circular probes-sourced mquake_causal_L12 (0.533), diff 0.038 \u2014 same pattern as the CF holdout precedent (L8 0.390 / L12 0.590)."
+    ]
+  }
+}

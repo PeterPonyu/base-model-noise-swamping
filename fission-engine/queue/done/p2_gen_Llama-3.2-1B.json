@@ -1,0 +1,14 @@
+{
+  "cmd": "env -u ALL_PROXY -u all_proxy conda run -n dl python3 branches/p2_prerl_diag/sample_ckpt.py --model edit-harness/data/models/Llama-3.2-1B --dataset openai/gsm8k --config main --split test --n-problems 200 --k 8 --temperature 0.9 --top-p 1.0 --max-new-tokens 640 --seed 0 --out branches/p2_prerl_diag/samples/Llama-3.2-1B.json",
+  "id": "p2_gen_Llama-3.2-1B",
+  "branch": "P2",
+  "created": "2026-07-01T03:05:31.838129+00:00",
+  "gpu_required": true,
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis",
+  "env": {},
+  "expect_outputs": [
+    "branches/p2_prerl_diag/samples/Llama-3.2-1B.json"
+  ],
+  "timeout_s": null,
+  "description": "k-sample GSM8K generation from the PRE-RL checkpoint (no training). Greedy=False; sample k independent CoT traces per problem, grade the final \\boxed{} against GSM8K gold, record {text,len,correct}."
+}

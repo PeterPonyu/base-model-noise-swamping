@@ -1,0 +1,46 @@
+{
+  "schema_version": "editors.v1",
+  "experiment": "RG_editors",
+  "model": "data/models/Qwen2.5-1.5B",
+  "model_tag": "Qwen2.5-1.5B",
+  "editor": "memit",
+  "edited_layers": [
+    18,
+    19,
+    20,
+    21
+  ],
+  "dataset": "cf",
+  "layer": 21,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "keep_ratio": 0.99,
+  "memit_cov": "identity",
+  "device": "cuda",
+  "esr_by_seed": {
+    "0": 0.46,
+    "1": 0.475,
+    "2": 0.47
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 2.4084553729153413e-07,
+    "1": 2.106401097989874e-07,
+    "2": 2.4084553729153413e-07
+  },
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1",
+  "numpy": "2.3.4"
+}

@@ -1,0 +1,23 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "model_tag": "Llama-3.2-1B",
+  "dataset": "counterfact",
+  "layer": 14,
+  "n_edits": 50,
+  "seed": 0,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "edit_success_rate": 0.86,
+  "S_mean": 2.484331,
+  "S_median": 2.575696,
+  "S_std": 0.55173,
+  "resid_norm_mean": 23.155092,
+  "resid_norm_median": 24.130056,
+  "key_norm_mean": 9.367747,
+  "key_norm_median": 9.245893,
+  "norm_growth_mean": 2.484331,
+  "n_finite_S": 50,
+  "npz": "results/aniso_llama1b_L14/Llama-3.2-1B_L14.npz",
+  "runtime_s": 45.2
+}

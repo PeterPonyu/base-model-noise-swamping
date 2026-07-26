@@ -1,0 +1,69 @@
+{
+ "n": 8,
+ "rows": [
+  {
+   "json": "results/u1e0_llama1b_alpha_delete_refusal_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_eos_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_refusal_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_refusal_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_refusal_L14_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_refusal_L8_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_suppress_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.85,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_qwen15b_delete_refusal_L14_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99,
+   "npz_keys_ok": true,
+   "all_nan": false
+  }
+ ]
+}

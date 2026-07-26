@@ -1,0 +1,51 @@
+{
+  "model": "data/models/gemma-2-2b",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 13,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 2,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.12.1+cu130",
+    "transformers": "5.12.1",
+    "numpy": "2.3.4",
+    "dtype": "float32",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.92,
+  "mean_residual_norm": 26.3949,
+  "frac_probes_known(pre_p>0.05)": 0.336,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.1202,
+    "spearman_normgrowth_damage": -0.0445,
+    "auroc_cos_broken": 0.6007,
+    "auroc_normgrowth_broken": 0.4626,
+    "mean_damage_logit": 2.93032,
+    "mean_cosine": 0.5206
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 33600,
+    "spearman_cos_damage": 0.0956,
+    "spearman_normgrowth_damage": -0.0287,
+    "auroc_cos_broken": 0.5877,
+    "auroc_normgrowth_broken": 0.4825,
+    "mean_damage_logit": 3.20212,
+    "mean_cosine": 0.5216
+  },
+  "runtime_s": 3361.3,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0956,
+    "auroc": 0.5877,
+    "beats_normgrowth": true
+  },
+  "matrices_npz": "results/matrices/gate_gemma2b_rome_cf_L13_s2.npz"
+}

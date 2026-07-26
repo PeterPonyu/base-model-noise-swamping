@@ -1,0 +1,454 @@
+{
+  "definition": "within-probe Spearman(|key-cos|, |damage|), tie-averaged, partialled by holding probe identity fixed down each column",
+  "metric": "logit",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "n_perm_editlevel": 1000,
+  "families_transfer_PASS": "3/4",
+  "headline": {
+    "qwen25_7b_L14": {
+      "mean_abs": 0.3096,
+      "std_abs": 0.0146,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    },
+    "qwen25_7b_L17": {
+      "mean_abs": 0.3875,
+      "std_abs": 0.016,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    },
+    "qwen25_7b_L21": {
+      "mean_abs": 0.2822,
+      "std_abs": 0.0153,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    },
+    "qwen25_7b_L24": {
+      "mean_abs": 0.0137,
+      "std_abs": 0.0,
+      "n_seeds": 3,
+      "verdict": "DEAD"
+    }
+  },
+  "families": [
+    {
+      "family": "qwen25_7b_L14",
+      "name": "qwen25_7b_L14",
+      "within_probe_mean_across_seeds": 0.3096,
+      "within_probe_std_across_seeds": 0.0146,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_7b_rome_cf_L14_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_qwen25_7b_rome_cf_L14_s0.npz",
+        "gate_qwen25_7b_rome_cf_L14_s1.npz",
+        "gate_qwen25_7b_rome_cf_L14_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.3096,
+      "within_probe_std_abs_across_seeds": 0.0146,
+      "per_edit_mean_abs_across_seeds": 0.2212,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L14_s0.npz",
+          "shape": [
+            200,
+            144
+          ],
+          "flat_spearman_abs_INFLATED": 0.3279,
+          "within_probe_mean_abs": 0.3295,
+          "within_probe_ci95": [
+            0.3064,
+            0.3499
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3096,
+            0.3489
+          ],
+          "within_probe_frac_positive": 0.993,
+          "per_edit_mean_abs": 0.2672,
+          "per_edit_ci95": [
+            0.2527,
+            0.2826
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0006,
+          "editlevel_null_std": 0.0154,
+          "editlevel_z": 21.33
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L14_s1.npz",
+          "shape": [
+            199,
+            142
+          ],
+          "flat_spearman_abs_INFLATED": 0.2699,
+          "within_probe_mean_abs": 0.3041,
+          "within_probe_ci95": [
+            0.2803,
+            0.3269
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2819,
+            0.3247
+          ],
+          "within_probe_frac_positive": 0.965,
+          "per_edit_mean_abs": 0.199,
+          "per_edit_ci95": [
+            0.1829,
+            0.2151
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0006,
+          "editlevel_null_std": 0.0157,
+          "editlevel_z": 19.43
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L14_s2.npz",
+          "shape": [
+            199,
+            159
+          ],
+          "flat_spearman_abs_INFLATED": 0.2584,
+          "within_probe_mean_abs": 0.2951,
+          "within_probe_ci95": [
+            0.277,
+            0.3128
+          ],
+          "within_probe_ci95_editcluster": [
+            0.276,
+            0.3119
+          ],
+          "within_probe_frac_positive": 0.994,
+          "per_edit_mean_abs": 0.1974,
+          "per_edit_ci95": [
+            0.1816,
+            0.2126
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0003,
+          "editlevel_null_std": 0.0146,
+          "editlevel_z": 20.21
+        }
+      ]
+    },
+    {
+      "family": "qwen25_7b_L17",
+      "name": "qwen25_7b_L17",
+      "within_probe_mean_across_seeds": 0.3875,
+      "within_probe_std_across_seeds": 0.016,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_7b_rome_cf_L17_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_qwen25_7b_rome_cf_L17_s0.npz",
+        "gate_qwen25_7b_rome_cf_L17_s1.npz",
+        "gate_qwen25_7b_rome_cf_L17_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.3875,
+      "within_probe_std_abs_across_seeds": 0.016,
+      "per_edit_mean_abs_across_seeds": 0.3087,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L17_s0.npz",
+          "shape": [
+            200,
+            144
+          ],
+          "flat_spearman_abs_INFLATED": 0.4314,
+          "within_probe_mean_abs": 0.4061,
+          "within_probe_ci95": [
+            0.3878,
+            0.4243
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3789,
+            0.431
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.3638,
+          "per_edit_ci95": [
+            0.3485,
+            0.378
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0003,
+          "editlevel_null_std": 0.0221,
+          "editlevel_z": 18.33
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L17_s1.npz",
+          "shape": [
+            199,
+            142
+          ],
+          "flat_spearman_abs_INFLATED": 0.3776,
+          "within_probe_mean_abs": 0.3894,
+          "within_probe_ci95": [
+            0.3679,
+            0.4106
+          ],
+          "within_probe_ci95_editcluster": [
+            0.359,
+            0.4136
+          ],
+          "within_probe_frac_positive": 0.993,
+          "per_edit_mean_abs": 0.2992,
+          "per_edit_ci95": [
+            0.2835,
+            0.3159
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0011,
+          "editlevel_null_std": 0.0205,
+          "editlevel_z": 19.07
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L17_s2.npz",
+          "shape": [
+            200,
+            159
+          ],
+          "flat_spearman_abs_INFLATED": 0.3443,
+          "within_probe_mean_abs": 0.367,
+          "within_probe_ci95": [
+            0.35,
+            0.3835
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3358,
+            0.3919
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.2632,
+          "per_edit_ci95": [
+            0.247,
+            0.2788
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0008,
+          "editlevel_null_std": 0.0208,
+          "editlevel_z": 17.71
+        }
+      ]
+    },
+    {
+      "family": "qwen25_7b_L21",
+      "name": "qwen25_7b_L21",
+      "within_probe_mean_across_seeds": 0.2822,
+      "within_probe_std_across_seeds": 0.0153,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_7b_rome_cf_L21_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_qwen25_7b_rome_cf_L21_s0.npz",
+        "gate_qwen25_7b_rome_cf_L21_s1.npz",
+        "gate_qwen25_7b_rome_cf_L21_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.2822,
+      "within_probe_std_abs_across_seeds": 0.0153,
+      "per_edit_mean_abs_across_seeds": 0.2655,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L21_s0.npz",
+          "shape": [
+            169,
+            144
+          ],
+          "flat_spearman_abs_INFLATED": 0.3445,
+          "within_probe_mean_abs": 0.2914,
+          "within_probe_ci95": [
+            0.2708,
+            0.3116
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2638,
+            0.322
+          ],
+          "within_probe_frac_positive": 0.986,
+          "per_edit_mean_abs": 0.2898,
+          "per_edit_ci95": [
+            0.2726,
+            0.308
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0,
+          "editlevel_null_std": 0.0192,
+          "editlevel_z": 15.19
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L21_s1.npz",
+          "shape": [
+            155,
+            142
+          ],
+          "flat_spearman_abs_INFLATED": 0.2962,
+          "within_probe_mean_abs": 0.2607,
+          "within_probe_ci95": [
+            0.2409,
+            0.281
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2261,
+            0.2924
+          ],
+          "within_probe_frac_positive": 0.986,
+          "per_edit_mean_abs": 0.242,
+          "per_edit_ci95": [
+            0.2238,
+            0.2604
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0,
+          "editlevel_null_std": 0.0198,
+          "editlevel_z": 13.14
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L21_s2.npz",
+          "shape": [
+            157,
+            159
+          ],
+          "flat_spearman_abs_INFLATED": 0.3184,
+          "within_probe_mean_abs": 0.2945,
+          "within_probe_ci95": [
+            0.2761,
+            0.3132
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2661,
+            0.3198
+          ],
+          "within_probe_frac_positive": 0.987,
+          "per_edit_mean_abs": 0.2648,
+          "per_edit_ci95": [
+            0.2496,
+            0.2791
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0007,
+          "editlevel_null_std": 0.0189,
+          "editlevel_z": 15.57
+        }
+      ]
+    },
+    {
+      "family": "qwen25_7b_L24",
+      "name": "qwen25_7b_L24",
+      "within_probe_mean_across_seeds": 0.0137,
+      "within_probe_std_across_seeds": 0.0,
+      "pattern": "/root/edit-harness/results/matrices/gate_qwen25_7b_rome_cf_L24_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_qwen25_7b_rome_cf_L24_s0.npz",
+        "gate_qwen25_7b_rome_cf_L24_s1.npz",
+        "gate_qwen25_7b_rome_cf_L24_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.0137,
+      "within_probe_std_abs_across_seeds": 0.0,
+      "per_edit_mean_abs_across_seeds": -0.0203,
+      "max_within_probe_perm_p_editlevel": 1.0,
+      "VERDICT": "DEAD \u2014 within-probe |rho| < 0.10; magnitude law does NOT transfer here",
+      "per_seed": [
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L24_s0.npz",
+          "shape": [
+            0,
+            144
+          ],
+          "flat_spearman_abs_INFLATED": NaN,
+          "within_probe_mean_abs": NaN,
+          "within_probe_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_ci95_editcluster": [
+            NaN,
+            NaN
+          ],
+          "within_probe_frac_positive": 0.0,
+          "per_edit_mean_abs": NaN,
+          "per_edit_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": NaN,
+          "editlevel_null_std": NaN,
+          "editlevel_z": null
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L24_s1.npz",
+          "shape": [
+            3,
+            142
+          ],
+          "flat_spearman_abs_INFLATED": 0.0235,
+          "within_probe_mean_abs": 0.0137,
+          "within_probe_ci95": [
+            -0.1149,
+            0.1482
+          ],
+          "within_probe_ci95_editcluster": [
+            NaN,
+            NaN
+          ],
+          "within_probe_frac_positive": 0.275,
+          "per_edit_mean_abs": 0.0488,
+          "per_edit_ci95": [
+            -0.1239,
+            0.138
+          ],
+          "within_probe_perm_p": 0.8239,
+          "within_probe_perm_p_editlevel": 1.0,
+          "editlevel_null_mean": 0.0033,
+          "editlevel_null_std": 0.0969,
+          "editlevel_z": 0.11
+        },
+        {
+          "npz": "gate_qwen25_7b_rome_cf_L24_s2.npz",
+          "shape": [
+            1,
+            159
+          ],
+          "flat_spearman_abs_INFLATED": -0.0895,
+          "within_probe_mean_abs": NaN,
+          "within_probe_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_ci95_editcluster": [
+            NaN,
+            NaN
+          ],
+          "within_probe_frac_positive": 0.0,
+          "per_edit_mean_abs": -0.0895,
+          "per_edit_ci95": [
+            NaN,
+            NaN
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": NaN,
+          "editlevel_null_std": NaN,
+          "editlevel_z": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+ "n": 13,
+ "rows": [
+  {
+   "json": "results/gate_llama1b_alpha_mquake_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.885
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L10_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.985
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L10_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L10_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.965
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L14_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.95
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L14_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.94
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L14_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.96
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L8_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.975
+  },
+  {
+   "json": "results/gate_llama1b_rome_mquake_L8_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.965
+  }
+ ]
+}

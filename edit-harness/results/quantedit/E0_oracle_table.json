@@ -1,0 +1,220 @@
+{
+  "experiment": "QuantEdit E0 (rank #7, EXPANSION-DIRECTIONS-DEEP-2026-07-01.md S2.7)",
+  "hypothesis": "closed-form row-effective margin (from K,A,B,Wbase alone) predicts per-edit survival under simulated 4-bit-class PTQ",
+  "margin_definition": "median over d_out rows of |A_i[r]| * ||B_i||_2 / (||Q(Wbase)[r,:]-Wbase[r,:]||_2 + eps); Q = the rung's quantizer applied to Wbase once (shared across edits in the bank)",
+  "survival_definition": "||Q(Wbase+outer(A_i,B_i)) - Q(Wbase)||_F / (||A_i||_2*||B_i||_2); Q(Wbase+\u0394W_i) is requantized per edit (post-edit absmax) \u2014 assumes PTQ happens AFTER editing. NOTE: magnitude-slaved (DECREASING in edit size) so the margin cannot positively predict it \u2014 the KILL here is partly definitional; see projret_definition.",
+  "projret_definition": "<(Q(Wbase+\u0394W_i)-Q(Wbase)) @ k_i, r_i> / <r_i,r_i>, with r_i=A_i=v-Wk and k_i=K_i \u2014 the faithful projection-RETENTION oracle: the fraction of the edit's action on its OWN key that survives requantization (bounded ~[0,1], inflation-robust). On real ROME banks this is a LIVE NULL (mean ~1.002, std ~0.001, no cross-edit variance) -> nothing to predict -> the S2.7 pre-registered no-variance KILL. Emitted per rung as projret_mean/projret_std/rho_margin_projret.",
+  "nf4_definition": "bitsandbytes/QLoRA 16-level NF4 codebook (Dettmers et al. 2023), per-row-group absmax normalization, nearest-codebook dequant; NO double-quantization of scale constants (out of scope)",
+  "uniform_rtn_definition": "symmetric per-row-group absmax RTN: scale=max(|group|)/qmax, qmax=2**(bits-1)-1, code=clip(round(x/scale),-qmax,qmax), dequant=code*scale",
+  "ladder": "spec",
+  "rungs": [
+    "int8_g32",
+    "int6_g32",
+    "int4_g32",
+    "int3_g32",
+    "nf4_g32"
+  ],
+  "group_sizes": {
+    "int8_g32": 32,
+    "int6_g32": 32,
+    "int4_g32": 32,
+    "int3_g32": 32,
+    "nf4_g32": 32
+  },
+  "gate": {
+    "gate_rho": 0.8,
+    "gate_var_floor": 0.05,
+    "rule": "KILL if no bank clears gate_var_floor at its transition rung (no signal), OR any bank's transition-rung Spearman(margin,survival) < gate_rho",
+    "source": "EXPANSION-DIRECTIONS-DEEP-2026-07-01.md:164 (QuantEdit E0 pre-registration)"
+  },
+  "verdict": "KILL",
+  "verdict_reason": "at least one bank's transition-rung Spearman(margin, survival) < gate_rho",
+  "faithful_oracle_live_null": {
+    "projret_live_null_kill_all_banks": true,
+    "projret_max_std_over_all_banks_rungs": 0.0012,
+    "meaning": "projection-retention oracle has ~no cross-edit variance at every rung of every bank (< gate_var_floor) -> S2.7 pre-registered live-null KILL, corroborating the Frobenius verdict with a bounded, non-magnitude-slaved oracle. If True, the KILL does NOT rest on the definitional Frobenius rho."
+  },
+  "banks": [
+    {
+      "bank": {
+        "path": "results/vectors/vectors_qv_llama1b_rome_cf_L8_s0.npz",
+        "model": "data/models/Llama-3.2-1B",
+        "editor": "rome",
+        "layer": 8,
+        "seed": 0,
+        "N": 200
+      },
+      "rungs": [
+        {
+          "rung": "int8_g32",
+          "rho_margin_survival": -0.648,
+          "margin_mean": 11.1219,
+          "margin_median": 11.0469,
+          "margin_std": 0.9828,
+          "survival_mean": 1.0052,
+          "survival_median": 1.0051,
+          "survival_std": 0.0009,
+          "projret_mean": 1.0,
+          "projret_std": 0.0,
+          "rho_margin_projret": 0.0309,
+          "elapsed_s": 53.44
+        },
+        {
+          "rung": "int6_g32",
+          "rho_margin_survival": -0.572,
+          "margin_mean": 2.7157,
+          "margin_median": 2.6996,
+          "margin_std": 0.2394,
+          "survival_mean": 1.0737,
+          "survival_median": 1.0725,
+          "survival_std": 0.0111,
+          "projret_mean": 1.0,
+          "projret_std": 0.0001,
+          "rho_margin_projret": -0.0478,
+          "elapsed_s": 53.89
+        },
+        {
+          "rung": "int4_g32",
+          "rho_margin_survival": -0.4282,
+          "margin_mean": 0.6134,
+          "margin_median": 0.6093,
+          "margin_std": 0.0541,
+          "survival_mean": 1.6353,
+          "survival_median": 1.6313,
+          "survival_std": 0.0634,
+          "projret_mean": 1.0004,
+          "projret_std": 0.0005,
+          "rho_margin_projret": 0.0279,
+          "elapsed_s": 53.4
+        },
+        {
+          "rung": "int3_g32",
+          "rho_margin_survival": -0.3884,
+          "margin_mean": 0.2634,
+          "margin_median": 0.2619,
+          "margin_std": 0.0232,
+          "survival_mean": 2.4322,
+          "survival_median": 2.4328,
+          "survival_std": 0.1085,
+          "projret_mean": 1.0015,
+          "projret_std": 0.0011,
+          "rho_margin_projret": 0.1793,
+          "elapsed_s": 56.28
+        },
+        {
+          "rung": "nf4_g32",
+          "rho_margin_survival": -0.4442,
+          "margin_mean": 0.7105,
+          "margin_median": 0.7057,
+          "margin_std": 0.0623,
+          "survival_mean": 1.5252,
+          "survival_median": 1.5218,
+          "survival_std": 0.055,
+          "projret_mean": 0.9967,
+          "projret_std": 0.0005,
+          "rho_margin_projret": 0.0765,
+          "elapsed_s": 168.51
+        }
+      ],
+      "transition_rung": "int3_g32",
+      "transition_survival_std": 0.1085,
+      "transition_rho": -0.3884,
+      "projret_max_std_across_rungs": 0.0011,
+      "projret_live_null_kill": true
+    },
+    {
+      "bank": {
+        "path": "results/vectors/vectors_qv_llama1b_rome_cf_L12_s0.npz",
+        "model": "data/models/Llama-3.2-1B",
+        "editor": "rome",
+        "layer": 12,
+        "seed": 0,
+        "N": 200
+      },
+      "rungs": [
+        {
+          "rung": "int8_g32",
+          "rho_margin_survival": -0.8018,
+          "margin_mean": 9.3297,
+          "margin_median": 9.2811,
+          "margin_std": 1.5446,
+          "survival_mean": 1.0079,
+          "survival_median": 1.0074,
+          "survival_std": 0.0029,
+          "projret_mean": 1.0,
+          "projret_std": 0.0,
+          "rho_margin_projret": -0.0584,
+          "elapsed_s": 53.26
+        },
+        {
+          "rung": "int6_g32",
+          "rho_margin_survival": -0.7551,
+          "margin_mean": 2.2792,
+          "margin_median": 2.2702,
+          "margin_std": 0.3773,
+          "survival_mean": 1.1027,
+          "survival_median": 1.0971,
+          "survival_std": 0.0308,
+          "projret_mean": 1.0001,
+          "projret_std": 0.0001,
+          "rho_margin_projret": -0.0799,
+          "elapsed_s": 52.48
+        },
+        {
+          "rung": "int4_g32",
+          "rho_margin_survival": -0.6858,
+          "margin_mean": 0.5146,
+          "margin_median": 0.5125,
+          "margin_std": 0.0851,
+          "survival_mean": 1.7438,
+          "survival_median": 1.7289,
+          "survival_std": 0.1428,
+          "projret_mean": 1.0004,
+          "projret_std": 0.0005,
+          "rho_margin_projret": -0.1247,
+          "elapsed_s": 52.77
+        },
+        {
+          "rung": "int3_g32",
+          "rho_margin_survival": -0.6718,
+          "margin_mean": 0.2206,
+          "margin_median": 0.2197,
+          "margin_std": 0.0365,
+          "survival_mean": 2.5979,
+          "survival_median": 2.5808,
+          "survival_std": 0.2432,
+          "projret_mean": 1.0021,
+          "projret_std": 0.0012,
+          "rho_margin_projret": 0.0571,
+          "elapsed_s": 52.12
+        },
+        {
+          "rung": "nf4_g32",
+          "rho_margin_survival": -0.6878,
+          "margin_mean": 0.58,
+          "margin_median": 0.5783,
+          "margin_std": 0.0959,
+          "survival_mean": 1.6279,
+          "survival_median": 1.6133,
+          "survival_std": 0.1265,
+          "projret_mean": 0.9964,
+          "projret_std": 0.0006,
+          "rho_margin_projret": 0.0886,
+          "elapsed_s": 165.44
+        }
+      ],
+      "transition_rung": "int3_g32",
+      "transition_survival_std": 0.2432,
+      "transition_rho": -0.6718,
+      "projret_max_std_across_rungs": 0.0012,
+      "projret_live_null_kill": true
+    }
+  ],
+  "notes": [
+    "SIMULATED quant survival oracle \u2014 hand-rolled numpy RTN/NF4, not a real quantized-model behavioral eval (that is E1, ~140 GPU-min, deferred pending this gate).",
+    "Single seed per layer (s0) \u2014 no cross-seed variance yet; that is E2 in the ladder.",
+    "Group sizes (64 uniform / 32 for int3) are a documented choice, not swept.",
+    "NF4 scale constants are NOT double-quantized (bnb does this for extra compression; skipped here as out of scope for the closed-form margin claim).",
+    "Margin uses a row-median aggregate (not mean/min/quantile) \u2014 an unexplored aggregation-sensitivity axis."
+  ]
+}

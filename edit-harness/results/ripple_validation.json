@@ -1,0 +1,65 @@
+{
+ "n": 4,
+ "rows": [
+  {
+   "json": "results/ripple_llama1b_alpha_popular_L12_s0.json",
+   "json_ok": true,
+   "rho_ripple": 0.16857891266325542,
+   "rho_unrelated": 0.011414894601755923,
+   "esr": 1.0,
+   "per_criterion_accuracy": {
+    "Logical_Generalization": 0.075,
+    "Compositionality_I": 0.0,
+    "Compositionality_II": 0.175,
+    "Subject_Aliasing": 0.4,
+    "Relation_Specificity": 0.05,
+    "Forgetfulness": 0.0
+   }
+  },
+  {
+   "json": "results/ripple_llama1b_rome_popular_L12_s0.json",
+   "json_ok": true,
+   "rho_ripple": 0.2769332554549745,
+   "rho_unrelated": 0.3171942195116971,
+   "esr": 1.0,
+   "per_criterion_accuracy": {
+    "Logical_Generalization": 0.125,
+    "Compositionality_I": 0.0,
+    "Compositionality_II": 0.225,
+    "Subject_Aliasing": 0.325,
+    "Relation_Specificity": 0.05,
+    "Forgetfulness": 0.0
+   }
+  },
+  {
+   "json": "results/ripple_llama1b_rome_popular_L12_s1.json",
+   "json_ok": true,
+   "rho_ripple": 0.28063162932417574,
+   "rho_unrelated": 0.3625114259041605,
+   "esr": 1.0,
+   "per_criterion_accuracy": {
+    "Logical_Generalization": 0.125,
+    "Compositionality_I": 0.0,
+    "Compositionality_II": 0.1,
+    "Subject_Aliasing": 0.35,
+    "Relation_Specificity": 0.075,
+    "Forgetfulness": 0.0
+   }
+  },
+  {
+   "json": "results/ripple_llama1b_rome_popular_L12_s2.json",
+   "json_ok": true,
+   "rho_ripple": 0.26460219516546457,
+   "rho_unrelated": 0.31773961329588085,
+   "esr": 1.0,
+   "per_criterion_accuracy": {
+    "Logical_Generalization": 0.175,
+    "Compositionality_I": 0.025,
+    "Compositionality_II": 0.05,
+    "Subject_Aliasing": 0.6,
+    "Relation_Specificity": 0.05,
+    "Forgetfulness": 0.0
+   }
+  }
+ ]
+}

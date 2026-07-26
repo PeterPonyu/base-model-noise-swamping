@@ -1,0 +1,19 @@
+RUN_MERGING_EDITORS REPORT tag=llama1b_rome_zsre model=data/models/Llama-3.2-1B editor=rome layer=12 2026-07-15 22:26:41  elapsed 5m/110m
+[2026-07-15 22:20:17] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 12
+[2026-07-15 22:20:17] SMOKE merging_editors --selftest (CPU, ~5s) -> engine/merging_editors_selftest_llama1b_rome_zsre.log
+[2026-07-15 22:20:23] SMOKE OK: self-test passed (cross-term + additivity + ROME-equivalence + RG pass/kill)
+[2026-07-15 22:20:23] gpu poll util=11 mem=865 consec=1/3
+[2026-07-15 22:20:53] gpu poll util=1 mem=885 consec=2/3
+[2026-07-15 22:21:23] gpu poll util=2 mem=851 consec=3/3
+[2026-07-15 22:21:23] SMOKE ΔW-fidelity gate (real model, ~1-2 GPU-min) -> engine/merging_editors_llama1b_rome_zsre_smoke.log
+[2026-07-15 22:21:30] SMOKE OK: ΔW-fidelity PASS ([smoke] rome ΔW-FIDELITY PASS — worst rel-err 4.590e-07 < 0.0001 (re-derived factors reconstruct the real editor's ΔW))
+[2026-07-15 22:21:30] RUN rg tag=llama1b_rome_zsre (est 40m, cap 8400s, elapsed 0m) -> engine/merging_editors_llama1b_rome_zsre_run.log
+[2026-07-15 22:26:41] done rg tag=llama1b_rome_zsre (311s) VALIDATE-OK editor=rome verdict=PASS qualifying_g=[2, 3, 5]
+[2026-07-15 22:26:41] ---------------- POST-RUN (CPU) tag=llama1b_rome_zsre ----------------
+[rg post] editor=rome VERDICT overall=PASS qualifying_g=[2, 3, 5] testable_cells=8
+[rg post] scoped-federation boundary: per_seed={'0': 10, '1': 10, '2': 10} conservative=10
+[rg post]   g=2: partial_by_seed={'0': 0.5752, '1': 0.5403, '2': 0.4031} pass_geometry=3 qualifies=True
+[rg post]   g=3: partial_by_seed={'0': 0.4375, '1': 0.4149, '2': 0.3892} pass_geometry=3 qualifies=True
+[rg post]   g=5: partial_by_seed={'0': 0.3663, '1': 0.3857, '2': 0.2423} pass_geometry=2 qualifies=True
+[rg post]   g=10: partial_by_seed={'0': 0.1447, '1': 0.196, '2': 0.0839} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': 0.014, '1': 0.0512, '2': -0.0093} pass_geometry=0 qualifies=False

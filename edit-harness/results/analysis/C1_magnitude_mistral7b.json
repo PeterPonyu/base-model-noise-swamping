@@ -1,0 +1,454 @@
+{
+  "definition": "within-probe Spearman(|key-cos|, |damage|), tie-averaged, partialled by holding probe identity fixed down each column",
+  "metric": "logit",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "n_perm_editlevel": 1000,
+  "families_transfer_PASS": "4/4",
+  "headline": {
+    "mistral7b_L16": {
+      "mean_abs": 0.4127,
+      "std_abs": 0.0104,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    },
+    "mistral7b_L20": {
+      "mean_abs": 0.3733,
+      "std_abs": 0.0081,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    },
+    "mistral7b_L24": {
+      "mean_abs": 0.372,
+      "std_abs": 0.0069,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    },
+    "mistral7b_L28": {
+      "mean_abs": 0.287,
+      "std_abs": 0.0112,
+      "n_seeds": 3,
+      "verdict": "PASS"
+    }
+  },
+  "families": [
+    {
+      "family": "mistral7b_L16",
+      "name": "mistral7b_L16",
+      "within_probe_mean_across_seeds": 0.4127,
+      "within_probe_std_across_seeds": 0.0104,
+      "pattern": "/root/edit-harness/results/matrices/gate_mistral7b_rome_cf_L16_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_mistral7b_rome_cf_L16_s0.npz",
+        "gate_mistral7b_rome_cf_L16_s1.npz",
+        "gate_mistral7b_rome_cf_L16_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.4127,
+      "within_probe_std_abs_across_seeds": 0.0104,
+      "per_edit_mean_abs_across_seeds": 0.3208,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_mistral7b_rome_cf_L16_s0.npz",
+          "shape": [
+            198,
+            196
+          ],
+          "flat_spearman_abs_INFLATED": 0.4053,
+          "within_probe_mean_abs": 0.3982,
+          "within_probe_ci95": [
+            0.3836,
+            0.412
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3652,
+            0.4298
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.3413,
+          "per_edit_ci95": [
+            0.3269,
+            0.3557
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0006,
+          "editlevel_null_std": 0.0213,
+          "editlevel_z": 18.68
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L16_s1.npz",
+          "shape": [
+            195,
+            190
+          ],
+          "flat_spearman_abs_INFLATED": 0.3832,
+          "within_probe_mean_abs": 0.4219,
+          "within_probe_ci95": [
+            0.4061,
+            0.4368
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3811,
+            0.4568
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.3026,
+          "per_edit_ci95": [
+            0.2856,
+            0.3194
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0007,
+          "editlevel_null_std": 0.025,
+          "editlevel_z": 16.89
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L16_s2.npz",
+          "shape": [
+            196,
+            189
+          ],
+          "flat_spearman_abs_INFLATED": 0.395,
+          "within_probe_mean_abs": 0.418,
+          "within_probe_ci95": [
+            0.4028,
+            0.4327
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3782,
+            0.4504
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.3185,
+          "per_edit_ci95": [
+            0.3006,
+            0.3355
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0008,
+          "editlevel_null_std": 0.0222,
+          "editlevel_z": 18.79
+        }
+      ]
+    },
+    {
+      "family": "mistral7b_L20",
+      "name": "mistral7b_L20",
+      "within_probe_mean_across_seeds": 0.3733,
+      "within_probe_std_across_seeds": 0.0081,
+      "pattern": "/root/edit-harness/results/matrices/gate_mistral7b_rome_cf_L20_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_mistral7b_rome_cf_L20_s0.npz",
+        "gate_mistral7b_rome_cf_L20_s1.npz",
+        "gate_mistral7b_rome_cf_L20_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.3733,
+      "within_probe_std_abs_across_seeds": 0.0081,
+      "per_edit_mean_abs_across_seeds": 0.2743,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_mistral7b_rome_cf_L20_s0.npz",
+          "shape": [
+            194,
+            196
+          ],
+          "flat_spearman_abs_INFLATED": 0.3857,
+          "within_probe_mean_abs": 0.3645,
+          "within_probe_ci95": [
+            0.345,
+            0.384
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3311,
+            0.392
+          ],
+          "within_probe_frac_positive": 0.99,
+          "per_edit_mean_abs": 0.294,
+          "per_edit_ci95": [
+            0.2748,
+            0.3144
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0011,
+          "editlevel_null_std": 0.022,
+          "editlevel_z": 16.58
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L20_s1.npz",
+          "shape": [
+            185,
+            190
+          ],
+          "flat_spearman_abs_INFLATED": 0.3629,
+          "within_probe_mean_abs": 0.3713,
+          "within_probe_ci95": [
+            0.3529,
+            0.3908
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3326,
+            0.405
+          ],
+          "within_probe_frac_positive": 0.995,
+          "per_edit_mean_abs": 0.2607,
+          "per_edit_ci95": [
+            0.2398,
+            0.2805
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0012,
+          "editlevel_null_std": 0.0256,
+          "editlevel_z": 14.58
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L20_s2.npz",
+          "shape": [
+            192,
+            189
+          ],
+          "flat_spearman_abs_INFLATED": 0.3844,
+          "within_probe_mean_abs": 0.3841,
+          "within_probe_ci95": [
+            0.3658,
+            0.4012
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3461,
+            0.4223
+          ],
+          "within_probe_frac_positive": 0.995,
+          "per_edit_mean_abs": 0.2681,
+          "per_edit_ci95": [
+            0.2469,
+            0.2889
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0012,
+          "editlevel_null_std": 0.0251,
+          "editlevel_z": 15.28
+        }
+      ]
+    },
+    {
+      "family": "mistral7b_L24",
+      "name": "mistral7b_L24",
+      "within_probe_mean_across_seeds": 0.372,
+      "within_probe_std_across_seeds": 0.0069,
+      "pattern": "/root/edit-harness/results/matrices/gate_mistral7b_rome_cf_L24_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_mistral7b_rome_cf_L24_s0.npz",
+        "gate_mistral7b_rome_cf_L24_s1.npz",
+        "gate_mistral7b_rome_cf_L24_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.372,
+      "within_probe_std_abs_across_seeds": 0.0069,
+      "per_edit_mean_abs_across_seeds": 0.2179,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_mistral7b_rome_cf_L24_s0.npz",
+          "shape": [
+            196,
+            196
+          ],
+          "flat_spearman_abs_INFLATED": 0.3688,
+          "within_probe_mean_abs": 0.3766,
+          "within_probe_ci95": [
+            0.3555,
+            0.3969
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3428,
+            0.4086
+          ],
+          "within_probe_frac_positive": 0.99,
+          "per_edit_mean_abs": 0.2345,
+          "per_edit_ci95": [
+            0.2113,
+            0.2578
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0007,
+          "editlevel_null_std": 0.0266,
+          "editlevel_z": 14.16
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L24_s1.npz",
+          "shape": [
+            187,
+            190
+          ],
+          "flat_spearman_abs_INFLATED": 0.3449,
+          "within_probe_mean_abs": 0.3622,
+          "within_probe_ci95": [
+            0.3446,
+            0.3803
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3233,
+            0.3958
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.2037,
+          "per_edit_ci95": [
+            0.182,
+            0.2249
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0007,
+          "editlevel_null_std": 0.0262,
+          "editlevel_z": 13.88
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L24_s2.npz",
+          "shape": [
+            190,
+            189
+          ],
+          "flat_spearman_abs_INFLATED": 0.3755,
+          "within_probe_mean_abs": 0.3771,
+          "within_probe_ci95": [
+            0.3571,
+            0.3972
+          ],
+          "within_probe_ci95_editcluster": [
+            0.3396,
+            0.4138
+          ],
+          "within_probe_frac_positive": 1.0,
+          "per_edit_mean_abs": 0.2154,
+          "per_edit_ci95": [
+            0.1927,
+            0.2395
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0007,
+          "editlevel_null_std": 0.0284,
+          "editlevel_z": 13.28
+        }
+      ]
+    },
+    {
+      "family": "mistral7b_L28",
+      "name": "mistral7b_L28",
+      "within_probe_mean_across_seeds": 0.287,
+      "within_probe_std_across_seeds": 0.0112,
+      "pattern": "/root/edit-harness/results/matrices/gate_mistral7b_rome_cf_L28_s*.npz",
+      "n_seeds": 3,
+      "seeds": [
+        "gate_mistral7b_rome_cf_L28_s0.npz",
+        "gate_mistral7b_rome_cf_L28_s1.npz",
+        "gate_mistral7b_rome_cf_L28_s2.npz"
+      ],
+      "within_probe_mean_abs_across_seeds": 0.287,
+      "within_probe_std_abs_across_seeds": 0.0112,
+      "per_edit_mean_abs_across_seeds": 0.1737,
+      "max_within_probe_perm_p_editlevel": 0.001,
+      "VERDICT": "PASS \u2014 magnitude law present (edit-specific |geometry|->|damage|)",
+      "per_seed": [
+        {
+          "npz": "gate_mistral7b_rome_cf_L28_s0.npz",
+          "shape": [
+            197,
+            196
+          ],
+          "flat_spearman_abs_INFLATED": 0.2749,
+          "within_probe_mean_abs": 0.2789,
+          "within_probe_ci95": [
+            0.2621,
+            0.2963
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2343,
+            0.3182
+          ],
+          "within_probe_frac_positive": 0.99,
+          "per_edit_mean_abs": 0.1887,
+          "per_edit_ci95": [
+            0.1677,
+            0.2092
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0003,
+          "editlevel_null_std": 0.0215,
+          "editlevel_z": 12.97
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L28_s1.npz",
+          "shape": [
+            191,
+            190
+          ],
+          "flat_spearman_abs_INFLATED": 0.2735,
+          "within_probe_mean_abs": 0.3028,
+          "within_probe_ci95": [
+            0.2856,
+            0.3202
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2563,
+            0.3479
+          ],
+          "within_probe_frac_positive": 0.989,
+          "per_edit_mean_abs": 0.1477,
+          "per_edit_ci95": [
+            0.1292,
+            0.166
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": -0.0002,
+          "editlevel_null_std": 0.0255,
+          "editlevel_z": 11.89
+        },
+        {
+          "npz": "gate_mistral7b_rome_cf_L28_s2.npz",
+          "shape": [
+            193,
+            189
+          ],
+          "flat_spearman_abs_INFLATED": 0.279,
+          "within_probe_mean_abs": 0.2793,
+          "within_probe_ci95": [
+            0.2625,
+            0.2952
+          ],
+          "within_probe_ci95_editcluster": [
+            0.2357,
+            0.3222
+          ],
+          "within_probe_frac_positive": 0.989,
+          "per_edit_mean_abs": 0.1846,
+          "per_edit_ci95": [
+            0.1658,
+            0.2037
+          ],
+          "within_probe_perm_p": 0.0033,
+          "within_probe_perm_p_editlevel": 0.001,
+          "editlevel_null_mean": 0.0018,
+          "editlevel_null_std": 0.0262,
+          "editlevel_z": 10.61
+        }
+      ]
+    }
+  ]
+}

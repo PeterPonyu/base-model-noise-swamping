@@ -1,0 +1,50 @@
+{
+  "title": "CP-Edit CPU analysis stack \u2014 pre-registration",
+  "written_utc": "2026-07-02T03:26:30Z",
+  "rng_seed": 12345,
+  "rng_note": "LAB NON-NEGOTIABLE: RNG_SEED=12345 for permutation nulls and used as the bootstrap base seed. This OVERRIDES the spec's suggested 20260701, per the binding lab rule; recorded here verbatim.",
+  "data": {
+    "matrix_dir": "edit-harness/results/matrices/",
+    "rome_npz": "gate_llama1b_rome_cf_L{8,10,12,14}_s{0,1,2}.npz",
+    "alpha_npz": "g4_llama1b_alpha_cf_L{8,10,12,14}_s{0,1,2}.npz",
+    "layers": [
+      8,
+      10,
+      12,
+      14
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "exchangeability_verdict": "Seeds s0/s1/s2 edit DIFFERENT 200 CounterFact requests (and different probe banks): killgate load_counterfact does default_rng(seed).shuffle(data) BEFORE slicing recs[:n_edits]. Pooling 600 distinct-request edits does NOT leak request identity across a random split. Splits are SEED-STRATIFIED anyway (each seed's probe bank differs; y_i precomputed per edit). No request-level grouping required.",
+  "masks": "mechanism_sc_table.masked(d, known=True, edit_ok=True): edit_ok>0.5 rows; pre_p>0.05 cols applied only if >=5 probes survive else keep all. Same order as C1/C4 so numbers are commensurate.",
+  "target": "y_i = mean_j damage_logit[i,j] over the seed's masked probe columns (SIGNED mean; project metric discipline, NEVER AUROC). CP-Edit collapses probes to a per-edit scalar \u2014 this is a DEVIATION from the lab's within-probe headline pipeline and is declared here explicitly.",
+  "predictor_class": "PROBE-OUTCOME-FREE / computable at edit time, before deployment. No predictor reads any post-edit probe outcome (damage_*, post-edit logit/prob, pre_l/pre_p post-comparison). NOT all predictors are strictly pre-edit: 'pre-edit-only' is reserved for keycos alone.",
+  "predictors_probe_outcome_free": {
+    "SxC": "resid_norm[i] * mean_j|COS[i,j]|  (S = resid_norm = ||v-Wk|| numerator, per C1) \u2014 EDIT-COMPUTATION-TIME: S arises during the ROME value-optimization",
+    "keycos": "mean_j|COS[i,j]| \u2014 strictly PRE-EDIT (base-model key cosines)",
+    "NG": "norm_growth[i] = ||delta_W|| at the edit layer \u2014 REQUIRES THE EDIT TO BE COMPUTED (post-edit weights; probe-outcome-free; closed-form predictable for rank-one ROME). The E2 L14 x NG-tercile Mondrian arm inherits this tag.",
+    "marginal": "constant 1"
+  },
+  "revision_2026_07_01_post_review": "FIX PASS after hostile review; kill-gate THRESHOLDS AND CLAIMS UNCHANGED. (1) TERMINOLOGY: the predictor class was originally certified as 'predictors_pre_edit_only' \u2014 over-broad, since NG is a post-edit weight quantity and SxC's S factor is edit-computation-time; renamed to probe-outcome-free as above (receipt, io.py and paper text updated to match). (2) E2 BAND PROCEDURE: the MC null band for per-tercile pooled coverage was originally simulated as a single-split statistic with tercile-sized calibration (B=1); replaced by a matched-procedure null (mc_null_band_mondrian: B-split bootstrap-mean, pooled-cal q_hat, independent null stratifier). (3) E5(c) SCALE MATCH: NG-partialling now compares all non-marginal arms under the identical rank-(0,1) transform; the original raw-NG comparison is retained as a RETRACTED legacy block. This revision postdates the first analysis run; original written_utc preserved in git-less mtime order by re-running the full stack after it.",
+  "nonconformity": "normalized one-sided score r_i = y_i / max(p_i, 1e-8) for SxC/keycos/NG; r_i = y_i for marginal. Upper bound U_i = q_hat*max(p_i,1e-8) (marginal: U_i = q_hat).",
+  "split_cp": "q_hat = k-th smallest calibration score, k = ceil((n_cal+1)*0.90); target 0.90. NOMINAL spec assumed n_cal=300,k=271,E[cov]=271/301~=0.9003. REALITY: edit_ok masking leaves ~182-199 edits/seed (L14 lowest), so pooled n<600 and n_cal<300. We therefore use SEED-STRATIFIED ~50/50 splits (cal_s = n_s//2 per seed), compute k=ceil((n_cal+1)*0.90) from the REALIZED n_cal per layer, and derive the MC null band from the identical realized split structure. Deviation from nominal 300/271 is logged in every JSON (n_cal/n_test) and flagged as a caveat.",
+  "bootstrap": "B=1000 replicates; each seed-stratified ~50/50 cal/test WITHOUT replacement; numpy default_rng(12345). Per replicate x layer x score: test coverage P(y<=U), mean certified width W=mean U, strict full-ordering indicator W_SxC<W_keycos<W_NG<W_marginal.",
+  "mc_null_band": "2000 synthetic outer replicates of the identical bootstrap procedure on iid exchangeable (uniform) scores -> 99% band for the bootstrap-MEAN coverage around E[cov]=k/(n_cal+1). Split-CP coverage is rank-based/distribution-free so uniform scores are exact. The band is an output.",
+  "kill_gates": {
+    "KG0_a": "KILL if bootstrap-mean coverage deviates beyond the MC-CI band at ANY layer x score.",
+    "KG0_b": "KILL if (W_marginal - W_SxC)/W_marginal < 0.10 (bootstrap mean) at ANY of L8,L10,L12 (L14 exempt).",
+    "KG0_c": "KILL if the full ordering SxC<keycos<NG<marginal holds in <75% of the 1000 splits at L8-L12.",
+    "E1": "DOWNGRADE to note if SxC tightness advantage over marginal <10% after E5 accounting.",
+    "E1_c4_tie": "AlphaEdit certified upper bound expected ~40x tighter than ROME at matched layers (ties to C4 damage collapse). <10x or >100x => freeze-and-reconcile.",
+    "E2": "Mondrian ARM dies if ALL pooled conditional deviations <5pp. Pre-registered specific prediction: pooled UNDER-covers in L14 x high-NG (top NG tercile). Scored pass/fail either way; a miss is reported verbatim and does not kill the arm if some other stratum shows >=5pp.",
+    "E5_a": "Permutation null (leakage): SxC width advantage over marginal must COLLAPSE to within the permutation null's 99% band around 0; persistent >2% advantage => FREEZE & debug.",
+    "E5_bc": "If ordering dies under (b) double-centering or (c) NG-partialling => DEMOTE to 'suggestive'.",
+    "E5_d": "Probe-half coverage drift >3pp or ordering flip => drop per-edit-certificate framing to probe-set-specific.",
+    "E5_e": "Circularity receipt must exist and be clean (no post-edit probe outcome enters any predictor)."
+  },
+  "preregistered_L14_highNG_prediction": "Pooled split-CP UNDER-covers (coverage < band_lo) in the L14 x top-NG-tercile stratum, grounded in C2 regime transition (NG overtakes key-cos at L14: 0.502>0.301, all seeds)."
+}

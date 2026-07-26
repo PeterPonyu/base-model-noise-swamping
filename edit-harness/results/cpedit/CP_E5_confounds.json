@@ -1,0 +1,422 @@
+{
+  "experiment": "CP-Edit E5 confound battery (ROME)",
+  "rng_seed": 12345,
+  "B": 1000,
+  "n_perm": 1000,
+  "a_permutation_leakage": {
+    "8": {
+      "layer": 8,
+      "observed_sxc_advantage": 0.07545038951502467,
+      "perm_null_mean": -0.1457935280809438,
+      "perm_null_99band": [
+        -0.28685239475145013,
+        -0.02153737856253408
+      ],
+      "band_brackets_zero": false,
+      "permuted_advantage_collapsed": true,
+      "leakage_flag": false,
+      "verdict": "clean \u2014 advantage collapses to <=2% (in fact <=0) under permutation; observed advantage is real, not pipeline leakage"
+    },
+    "10": {
+      "layer": 10,
+      "observed_sxc_advantage": 0.1515308909482723,
+      "perm_null_mean": -0.12102353646574804,
+      "perm_null_99band": [
+        -0.2965720130713712,
+        0.033389541143341424
+      ],
+      "band_brackets_zero": true,
+      "permuted_advantage_collapsed": true,
+      "leakage_flag": false,
+      "verdict": "clean \u2014 advantage collapses to <=2% (in fact <=0) under permutation; observed advantage is real, not pipeline leakage"
+    },
+    "12": {
+      "layer": 12,
+      "observed_sxc_advantage": 0.22142260718940251,
+      "perm_null_mean": -0.1063091321999856,
+      "perm_null_99band": [
+        -0.26454849099980365,
+        0.026928046020168482
+      ],
+      "band_brackets_zero": true,
+      "permuted_advantage_collapsed": true,
+      "leakage_flag": false,
+      "verdict": "clean \u2014 advantage collapses to <=2% (in fact <=0) under permutation; observed advantage is real, not pipeline leakage"
+    },
+    "14": {
+      "layer": 14,
+      "observed_sxc_advantage": 0.09233363004651986,
+      "perm_null_mean": -0.09841736274293064,
+      "perm_null_99band": [
+        -0.22593097018892266,
+        -3.8579520086017e-05
+      ],
+      "band_brackets_zero": false,
+      "permuted_advantage_collapsed": true,
+      "leakage_flag": false,
+      "verdict": "clean \u2014 advantage collapses to <=2% (in fact <=0) under permutation; observed advantage is real, not pipeline leakage"
+    }
+  },
+  "b_double_centering": {
+    "8": {
+      "layer": 8,
+      "ordering_fraction": 0.002,
+      "sxc_pct_tighter_than_marginal": -0.11374647938535556,
+      "widths": {
+        "SxC": 2.8779843136153302,
+        "keycos": 2.94435624126928,
+        "NG": 2.5826376283698593,
+        "marginal": 2.5840569347555706
+      },
+      "coverages": {
+        "SxC": 0.9026868686868688,
+        "keycos": 0.9025993265993265,
+        "NG": 0.9021548821548823,
+        "marginal": 0.9024242424242424
+      }
+    },
+    "10": {
+      "layer": 10,
+      "ordering_fraction": 0.178,
+      "sxc_pct_tighter_than_marginal": 0.052264135507224294,
+      "widths": {
+        "SxC": 1.8219176558759136,
+        "keycos": 1.8372138241014095,
+        "NG": 1.8428914440666717,
+        "marginal": 1.9223896911941771
+      },
+      "coverages": {
+        "SxC": 0.9018445945945945,
+        "keycos": 0.9017905405405405,
+        "NG": 0.9020641891891892,
+        "marginal": 0.9021182432432431
+      }
+    },
+    "12": {
+      "layer": 12,
+      "ordering_fraction": 0.266,
+      "sxc_pct_tighter_than_marginal": 0.14015725365245968,
+      "widths": {
+        "SxC": 2.2903420563311436,
+        "keycos": 2.450376234445741,
+        "NG": 2.3668434803790492,
+        "marginal": 2.663675498874778
+      },
+      "coverages": {
+        "SxC": 0.901734899328859,
+        "keycos": 0.9018187919463087,
+        "NG": 0.902261744966443,
+        "marginal": 0.9020704697986578
+      }
+    },
+    "14": {
+      "layer": 14,
+      "ordering_fraction": 0.0,
+      "sxc_pct_tighter_than_marginal": 0.006925303786342486,
+      "widths": {
+        "SxC": 3.8428312556686874,
+        "keycos": 4.068722072075586,
+        "NG": 3.3624151041127917,
+        "marginal": 3.869629616302208
+      },
+      "coverages": {
+        "SxC": 0.899761565836299,
+        "keycos": 0.8997224199288256,
+        "NG": 0.9005124555160142,
+        "marginal": 0.9008113879003559
+      }
+    }
+  },
+  "c_ng_partialling": {
+    "8": {
+      "layer": 8,
+      "note": "SCALE-MATCHED: SxC/keycos = rank-residuals on NG, rank-normalized (0,1); NG = rank-normalized (0,1) via the identical transform. Marginal is raw-y scale (completeness only).",
+      "widths_matched_transform": {
+        "SxC": 15.164453913125696,
+        "keycos": 15.012367853263175,
+        "NG": 22.889521713422624,
+        "marginal": 6.98288410369984
+      },
+      "sxc_resid_tighter_than_NG": true,
+      "keycos_resid_tighter_than_NG": true,
+      "ordering_fraction": 0.0,
+      "coverages": {
+        "SxC": 0.9023198653198654,
+        "keycos": 0.9025117845117845,
+        "NG": 0.9023636363636364,
+        "marginal": 0.9024478114478113
+      },
+      "legacy_raw_NG_RETRACTED": {
+        "why_retracted": "compared a rank-(0,1)-transformed residual's width against raw-scale NG's width; the difference reflects the transform, not information content \u2014 booleans wrong in direction at L8/L10",
+        "widths": {
+          "SxC": 15.164453913125696,
+          "keycos": 15.012367853263175,
+          "NG": 7.096275789715483,
+          "marginal": 6.98288410369984
+        },
+        "sxc_resid_tighter_than_NG_legacy": false
+      }
+    },
+    "10": {
+      "layer": 10,
+      "note": "SCALE-MATCHED: SxC/keycos = rank-residuals on NG, rank-normalized (0,1); NG = rank-normalized (0,1) via the identical transform. Marginal is raw-y scale (completeness only).",
+      "widths_matched_transform": {
+        "SxC": 6.301310634912705,
+        "keycos": 5.830945165920701,
+        "NG": 7.748113224473104,
+        "marginal": 3.971988078084309
+      },
+      "sxc_resid_tighter_than_NG": true,
+      "keycos_resid_tighter_than_NG": true,
+      "ordering_fraction": 0.0,
+      "coverages": {
+        "SxC": 0.9012128378378378,
+        "keycos": 0.9011047297297297,
+        "NG": 0.9009290540540541,
+        "marginal": 0.9023885135135136
+      },
+      "legacy_raw_NG_RETRACTED": {
+        "why_retracted": "compared a rank-(0,1)-transformed residual's width against raw-scale NG's width; the difference reflects the transform, not information content \u2014 booleans wrong in direction at L8/L10",
+        "widths": {
+          "SxC": 6.301310634912705,
+          "keycos": 5.830945165920701,
+          "NG": 3.7804058409174317,
+          "marginal": 3.971988078084309
+        },
+        "sxc_resid_tighter_than_NG_legacy": false
+      }
+    },
+    "12": {
+      "layer": 12,
+      "note": "SCALE-MATCHED: SxC/keycos = rank-residuals on NG, rank-normalized (0,1); NG = rank-normalized (0,1) via the identical transform. Marginal is raw-y scale (completeness only).",
+      "widths_matched_transform": {
+        "SxC": 11.727933610961776,
+        "keycos": 9.664042003721137,
+        "NG": 7.798116139469828,
+        "marginal": 5.668845356846046
+      },
+      "sxc_resid_tighter_than_NG": false,
+      "keycos_resid_tighter_than_NG": false,
+      "ordering_fraction": 0.0,
+      "coverages": {
+        "SxC": 0.9023791946308725,
+        "keycos": 0.9025335570469799,
+        "NG": 0.9027885906040269,
+        "marginal": 0.9018087248322147
+      },
+      "legacy_raw_NG_RETRACTED": {
+        "why_retracted": "compared a rank-(0,1)-transformed residual's width against raw-scale NG's width; the difference reflects the transform, not information content \u2014 booleans wrong in direction at L8/L10",
+        "widths": {
+          "SxC": 11.727933610961776,
+          "keycos": 9.664042003721137,
+          "NG": 4.999650606017544,
+          "marginal": 5.668845356846046
+        },
+        "sxc_resid_tighter_than_NG_legacy": false
+      }
+    },
+    "14": {
+      "layer": 14,
+      "note": "SCALE-MATCHED: SxC/keycos = rank-residuals on NG, rank-normalized (0,1); NG = rank-normalized (0,1) via the identical transform. Marginal is raw-y scale (completeness only).",
+      "widths_matched_transform": {
+        "SxC": 22.531745699914584,
+        "keycos": 19.583857788417394,
+        "NG": 15.193883074664738,
+        "marginal": 9.283909465550254
+      },
+      "sxc_resid_tighter_than_NG": false,
+      "keycos_resid_tighter_than_NG": false,
+      "ordering_fraction": 0.0,
+      "coverages": {
+        "SxC": 0.8993807829181494,
+        "keycos": 0.9003772241992882,
+        "NG": 0.9006512455516014,
+        "marginal": 0.9013594306049822
+      },
+      "legacy_raw_NG_RETRACTED": {
+        "why_retracted": "compared a rank-(0,1)-transformed residual's width against raw-scale NG's width; the difference reflects the transform, not information content \u2014 booleans wrong in direction at L8/L10",
+        "widths": {
+          "SxC": 22.531745699914584,
+          "keycos": 19.583857788417394,
+          "NG": 8.367061446180076,
+          "marginal": 9.283909465550254
+        },
+        "sxc_resid_tighter_than_NG_legacy": false
+      }
+    }
+  },
+  "d_probe_half_stability": {
+    "8": {
+      "layer": 8,
+      "A_to_B": {
+        "direction": "calA_coverB",
+        "coverage": {
+          "SxC": 0.9020976430976431,
+          "keycos": 0.8987373737373737,
+          "NG": 0.9052895622895623,
+          "marginal": 0.9036195286195287
+        },
+        "coverage_dev_pp": {
+          "SxC": 0.20976430976430427,
+          "keycos": -0.12626262626262985,
+          "NG": 0.5289562289562233,
+          "marginal": 0.36195286195286336
+        },
+        "ordering_fraction": 0.058
+      },
+      "B_to_A": {
+        "direction": "calB_coverA",
+        "coverage": {
+          "SxC": 0.8978417508417508,
+          "keycos": 0.8909494949494949,
+          "NG": 0.8999494949494949,
+          "marginal": 0.9018754208754208
+        },
+        "coverage_dev_pp": {
+          "SxC": -0.2158249158249248,
+          "keycos": -0.9050505050505087,
+          "NG": -0.005050505050507859,
+          "marginal": 0.1875420875420808
+        },
+        "ordering_fraction": 0.024
+      },
+      "max_marginal_dev_pp": 0.36195286195286336,
+      "drift_gt_3pp": false,
+      "ordering_preserved_both": false
+    },
+    "10": {
+      "layer": 10,
+      "A_to_B": {
+        "direction": "calA_coverB",
+        "coverage": {
+          "SxC": 0.9135506756756756,
+          "keycos": 0.9063209459459458,
+          "NG": 0.9141891891891891,
+          "marginal": 0.9068445945945945
+        },
+        "coverage_dev_pp": {
+          "SxC": 1.3550675675675583,
+          "keycos": 0.6320945945945788,
+          "NG": 1.41891891891891,
+          "marginal": 0.6844594594594522
+        },
+        "ordering_fraction": 0.258
+      },
+      "B_to_A": {
+        "direction": "calB_coverA",
+        "coverage": {
+          "SxC": 0.8855,
+          "keycos": 0.8951283783783783,
+          "NG": 0.8891351351351352,
+          "marginal": 0.8953479729729729
+        },
+        "coverage_dev_pp": {
+          "SxC": -1.4500000000000068,
+          "keycos": -0.4871621621621691,
+          "NG": -1.086486486486482,
+          "marginal": -0.46520270270271613
+        },
+        "ordering_fraction": 0.266
+      },
+      "max_marginal_dev_pp": 0.6844594594594522,
+      "drift_gt_3pp": false,
+      "ordering_preserved_both": false
+    },
+    "12": {
+      "layer": 12,
+      "A_to_B": {
+        "direction": "calA_coverB",
+        "coverage": {
+          "SxC": 0.8995134228187919,
+          "keycos": 0.8981946308724832,
+          "NG": 0.8967483221476509,
+          "marginal": 0.899758389261745
+        },
+        "coverage_dev_pp": {
+          "SxC": -0.048657718120814764,
+          "keycos": -0.18053691275168315,
+          "NG": -0.3251677852349144,
+          "marginal": -0.02416107382550159
+        },
+        "ordering_fraction": 0.955
+      },
+      "B_to_A": {
+        "direction": "calB_coverA",
+        "coverage": {
+          "SxC": 0.9051476510067114,
+          "keycos": 0.9087751677852349,
+          "NG": 0.9065771812080536,
+          "marginal": 0.9035872483221477
+        },
+        "coverage_dev_pp": {
+          "SxC": 0.5147651006711329,
+          "keycos": 0.8775167785234905,
+          "NG": 0.6577181208053617,
+          "marginal": 0.3587248322147629
+        },
+        "ordering_fraction": 0.972
+      },
+      "max_marginal_dev_pp": 0.3587248322147629,
+      "drift_gt_3pp": false,
+      "ordering_preserved_both": true
+    },
+    "14": {
+      "layer": 14,
+      "A_to_B": {
+        "direction": "calA_coverB",
+        "coverage": {
+          "SxC": 0.9149679715302491,
+          "keycos": 0.9185765124555161,
+          "NG": 0.9133665480427046,
+          "marginal": 0.9216725978647686
+        },
+        "coverage_dev_pp": {
+          "SxC": 1.4967971530249091,
+          "keycos": 1.8576512455516059,
+          "NG": 1.336654804270454,
+          "marginal": 2.1672597864768606
+        },
+        "ordering_fraction": 0.007
+      },
+      "B_to_A": {
+        "direction": "calB_coverA",
+        "coverage": {
+          "SxC": 0.8816405693950178,
+          "keycos": 0.8786548042704626,
+          "NG": 0.8808362989323844,
+          "marginal": 0.8771814946619217
+        },
+        "coverage_dev_pp": {
+          "SxC": -1.835943060498224,
+          "keycos": -2.1345195729537414,
+          "NG": -1.9163701067615668,
+          "marginal": -2.2818505338078277
+        },
+        "ordering_fraction": 0.024
+      },
+      "max_marginal_dev_pp": 2.2818505338078277,
+      "drift_gt_3pp": false,
+      "ordering_preserved_both": false
+    }
+  },
+  "verdicts": {
+    "a_leakage_freeze": {
+      "leakage_detected": false,
+      "action": "clean \u2014 no leakage"
+    },
+    "b_ordering_survives_double_center_L8_L12": false,
+    "c_sxc_resid_tighter_than_NG_L8_L12": false,
+    "c_pass_layers_matched_transform": [
+      "8",
+      "10"
+    ],
+    "c_fail_layers_matched_transform": [
+      "12"
+    ],
+    "c_correction_2026_07_01": "The originally shipped sub-(c) verdict ('residualized SxC is NOT tighter than NG at any of L8-L12', read as 'the SxC advantage is largely collinear with norm-growth') is RETRACTED: it compared a rank-(0,1)-normalized residual against raw-scale NG, an artifact of the transform. Under the scale-matched comparison, residualized SxC IS tighter than (identically transformed) NG at L8/L10 and fails at L12 \u2014 SxC retains NG-independent information where it passes; the fair-scale failure layers are reported verbatim.",
+    "bc_demote_to_suggestive": true,
+    "d_probe_half_drift_gt_3pp": false,
+    "d_action": "stable across probe halves"
+  },
+  "runtime_s": 1.7
+}

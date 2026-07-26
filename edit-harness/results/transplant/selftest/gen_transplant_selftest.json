@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "name": "rotation_recovery_exact",
+      "pass": true,
+      "detail": "||W-R_true||=2.51e-15 recon=2.61e-15"
+    },
+    {
+      "name": "rank_one_install_identity",
+      "pass": true,
+      "detail": "||(W+DW)k - (Wk+r)||=1.61e-10"
+    },
+    {
+      "name": "procrustes_recovers_identity_when_aligned",
+      "pass": true,
+      "detail": "||W_align - I||=1.52e-14"
+    },
+    {
+      "name": "identity_beats_random_planted",
+      "pass": true,
+      "detail": "identity=1.000 rand_mean=0.003(+-0.011)"
+    },
+    {
+      "name": "procrustes_beats_random_planted",
+      "pass": true,
+      "detail": "procrustes=1.000 rand_mean=0.003"
+    },
+    {
+      "name": "procrustes_orthogonality",
+      "pass": true,
+      "detail": "||WW^T - I||=2.13e-14"
+    },
+    {
+      "name": "predictor_spearman_perm_plumbing",
+      "pass": true,
+      "detail": "rho=0.816 p=0.0005"
+    },
+    {
+      "name": "map_residual_orientation",
+      "pass": true,
+      "detail": "||good-true||=2.56e-15 ||transposed-true||=4.46e+00 (must be >>0)"
+    }
+  ],
+  "all_pass": true
+}

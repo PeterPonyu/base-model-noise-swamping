@@ -1,0 +1,65 @@
+{
+  "aggregate": {
+    "n_seeds": 1,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "keycos_within_probe": {
+      "mean": 0.0151,
+      "std": 0.0,
+      "n_seeds": 1
+    },
+    "gradsim_within_probe": {
+      "resid": {
+        "mean": 0.1009,
+        "std": 0.0,
+        "n_seeds": 1
+      },
+      "normgrowth": {
+        "mean": 0.1047,
+        "std": 0.0,
+        "n_seeds": 1
+      }
+    },
+    "mean_signed_damage_across_seeds": {
+      "mean": 0.0787,
+      "std": 0.0,
+      "n_seeds": 1
+    },
+    "VERDICT": "GradSim MATCHES/BEATS key-cosine on at least one variant \u2014 reframe"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_phi35_rome_cf_L16_s0.npz",
+      "shape": [
+        199,
+        68
+      ],
+      "mean_signed_damage": 0.07871,
+      "keycos": {
+        "within_probe_mean": 0.0151,
+        "within_probe_frac_positive": 0.471,
+        "nan_column_count": 0,
+        "n_columns": 68
+      },
+      "gradsim": {
+        "resid": {
+          "within_probe_mean": 0.1009,
+          "within_probe_frac_positive": 0.75,
+          "nan_column_count": 0,
+          "n_columns": 68,
+          "keycos_beats_gradsim": false
+        },
+        "normgrowth": {
+          "within_probe_mean": 0.1047,
+          "within_probe_frac_positive": 0.735,
+          "nan_column_count": 0,
+          "n_columns": 68,
+          "keycos_beats_gradsim": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+RUN_MERGING_RG REPORT 2026-07-12 08:31:22  jobs: 1 done / 0 fail / 0 skipped  elapsed 4m/90m
+[2026-07-12 06:08:50] gpu poll util=77 mem=5744 consec=0/3
+[2026-07-12 06:09:20] gpu poll util=100 mem=5718 consec=0/3
+[2026-07-12 06:09:50] ABORT: GPU busy >30min at gate
+[2026-07-12 06:22:44] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_rg_selftest.log
+[2026-07-12 06:22:44] SMOKE OK: self-test passed (identity + M0 partial/coherence fixtures + RG pass/kill)
+[2026-07-12 06:22:44] gpu poll util=4 mem=796 consec=1/3
+[2026-07-12 06:23:14] gpu poll util=0 mem=826 consec=2/3
+[2026-07-12 06:23:44] gpu poll util=0 mem=856 consec=3/3
+[2026-07-12 06:23:44] RUN rg (est 20m, cap 4800s, elapsed 0m) -> engine/merging_rg_run.log
+[2026-07-12 06:27:14] done rg (210s) VALIDATE-OK verdict=PASS qualifying_g=[2, 3, 5]
+[2026-07-12 06:27:14] ---------------- POST-RUN (CPU) ----------------
+[rg post] VERDICT overall=PASS qualifying_g=[2, 3, 5] testable_cells=9
+[rg post] scoped-federation boundary: per_seed={'0': 10, '1': 10, '2': 10} conservative=10
+[rg post]   g=2: partial_by_seed={'0': 0.4876, '1': 0.4443, '2': 0.4759} pass_geometry=3 qualifies=True
+[rg post]   g=3: partial_by_seed={'0': 0.4175, '1': 0.4789, '2': 0.5571} pass_geometry=3 qualifies=True
+[rg post]   g=5: partial_by_seed={'0': 0.3157, '1': 0.3048, '2': 0.3402} pass_geometry=3 qualifies=True
+[rg post]   g=10: partial_by_seed={'0': 0.0957, '1': 0.1736, '2': 0.1793} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': 0.0173, '1': 0.0578, '2': -0.0394} pass_geometry=0 qualifies=False
+[rg post]   g=50: partial_by_seed={'0': -0.0017, '1': -0.0136, '2': -0.1124} pass_geometry=0 qualifies=False
+[rg post]   g=100: partial_by_seed={'0': 0.0303, '1': -0.0401, '2': -0.1377} pass_geometry=0 qualifies=False
+[2026-07-12 06:27:14] ================ RUN_MERGING_RG COMPLETE (1 done / 0 fail / 0 skip) ================
+[2026-07-12 08:18:33] DRYRUN rg est=20m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --rg --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --layer 12 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20,50,100 --out_dir results/merging --table_out results/merging/RG_operating_curve_table.json
+[2026-07-12 08:18:33] ================ RUN_MERGING_RG COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-12 08:18:34] DRYRUN rg est=20m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --rg --model data/models/Llama-3.2-1B --data data/counterfact.json --n_edits 200 --layer 8 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20,50,100 --out_dir results/merging --table_out results/merging/RG_operating_curve_table_L8.json
+[2026-07-12 08:18:34] ================ RUN_MERGING_RG COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-12 08:19:10] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_rg_selftest.log
+[2026-07-12 08:19:11] SMOKE OK: self-test passed (identity + M0 partial/coherence fixtures + RG pass/kill)
+[2026-07-12 08:19:11] gpu poll util=1 mem=466 consec=1/3
+[2026-07-12 08:19:41] gpu poll util=1 mem=466 consec=2/3
+[2026-07-12 08:20:11] gpu poll util=0 mem=466 consec=3/3
+[2026-07-12 08:20:11] RUN rg (est 20m, cap 4800s, elapsed 0m) -> engine/merging_rg_run.log
+[2026-07-12 08:25:31] done rg (320s) VALIDATE-OK verdict=MIXED qualifying_g=[3]
+[2026-07-12 08:25:31] ---------------- POST-RUN (CPU) ----------------
+[rg post] VERDICT overall=MIXED qualifying_g=[3] testable_cells=4
+[rg post] scoped-federation boundary: per_seed={'0': 10, '1': 10, '2': 10} conservative=10
+[rg post]   g=2: partial_by_seed={'0': 0.3212, '1': 0.1194, '2': 0.2626} pass_geometry=1 qualifies=False
+[rg post]   g=3: partial_by_seed={'0': 0.2724, '1': 0.2227, '2': 0.329} pass_geometry=2 qualifies=True
+[rg post]   g=5: partial_by_seed={'0': 0.2382, '1': 0.2964, '2': 0.1824} pass_geometry=1 qualifies=False
+[rg post]   g=10: partial_by_seed={'0': 0.2289, '1': 0.154, '2': 0.083} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': 0.0344, '1': 0.2038, '2': 0.0845} pass_geometry=0 qualifies=False
+[rg post]   g=50: partial_by_seed={'0': -0.0649, '1': 0.0722, '2': 0.0225} pass_geometry=0 qualifies=False
+[rg post]   g=100: partial_by_seed={'0': -0.0402, '1': 0.0648, '2': 0.0004} pass_geometry=0 qualifies=False
+[2026-07-12 08:25:31] ================ RUN_MERGING_RG COMPLETE (1 done / 0 fail / 0 skip) ================
+[2026-07-12 08:25:32] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_rg_selftest.log
+[2026-07-12 08:25:32] SMOKE OK: self-test passed (identity + M0 partial/coherence fixtures + RG pass/kill)
+[2026-07-12 08:25:32] gpu poll util=1 mem=345 consec=1/3
+[2026-07-12 08:26:02] gpu poll util=0 mem=342 consec=2/3
+[2026-07-12 08:26:33] gpu poll util=0 mem=342 consec=3/3
+[2026-07-12 08:26:33] RUN rg (est 20m, cap 4800s, elapsed 0m) -> engine/merging_rg_run.log
+[2026-07-12 08:31:22] done rg (289s) VALIDATE-OK verdict=PASS qualifying_g=[2, 3]
+[2026-07-12 08:31:22] ---------------- POST-RUN (CPU) ----------------
+[rg post] VERDICT overall=PASS qualifying_g=[2, 3] testable_cells=7
+[rg post] scoped-federation boundary: per_seed={'0': 5, '1': 5, '2': 5} conservative=5
+[rg post]   g=2: partial_by_seed={'0': 0.3271, '1': 0.3052, '2': 0.3181} pass_geometry=3 qualifies=True
+[rg post]   g=3: partial_by_seed={'0': 0.2582, '1': 0.3002, '2': 0.2833} pass_geometry=3 qualifies=True
+[rg post]   g=5: partial_by_seed={'0': 0.1779, '1': 0.1307, '2': 0.2466} pass_geometry=1 qualifies=False
+[rg post]   g=10: partial_by_seed={'0': 0.0949, '1': 0.0417, '2': 0.1443} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': 0.0079, '1': 0.0496, '2': 0.0887} pass_geometry=0 qualifies=False
+[rg post]   g=50: partial_by_seed={'0': 0.0132, '1': -0.0239, '2': 0.0125} pass_geometry=0 qualifies=False
+[rg post]   g=100: partial_by_seed={'0': 0.0508, '1': -0.0401, '2': 0.0401} pass_geometry=0 qualifies=False

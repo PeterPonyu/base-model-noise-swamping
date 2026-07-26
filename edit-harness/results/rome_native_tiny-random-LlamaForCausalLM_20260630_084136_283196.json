@@ -1,0 +1,155 @@
+{
+  "run_id": "rome_native_tiny-random-LlamaForCausalLM_20260630_084136_283196",
+  "timestamp": "2026-06-30T08:41:36.283213",
+  "config": {
+    "editor": "rome_native",
+    "model": "HuggingFaceM4/tiny-random-LlamaForCausalLM",
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "editor_config": {
+      "layer": 0,
+      "steps": 60,
+      "lr": 0.5,
+      "v_weight_decay": 0.0001
+    }
+  },
+  "edit_request": {
+    "subject": "France",
+    "prompt": "The capital of France is",
+    "target_new": "London",
+    "target_true": "Paris",
+    "paraphrase_prompts": [
+      "France's capital city is",
+      "The capital city of France is called"
+    ],
+    "neighborhood_prompts": [
+      "The capital of Italy is",
+      "The capital of Spain is",
+      "The sky is"
+    ]
+  },
+  "edit_info": {
+    "editor": "rome_native",
+    "layer": 0,
+    "subject_last_token_index": 4,
+    "steps": 60,
+    "lr": 0.5,
+    "v_weight_decay": 0.0001,
+    "key_norm": 0.02484261430799961,
+    "value_norm": 7.716762065887451,
+    "value_init_norm": 0.0016267041210085154,
+    "residual_norm": 7.7169060707092285,
+    "delta_weight_norm": 310.62677001953125,
+    "rank_one_solve_residual": 0.0001250091299880296,
+    "value_loss_history": [
+      10.462891578674316,
+      10.4442777633667,
+      10.444822311401367,
+      10.445500373840332,
+      10.44620418548584,
+      10.446892738342285,
+      10.447549819946289,
+      10.448166847229004,
+      10.448738098144531,
+      10.449261665344238,
+      10.449738502502441,
+      10.450170516967773,
+      10.450555801391602,
+      10.45090103149414,
+      10.451201438903809,
+      10.45146656036377,
+      10.45169448852539,
+      10.451888084411621,
+      10.452051162719727,
+      10.452183723449707,
+      10.452289581298828,
+      10.45236873626709,
+      10.452425956726074,
+      10.452460289001465,
+      10.45247745513916,
+      10.452474594116211,
+      10.4524564743042,
+      10.452422142028809,
+      10.452373504638672,
+      10.452312469482422,
+      10.452241897583008,
+      10.452159881591797,
+      10.452068328857422,
+      10.451969146728516,
+      10.451861381530762,
+      10.451745986938477,
+      10.45162582397461,
+      10.451499938964844,
+      10.451370239257812,
+      10.451234817504883,
+      10.451096534729004,
+      10.45095443725586,
+      10.450809478759766,
+      10.450662612915039,
+      10.45051383972168,
+      10.450363159179688,
+      10.450210571289062,
+      10.450058937072754,
+      10.449906349182129,
+      10.449751853942871,
+      10.44959831237793,
+      10.449446678161621,
+      10.44929313659668,
+      10.449141502380371,
+      10.448989868164062,
+      10.44883918762207,
+      10.448691368103027,
+      10.448542594909668,
+      10.448397636413574,
+      10.44825267791748
+    ],
+    "final_value_loss": 10.44825267791748,
+    "covariance_used": false,
+    "todo": "MEMIT second-moment covariance C (see TODO block) not yet estimated."
+  },
+  "metrics": {
+    "efficacy": {
+      "pre": {
+        "argmax_id": 5448.0,
+        "success": 0.0,
+        "p_new": 2.8577482225955464e-05,
+        "p_true": 2.816398409777321e-05,
+        "p_new_gt_true": 1.0,
+        "new_token_id": 4517.0
+      },
+      "post": {
+        "argmax_id": 4877.0,
+        "success": 0.0,
+        "p_new": 3.183632725267671e-05,
+        "p_true": 3.262534301029518e-05,
+        "p_new_gt_true": 0.0,
+        "new_token_id": 4517.0
+      },
+      "improved": true
+    },
+    "generalization": {
+      "generalization": 0.0,
+      "mean_p_new": 3.1871915780357085e-05,
+      "per_prompt_success": [
+        0.0,
+        0.0
+      ],
+      "n_prompts": 2.0
+    },
+    "locality": {
+      "locality": 0.0,
+      "n_prompts": 3.0,
+      "n_changed": 3.0
+    },
+    "fluency": {
+      "pre": {
+        "fluency_ngram_entropy": 3.084962500721156,
+        "generated_text": "wurdenWS befhrteitect^{ ft helpful\u062c\u5f8c BodAtIndexskyHowever officially rout \u0441\u0440\u0435\u0434\u0438appe \u043a\u0430\u0442\u0430 ves"
+      },
+      "post": {
+        "fluency_ngram_entropy": 0.0,
+        "generated_text": "orf retrorforforforforforforforforforforforforforforforforforf"
+      }
+    }
+  }
+}

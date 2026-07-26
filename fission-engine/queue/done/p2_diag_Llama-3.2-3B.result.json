@@ -1,0 +1,17 @@
+{
+  "id": "p2_diag_Llama-3.2-3B",
+  "status": "done",
+  "returncode": 0,
+  "reason": "ok",
+  "started": "2026-07-10T17:24:30",
+  "finished": "2026-07-10T17:24:33",
+  "duration_s": 2.370661735534668,
+  "cmd": "conda run -n dl python3 branches/p2_prerl_diag/run_diag.py branches/p2_prerl_diag/samples/Llama-3.2-3B.json --id Llama-3.2-3B --n-boot 2000 --seed 0",
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis",
+  "outputs_present": [
+    "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/results/Llama-3.2-3B.json"
+  ],
+  "outputs_missing": [],
+  "log_path": "/home/zeyufu/Desktop/idea-feasibility-analysis/fission-engine/queue/done/p2_diag_Llama-3.2-3B.log",
+  "branch": "P2"
+}

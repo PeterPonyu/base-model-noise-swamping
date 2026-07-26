@@ -1,0 +1,74 @@
+{
+  "statistic": "S=mean||v-Wk||/||k||=mean||DW||_F (from norm_growth; Eq.2), |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg). mean_S_resid_norm_unnormalized is provenance-only, NOT a valid S.",
+  "rho_SC_validity": "within_probe_rho_SC is the closed-form single-layer rank-one ROME identity S*|cos|. It is a valid S x C statistic ONLY for editor==rome (rho_SC_valid_sxc==true). For MEMIT (multi-layer aggregate edit) and non-ROME editors it is NOT a valid S x C measurement \u2014 quote rho_C only. See findings-MEMIT-SC-RECONCILIATION-2026-07-04.md.",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "results/matrices/gate_llama1b_rome_mquake_L*_s*.npz"
+  ],
+  "groups": [
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "mquake",
+      "layer": 8,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 119712,
+      "mean_S": 5.0103,
+      "mean_S_resid_norm_unnormalized": 22.8603,
+      "S_available": true,
+      "mean_absC": 0.2938,
+      "within_probe_rho_C": 0.3583,
+      "within_probe_rho_SC": 0.3659
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "mquake",
+      "layer": 10,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 120120,
+      "mean_S": 4.2342,
+      "mean_S_resid_norm_unnormalized": 22.4639,
+      "S_available": true,
+      "mean_absC": 0.2189,
+      "within_probe_rho_C": 0.4917,
+      "within_probe_rho_SC": 0.5218
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "mquake",
+      "layer": 12,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 120540,
+      "mean_S": 4.0408,
+      "mean_S_resid_norm_unnormalized": 22.9496,
+      "S_available": true,
+      "mean_absC": 0.2823,
+      "within_probe_rho_C": 0.5945,
+      "within_probe_rho_SC": 0.6503
+    },
+    {
+      "model": "llama1b",
+      "editor": "rome",
+      "dataset": "mquake",
+      "layer": 14,
+      "rho_SC_valid_sxc": true,
+      "n_files": 3,
+      "n_pairs": 116850,
+      "mean_S": 2.5679,
+      "mean_S_resid_norm_unnormalized": 24.8367,
+      "S_available": true,
+      "mean_absC": 0.4056,
+      "within_probe_rho_C": 0.309,
+      "within_probe_rho_SC": 0.4832
+    }
+  ],
+  "notes": []
+}

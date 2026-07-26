@@ -1,0 +1,42 @@
+{
+  "schema_version": "m0.v1",
+  "experiment": "RG",
+  "model": "/root/autodl-tmp/models/gemma-2-9b",
+  "model_tag": "gemma-2-9b",
+  "dataset": "counterfact",
+  "layer": 31,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "reuse": {
+    "0": "fresh 200-edit phase-1 (saved for future reuse)",
+    "1": "fresh 200-edit phase-1 (saved for future reuse)",
+    "2": "fresh 200-edit phase-1 (saved for future reuse)"
+  },
+  "esr_by_seed": {
+    "0": 0.96,
+    "1": 0.965,
+    "2": 0.94
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 6.909688181622187e-07,
+    "1": 4.116618868010846e-07,
+    "2": 3.615340062879113e-07
+  },
+  "torch": "2.8.0+cu128",
+  "transformers": "5.13.0",
+  "numpy": "2.3.2"
+}

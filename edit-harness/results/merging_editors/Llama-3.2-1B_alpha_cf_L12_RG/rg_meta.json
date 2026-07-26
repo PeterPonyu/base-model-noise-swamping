@@ -1,0 +1,43 @@
+{
+  "schema_version": "editors.v1",
+  "experiment": "RG_editors",
+  "model": "data/models/Llama-3.2-1B",
+  "model_tag": "Llama-3.2-1B",
+  "editor": "alpha",
+  "edited_layers": [
+    12
+  ],
+  "dataset": "cf",
+  "layer": 12,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "keep_ratio": 0.99,
+  "memit_cov": "identity",
+  "device": "cuda",
+  "esr_by_seed": {
+    "0": 0.995,
+    "1": 0.985,
+    "2": 0.99
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 2.7313922146277037e-07,
+    "1": 2.1158705010293488e-07,
+    "2": 2.5018826477207767e-07
+  },
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1",
+  "numpy": "2.3.4"
+}

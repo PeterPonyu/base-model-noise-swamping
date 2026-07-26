@@ -1,0 +1,81 @@
+RUN_INSTRUCT REPORT 2026-07-07 20:41:32  jobs: 0 done / 0 fail / 0 skipped  elapsed 6m/600m  abort=0
+[2026-07-06 11:57:47] DRYRUN gate_instruct_rome_cf_L12_s2 [SCIENCE] est=25m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 2 --out results/gate_instruct_rome_cf_L12_s2.json
+[2026-07-06 11:57:47] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=260m
+[2026-07-06 11:57:47] DRYRUN gate_instruct_rome_cf_L14_s0 [SCIENCE] est=32m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 14 --seed 0 --out results/gate_instruct_rome_cf_L14_s0.json
+[2026-07-06 11:57:47] DRYRUN gate_instruct_rome_cf_L14_s1 [SCIENCE] est=32m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 14 --seed 1 --out results/gate_instruct_rome_cf_L14_s1.json
+[2026-07-06 11:57:47] DRYRUN gate_instruct_rome_cf_L14_s2 [SCIENCE] est=32m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 14 --seed 2 --out results/gate_instruct_rome_cf_L14_s2.json
+[2026-07-06 11:57:47] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=260m
+[2026-07-06 11:57:47] DRYRUN gate_instruct_rome_zsre_L12_s0 [SCIENCE] est=25m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --dataset zsre --data data/zsre_eval.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 0 --out results/gate_instruct_rome_zsre_L12_s0.json
+[2026-07-06 11:57:47] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=260m
+[2026-07-06 11:57:47] DRYRUN egl_instruct_rome_cf_L12_s0 [SCIENCE] est=27m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --egl --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 0 --out results/egl_instruct_rome_cf_L12_s0.json
+[2026-07-06 11:57:47] DRYRUN egl_instruct_rome_cf_L12_s1 [SCIENCE] est=27m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --egl --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 1 --out results/egl_instruct_rome_cf_L12_s1.json
+[2026-07-06 11:57:47] DRYRUN egl_instruct_rome_cf_L12_s2 [SCIENCE] est=27m needs=engine/instruct_integrity.ok,engine/smoke_instruct_rome_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor rome --egl --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 2 --out results/egl_instruct_rome_cf_L12_s2.json
+[2026-07-06 11:57:47] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=260m
+[2026-07-06 11:57:47] DRYRUN alphaHO_instruct [SMOKE] est=6m needs=engine/instruct_integrity.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 4 --n_probes 40 --steps 2 --save_matrices --matrix_dir results/smoke_instruct/matrices --lr 0.1 --layer 12 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/smoke_instruct/alphaHO_instruct.json
+[2026-07-06 11:57:47] DRYRUN g4_instruct_alphaHO_cf_L12_s0 [SCIENCE] est=25m needs=engine/instruct_integrity.ok,engine/smoke_instruct_alphaHO_instruct.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B-Instruct --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_instruct_alphaHO_cf_L12_s0.json
+[2026-07-06 11:57:47] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=260m
+[2026-07-06 11:57:47] ---------------- POST-RUN (CPU) ----------------
+[2026-07-06 11:57:47] ================ RUN_INSTRUCT COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-07 12:25:58] preflight OK: integrity_check.py
+[2026-07-07 12:25:58] integrity OK: Llama-3.2-1B-Instruct
+[2026-07-07 12:26:58] RUN rome_instruct [SMOKE] (est 6m, cap 2280s, elapsed 0m) -> engine/instruct_rome_instruct.log
+[2026-07-07 12:27:07] done rome_instruct (9s) VALIDATE-OK
+[2026-07-07 12:27:07] PROGRESS jobs=1done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 12:27:07] RUN gate_instruct_rome_cf_L8_s0 [SCIENCE] (est 25m, cap 5700s, elapsed 0m) -> engine/instruct_gate_instruct_rome_cf_L8_s0.log
+[2026-07-07 12:47:11] done gate_instruct_rome_cf_L8_s0 (1204s) VALIDATE-OK
+[2026-07-07 12:47:11] RUN gate_instruct_rome_cf_L8_s1 [SCIENCE] (est 25m, cap 5700s, elapsed 20m) -> engine/instruct_gate_instruct_rome_cf_L8_s1.log
+[2026-07-07 13:07:38] done gate_instruct_rome_cf_L8_s1 (1227s) VALIDATE-OK
+[2026-07-07 13:07:38] RUN gate_instruct_rome_cf_L8_s2 [SCIENCE] (est 25m, cap 5700s, elapsed 40m) -> engine/instruct_gate_instruct_rome_cf_L8_s2.log
+[2026-07-07 13:27:40] done gate_instruct_rome_cf_L8_s2 (1202s) VALIDATE-OK
+[2026-07-07 13:27:40] PROGRESS jobs=4done/0fail/0skip elapsed=60m budget_left=540m
+[2026-07-07 13:27:40] RUN gate_instruct_rome_cf_L10_s0 [SCIENCE] (est 25m, cap 5700s, elapsed 60m) -> engine/instruct_gate_instruct_rome_cf_L10_s0.log
+[2026-07-07 13:47:39] done gate_instruct_rome_cf_L10_s0 (1199s) VALIDATE-OK
+[2026-07-07 13:47:39] RUN gate_instruct_rome_cf_L10_s1 [SCIENCE] (est 25m, cap 5700s, elapsed 80m) -> engine/instruct_gate_instruct_rome_cf_L10_s1.log
+[2026-07-07 14:08:03] done gate_instruct_rome_cf_L10_s1 (1224s) VALIDATE-OK
+[2026-07-07 14:08:03] RUN gate_instruct_rome_cf_L10_s2 [SCIENCE] (est 25m, cap 5700s, elapsed 101m) -> engine/instruct_gate_instruct_rome_cf_L10_s2.log
+[2026-07-07 14:28:00] done gate_instruct_rome_cf_L10_s2 (1197s) VALIDATE-OK
+[2026-07-07 14:28:00] PROGRESS jobs=7done/0fail/0skip elapsed=121m budget_left=479m
+[2026-07-07 14:28:00] RUN gate_instruct_rome_cf_L12_s0 [SCIENCE] (est 25m, cap 5700s, elapsed 121m) -> engine/instruct_gate_instruct_rome_cf_L12_s0.log
+[2026-07-07 14:47:54] done gate_instruct_rome_cf_L12_s0 (1194s) VALIDATE-OK
+[2026-07-07 14:47:54] RUN gate_instruct_rome_cf_L12_s1 [SCIENCE] (est 25m, cap 5700s, elapsed 140m) -> engine/instruct_gate_instruct_rome_cf_L12_s1.log
+[2026-07-07 15:08:13] done gate_instruct_rome_cf_L12_s1 (1218s) VALIDATE-OK
+[2026-07-07 15:08:13] RUN gate_instruct_rome_cf_L12_s2 [SCIENCE] (est 25m, cap 5700s, elapsed 161m) -> engine/instruct_gate_instruct_rome_cf_L12_s2.log
+[2026-07-07 15:28:07] done gate_instruct_rome_cf_L12_s2 (1194s) VALIDATE-OK
+[2026-07-07 15:28:07] PROGRESS jobs=10done/0fail/0skip elapsed=181m budget_left=419m
+[2026-07-07 15:28:07] RUN gate_instruct_rome_cf_L14_s0 [SCIENCE] (est 32m, cap 6960s, elapsed 181m) -> engine/instruct_gate_instruct_rome_cf_L14_s0.log
+[2026-07-07 15:47:56] done gate_instruct_rome_cf_L14_s0 (1189s) VALIDATE-OK
+[2026-07-07 15:47:56] RUN gate_instruct_rome_cf_L14_s1 [SCIENCE] (est 32m, cap 6960s, elapsed 200m) -> engine/instruct_gate_instruct_rome_cf_L14_s1.log
+[2026-07-07 16:08:11] done gate_instruct_rome_cf_L14_s1 (1215s) VALIDATE-OK
+[2026-07-07 16:08:11] RUN gate_instruct_rome_cf_L14_s2 [SCIENCE] (est 32m, cap 6960s, elapsed 221m) -> engine/instruct_gate_instruct_rome_cf_L14_s2.log
+[2026-07-07 16:28:04] done gate_instruct_rome_cf_L14_s2 (1193s) VALIDATE-OK
+[2026-07-07 16:28:04] PROGRESS jobs=13done/0fail/0skip elapsed=241m budget_left=359m
+[2026-07-07 16:28:04] RUN gate_instruct_rome_zsre_L12_s0 [SCIENCE] (est 25m, cap 5700s, elapsed 241m) -> engine/instruct_gate_instruct_rome_zsre_L12_s0.log
+[2026-07-07 16:51:27] done gate_instruct_rome_zsre_L12_s0 (1403s) VALIDATE-OK
+[2026-07-07 16:51:27] PROGRESS jobs=14done/0fail/0skip elapsed=264m budget_left=336m
+[2026-07-07 16:51:27] RUN egl_instruct_rome_cf_L12_s0 [SCIENCE] (est 27m, cap 6060s, elapsed 264m) -> engine/instruct_egl_instruct_rome_cf_L12_s0.log
+[2026-07-07 17:12:49] done egl_instruct_rome_cf_L12_s0 (1282s) VALIDATE-OK
+[2026-07-07 17:12:49] RUN egl_instruct_rome_cf_L12_s1 [SCIENCE] (est 27m, cap 6060s, elapsed 285m) -> engine/instruct_egl_instruct_rome_cf_L12_s1.log
+[2026-07-07 17:34:35] done egl_instruct_rome_cf_L12_s1 (1305s) VALIDATE-OK
+[2026-07-07 17:34:35] RUN egl_instruct_rome_cf_L12_s2 [SCIENCE] (est 27m, cap 6060s, elapsed 307m) -> engine/instruct_egl_instruct_rome_cf_L12_s2.log
+[2026-07-07 17:55:52] done egl_instruct_rome_cf_L12_s2 (1277s) VALIDATE-OK
+[2026-07-07 17:55:52] PROGRESS jobs=17done/0fail/0skip elapsed=328m budget_left=272m
+[2026-07-07 17:55:52] RUN alphaHO_instruct [SMOKE] (est 6m, cap 2280s, elapsed 328m) -> engine/instruct_alphaHO_instruct.log
+[2026-07-07 17:56:02] done alphaHO_instruct (10s) VALIDATE-OK
+[2026-07-07 17:56:02] RUN g4_instruct_alphaHO_cf_L12_s0 [SCIENCE] (est 25m, cap 5700s, elapsed 329m) -> engine/instruct_g4_instruct_alphaHO_cf_L12_s0.log
+[2026-07-07 18:16:03] done g4_instruct_alphaHO_cf_L12_s0 (1201s) VALIDATE-OK
+[2026-07-07 18:16:03] PROGRESS jobs=19done/0fail/0skip elapsed=349m budget_left=251m
+[2026-07-07 18:16:03] ---------------- POST-RUN (CPU) ----------------
+[2026-07-07 18:22:54] post: C4_causal_instruct_table done (atomic)
+[2026-07-07 18:22:54] ================ RUN_INSTRUCT COMPLETE (19 done / 0 fail / 0 skip) ================
+[2026-07-07 20:33:43] preflight OK: integrity_check.py
+[2026-07-07 20:33:43] integrity OK: Llama-3.2-1B-Instruct
+[2026-07-07 20:34:43] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:44] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:44] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:44] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:44] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:45] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:45] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:45] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=600m
+[2026-07-07 20:34:45] ---------------- POST-RUN (CPU) ----------------
+[2026-07-07 20:41:32] post: C4_causal_instruct_table done (atomic)

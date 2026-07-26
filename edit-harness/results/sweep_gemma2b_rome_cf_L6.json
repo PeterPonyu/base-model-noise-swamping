@@ -1,0 +1,39 @@
+{
+  "model": "data/models/gemma-2-2b",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 6,
+  "n_edits": 150,
+  "n_probes": 400,
+  "steps": 20,
+  "seed": 0,
+  "edit_success_rate": 0.8,
+  "frac_probes_known(pre_p>0.05)": 0.323,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 60000,
+    "spearman_cos_damage": 0.2526,
+    "spearman_normgrowth_damage": 0.1559,
+    "auroc_cos_broken": 0.6233,
+    "auroc_normgrowth_broken": 0.5839,
+    "mean_damage_logit": 2.75747,
+    "mean_cosine": 0.2401
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 19350,
+    "spearman_cos_damage": 0.2718,
+    "spearman_normgrowth_damage": 0.1667,
+    "auroc_cos_broken": 0.6216,
+    "auroc_normgrowth_broken": 0.5796,
+    "mean_damage_logit": 3.19141,
+    "mean_cosine": 0.2317
+  },
+  "runtime_s": 1638.3,
+  "VERDICT": "PASS \u2014 key geometry predicts damage",
+  "verdict_detail": {
+    "abs_spearman": 0.2718,
+    "auroc": 0.6216,
+    "beats_normgrowth": true
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "ladder": [
+    "int8_g32",
+    "int6_g32",
+    "int4_g32",
+    "int3_g32",
+    "nf4_g32"
+  ],
+  "gate_rho": 0.8,
+  "gate_var_floor": 0.05,
+  "quantizer_unit_tests": {
+    "rtn_round_trip_halfstep": {
+      "int8": {
+        "max_err_over_halfstep": 0.999341,
+        "ok": true
+      },
+      "int6": {
+        "max_err_over_halfstep": 0.999421,
+        "ok": true
+      },
+      "int4": {
+        "max_err_over_halfstep": 0.999612,
+        "ok": true
+      },
+      "int3": {
+        "max_err_over_halfstep": 0.999897,
+        "ok": true
+      }
+    },
+    "distinct_level_count": {
+      "int8": 246,
+      "int6": 63,
+      "int4": 15,
+      "int3": 7,
+      "monotone_nonincreasing": true
+    },
+    "nf4": {
+      "codebook_len": 16,
+      "len_is_16": true,
+      "absmax_reproduced": true,
+      "dequant_on_codebook": true
+    }
+  },
+  "fixtures": {
+    "b_transition": {
+      "transition_rung": "int3_g32",
+      "transition_rho_signed": -0.9669,
+      "transition_abs_rho": 0.9669,
+      "transition_survival_std": 0.5345,
+      "verdict": "KILL",
+      "reason": "at least one bank's transition-rung Spearman(margin, survival) < gate_rho",
+      "note": "strong NEGATIVE rho is expected & correct (Frobenius-ratio survival DECREASES with edit magnitude; margin increases) -> signed verdict KILL.",
+      "per_rung": [
+        {
+          "rung": "int8_g32",
+          "rho_margin_survival": -0.6517,
+          "margin_mean": 65.4864,
+          "margin_median": 41.9217,
+          "margin_std": 56.0866,
+          "survival_mean": 1.001,
+          "survival_median": 1.0003,
+          "survival_std": 0.0017,
+          "projret_mean": 1.0002,
+          "projret_std": 0.001,
+          "rho_margin_projret": -0.2093,
+          "elapsed_s": 0.0
+        },
+        {
+          "rung": "int6_g32",
+          "rho_margin_survival": -0.9258,
+          "margin_mean": 15.7695,
+          "margin_median": 9.9944,
+          "margin_std": 13.4979,
+          "survival_mean": 1.0143,
+          "survival_median": 1.0046,
+          "survival_std": 0.0205,
+          "projret_mean": 1.0005,
+          "projret_std": 0.0037,
+          "rho_margin_projret": -0.135,
+          "elapsed_s": 0.0
+        },
+        {
+          "rung": "int4_g32",
+          "rho_margin_survival": -0.9692,
+          "margin_mean": 3.584,
+          "margin_median": 2.1767,
+          "margin_std": 3.0867,
+          "survival_mean": 1.1976,
+          "survival_median": 1.0837,
+          "survival_std": 0.2331,
+          "projret_mean": 1.0067,
+          "projret_std": 0.0184,
+          "rho_margin_projret": -0.3389,
+          "elapsed_s": 0.0
+        },
+        {
+          "rung": "int3_g32",
+          "rho_margin_survival": -0.9669,
+          "margin_mean": 1.5252,
+          "margin_median": 0.9685,
+          "margin_std": 1.3116,
+          "survival_mean": 1.5696,
+          "survival_median": 1.3622,
+          "survival_std": 0.5345,
+          "projret_mean": 1.0076,
+          "projret_std": 0.0397,
+          "rho_margin_projret": -0.1252,
+          "elapsed_s": 0.0
+        },
+        {
+          "rung": "nf4_g32",
+          "rho_margin_survival": -0.9646,
+          "margin_mean": 4.0855,
+          "margin_median": 2.7614,
+          "margin_std": 3.507,
+          "survival_mean": 1.1292,
+          "survival_median": 1.0567,
+          "survival_std": 0.1605,
+          "projret_mean": 0.993,
+          "projret_std": 0.0168,
+          "rho_margin_projret": 0.1053,
+          "elapsed_s": 0.01
+        }
+      ]
+    },
+    "gate_verdict_unit": {
+      "pass_branch": "PASS",
+      "kill_low_rho_branch": "KILL",
+      "kill_no_variance_branch": "KILL"
+    },
+    "c_novariance": {
+      "survival_std_per_rung": {
+        "int8_g32": 0.0,
+        "int6_g32": 0.0,
+        "int4_g32": 0.0,
+        "int3_g32": 0.0,
+        "nf4_g32": 0.0
+      },
+      "verdict": "KILL",
+      "reason": "no bank has cross-edit survival std >= gate_var_floor at its transition rung (no signal to predict)"
+    }
+  },
+  "all_ok": true,
+  "verdict": "SELFTEST-PASS"
+}

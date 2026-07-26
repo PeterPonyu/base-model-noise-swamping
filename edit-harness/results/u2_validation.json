@@ -1,0 +1,61 @@
+{
+ "n": 7,
+ "rows": [
+  {
+   "json": "results/gate_llama1b_ftkl003_cf_L8_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama1b_ftkl030_cf_L8_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/gate_llama1b_ftkl100_cf_L8_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_alpha_delete_refusal_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_llama1b_alpha_delete_refusal_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_qwen15b_delete_refusal_L14_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.99,
+   "npz_keys_ok": true,
+   "all_nan": false
+  },
+  {
+   "json": "results/u1e0_qwen15b_delete_refusal_L14_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "npz_keys_ok": true,
+   "all_nan": false
+  }
+ ]
+}

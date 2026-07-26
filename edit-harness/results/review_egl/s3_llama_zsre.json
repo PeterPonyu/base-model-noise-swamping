@@ -1,0 +1,51 @@
+{
+  "model": "HuggingFaceM4/tiny-random-LlamaForCausalLM",
+  "editor": "rome",
+  "dataset": "zsre",
+  "layer": 1,
+  "n_edits": 4,
+  "n_probes": 40,
+  "steps": 2,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.12.1+cu130",
+    "transformers": "5.12.1",
+    "numpy": "2.3.4",
+    "dtype": "float32",
+    "model_dtype_arg": "fp32",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 2
+  },
+  "edit_success_rate": 0.0,
+  "mean_residual_norm": 0.0,
+  "frac_probes_known(pre_p>0.05)": 0.0,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 160,
+    "spearman_cos_damage": 0.0751,
+    "spearman_normgrowth_damage": 0.0244,
+    "auroc_cos_broken": 0.6138,
+    "auroc_normgrowth_broken": 0.4359,
+    "mean_damage_logit": -0.0,
+    "mean_cosine": 0.0565
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 0,
+    "note": "too few"
+  },
+  "runtime_s": 5.6,
+  "matrices_npz": "results/review_egl/matrices/s3_llama_zsre.npz",
+  "EGL": {
+    "n_edits": 4,
+    "E": 0.5,
+    "G": 0.5,
+    "L": 1.0,
+    "n_generality_missing": 0,
+    "n_locality_missing": 0
+  },
+  "egl_sidecar": "results/review_egl/s3_llama_zsre.egl.json"
+}

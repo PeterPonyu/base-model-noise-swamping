@@ -1,0 +1,198 @@
+{
+  "unit_of_analysis": "per-EDIT (one scalar erasure + one predictor P_i per edit; N=#edits). Contrast: killgate_keygeom is per-PROBE.",
+  "predictor": "P_i = ||tau_L . k_edit_i|| (task vector tau computed once, fp32)",
+  "erasure": "margin drop = margin_edited - margin_proxy (logit(target_new)-logit(target_true) at the edit prompt); NOT binary.",
+  "statistic": "signed midrank Spearman; rank-space partial correlation; Freedman-Lane residual permutation null; RNG_SEED=12345.",
+  "confound_order": [
+    "knorm",
+    "norm_growth",
+    "S",
+    "target_freq",
+    "pre_edit_ptarget"
+  ],
+  "alphas": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "alpha_headline": 1.0,
+  "n_perm": 300,
+  "arms": {
+    "mlp": {
+      "n_edits": 200,
+      "by_alpha": {
+        "0.5": {
+          "raw_rho": 0.9026,
+          "raw_perm_p": 0.0033,
+          "raw_null_mean": -0.0043,
+          "raw_null_std": 0.0677,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.9005,
+              "perm_p": 0.0033
+            },
+            "norm_growth": {
+              "partial_rho": 0.9034,
+              "perm_p": 0.0033
+            },
+            "S": {
+              "partial_rho": 0.9023,
+              "perm_p": 0.0033
+            },
+            "target_freq": {
+              "partial_rho": 0.9023,
+              "perm_p": 0.0033
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.9031,
+              "perm_p": 0.0033
+            }
+          },
+          "joint_partial_rho": 0.9007,
+          "joint_partial_perm_p": 0.0033,
+          "n_edits_used": 200,
+          "erasure_std": 0.3433,
+          "erasure_mean": 0.4966
+        },
+        "1.0": {
+          "raw_rho": 0.9106,
+          "raw_perm_p": 0.0033,
+          "raw_null_mean": -0.0033,
+          "raw_null_std": 0.0698,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.909,
+              "perm_p": 0.0033
+            },
+            "norm_growth": {
+              "partial_rho": 0.9106,
+              "perm_p": 0.0033
+            },
+            "S": {
+              "partial_rho": 0.9107,
+              "perm_p": 0.0033
+            },
+            "target_freq": {
+              "partial_rho": 0.9103,
+              "perm_p": 0.0033
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.9097,
+              "perm_p": 0.0033
+            }
+          },
+          "joint_partial_rho": 0.9074,
+          "joint_partial_perm_p": 0.0033,
+          "n_edits_used": 200,
+          "erasure_std": 0.6704,
+          "erasure_mean": 1.0367
+        },
+        "2.0": {
+          "raw_rho": 0.8947,
+          "raw_perm_p": 0.0033,
+          "raw_null_mean": -0.0035,
+          "raw_null_std": 0.0653,
+          "single_partials": {
+            "knorm": {
+              "partial_rho": 0.8917,
+              "perm_p": 0.0033
+            },
+            "norm_growth": {
+              "partial_rho": 0.8946,
+              "perm_p": 0.0033
+            },
+            "S": {
+              "partial_rho": 0.8952,
+              "perm_p": 0.0033
+            },
+            "target_freq": {
+              "partial_rho": 0.8942,
+              "perm_p": 0.0033
+            },
+            "pre_edit_ptarget": {
+              "partial_rho": 0.8939,
+              "perm_p": 0.0033
+            }
+          },
+          "joint_partial_rho": 0.8903,
+          "joint_partial_perm_p": 0.0033,
+          "n_edits_used": 200,
+          "erasure_std": 1.3108,
+          "erasure_mean": 2.0075
+        }
+      }
+    }
+  },
+  "frequency_head_to_head": {
+    "arm": "mlp",
+    "alpha": 1.0,
+    "freq_baseline_rho": 0.0526,
+    "tauk_raw_rho": 0.9106,
+    "tauk_partialled_by_freq_rho": 0.9103,
+    "tauk_partialled_by_freq_perm_p": 0.0033,
+    "tauk_beats_freq": true,
+    "baseline_is_approximate": true,
+    "baseline_provenance": "within_slice_unigram_approx",
+    "beats_freq_is_paper_claimable": false
+  },
+  "proxy_fidelity": {
+    "arm": "mlp",
+    "alpha": 1.0,
+    "n_real": 40,
+    "spearman_proxy_vs_real": 0.9914,
+    "boot_ci95": [
+      0.9627,
+      0.9981
+    ],
+    "ci_lower": 0.9627,
+    "note": "s3 proxy is MECHANICALLY loaded toward P (applied perturbation norm == alpha*P_i to machine precision); high fidelity here is necessary but partly tautological \u2014 see nontautological_predictor_vs_realft for the clean test."
+  },
+  "nontautological_predictor_vs_realft": {
+    "arm": "mlp",
+    "n_real": 40,
+    "spearman_P_vs_realFT": 0.8897,
+    "boot_ci95": [
+      0.769,
+      0.9499
+    ],
+    "ci_lower": 0.769,
+    "perm_p": 0.0033,
+    "note": "LEAST-CIRCULAR evidence: a-priori ||tau_L k|| vs a REAL gradient-descent gsm8k FT erasure. Unlike the s3 proxy this is not mechanically P-loaded; it (not proxy_fidelity) carries the non-tautological weight. n=40 is small \u2014 read the CI, not the point estimate."
+  },
+  "verdict_criteria": {
+    "erasure_variance_nil": {
+      "kill": false,
+      "min_erasure_std": 0.3433
+    },
+    "mlp_joint_partialled_rho_lt_0.2": {
+      "kill": false,
+      "mlp_joint_partial_rho": 0.9074,
+      "arm": "mlp",
+      "alpha": 1.0,
+      "sign_aware": "require rho>0 (not |rho|)"
+    },
+    "loses_to_frequency_baseline": {
+      "kill": false,
+      "tauk_raw_rho": 0.9106,
+      "freq_baseline_rho": 0.0526,
+      "baseline_is_approximate": true,
+      "status": "APPROXIMATE-BASELINE-ONLY \u2014 within-slice unigram proxy; a real pretraining-frequency head-to-head needs a large-corpus unigram table (absent). 'beats frequency' is NOT paper-claimable here; only a LOSS kills."
+    },
+    "proxy_fidelity_ci_lower_lt_0.3": {
+      "kill": false,
+      "ci_lower": 0.9627,
+      "note": "s3-vs-s4; partly tautological, see nontautological_predictor_vs_realft"
+    },
+    "full_arm": {
+      "scope_down_kill": false,
+      "scope_down": false,
+      "evaluated": false,
+      "unevaluated": true,
+      "descriptive_only": false,
+      "full_joint_partial_rho": null,
+      "mlp_passes": true,
+      "note": "SCOPE-DOWN (not a kill) requires the full arm to be EVALUATED and weak (<0.15, sign-aware); if UNEVALUATED the criterion is INCOMPLETE, never a scope-down. descriptive_only=true means the full arm is measured but the MLP arm already KILLed \u2014 reported for completeness, does not affect the verdict."
+    }
+  },
+  "VERDICT": "PASS (MLP arm) \u2014 a-priori ||tau_L k|| predicts per-edit erasure, survives the joint confound partial, is not worse than a within-slice unigram approximation (a real frequency baseline is pending), and the cheap proxy is faithful to real gsm8k FT (see nontautological_predictor_vs_realft for the least-circular evidence). FULL-MODEL ARM UNEVALUATED \u2014 run it to test the 2511.05852 non-edited-layer-erases-more prediction."
+}

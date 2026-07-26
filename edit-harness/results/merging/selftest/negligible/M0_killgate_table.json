@@ -1,0 +1,108 @@
+{
+  "experiment": "merging_law_M0",
+  "schema_version": "m0.v1",
+  "created": "2026-07-19T09:03:16",
+  "model": "SYNTHETIC_negligible",
+  "layer": -1,
+  "seed": 0,
+  "n_edits": 40,
+  "dataset": "synthetic",
+  "thresholds": {
+    "neg_logit": 0.1,
+    "neg_argmax": 0.05,
+    "rho_min": 0.3,
+    "drho_min": 0.1,
+    "partial_min": 0.15,
+    "sat_argmax": 0.8
+  },
+  "drop_metric_note": "negligibility uses median|drop_logit| (conservative vs spurious kills; sign-cancellation cannot hide real perturbation); mean_drop_logit reports signed directionality per regime",
+  "geometry_metric_note": "PRIMARY geometry discriminant = partial_rho_geom = partial Spearman rho(I_cos, drop | I_mag). The raw delta_rho_cos_minus_mag is MIS-SPECIFIED (I_cos & I_mag share the ||k_a||*sum(S) scaffold, so their raw-rho difference hides geometry) and kept only as provenance. A regime carries the c3 decision only if it is non-negligible, NOT saturated (argmax_loss<=sat_argmax), and c2-coherent (rho(I_cos,drop)>=rho_min).",
+  "regimes": {
+    "natural_pairwise": {
+      "n_obs": 90,
+      "n_groups": 45,
+      "n_worked_solo": 90,
+      "median_abs_drop_logit": 0.0,
+      "mean_drop_logit": 0.0,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": null,
+      "rho_I_magonly_drop": null,
+      "partial_rho_geom": null,
+      "partial_rho_geom_ownmag": null,
+      "delta_rho_cos_minus_mag": null,
+      "rho_I_cos_normdelta_cpu_xcheck": 1.0,
+      "non_negligible": false,
+      "saturated": false,
+      "c2_coherent": false,
+      "c3_eligible": false,
+      "collapses_under_ownmag_partial": true
+    },
+    "natural_group": {
+      "n_obs": 40,
+      "n_groups": 1,
+      "n_worked_solo": 40,
+      "median_abs_drop_logit": 0.0,
+      "mean_drop_logit": 0.0,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": null,
+      "rho_I_magonly_drop": null,
+      "partial_rho_geom": null,
+      "partial_rho_geom_ownmag": null,
+      "delta_rho_cos_minus_mag": null,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.3835,
+      "non_negligible": false,
+      "saturated": false,
+      "c2_coherent": false,
+      "c3_eligible": false,
+      "collapses_under_ownmag_partial": true
+    },
+    "enriched_conflict": {
+      "n_obs": 60,
+      "n_groups": 30,
+      "n_worked_solo": 60,
+      "median_abs_drop_logit": 0.0,
+      "mean_drop_logit": 0.0,
+      "argmax_loss_rate": 0.0,
+      "rho_I_cos_drop": null,
+      "rho_I_magonly_drop": null,
+      "partial_rho_geom": null,
+      "partial_rho_geom_ownmag": null,
+      "delta_rho_cos_minus_mag": null,
+      "rho_I_cos_normdelta_cpu_xcheck": 1.0,
+      "non_negligible": false,
+      "saturated": false,
+      "c2_coherent": false,
+      "c3_eligible": false,
+      "collapses_under_ownmag_partial": true
+    }
+  },
+  "verdict": {
+    "overall": "KILL",
+    "criterion_1_negligible_even_enriched": "KILL",
+    "criterion_2_rho_where_nonnegligible": "N/A",
+    "criterion_3_geometry_partial": "N/A",
+    "criterion_3_metric": "partial_rho(I_cos, drop | I_mag)",
+    "criterion_3_rule": "geometry metric = partial rho(I_cos, drop | I_mag) >= partial_min; decision regime primary=natural_group, fallback=natural_pairwise (only if group negligible), enriched=excluded-by-construction; a regime carries c3 only if non-negligible AND not saturated (argmax_loss<=0.8) AND c2-coherent (rho(I_cos,drop)>=0.3); PASS also requires geometry survives own-magnitude partialling (rho(I_cos,drop|||k_a||,S_a)>=partial_min)",
+    "criterion_3_decided_on": null,
+    "criterion_3_partial_by_regime": {
+      "natural_pairwise": null,
+      "natural_group": null,
+      "enriched_conflict": null
+    },
+    "criterion_3_ownmag_partial_by_regime": {
+      "natural_pairwise": null,
+      "natural_group": null,
+      "enriched_conflict": null
+    },
+    "criterion_3_delta_rho_by_regime_SECONDARY": {
+      "natural_pairwise": null,
+      "natural_group": null,
+      "enriched_conflict": null
+    },
+    "enriched_regime": "enriched_conflict",
+    "non_negligible_regimes": [],
+    "saturated_regimes": [],
+    "c3_eligible_regimes": [],
+    "interpretation": "geometry does not predict merge interference where it is testable \u2014 abandon or heavily re-scope the merging-law direction"
+  }
+}

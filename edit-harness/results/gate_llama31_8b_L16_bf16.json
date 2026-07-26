@@ -1,0 +1,49 @@
+{
+  "aggregate": {
+    "n_seeds": 1,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.1752,
+    "within_probe_std_across_seeds": 0.0,
+    "per_edit_mean_across_seeds": 0.1195,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "PASS \u2014 headline survives (edit-specific pairwise geometry, not probe-marginal)"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_llama31_8b_rome_cf_L16_s0_bf16.npz",
+      "shape": [
+        199,
+        204
+      ],
+      "flat_spearman_INFLATED": 0.169,
+      "within_probe_mean": 0.1752,
+      "within_probe_ci95": [
+        0.1521,
+        0.1974
+      ],
+      "within_probe_ci95_editcluster": [
+        0.1295,
+        0.2172
+      ],
+      "within_probe_frac_positive": 0.828,
+      "per_edit_mean": 0.1195,
+      "per_edit_ci95": [
+        0.0981,
+        0.1413
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0013,
+      "editlevel_null_std": 0.0232,
+      "editlevel_z": 7.48,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.1758,
+      "mean_residual_norm(S)": 30.1542
+    }
+  ]
+}

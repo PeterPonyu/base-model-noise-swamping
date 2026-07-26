@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.078,
+    "within_probe_std_across_seeds": 0.0278,
+    "per_edit_mean_across_seeds": 0.0149,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.0699,
+    "VERDICT": "DEAD \u2014 within-probe rho < 0.10; demote headline, pivot to Qwen-null / FT-overcollateral"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_mistral7b_rome_cf_L28_s0.npz",
+      "shape": [
+        197,
+        196
+      ],
+      "flat_spearman_INFLATED": 0.0458,
+      "within_probe_mean": 0.0577,
+      "within_probe_ci95": [
+        0.0365,
+        0.0785
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.0017,
+        0.1126
+      ],
+      "within_probe_frac_positive": 0.622,
+      "per_edit_mean": 0.0088,
+      "per_edit_ci95": [
+        -0.0215,
+        0.0383
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.032,
+      "editlevel_null_mean": 0.0022,
+      "editlevel_null_std": 0.0282,
+      "editlevel_z": 1.97,
+      "flat_perm_p": 0.1319,
+      "within_probe_mean_normgrowth": 0.1205,
+      "mean_residual_norm(S)": 34.9254
+    },
+    {
+      "npz": "gate_mistral7b_rome_cf_L28_s1.npz",
+      "shape": [
+        191,
+        190
+      ],
+      "flat_spearman_INFLATED": 0.0945,
+      "within_probe_mean": 0.1173,
+      "within_probe_ci95": [
+        0.0935,
+        0.1421
+      ],
+      "within_probe_ci95_editcluster": [
+        0.0557,
+        0.1712
+      ],
+      "within_probe_frac_positive": 0.758,
+      "per_edit_mean": 0.0255,
+      "per_edit_ci95": [
+        0.0008,
+        0.0494
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": -0.0001,
+      "editlevel_null_std": 0.0308,
+      "editlevel_z": 3.81,
+      "flat_perm_p": 0.0599,
+      "within_probe_mean_normgrowth": 0.1353,
+      "mean_residual_norm(S)": 34.6598
+    },
+    {
+      "npz": "gate_mistral7b_rome_cf_L28_s2.npz",
+      "shape": [
+        193,
+        189
+      ],
+      "flat_spearman_INFLATED": 0.0557,
+      "within_probe_mean": 0.059,
+      "within_probe_ci95": [
+        0.0374,
+        0.079
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.0077,
+        0.1176
+      ],
+      "within_probe_frac_positive": 0.619,
+      "per_edit_mean": 0.0103,
+      "per_edit_ci95": [
+        -0.0155,
+        0.0362
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.0699,
+      "editlevel_null_mean": -0.0013,
+      "editlevel_null_std": 0.0324,
+      "editlevel_z": 1.86,
+      "flat_perm_p": 0.1139,
+      "within_probe_mean_normgrowth": 0.1259,
+      "mean_residual_norm(S)": 34.5005
+    }
+  ]
+}

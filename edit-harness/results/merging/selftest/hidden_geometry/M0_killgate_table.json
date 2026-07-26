@@ -1,0 +1,116 @@
+{
+  "experiment": "merging_law_M0",
+  "schema_version": "m0.v1",
+  "created": "2026-07-19T09:03:16",
+  "model": "SYNTHETIC_hidden_geometry",
+  "layer": -1,
+  "seed": 0,
+  "n_edits": 40,
+  "dataset": "synthetic",
+  "thresholds": {
+    "neg_logit": 0.1,
+    "neg_argmax": 0.05,
+    "rho_min": 0.3,
+    "drho_min": 0.1,
+    "partial_min": 0.15,
+    "sat_argmax": 0.8
+  },
+  "drop_metric_note": "negligibility uses median|drop_logit| (conservative vs spurious kills; sign-cancellation cannot hide real perturbation); mean_drop_logit reports signed directionality per regime",
+  "geometry_metric_note": "PRIMARY geometry discriminant = partial_rho_geom = partial Spearman rho(I_cos, drop | I_mag). The raw delta_rho_cos_minus_mag is MIS-SPECIFIED (I_cos & I_mag share the ||k_a||*sum(S) scaffold, so their raw-rho difference hides geometry) and kept only as provenance. A regime carries the c3 decision only if it is non-negligible, NOT saturated (argmax_loss<=sat_argmax), and c2-coherent (rho(I_cos,drop)>=rho_min).",
+  "regimes": {
+    "natural_pairwise": {
+      "n_obs": 90,
+      "n_groups": 45,
+      "n_worked_solo": 90,
+      "median_abs_drop_logit": 0.6263,
+      "mean_drop_logit": -0.00237,
+      "argmax_loss_rate": 0.2444,
+      "rho_I_cos_drop": 0.5082,
+      "rho_I_magonly_drop": 0.9281,
+      "partial_rho_geom": 0.816,
+      "partial_rho_geom_ownmag": 0.5305,
+      "delta_rho_cos_minus_mag": -0.4199,
+      "rho_I_cos_normdelta_cpu_xcheck": 1.0,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "natural_group": {
+      "n_obs": 40,
+      "n_groups": 1,
+      "n_worked_solo": 40,
+      "median_abs_drop_logit": 0.6373,
+      "mean_drop_logit": -0.00525,
+      "argmax_loss_rate": 0.4,
+      "rho_I_cos_drop": 0.6507,
+      "rho_I_magonly_drop": 0.8833,
+      "partial_rho_geom": 0.903,
+      "partial_rho_geom_ownmag": 0.9024,
+      "delta_rho_cos_minus_mag": -0.2326,
+      "rho_I_cos_normdelta_cpu_xcheck": 0.8887,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    },
+    "enriched_conflict": {
+      "n_obs": 60,
+      "n_groups": 30,
+      "n_worked_solo": 60,
+      "median_abs_drop_logit": 0.6021,
+      "mean_drop_logit": -0.00635,
+      "argmax_loss_rate": 0.25,
+      "rho_I_cos_drop": 0.9892,
+      "rho_I_magonly_drop": 0.8661,
+      "partial_rho_geom": 0.9831,
+      "partial_rho_geom_ownmag": 0.9893,
+      "delta_rho_cos_minus_mag": 0.123,
+      "rho_I_cos_normdelta_cpu_xcheck": 1.0,
+      "non_negligible": true,
+      "saturated": false,
+      "c2_coherent": true,
+      "c3_eligible": true,
+      "collapses_under_ownmag_partial": false
+    }
+  },
+  "verdict": {
+    "overall": "PASS",
+    "criterion_1_negligible_even_enriched": "PASS",
+    "criterion_2_rho_where_nonnegligible": "PASS",
+    "criterion_3_geometry_partial": "PASS",
+    "criterion_3_metric": "partial_rho(I_cos, drop | I_mag)",
+    "criterion_3_rule": "geometry metric = partial rho(I_cos, drop | I_mag) >= partial_min; decision regime primary=natural_group, fallback=natural_pairwise (only if group negligible), enriched=excluded-by-construction; a regime carries c3 only if non-negligible AND not saturated (argmax_loss<=0.8) AND c2-coherent (rho(I_cos,drop)>=0.3); PASS also requires geometry survives own-magnitude partialling (rho(I_cos,drop|||k_a||,S_a)>=partial_min)",
+    "criterion_3_decided_on": "natural_group",
+    "criterion_3_partial_by_regime": {
+      "natural_pairwise": 0.816,
+      "natural_group": 0.903,
+      "enriched_conflict": 0.9831
+    },
+    "criterion_3_ownmag_partial_by_regime": {
+      "natural_pairwise": 0.5305,
+      "natural_group": 0.9024,
+      "enriched_conflict": 0.9893
+    },
+    "criterion_3_delta_rho_by_regime_SECONDARY": {
+      "natural_pairwise": -0.4199,
+      "natural_group": -0.2326,
+      "enriched_conflict": 0.123
+    },
+    "enriched_regime": "enriched_conflict",
+    "non_negligible_regimes": [
+      "natural_pairwise",
+      "natural_group",
+      "enriched_conflict"
+    ],
+    "saturated_regimes": [],
+    "c3_eligible_regimes": [
+      "natural_pairwise",
+      "natural_group",
+      "enriched_conflict"
+    ],
+    "interpretation": "partial rho(I_cos, drop | I_mag) clears the margin in the c3 decision regime \u2014 geometry adds signal beyond magnitude, survives own-magnitude partialling"
+  }
+}

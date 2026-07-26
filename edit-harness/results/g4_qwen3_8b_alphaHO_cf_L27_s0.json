@@ -1,0 +1,57 @@
+{
+  "model": "/root/autodl-tmp/models/Qwen3-8B-Base",
+  "editor": "alpha",
+  "dataset": "counterfact",
+  "layer": 27,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": "holdout",
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20,
+    "alpha_proj_source": "holdout",
+    "keep_ratio": 0.99,
+    "n_proj_fit_keys": 500,
+    "proj_disjoint_from_probes": true
+  },
+  "edit_success_rate": 0.045,
+  "mean_residual_norm": 33.2229,
+  "frac_probes_known(pre_p>0.05)": 0.292,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.0098,
+    "spearman_normgrowth_damage": 0.0001,
+    "auroc_cos_broken": 0.5122,
+    "auroc_normgrowth_broken": 0.5251,
+    "mean_damage_logit": -0.00128,
+    "mean_cosine": 0.2009
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 29200,
+    "spearman_cos_damage": 0.0253,
+    "spearman_normgrowth_damage": 0.008,
+    "auroc_cos_broken": 0.5209,
+    "auroc_normgrowth_broken": 0.482,
+    "mean_damage_logit": -0.00613,
+    "mean_cosine": 0.1983
+  },
+  "runtime_s": 2613.4,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0253,
+    "auroc": 0.5209,
+    "beats_normgrowth": true
+  },
+  "matrices_npz": "/root/edit-harness/results/matrices/g4_qwen3_8b_alphaHO_cf_L27_s0.npz"
+}

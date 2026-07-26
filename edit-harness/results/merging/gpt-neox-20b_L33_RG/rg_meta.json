@@ -1,0 +1,42 @@
+{
+  "schema_version": "m0.v1",
+  "experiment": "RG",
+  "model": "/root/autodl-tmp/models/gpt-neox-20b",
+  "model_tag": "gpt-neox-20b",
+  "dataset": "counterfact",
+  "layer": 33,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "reuse": {
+    "0": "fresh 200-edit phase-1 (saved for future reuse)",
+    "1": "fresh 200-edit phase-1 (saved for future reuse)",
+    "2": "fresh 200-edit phase-1 (saved for future reuse)"
+  },
+  "esr_by_seed": {
+    "0": 0.01,
+    "1": 0.0,
+    "2": 0.015
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 2.1411733541754074e-07,
+    "1": 2.758642949629575e-07,
+    "2": 2.824598652750865e-07
+  },
+  "torch": "2.8.0+cu128",
+  "transformers": "5.13.0",
+  "numpy": "2.3.2"
+}

@@ -1,0 +1,24 @@
+{
+  "statistic": "S=mean||v-Wk||, |C|=mean|cos|; signed within-probe Spearman(|cos|,dmg) and (S*|cos|,dmg)",
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "globs": [
+    "results/matrices/gate_phi35_rome_cf_L16_s0.npz"
+  ],
+  "groups": [
+    {
+      "model": "phi35",
+      "layer": 16,
+      "n_files": 1,
+      "n_pairs": 13532,
+      "mean_S": 32.4311,
+      "S_available": true,
+      "mean_absC": 0.1738,
+      "within_probe_rho_C": 0.0151,
+      "within_probe_rho_SC": 0.1009
+    }
+  ],
+  "notes": []
+}

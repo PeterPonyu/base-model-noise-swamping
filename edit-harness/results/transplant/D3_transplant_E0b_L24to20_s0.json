@@ -1,0 +1,69 @@
+{
+  "prereg": "docs/plans/PREREG-D3-TRANSPLANT-E0B-20260714.md",
+  "donor": "data/models/Qwen2.5-14B",
+  "recipient": "data/models/Qwen3-14B-Base",
+  "layer_donor": 24,
+  "layer_recip": 20,
+  "H": 5120,
+  "I_donor": 13824,
+  "I_recip": 17408,
+  "n_edits": 200,
+  "n_transplantable(donor_ok)": 200,
+  "seed": 0,
+  "procrustes": {
+    "n_anchor": 32768,
+    "vocab_overlap": 1.0,
+    "orth_err": 7.084408735675631e-13,
+    "rel_recon_err": 1.0127
+  },
+  "esr": {
+    "native": 1.0,
+    "identity": 0.005,
+    "procrustes": 0.005,
+    "procrustes_scaled": 0.005,
+    "random_mean": 0.005,
+    "random_std": 0.0,
+    "random_per_sample": [
+      0.005,
+      0.005,
+      0.005,
+      0.005,
+      0.005
+    ]
+  },
+  "scaled_variant": {
+    "implemented": true,
+    "esr": 0.005,
+    "scale_s": 1.0593,
+    "note": "orthogonal map is norm-preserving; s rescales to native median residual norm. NON-GATING ablation (prereg \u00a73.1)."
+  },
+  "collateral_law_survival": {
+    "implemented": true,
+    "condition": "procrustes-transplanted edits",
+    "n_probes": 200,
+    "within_probe_mean": 0.0134,
+    "within_probe_frac_positive": 0.56,
+    "mean_signed_damage_logit": 0.00422,
+    "note": "within-probe Spearman(|key-cos|, damage) on procrustes-transplanted edits; compare to the recipient's NATIVE-edit E0a value. NON-GATING (prereg \u00a73.6)."
+  },
+  "identity_minus_procrustes_gap": 0.0,
+  "predictor_ca_vs_success": {
+    "spearman": 0.0276,
+    "perm_p": 0.77672
+  },
+  "gates": {
+    "G1_alignment_specific": false,
+    "G2_nontrivial_absolute": false,
+    "G3_geometry_predicts": false,
+    "layer_valid": true
+  },
+  "thresholds": {
+    "margin": 0.1,
+    "abs_floor_G2": 0.2,
+    "abs_floor_K2": 0.1,
+    "rho_floor": 0.15,
+    "native_esr_floor": 0.5
+  },
+  "verdict": "KILL_K1_not_alignment_specific",
+  "binding_wording": "identity ~= procrustes and both >> random => bases already coincide; say 'identity-alignment suffices, learned rotation not required' (do NOT claim Procrustes is necessary). Report random_mean prominently \u2014 the transplant story is only as strong as the random null is low."
+}

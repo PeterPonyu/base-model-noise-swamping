@@ -1,0 +1,58 @@
+{
+  "memit_L8_s0": {
+    "editor": "memit",
+    "layer": "L8",
+    "seed": "s0",
+    "n_pairs": 29800,
+    "within_probe_signed_rho": 0.0156,
+    "within_probe_abs_rho": 0.0156,
+    "frac_COS_negative": 0.0,
+    "frac_COS_positive": 1.0
+  },
+  "memit_L12_s0": {
+    "editor": "memit",
+    "layer": "L12",
+    "seed": "s0",
+    "n_pairs": 29651,
+    "within_probe_signed_rho": 0.0357,
+    "within_probe_abs_rho": 0.0357,
+    "frac_COS_negative": 0.0,
+    "frac_COS_positive": 1.0
+  },
+  "memit_L12_s1": {
+    "editor": "memit",
+    "layer": "L12",
+    "seed": "s1",
+    "n_pairs": 30492,
+    "within_probe_signed_rho": 0.0306,
+    "within_probe_abs_rho": 0.0306,
+    "frac_COS_negative": 0.0,
+    "frac_COS_positive": 1.0
+  },
+  "rome_L8_s0": {
+    "editor": "rome",
+    "layer": "L8",
+    "seed": "s0",
+    "n_pairs": 29502,
+    "within_probe_signed_rho": 0.406,
+    "within_probe_abs_rho": 0.406,
+    "frac_COS_negative": 0.0,
+    "frac_COS_positive": 1.0
+  },
+  "rome_L12_s0": {
+    "editor": "rome",
+    "layer": "L12",
+    "seed": "s0",
+    "n_pairs": 29651,
+    "within_probe_signed_rho": 0.6016,
+    "within_probe_abs_rho": 0.6016,
+    "frac_COS_negative": 0.0,
+    "frac_COS_positive": 1.0
+  },
+  "_bug_reproduction": {
+    "blended_L8_reproduced": 0.2108,
+    "blended_L8_flagged_file": 0.2108,
+    "blended_L12_reproduced": 0.3186,
+    "blended_L12_flagged_file": 0.3186
+  }
+}

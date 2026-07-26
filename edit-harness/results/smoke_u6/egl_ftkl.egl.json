@@ -1,0 +1,60 @@
+{
+  "records": [
+    {
+      "subject": "Ugo Rondinone",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.2,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Heath Brothers",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 1.0,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "English Vinglish",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Matthew Henry",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.8,
+      "n_neighborhood": 5
+    }
+  ],
+  "summary": {
+    "n_edits": 4,
+    "ES": 1.0,
+    "PS": 1.0,
+    "NS": 0.5,
+    "ES_ft": 1.0,
+    "n_paraphrase_total": 8,
+    "n_neighborhood_total": 20,
+    "n_paraphrase_missing": 0,
+    "n_neighborhood_missing": 0
+  },
+  "model": "data/models/Llama-3.2-1B",
+  "editor": "ft",
+  "dataset": "counterfact",
+  "layer": 12,
+  "seed": 0,
+  "steps": 2,
+  "alpha_proj_source": null,
+  "egl_max_neighborhood": 10,
+  "egl_max_paraphrase": 2
+}

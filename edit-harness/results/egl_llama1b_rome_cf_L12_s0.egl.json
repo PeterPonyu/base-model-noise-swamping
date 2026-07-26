@@ -1,0 +1,1824 @@
+{
+  "records": [
+    {
+      "subject": "Ugo Rondinone",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Heath Brothers",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "English Vinglish",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Matthew Henry",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Friedrich Georg Wilhelm von Struve",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Lisa Appignanesi",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Juan Rodrigo Rojas",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Ehrenfried Walther von Tschirnhaus",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Neptune Glacier",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Second Spanish Republic",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Kuala Langat",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Vichy France",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 0.5,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tapio Kantanen",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Intel 80486SX",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Chicago Story",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Sid Waddell",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Sultan Satuq Bughra Khan",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Athens",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Mountain Jews",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "CSR Limited",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Himmelbjerget",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Von Miller",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Dominique Pinon",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Google Street View",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Nicolas Jenson",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Roy Barnes",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Northern Nigeria Protectorate",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Innocent XIII",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Samuel Benchetrit",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Ray Houghton",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "2013 WTA Tour Championships",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.6,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Sky Witness",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "George Plimpton",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Concrete Sox",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Shakira",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Sandvine",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Susquehanna Radio Corporation",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Paluzzo Paluzzi Altieri degli Albertoni",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Volvo S70",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Battle of Ullais",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Roy Sproson",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Catherine de Vivonne, marquise de Rambouillet",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "QuickDraw",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Los Angeles",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Prince Edward Island",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Melinda Kinnaman",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Xcode",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Nunavut",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Taylor Eigsti",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Pennsylvania Route 320",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.4,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "TelQuel",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Dodge SRT-4",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Joseph Clay",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 1.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Kikunae Ikeda",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Vistula",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Old Trinity Church",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "John Wallis",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Willebrord Snellius",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Per Ditlev-Simonsen",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tinguiririca River",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.3,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Maniche",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Charlotte Gordon Cumming",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Gabriel Riesser",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Hamid Karzai",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Pali Miska",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Hank Shaw",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "The Astronomical Journal",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Mehmet Ali Aybar",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Ben Myers",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Jean Bruller",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Luca Vigiani",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Eat Static",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Hello, Love",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.3,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Norman Maclean",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Travis Blackley",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tattletales",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "William Pember Reeves",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "dawah",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Jorum Glacier",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tony Bevilacqua",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Abdullah Ahmad Badawi",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tapsell Foreland",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Karl Wilhelm von Kupffer",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "CodePlex",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Intel Pentium Dual-Core",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Olivier Baroux",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Pillsbury Company",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Ginza Line",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Oliver Evans",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Al-Qurtubi",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Ravi Shankar",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Lonely Teardrops",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Hunter College",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Erik Truffaz",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Bronislovas Lubys",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Trail Inlet",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Johannes Bugenhagen",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Nescio",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Terence Blanchard",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Chevrolet Express",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Isser Harel",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Funny Dirty Little War",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Hsing Yun",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Golda Meir",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Finbarr Clancy",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Windows NT 4.0",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "The Cape Race",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Carosello",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Phocaea",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Selland Arena",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Samuel Griswold Goodrich",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Antonio Soler",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Pointe du Hoc",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Kerry Hill",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Emma Bonino",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Struma Glacier",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Zaire",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Elizabeth I of England",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Rannvijay Singh",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "South Korea",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Windows Setup Information File",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Aurora de Chile",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Harrisburg Transportation Center",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Scott Dreisbach",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Joseph Wostinholm",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Dozer",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Rosendo Salvado",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Centers for Disease Control and Prevention",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Mervyn Wall",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Agilbert",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Portobello Film Festival",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.3,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Vestnik Evropy",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Zaporozhets za Dunayem",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Baltimore Gas and Electric",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Hi Corbett Field",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Vishwaroopam",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Madrid",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Satya Nadella",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Murray Bannerman",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Orphan Black",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Laurent Lafforgue",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Cannes Film Festival",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Jack Wong Sue",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "2004 Indian Ocean earthquake",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.9,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Mark Weiss",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Jordan Norberto",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Igor Stravinsky",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Vince Young",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Glamourina",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "University of Bern",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Pourvu qu'elles soient douces",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Stockwell Day",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Honda Racing Corporation",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Alexandre Rignault",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Wiener Singakademie",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Willie Mosconi",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Hanoi",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 0.5,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Mike Scaccia",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Lawrence Heights",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tim Garland",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Robert J. Bach",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.7,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tienen",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.3,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "BMW M6",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Boukman Eksperyans",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Cambridge",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Phil Bentham",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Northern Foods",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Operation Perch",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 1.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Lior Eliyahu",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Haruna Ishola",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.4,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Simon Brotherton",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Gagak Item",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Anna Livia Julian Brawn",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Henry Schradieck",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Joseph Campbell",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Humphry Davy",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Rich Ingold",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.3,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Merisant",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Vasili III of Russia",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.3,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Square Enix Europe",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.2,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Pierre Chenal",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Jean-Pierre Rampal",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Show Me a Hero",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Grant Kirkhope",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Barbara Britton",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Gracie Mansion",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Christopher Logue",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Avery Plateau",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Vital-Justin Grandin",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Lake Bluff",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Tim Mitchell",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Eusebius of Vercelli",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Kingdom of Libya",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Blakfish",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Frontline",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Valentin Conrart",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.1,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Norm Snead",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Blenders Pride",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Frank Markham",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    },
+    {
+      "subject": "Renault Alliance",
+      "ES": 1.0,
+      "ES_ft": 1.0,
+      "PS": 1.0,
+      "n_paraphrase": 2,
+      "NS": 0.0,
+      "n_neighborhood": 10
+    }
+  ],
+  "summary": {
+    "n_edits": 200,
+    "ES": 1.0,
+    "PS": 0.995,
+    "NS": 0.0415,
+    "ES_ft": 1.0,
+    "n_paraphrase_total": 400,
+    "n_neighborhood_total": 2000,
+    "n_paraphrase_missing": 0,
+    "n_neighborhood_missing": 0
+  },
+  "model": "data/models/Llama-3.2-1B",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 12,
+  "seed": 0,
+  "steps": 20,
+  "alpha_proj_source": null,
+  "egl_max_neighborhood": 10,
+  "egl_max_paraphrase": 2
+}

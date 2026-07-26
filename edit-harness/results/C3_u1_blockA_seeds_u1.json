@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.6626,
+    "within_probe_std_across_seeds": 0.0184,
+    "per_edit_mean_across_seeds": 0.4207,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "PASS \u2014 headline survives (edit-specific pairwise geometry, not probe-marginal)"
+  },
+  "per_seed": [
+    {
+      "npz": "u1e0_llama1b_delete_refusal_L12_s0.npz",
+      "shape": [
+        200,
+        149
+      ],
+      "flat_spearman_INFLATED": 0.5594,
+      "within_probe_mean": 0.6376,
+      "within_probe_ci95": [
+        0.6214,
+        0.653
+      ],
+      "within_probe_ci95_editcluster": [
+        0.5798,
+        0.6826
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.3716,
+      "per_edit_ci95": [
+        0.3472,
+        0.3941
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0011,
+      "editlevel_null_std": 0.0484,
+      "editlevel_z": 13.15,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.5179,
+      "mean_residual_norm(S)": 22.8294
+    },
+    {
+      "npz": "u1e0_llama1b_delete_refusal_L12_s1.npz",
+      "shape": [
+        199,
+        154
+      ],
+      "flat_spearman_INFLATED": 0.6038,
+      "within_probe_mean": 0.6816,
+      "within_probe_ci95": [
+        0.6656,
+        0.697
+      ],
+      "within_probe_ci95_editcluster": [
+        0.6371,
+        0.7208
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.4766,
+      "per_edit_ci95": [
+        0.4538,
+        0.5007
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0018,
+      "editlevel_null_std": 0.0479,
+      "editlevel_z": 14.21,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.5307,
+      "mean_residual_norm(S)": 23.0222
+    },
+    {
+      "npz": "u1e0_llama1b_delete_refusal_L12_s2.npz",
+      "shape": [
+        199,
+        154
+      ],
+      "flat_spearman_INFLATED": 0.5982,
+      "within_probe_mean": 0.6685,
+      "within_probe_ci95": [
+        0.6526,
+        0.6846
+      ],
+      "within_probe_ci95_editcluster": [
+        0.611,
+        0.7109
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.414,
+      "per_edit_ci95": [
+        0.3896,
+        0.4381
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": -0.0031,
+      "editlevel_null_std": 0.0471,
+      "editlevel_z": 14.26,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.4978,
+      "mean_residual_norm(S)": 22.9543
+    }
+  ]
+}

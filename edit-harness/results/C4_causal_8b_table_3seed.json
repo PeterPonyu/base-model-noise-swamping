@@ -1,0 +1,183 @@
+{
+  "metric": "damage_logit",
+  "statistic": "signed within-probe partialled Spearman(key-cos, damage_removed); quartile mean damage-removed",
+  "filters": {
+    "known": true,
+    "edit_ok": true,
+    "proj_source": "holdout"
+  },
+  "rome_glob": "results/matrices/gate_llama8b_rome_cf_L{L}_s*.npz",
+  "alpha_glob": "results/matrices/g4_llama8b_alphaHO_cf_L{L}_s*.npz",
+  "layers": {
+    "16": {
+      "layer": 16,
+      "n_pairs": 122578,
+      "seeds_used": [
+        0,
+        1,
+        2
+      ],
+      "proj_sources": [
+        "holdout"
+      ],
+      "within_probe_spearman": 0.2122,
+      "within_probe_spearman_per_seed": [
+        0.1852,
+        0.2474,
+        0.204
+      ],
+      "mean_damage_rome": 0.26026,
+      "mean_damage_alpha": 0.02248,
+      "mean_damage_removed": 0.23778,
+      "quartile_means": [
+        {
+          "cosine_quartile": "Q1(low)",
+          "n_pairs": 30645,
+          "mean_cos": 0.0872,
+          "mean_damage_removed": 0.01567,
+          "mean_damage_rome": 0.04695,
+          "mean_damage_alpha": 0.03127
+        },
+        {
+          "cosine_quartile": "Q2",
+          "n_pairs": 30644,
+          "mean_cos": 0.1491,
+          "mean_damage_removed": 0.09127,
+          "mean_damage_rome": 0.11102,
+          "mean_damage_alpha": 0.01975
+        },
+        {
+          "cosine_quartile": "Q3",
+          "n_pairs": 30644,
+          "mean_cos": 0.1988,
+          "mean_damage_removed": 0.20977,
+          "mean_damage_rome": 0.22465,
+          "mean_damage_alpha": 0.01488
+        },
+        {
+          "cosine_quartile": "Q4(high)",
+          "n_pairs": 30645,
+          "mean_cos": 0.3037,
+          "mean_damage_removed": 0.63439,
+          "mean_damage_rome": 0.65841,
+          "mean_damage_alpha": 0.02402
+        }
+      ],
+      "removed_top_vs_bottom_ratio": 40.484
+    },
+    "24": {
+      "layer": 24,
+      "n_pairs": 122578,
+      "seeds_used": [
+        0,
+        1,
+        2
+      ],
+      "proj_sources": [
+        "holdout"
+      ],
+      "within_probe_spearman": -0.0869,
+      "within_probe_spearman_per_seed": [
+        -0.1016,
+        -0.081,
+        -0.0781
+      ],
+      "mean_damage_rome": -0.05036,
+      "mean_damage_alpha": 0.02018,
+      "mean_damage_removed": -0.07054,
+      "quartile_means": [
+        {
+          "cosine_quartile": "Q1(low)",
+          "n_pairs": 30645,
+          "mean_cos": 0.0441,
+          "mean_damage_removed": -0.06496,
+          "mean_damage_rome": -0.02914,
+          "mean_damage_alpha": 0.03581
+        },
+        {
+          "cosine_quartile": "Q2",
+          "n_pairs": 30644,
+          "mean_cos": 0.0752,
+          "mean_damage_removed": -0.06214,
+          "mean_damage_rome": -0.03644,
+          "mean_damage_alpha": 0.02569
+        },
+        {
+          "cosine_quartile": "Q3",
+          "n_pairs": 30644,
+          "mean_cos": 0.1085,
+          "mean_damage_removed": -0.0634,
+          "mean_damage_rome": -0.05272,
+          "mean_damage_alpha": 0.01068
+        },
+        {
+          "cosine_quartile": "Q4(high)",
+          "n_pairs": 30645,
+          "mean_cos": 0.2025,
+          "mean_damage_removed": -0.09165,
+          "mean_damage_rome": -0.08312,
+          "mean_damage_alpha": 0.00854
+        }
+      ],
+      "removed_top_vs_bottom_ratio": 1.411
+    },
+    "28": {
+      "layer": 28,
+      "n_pairs": 121756,
+      "seeds_used": [
+        0,
+        1,
+        2
+      ],
+      "proj_sources": [
+        "holdout"
+      ],
+      "within_probe_spearman": 0.1225,
+      "within_probe_spearman_per_seed": [
+        0.1543,
+        0.0865,
+        0.1266
+      ],
+      "mean_damage_rome": 0.00503,
+      "mean_damage_alpha": 0.00854,
+      "mean_damage_removed": -0.00351,
+      "quartile_means": [
+        {
+          "cosine_quartile": "Q1(low)",
+          "n_pairs": 30439,
+          "mean_cos": 0.2226,
+          "mean_damage_removed": -0.0829,
+          "mean_damage_rome": -0.07857,
+          "mean_damage_alpha": 0.00433
+        },
+        {
+          "cosine_quartile": "Q2",
+          "n_pairs": 30439,
+          "mean_cos": 0.3036,
+          "mean_damage_removed": -0.05406,
+          "mean_damage_rome": -0.04528,
+          "mean_damage_alpha": 0.00878
+        },
+        {
+          "cosine_quartile": "Q3",
+          "n_pairs": 30439,
+          "mean_cos": 0.3685,
+          "mean_damage_removed": -0.00537,
+          "mean_damage_rome": 0.00541,
+          "mean_damage_alpha": 0.01078
+        },
+        {
+          "cosine_quartile": "Q4(high)",
+          "n_pairs": 30439,
+          "mean_cos": 0.4974,
+          "mean_damage_removed": 0.12829,
+          "mean_damage_rome": 0.13855,
+          "mean_damage_alpha": 0.01026
+        }
+      ],
+      "removed_top_vs_bottom_ratio": -1.548
+    }
+  },
+  "layers_skipped": [],
+  "notes": []
+}

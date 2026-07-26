@@ -1,0 +1,1213 @@
+{
+  "experiment": "D1_sign_inversion_keyspace_statistic_E0",
+  "prereg": "docs/plans/PREREG-D1-SIGN-E0-20260714.md",
+  "created": "2026-07-15T01:20:00",
+  "rng_seed": 12345,
+  "n_rep_isotropic_null": 50,
+  "atlas_sign_table": {
+    "llama1b": 1,
+    "mistral7b": 1,
+    "llama31_8bi": 1,
+    "gemma9b": 1,
+    "qwen15b": -1,
+    "qwen3_8b": -1,
+    "qwen25_7b": -1,
+    "qwen25_14b": -1,
+    "qwen3_14b": -1
+  },
+  "families_used_in_gate": [
+    "qwen15b",
+    "qwen3_8b",
+    "gemma9b",
+    "llama1b",
+    "llama31_8bi",
+    "mistral7b"
+  ],
+  "families_absent": [
+    "qwen25_7b",
+    "qwen25_14b",
+    "qwen3_14b"
+  ],
+  "statistic_definition": "Each statistic is the EXCESS of a raw key-space quantity (pr_frac / mean_cos / |cos| / kurtosis) over its NORM-MATCHED ISOTROPIC-Gaussian null MEAN at that bank's own (N,d) \u2014 the 1/sqrt(d) floor subtracted off, removing the width (intermediate_size) and key-norm confounds (prereg \u00a71.4). This does NOT close the lineage/tokenizer confound (see binding_wording). Not a z-score: the null STD is NOT divided out (it is d-dependent and ~0 at N<<d, which would reintroduce width and explode numerically). Per family = mean excess over its cached banks/seeds.",
+  "per_family": {
+    "llama1b": {
+      "sign": 1,
+      "n_banks": 7,
+      "d_intermediate": [
+        8192
+      ],
+      "layers": [
+        8,
+        10,
+        12
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "single_seed": false,
+      "excess_aggregate": {
+        "e_pr_frac": -0.615131,
+        "e_mean_cos": 0.262529,
+        "e_abs_cos": 0.253712,
+        "e_kappa": 5.687874
+      },
+      "per_bank": [
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L10_s0.npz",
+          "layer": 10,
+          "seed": 0,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.318448,
+            "mean_cos": 0.234944,
+            "abs_cos": 0.234948,
+            "kappa": 5.647479
+          },
+          "null_mean": {
+            "pr_frac": 0.946682,
+            "mean_cos": 3e-06,
+            "abs_cos": 0.008818,
+            "kappa": 0.059956
+          },
+          "excess": {
+            "e_pr_frac": -0.628234,
+            "e_mean_cos": 0.234941,
+            "e_abs_cos": 0.22613,
+            "e_kappa": 5.587523
+          }
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L10_s1.npz",
+          "layer": 10,
+          "seed": 1,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.346011,
+            "mean_cos": 0.212515,
+            "abs_cos": 0.212516,
+            "kappa": 5.834136
+          },
+          "null_mean": {
+            "pr_frac": 0.938193,
+            "mean_cos": -9e-06,
+            "abs_cos": 0.008811,
+            "kappa": 0.084744
+          },
+          "excess": {
+            "e_pr_frac": -0.592182,
+            "e_mean_cos": 0.212523,
+            "e_abs_cos": 0.203705,
+            "e_kappa": 5.749392
+          }
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L10_s2.npz",
+          "layer": 10,
+          "seed": 2,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.349606,
+            "mean_cos": 0.217431,
+            "abs_cos": 0.217434,
+            "kappa": 5.726151
+          },
+          "null_mean": {
+            "pr_frac": 0.937947,
+            "mean_cos": 7e-06,
+            "abs_cos": 0.008815,
+            "kappa": 0.086003
+          },
+          "excess": {
+            "e_pr_frac": -0.588341,
+            "e_mean_cos": 0.217424,
+            "e_abs_cos": 0.208619,
+            "e_kappa": 5.640148
+          }
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L12_s1.npz",
+          "layer": 12,
+          "seed": 1,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.334563,
+            "mean_cos": 0.284761,
+            "abs_cos": 0.284761,
+            "kappa": 7.632894
+          },
+          "null_mean": {
+            "pr_frac": 0.924798,
+            "mean_cos": -1.1e-05,
+            "abs_cos": 0.008811,
+            "kappa": 0.13022
+          },
+          "excess": {
+            "e_pr_frac": -0.590235,
+            "e_mean_cos": 0.284772,
+            "e_abs_cos": 0.275951,
+            "e_kappa": 7.502674
+          }
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L12_s2.npz",
+          "layer": 12,
+          "seed": 2,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.369498,
+            "mean_cos": 0.287727,
+            "abs_cos": 0.287727,
+            "kappa": 8.018747
+          },
+          "null_mean": {
+            "pr_frac": 0.931585,
+            "mean_cos": -0.0,
+            "abs_cos": 0.008823,
+            "kappa": 0.107097
+          },
+          "excess": {
+            "e_pr_frac": -0.562087,
+            "e_mean_cos": 0.287728,
+            "e_abs_cos": 0.278905,
+            "e_kappa": 7.91165
+          }
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L8_s1.npz",
+          "layer": 8,
+          "seed": 1,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.289814,
+            "mean_cos": 0.294551,
+            "abs_cos": 0.294551,
+            "kappa": 3.75569
+          },
+          "null_mean": {
+            "pr_frac": 0.966104,
+            "mean_cos": 1e-06,
+            "abs_cos": 0.008819,
+            "kappa": -0.000196
+          },
+          "excess": {
+            "e_pr_frac": -0.67629,
+            "e_mean_cos": 0.29455,
+            "e_abs_cos": 0.285732,
+            "e_kappa": 3.755887
+          }
+        },
+        {
+          "npz": "vectors_qv_llama1b_rome_cf_L8_s2.npz",
+          "layer": 8,
+          "seed": 2,
+          "N": 200,
+          "d": 8192,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.294915,
+            "mean_cos": 0.305761,
+            "abs_cos": 0.305761,
+            "kappa": 3.675816
+          },
+          "null_mean": {
+            "pr_frac": 0.963466,
+            "mean_cos": -1e-06,
+            "abs_cos": 0.008816,
+            "kappa": 0.007972
+          },
+          "excess": {
+            "e_pr_frac": -0.668551,
+            "e_mean_cos": 0.305762,
+            "e_abs_cos": 0.296944,
+            "e_kappa": 3.667844
+          }
+        }
+      ]
+    },
+    "mistral7b": {
+      "sign": 1,
+      "n_banks": 4,
+      "d_intermediate": [
+        14336
+      ],
+      "layers": [
+        16,
+        20,
+        24,
+        28
+      ],
+      "seeds": [
+        0
+      ],
+      "single_seed": true,
+      "excess_aggregate": {
+        "e_pr_frac": -0.449891,
+        "e_mean_cos": 0.162239,
+        "e_abs_cos": 0.155598,
+        "e_kappa": 11.879456
+      },
+      "per_bank": [
+        {
+          "npz": "vectors_qv_mistral7b_rome_cf_L16_s0.npz",
+          "layer": 16,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.487776,
+            "mean_cos": 0.177588,
+            "abs_cos": 0.177588,
+            "kappa": 7.794744
+          },
+          "null_mean": {
+            "pr_frac": 0.950045,
+            "mean_cos": 1.7e-05,
+            "abs_cos": 0.006672,
+            "kappa": 0.077822
+          },
+          "excess": {
+            "e_pr_frac": -0.462269,
+            "e_mean_cos": 0.177571,
+            "e_abs_cos": 0.170916,
+            "e_kappa": 7.716922
+          }
+        },
+        {
+          "npz": "vectors_qv_mistral7b_rome_cf_L20_s0.npz",
+          "layer": 20,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.476089,
+            "mean_cos": 0.137633,
+            "abs_cos": 0.137689,
+            "kappa": 13.962163
+          },
+          "null_mean": {
+            "pr_frac": 0.934451,
+            "mean_cos": 5e-06,
+            "abs_cos": 0.006662,
+            "kappa": 0.126577
+          },
+          "excess": {
+            "e_pr_frac": -0.458362,
+            "e_mean_cos": 0.137628,
+            "e_abs_cos": 0.131027,
+            "e_kappa": 13.835586
+          }
+        },
+        {
+          "npz": "vectors_qv_mistral7b_rome_cf_L24_s0.npz",
+          "layer": 24,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.584618,
+            "mean_cos": 0.099565,
+            "abs_cos": 0.099607,
+            "kappa": 14.084288
+          },
+          "null_mean": {
+            "pr_frac": 0.899511,
+            "mean_cos": -1.4e-05,
+            "abs_cos": 0.006668,
+            "kappa": 0.243763
+          },
+          "excess": {
+            "e_pr_frac": -0.314892,
+            "e_mean_cos": 0.099579,
+            "e_abs_cos": 0.09294,
+            "e_kappa": 13.840525
+          }
+        },
+        {
+          "npz": "vectors_qv_mistral7b_rome_cf_L28_s0.npz",
+          "layer": 28,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.377171,
+            "mean_cos": 0.234176,
+            "abs_cos": 0.234176,
+            "kappa": 12.230051
+          },
+          "null_mean": {
+            "pr_frac": 0.941213,
+            "mean_cos": -2e-06,
+            "abs_cos": 0.006668,
+            "kappa": 0.105261
+          },
+          "excess": {
+            "e_pr_frac": -0.564042,
+            "e_mean_cos": 0.234178,
+            "e_abs_cos": 0.227508,
+            "e_kappa": 12.12479
+          }
+        }
+      ]
+    },
+    "llama31_8bi": {
+      "sign": 1,
+      "n_banks": 4,
+      "d_intermediate": [
+        14336
+      ],
+      "layers": [
+        16,
+        20,
+        24,
+        28
+      ],
+      "seeds": [
+        0
+      ],
+      "single_seed": true,
+      "excess_aggregate": {
+        "e_pr_frac": -0.385014,
+        "e_mean_cos": 0.213561,
+        "e_abs_cos": 0.206889,
+        "e_kappa": 8.34047
+      },
+      "per_bank": [
+        {
+          "npz": "vectors_qv_llama31_8bi_rome_cf_L16_s0.npz",
+          "layer": 16,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.54131,
+            "mean_cos": 0.212476,
+            "abs_cos": 0.212476,
+            "kappa": 7.078686
+          },
+          "null_mean": {
+            "pr_frac": 0.959125,
+            "mean_cos": -1.2e-05,
+            "abs_cos": 0.006658,
+            "kappa": 0.051358
+          },
+          "excess": {
+            "e_pr_frac": -0.417815,
+            "e_mean_cos": 0.212488,
+            "e_abs_cos": 0.205818,
+            "e_kappa": 7.027327
+          }
+        },
+        {
+          "npz": "vectors_qv_llama31_8bi_rome_cf_L20_s0.npz",
+          "layer": 20,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.571071,
+            "mean_cos": 0.12504,
+            "abs_cos": 0.125042,
+            "kappa": 8.231211
+          },
+          "null_mean": {
+            "pr_frac": 0.923223,
+            "mean_cos": 3e-06,
+            "abs_cos": 0.006661,
+            "kappa": 0.162313
+          },
+          "excess": {
+            "e_pr_frac": -0.352151,
+            "e_mean_cos": 0.125037,
+            "e_abs_cos": 0.11838,
+            "e_kappa": 8.068898
+          }
+        },
+        {
+          "npz": "vectors_qv_llama31_8bi_rome_cf_L24_s0.npz",
+          "layer": 24,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.648149,
+            "mean_cos": 0.109552,
+            "abs_cos": 0.109553,
+            "kappa": 9.950599
+          },
+          "null_mean": {
+            "pr_frac": 0.854737,
+            "mean_cos": -3e-06,
+            "abs_cos": 0.006672,
+            "kappa": 0.406119
+          },
+          "excess": {
+            "e_pr_frac": -0.206587,
+            "e_mean_cos": 0.109556,
+            "e_abs_cos": 0.102881,
+            "e_kappa": 9.544479
+          }
+        },
+        {
+          "npz": "vectors_qv_llama31_8bi_rome_cf_L28_s0.npz",
+          "layer": 28,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.380683,
+            "mean_cos": 0.407147,
+            "abs_cos": 0.407147,
+            "kappa": 8.817115
+          },
+          "null_mean": {
+            "pr_frac": 0.944184,
+            "mean_cos": -1.5e-05,
+            "abs_cos": 0.00667,
+            "kappa": 0.095938
+          },
+          "excess": {
+            "e_pr_frac": -0.563501,
+            "e_mean_cos": 0.407162,
+            "e_abs_cos": 0.400477,
+            "e_kappa": 8.721177
+          }
+        }
+      ]
+    },
+    "gemma9b": {
+      "sign": 1,
+      "n_banks": 4,
+      "d_intermediate": [
+        14336
+      ],
+      "layers": [
+        21,
+        26,
+        31,
+        36
+      ],
+      "seeds": [
+        0
+      ],
+      "single_seed": true,
+      "excess_aggregate": {
+        "e_pr_frac": -0.632929,
+        "e_mean_cos": 0.465644,
+        "e_abs_cos": 0.458982,
+        "e_kappa": 8.40121
+      },
+      "per_bank": [
+        {
+          "npz": "vectors_qv_gemma9b_rome_cf_L21_s0.npz",
+          "layer": 21,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.238544,
+            "mean_cos": 0.416663,
+            "abs_cos": 0.416663,
+            "kappa": 5.487694
+          },
+          "null_mean": {
+            "pr_frac": 0.904138,
+            "mean_cos": -6e-06,
+            "abs_cos": 0.006662,
+            "kappa": 0.22934
+          },
+          "excess": {
+            "e_pr_frac": -0.665594,
+            "e_mean_cos": 0.416669,
+            "e_abs_cos": 0.410001,
+            "e_kappa": 5.258354
+          }
+        },
+        {
+          "npz": "vectors_qv_gemma9b_rome_cf_L26_s0.npz",
+          "layer": 26,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.286198,
+            "mean_cos": 0.525593,
+            "abs_cos": 0.525601,
+            "kappa": 5.722652
+          },
+          "null_mean": {
+            "pr_frac": 0.933268,
+            "mean_cos": 3e-06,
+            "abs_cos": 0.006661,
+            "kappa": 0.132644
+          },
+          "excess": {
+            "e_pr_frac": -0.647071,
+            "e_mean_cos": 0.52559,
+            "e_abs_cos": 0.51894,
+            "e_kappa": 5.590008
+          }
+        },
+        {
+          "npz": "vectors_qv_gemma9b_rome_cf_L31_s0.npz",
+          "layer": 31,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.390249,
+            "mean_cos": 0.434105,
+            "abs_cos": 0.434105,
+            "kappa": 12.404898
+          },
+          "null_mean": {
+            "pr_frac": 0.94032,
+            "mean_cos": -2e-06,
+            "abs_cos": 0.006659,
+            "kappa": 0.10836
+          },
+          "excess": {
+            "e_pr_frac": -0.550071,
+            "e_mean_cos": 0.434107,
+            "e_abs_cos": 0.427447,
+            "e_kappa": 12.296538
+          }
+        },
+        {
+          "npz": "vectors_qv_gemma9b_rome_cf_L36_s0.npz",
+          "layer": 36,
+          "seed": 0,
+          "N": 200,
+          "d": 14336,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.236039,
+            "mean_cos": 0.486194,
+            "abs_cos": 0.486194,
+            "kappa": 10.685575
+          },
+          "null_mean": {
+            "pr_frac": 0.905017,
+            "mean_cos": -1.5e-05,
+            "abs_cos": 0.006654,
+            "kappa": 0.225637
+          },
+          "excess": {
+            "e_pr_frac": -0.668978,
+            "e_mean_cos": 0.486209,
+            "e_abs_cos": 0.47954,
+            "e_kappa": 10.459938
+          }
+        }
+      ]
+    },
+    "qwen15b": {
+      "sign": -1,
+      "n_banks": 12,
+      "d_intermediate": [
+        8960
+      ],
+      "layers": [
+        14,
+        17,
+        21,
+        24
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "single_seed": false,
+      "excess_aggregate": {
+        "e_pr_frac": -0.64536,
+        "e_mean_cos": 0.258392,
+        "e_abs_cos": 0.250109,
+        "e_kappa": 8.011111
+      },
+      "per_bank": [
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L14_s0.npz",
+          "layer": 14,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.303544,
+            "mean_cos": 0.199529,
+            "abs_cos": 0.199541,
+            "kappa": 5.179369
+          },
+          "null_mean": {
+            "pr_frac": 0.937662,
+            "mean_cos": 4e-06,
+            "abs_cos": 0.008434,
+            "kappa": 0.092707
+          },
+          "excess": {
+            "e_pr_frac": -0.634118,
+            "e_mean_cos": 0.199525,
+            "e_abs_cos": 0.191107,
+            "e_kappa": 5.086662
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L14_s1.npz",
+          "layer": 14,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.330392,
+            "mean_cos": 0.195571,
+            "abs_cos": 0.195863,
+            "kappa": 5.015718
+          },
+          "null_mean": {
+            "pr_frac": 0.939756,
+            "mean_cos": 1.1e-05,
+            "abs_cos": 0.008434,
+            "kappa": 0.087648
+          },
+          "excess": {
+            "e_pr_frac": -0.609365,
+            "e_mean_cos": 0.195561,
+            "e_abs_cos": 0.187429,
+            "e_kappa": 4.92807
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L14_s2.npz",
+          "layer": 14,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.34226,
+            "mean_cos": 0.196877,
+            "abs_cos": 0.1969,
+            "kappa": 5.116197
+          },
+          "null_mean": {
+            "pr_frac": 0.938608,
+            "mean_cos": 1e-05,
+            "abs_cos": 0.008431,
+            "kappa": 0.089991
+          },
+          "excess": {
+            "e_pr_frac": -0.596349,
+            "e_mean_cos": 0.196867,
+            "e_abs_cos": 0.188469,
+            "e_kappa": 5.026206
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L17_s0.npz",
+          "layer": 17,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.209773,
+            "mean_cos": 0.287463,
+            "abs_cos": 0.287467,
+            "kappa": 4.988924
+          },
+          "null_mean": {
+            "pr_frac": 0.944005,
+            "mean_cos": -3e-06,
+            "abs_cos": 0.008422,
+            "kappa": 0.074563
+          },
+          "excess": {
+            "e_pr_frac": -0.734232,
+            "e_mean_cos": 0.287466,
+            "e_abs_cos": 0.279045,
+            "e_kappa": 4.91436
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L17_s1.npz",
+          "layer": 17,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.214895,
+            "mean_cos": 0.26903,
+            "abs_cos": 0.269295,
+            "kappa": 4.382473
+          },
+          "null_mean": {
+            "pr_frac": 0.945151,
+            "mean_cos": 8e-06,
+            "abs_cos": 0.008425,
+            "kappa": 0.07157
+          },
+          "excess": {
+            "e_pr_frac": -0.730256,
+            "e_mean_cos": 0.269021,
+            "e_abs_cos": 0.26087,
+            "e_kappa": 4.310903
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L17_s2.npz",
+          "layer": 17,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.237225,
+            "mean_cos": 0.275413,
+            "abs_cos": 0.275431,
+            "kappa": 4.979629
+          },
+          "null_mean": {
+            "pr_frac": 0.936313,
+            "mean_cos": -3e-06,
+            "abs_cos": 0.00843,
+            "kappa": 0.097852
+          },
+          "excess": {
+            "e_pr_frac": -0.699087,
+            "e_mean_cos": 0.275416,
+            "e_abs_cos": 0.267002,
+            "e_kappa": 4.881777
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L21_s0.npz",
+          "layer": 21,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.263472,
+            "mean_cos": 0.247551,
+            "abs_cos": 0.247552,
+            "kappa": 8.027017
+          },
+          "null_mean": {
+            "pr_frac": 0.944072,
+            "mean_cos": 3e-06,
+            "abs_cos": 0.00843,
+            "kappa": 0.072279
+          },
+          "excess": {
+            "e_pr_frac": -0.6806,
+            "e_mean_cos": 0.247548,
+            "e_abs_cos": 0.239122,
+            "e_kappa": 7.954737
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L21_s1.npz",
+          "layer": 21,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.281266,
+            "mean_cos": 0.228469,
+            "abs_cos": 0.229131,
+            "kappa": 6.791375
+          },
+          "null_mean": {
+            "pr_frac": 0.93894,
+            "mean_cos": 4e-06,
+            "abs_cos": 0.008424,
+            "kappa": 0.09047
+          },
+          "excess": {
+            "e_pr_frac": -0.657674,
+            "e_mean_cos": 0.228465,
+            "e_abs_cos": 0.220707,
+            "e_kappa": 6.700904
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L21_s2.npz",
+          "layer": 21,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.293162,
+            "mean_cos": 0.22788,
+            "abs_cos": 0.227882,
+            "kappa": 7.658429
+          },
+          "null_mean": {
+            "pr_frac": 0.945485,
+            "mean_cos": 1.2e-05,
+            "abs_cos": 0.008431,
+            "kappa": 0.068519
+          },
+          "excess": {
+            "e_pr_frac": -0.652323,
+            "e_mean_cos": 0.227868,
+            "e_abs_cos": 0.219451,
+            "e_kappa": 7.58991
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L24_s0.npz",
+          "layer": 24,
+          "seed": 0,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.263953,
+            "mean_cos": 0.334968,
+            "abs_cos": 0.334968,
+            "kappa": 15.299373
+          },
+          "null_mean": {
+            "pr_frac": 0.867796,
+            "mean_cos": 0.0,
+            "abs_cos": 0.008431,
+            "kappa": 0.326539
+          },
+          "excess": {
+            "e_pr_frac": -0.603844,
+            "e_mean_cos": 0.334968,
+            "e_abs_cos": 0.326537,
+            "e_kappa": 14.972834
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L24_s1.npz",
+          "layer": 24,
+          "seed": 1,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.275874,
+            "mean_cos": 0.316715,
+            "abs_cos": 0.317139,
+            "kappa": 14.862389
+          },
+          "null_mean": {
+            "pr_frac": 0.857259,
+            "mean_cos": -2e-06,
+            "abs_cos": 0.008428,
+            "kappa": 0.361683
+          },
+          "excess": {
+            "e_pr_frac": -0.581386,
+            "e_mean_cos": 0.316718,
+            "e_abs_cos": 0.308711,
+            "e_kappa": 14.500706
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen15b_rome_cf_L24_s2.npz",
+          "layer": 24,
+          "seed": 2,
+          "N": 200,
+          "d": 8960,
+          "vectors_valid": 1,
+          "raw": {
+            "pr_frac": 0.304507,
+            "mean_cos": 0.321285,
+            "abs_cos": 0.321285,
+            "kappa": 15.585787
+          },
+          "null_mean": {
+            "pr_frac": 0.869587,
+            "mean_cos": -1e-06,
+            "abs_cos": 0.008425,
+            "kappa": 0.319529
+          },
+          "excess": {
+            "e_pr_frac": -0.56508,
+            "e_mean_cos": 0.321285,
+            "e_abs_cos": 0.312859,
+            "e_kappa": 15.266258
+          }
+        }
+      ]
+    },
+    "qwen3_8b": {
+      "sign": -1,
+      "n_banks": 4,
+      "d_intermediate": [
+        12288
+      ],
+      "layers": [
+        18,
+        22,
+        27,
+        31
+      ],
+      "seeds": [
+        0
+      ],
+      "single_seed": true,
+      "excess_aggregate": {
+        "e_pr_frac": -0.524903,
+        "e_mean_cos": 0.212158,
+        "e_abs_cos": 0.204971,
+        "e_kappa": 14.137033
+      },
+      "per_bank": [
+        {
+          "npz": "vectors_qv_qwen3_8b_rome_cf_L18_s0.npz",
+          "layer": 18,
+          "seed": 0,
+          "N": 200,
+          "d": 12288,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.403594,
+            "mean_cos": 0.176471,
+            "abs_cos": 0.176508,
+            "kappa": 6.225659
+          },
+          "null_mean": {
+            "pr_frac": 0.941345,
+            "mean_cos": -9e-06,
+            "abs_cos": 0.007203,
+            "kappa": 0.099817
+          },
+          "excess": {
+            "e_pr_frac": -0.537751,
+            "e_mean_cos": 0.17648,
+            "e_abs_cos": 0.169304,
+            "e_kappa": 6.125843
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen3_8b_rome_cf_L22_s0.npz",
+          "layer": 22,
+          "seed": 0,
+          "N": 200,
+          "d": 12288,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.386934,
+            "mean_cos": 0.206881,
+            "abs_cos": 0.206911,
+            "kappa": 8.457596
+          },
+          "null_mean": {
+            "pr_frac": 0.925557,
+            "mean_cos": -2.2e-05,
+            "abs_cos": 0.007193,
+            "kappa": 0.149076
+          },
+          "excess": {
+            "e_pr_frac": -0.538623,
+            "e_mean_cos": 0.206903,
+            "e_abs_cos": 0.199718,
+            "e_kappa": 8.30852
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen3_8b_rome_cf_L27_s0.npz",
+          "layer": 27,
+          "seed": 0,
+          "N": 200,
+          "d": 12288,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.315134,
+            "mean_cos": 0.208643,
+            "abs_cos": 0.208661,
+            "kappa": 17.554577
+          },
+          "null_mean": {
+            "pr_frac": 0.898559,
+            "mean_cos": 7e-06,
+            "abs_cos": 0.007193,
+            "kappa": 0.23913
+          },
+          "excess": {
+            "e_pr_frac": -0.583425,
+            "e_mean_cos": 0.208636,
+            "e_abs_cos": 0.201468,
+            "e_kappa": 17.315447
+          }
+        },
+        {
+          "npz": "vectors_qv_qwen3_8b_rome_cf_L31_s0.npz",
+          "layer": 31,
+          "seed": 0,
+          "N": 200,
+          "d": 12288,
+          "vectors_valid": 0,
+          "raw": {
+            "pr_frac": 0.402652,
+            "mean_cos": 0.256594,
+            "abs_cos": 0.256594,
+            "kappa": 25.240443
+          },
+          "null_mean": {
+            "pr_frac": 0.842466,
+            "mean_cos": -2e-05,
+            "abs_cos": 0.007202,
+            "kappa": 0.442122
+          },
+          "excess": {
+            "e_pr_frac": -0.439814,
+            "e_mean_cos": 0.256614,
+            "e_abs_cos": 0.249393,
+            "e_kappa": 24.798321
+          }
+        }
+      ]
+    },
+    "qwen25_7b": {
+      "sign": -1,
+      "n_banks": 0,
+      "status": "ABSENT (no cached raw-K bank \u2014 awaits dump wave)"
+    },
+    "qwen25_14b": {
+      "sign": -1,
+      "n_banks": 0,
+      "status": "ABSENT (no cached raw-K bank \u2014 awaits dump wave)"
+    },
+    "qwen3_14b": {
+      "sign": -1,
+      "n_banks": 0,
+      "status": "ABSENT (no cached raw-K bank \u2014 awaits dump wave)"
+    }
+  },
+  "gate": {
+    "n_families": 6,
+    "n_pos": 4,
+    "n_neg": 2,
+    "permutation_floor": 0.066667,
+    "per_stat": [
+      {
+        "stat": "e_abs_cos",
+        "desc": "H1 key-cone anisotropy: |cos| excess over the (N,d)-matched isotropic null",
+        "family_values": {
+          "qwen15b": 0.2501,
+          "qwen3_8b": 0.205,
+          "gemma9b": 0.459,
+          "llama1b": 0.2537,
+          "llama31_8bi": 0.2069,
+          "mistral7b": 0.1556
+        },
+        "lofo_accuracy": 0.3333,
+        "separation_margin": -0.0945,
+        "fully_separates": false,
+        "perm_p": 0.8,
+        "n_perm": 15,
+        "perm_floor": 0.066667,
+        "holm_threshold": 0.025,
+        "passes_holm": false
+      },
+      {
+        "stat": "e_pr_frac",
+        "desc": "H2 participation-ratio-fraction excess (effective-rank / covariance shape)",
+        "family_values": {
+          "qwen15b": -0.6454,
+          "qwen3_8b": -0.5249,
+          "gemma9b": -0.6329,
+          "llama1b": -0.6151,
+          "llama31_8bi": -0.385,
+          "mistral7b": -0.4499
+        },
+        "lofo_accuracy": 0.5,
+        "separation_margin": -0.108,
+        "fully_separates": false,
+        "perm_p": 0.533333,
+        "n_perm": 15,
+        "perm_floor": 0.066667,
+        "holm_threshold": 0.0125,
+        "passes_holm": false
+      },
+      {
+        "stat": "e_kappa",
+        "desc": "H3 coordinate-kurtosis excess (superposition / heavy tails)",
+        "family_values": {
+          "qwen15b": 8.0111,
+          "qwen3_8b": 14.137,
+          "gemma9b": 8.4012,
+          "llama1b": 5.6879,
+          "llama31_8bi": 8.3405,
+          "mistral7b": 11.8795
+        },
+        "lofo_accuracy": 0.5,
+        "separation_margin": -3.8683,
+        "fully_separates": false,
+        "perm_p": 0.733333,
+        "n_perm": 15,
+        "perm_floor": 0.066667,
+        "holm_threshold": 0.016667,
+        "passes_holm": false
+      },
+      {
+        "stat": "e_mean_cos",
+        "desc": "H4 signed-anisotropy excess (robustness variant of H1)",
+        "family_values": {
+          "qwen15b": 0.2584,
+          "qwen3_8b": 0.2122,
+          "gemma9b": 0.4656,
+          "llama1b": 0.2625,
+          "llama31_8bi": 0.2136,
+          "mistral7b": 0.1622
+        },
+        "lofo_accuracy": 0.3333,
+        "separation_margin": -0.0962,
+        "fully_separates": false,
+        "perm_p": 0.8,
+        "n_perm": 15,
+        "perm_floor": 0.066667,
+        "holm_threshold": 0.05,
+        "passes_holm": false
+      }
+    ],
+    "winner": null,
+    "verdict": "KILL"
+  },
+  "verdict": "KILL",
+  "binding_wording": [
+    "DOWNSCOPED CLAIM (review MAJOR-1): a PASS/PASS_SEPARATION means a key-space statistic SEPARATES the Qwen lineage from the Llama/Mistral/Gemma lineages, CONSISTENT WITH the sign split. It does NOT 'predict the family sign' in a generalizable sense and is NOT a mechanism (no intervention; see next item).",
+    "LABEL EXCHANGEABILITY VIOLATED: the exact-permutation null assumes the sign labels are exchangeable, but ALL negatives are ONE correlated lineage (Qwen: shared architecture + tokenizer + training recipe). Effective negative-side n is ~1 LINEAGE, not the negative FAMILY count, so the permutation p is optimistic and the LOFO 'held-out family' is really a held-out Qwen TIER, not an independent draw.",
+    "HARD CEILING: a genuine negative-side generalization test needs a NON-Qwen negative family \u2014 which the atlas shows does not exist (every negative family is Qwen). The balancing dump (3 more Qwen negatives) only improves the permutation FLOOR; it does NOT relieve this ceiling. So the strongest admissible result here is a lineage-separation / sign-consistency statement, never family-sign prediction.",
+    "KILL is the explicit 'sign is LINEAGE-determined with no lower-dimensional key-space summary' outcome (prereg \u00a73.3) -> ship the sign atlas as a descriptive taxonomy, no mechanism claim.",
+    "LINEAGE confound (architecture + tokenizer + training recipe), NOT closed by the isotropic-excess deconfound (that removes width/norm only): a statistic that merely proxies 'is-Qwen-lineage' is indistinguishable here from a key-geometry mechanism. The prereg \u00a74.2 shared-single-token-subject control addresses only the tokenizer facet; architecture/recipe cannot be separated without a non-Qwen negative family. Run the control before ANY mechanism-flavored wording.",
+    "Embedding-tying is PRE-KILLED as the sign driver (prereg \u00a74.1): tied models sit on BOTH sign sides (Llama-3.2-1B/gemma-2 tied & POSITIVE; Qwen tied & NEGATIVE; Llama-3.1-8B untied & POSITIVE).",
+    "Class balance sets the exact permutation p of a perfect separator (fixed-sequence, raw alpha=0.05): with 4 POS / 2 NEG only the true partition separates -> p=1/15=0.067>0.05 -> at best PASS_SEPARATION; dumping the 3 balancing Qwen negatives (4 POS / 4 NEG) drops it to p=2/70=0.029<=0.05 (the factor 2 is the sign-flip mirror of the nearest-centroid rule). NB this lowers only the FLOOR; the exchangeability ceiling above still caps the claim.",
+    "Most families are single-seed (s0) raw-K; per-family excess rests on point estimates except llama1b(L14)/qwen15b(L14) which carry 3 seeds."
+  ]
+}

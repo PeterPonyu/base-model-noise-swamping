@@ -1,0 +1,216 @@
+{
+  "summary": "Whole-board analysis of the knowledge-editing breadth sweep: characterize where key-geometry-predicts-damage holds vs fails (Llama vs Qwen, ROME vs FT-L, layers), stress-test confounds, and decide the scoped paper framing + what to deepen",
+  "agentCount": 5,
+  "logs": [],
+  "result": {
+    "synth": "## DECISION: Scope the claim, ship it as a conditional phenomenon, do two cheap reruns first\n\n---\n\n### (1) THE SCOPED FINDING\n\nPre-edit subject-key cosine predicts which neighboring facts a ROME edit damages **only for Llama-family models edited with rank-one ROME in the mid-stack MLP band (Llama-3.2-1B L4–L12: ρc=0.33–0.50, AUCc=0.71–0.83, beating norm-growth; replicated on Llama-3.2-3B L6/L14 ρc≈0.24–0.30)**. It fails everywhere the rank-one-times-collateral-damage precondition is absent: on **FT-L** (full-rank update, ρc=0.04–0.14 ≈ chance on both families), at **Llama's deepest pre-output layer** (L14: norm-growth ρn=0.57 overtakes ρc=0.23), and on **all Qwen2.5 configs** (ρc=−0.14 to +0.13), where ROME edits are intrinsically local (mean collateral damage ≈0 logits, i.e. ~200× smaller than Llama's +3.0) so there is essentially nothing to predict.\n\n---\n\n### (2) CONFOUND VERDICT\n\n**The Llama effect is real but not yet *clean*; the Qwen null is real (an absence of the phenomenon, not a broken predictor).**\n\n- **Qwen null — settled as genuine.** edit_success_rate is 0.98–1.00, so it is not failed edits. Mean damage ≈0 with key cosine 0.02–0.17 (vs Llama 0.13–0.44): Qwen's near-orthogonal wider-MLP keys make rank-one updates local, so collateral damage barely exists. This is *consistent with* H1's damage∝alignment mechanism, not a refutation. Negative ρc values are noise against a ~zero-variance target, not anti-correlation. **No rerun needed to believe the Qwen null** — though gemma-2-2b / Phi-3.5 are needed to know whether \"works\" is Llama-specific or a general low-key-cosine / wide-MLP boundary.\n\n- **Llama effect — directionally real, two unresolved confounds.** Three independent things make it hard to dismiss as artifact: (a) the **layer dose-response + predictor crossover** (ρc climbs to 0.50 at L12 then norm-growth takes over at L14) is mechanistically coherent and hard to fake from probe-identity structure; (b) **Llama-3B reproduces**; (c) the **FT-L dissociation** (huge damage, unpredictable: ρc≈0.04, AUC≈0.52) is a clean negative control matching the rank-one mechanism. But two confounds are live: **(i) non-independence** — each ρ is computed over ~18k pairs that are really ~150 edits × ~70–150 reused probes, so *all* reported significances are massively overstated (effect sizes usable, p-values/CIs invalid); **(ii) probe-marginal leakage** — AUROC stays 0.65–0.80 on Qwen even at ρc≈0, proving AUROC is partly driven by \"which probe is intrinsically fragile\" (column structure), not edit-specific pairwise geometry. That same un-partialled confound contaminates the Llama AUCc, so the headline is currently *correlational at the flattened level*, not established as within-probe pairwise geometry.\n\n- **The decisive test is impossible offline** — no raw COS/damage matrices were saved (`np.save` absent everywhere), only scalar summaries.\n\n**What a rerun must settle (and it is cheap):** dump the per-pair COS and damage matrices and recompute **within-probe (partialled) Spearman** + a **column-permutation null**. If ρc survives partialling out probe identity, the pairwise-geometry claim is real. Also: **filter zero-damage probes** (Qwen) and **add ≥3 seeds**; treat the Llama-zsRE PASS (ρc=0.45 but only ~20 unique known probes) as non-load-bearing.\n\n---\n\n### (3) PAPER FRAMING\n\n**Yes, publishable — but the original universal framing is dead. Reframe from \"key geometry predicts edit damage\" to a conditional, mechanistic boundary result.**\n\nRecommended framing: **\"When does locate-then-edit collateral damage become geometrically predictable? An architecture- and editor-conditioned phenomenon.\"** The contribution is not a universal predictor; it is a **dissociation with a mechanism**:\n\n1. ROME's update is analytically rank-one with row-space k_edit^T (delta = outer(v−Wk, k)/‖k‖²), so per-probe perturbation = (v−Wk)·(k_edit·k_probe)/‖k_edit‖² — cosine-predicts-damage is *built into* the rank-one structure. FT-L's full-rank gradient update has no such alignment → unpredictable. This editor dissociation (ROME predictable, FT not) is the cleanest and most defensible result.\n2. The predictor is **layer-bounded**: sharp in the mid-stack fact-storage band, collapses at the final layer where key anisotropy rises (meanCos→0.44) and raw magnitude (norm-growth) dominates.\n3. It is **architecture-gated by key geometry**: Qwen's orthogonal wider-MLP keys make ROME edits local, so the phenomenon *and its damage* both vanish — turning Qwen from \"negative result\" into evidence *for* the alignment mechanism.\n\n**Honesty requirements before submission:** report signed Spearman as the primary metric (not AUROC — demonstrate the heteroscedasticity artifact: on Qwen cosine predicts the *help* tail AUROC 0.79 > damage tail 0.61); report within-probe partialled stats + permutation null; report mean signed damage per config so near-zero-damage rows are visibly untestable. Do **not** sell Qwen ρc<0 as anti-prediction. Frame this as a focused mechanistic/diagnostic paper (workshop or short-paper scope), not a universal interference law.\n\n---\n\n### (4) WHAT TO DEEPEN NEXT — ranked, cheap-first on one 24GB GPU\n\n1. **[~hours, decisive] Re-run the existing Llama-1B L8/L10/L12 ROME configs with raw-matrix dumps + ≥3 seeds.** Recompute within-probe partialled Spearman and a column-permutation null. This single change retires the two biggest threats (non-independence + probe-marginal leakage) and either confirms or kills the headline. Do this before anything else — it is the gate.\n\n2. **[cheap, small models] Add gemma-2-2b and Phi-3.5 ROME+CF mid-stack sweeps.** Measure pre-edit key cosine and mean damage. Tests whether the boundary is \"Llama-specific\" or the predicted general law \"high key cosine ⇒ damage exists ⇒ geometry predicts.\" If a non-Llama model with high key cosine shows the effect, the architectural story becomes a clean **key-cosine-gated** law rather than a family anecdote — major framing upgrade.\n\n3. **[cheap] Intervention test of the wide-MLP hypothesis.** The MLP-expansion-ratio explanation is currently only correlational. Cheapest probe: regress mean key cosine and damage magnitude against intermediate/hidden ratio across all available models (already have the numbers); if you want causal evidence, edit Qwen at a layer/projection chosen to *maximize* key cosine and check whether damage and predictability reappear.\n\n4. **[cheap, strengthens the editor story] One regularized FT-L config** (add KL-neighbor term, lower lr) to show FT damage shrinks but cosine stays ≈chance — proves the FT failure is structural (full-rank, not k-aligned), not just over-damage. Pre-empts the obvious reviewer rebuttal.\n\n5. **[medium] MEMIT / batched-ROME** on Llama mid-stack — does the predictor survive multi-edit, low-rank-but-not-rank-one updates? Tests how far toward FT the geometric signal persists, mapping the editor axis of the conditional claim.\n\nDefer: larger models, more datasets beyond CF/zsRE — they add breadth but won't change the verdict until #1 settles the partialled-correlation question.",
+    "findings": [
+      {
+        "lens": "architecture & scale: why ROME key-geometry predicts collateral damage on Llama but not Qwen",
+        "claims": [
+          "FAMILY SIGN SPLIT IS REAL AND CLEAN. On rome+counterfact KNOWN_PROBES, Llama mean rho_c = +0.359 (all 7 configs positive, range +0.23..+0.50); Qwen mean rho_c = -0.032 (mixed: 0.5B faintly positive, 1.5B and 3B negative). Key geometry is predictive on Llama and null-to-negative on Qwen.",
+          "THE SPLIT IS MEDIATED BY COLLATERAL-DAMAGE MAGNITUDE, NOT BY A BROKEN PREDICTOR. Mean per-probe damage (logit drop) under ROME is +3.03 on Llama vs +0.015 on Qwen (essentially zero, slightly negative for 1.5B/3B). Qwen ROME edits barely perturb neighboring probes, so there is no collateral-damage signal for any predictor to track. Key cosine isn't failing on Qwen; there is nothing to predict.",
+          "LOWER-LEVEL DRIVER: QWEN SUBJECT KEYS ARE MORE ORTHOGONAL. Mean pre-edit key cosine is 0.266 (Llama) vs 0.175 (Qwen), dropping to 0.084 for Qwen-3B and 0.017 at Qwen-3B L9. ROME's rank-one update delta = outer(residual,k)/||k||^2 perturbs a probe in proportion to cos(k_edit,k_probe); more orthogonal Qwen keys make each edit localized -> minimal spillover -> no geometric damage structure.",
+          "PLAUSIBLE ARCHITECTURAL CAUSE = MLP EXPANSION RATIO, NOT TIED EMBEDDINGS. Keys live in R^intermediate (down_proj input). Qwen's intermediate/hidden ratio is 5.4-5.8x (0.5B 4864/896, 1.5B 8960/1536, 3B 11008/2048) vs Llama 2.7-4.0x (1B 8192/2048, 3B 8192/3072). Higher-dim, wider key space concentrates cosines toward orthogonality, consistent with the lower measured key cosine and localized edits. Tied embeddings is RULED OUT (both families set tie_word_embeddings=True); silu activation identical; only rms_norm_eps differs (Qwen 1e-6 vs Llama 1e-5, minor).",
+          "SCALE ATTENUATES THE EFFECT WITHIN BOTH FAMILIES; QWEN JUST STARTS BELOW ZERO. rho_c falls with scale in both: Llama 1B +0.395 -> 3B +0.268; Qwen 0.5B +0.045 -> 1.5B -0.141 -> 3B -0.091. Mean key cosine also falls with scale (Llama 0.304->0.171; Qwen 0.232->0.084). It is a continuum, but the families occupy different regimes and Qwen crosses the zero-line.",
+          "EDIT SUCCESS IS NOT THE CONFOUND. edit_success_rate is 0.98-1.0 for every Qwen config; Qwen edits succeed and stay local. The difference is spillover, not efficacy.",
+          "ZSRE MAKES QWEN ACTIVELY ANTI-PREDICTIVE. Qwen zsRE: rho_c = -0.342 (1.5B) and -0.230 (3B), AUCc = 0.50/0.53 (chance), and norm-growth beats cosine (beats_normgrowth=false). Llama zsRE stays +0.453 / AUCc 0.764. The Qwen null is robust across both datasets and worsens on zsRE.",
+          "THE COSINE STORY IS ROME-SPECIFIC IN BOTH FAMILIES. FT-L produces huge damage (Llama mean +18.06, Qwen +8.11 logits) but geometrically UNSTRUCTURED: rho_c = 0.036 (Llama) / 0.143 (Qwen), AUCc ~0.52-0.58. This confirms the predictor exploits ROME's rank-one k-aligned update, not damage per se."
+        ],
+        "evidence": "rome+cf KNOWN_PROBES per family: Llama n=7 mean rho_c=+0.359 rho_n=+0.259 AUCc=0.746 dmgLogit=+3.028 keycos=0.266; Qwen n=6 mean rho_c=-0.032 rho_n=+0.056 AUCc=0.703 dmgLogit=+0.015 keycos=0.175. Per-model rho_c (rome+cf): Llama-1B +0.395, Llama-3B +0.268, Qwen-0.5B +0.045, Qwen-1.5B -0.141, Qwen-3B -0.091. mean_damage_logit per model: Llama-1B +3.93, Llama-3B +0.77, Qwen-0.5B +0.08, Qwen-1.5B -0.10, Qwen-3B -0.02. Configs: Qwen2.5-1.5B L14 cf dmgL=-0.095 rho_c=-0.141; Qwen2.5-3B L18 dmgL=-0.040 rho_c=-0.107; Llama-3.2-1B L12 dmgL=+3.330 rho_c=+0.496. frac_probes_known: Llama 0.305/0.352 vs Qwen 0.175/0.228/0.253. Configs from config.json: intermediate/hidden Qwen 4864/896, 8960/1536, 11008/2048; Llama 8192/2048, 8192/3072; both tie_word_embeddings=True, hidden_act=silu; Qwen rms_norm_eps=1e-6, Llama=1e-5; Qwen vocab 151936 vs Llama 128256; Qwen num_key_value_heads=2 (aggressive GQA). zsRE: Qwen-1.5B rho_c=-0.342 AUCc=0.499; Qwen-3B rho_c=-0.230 AUCc=0.527; Llama-1B rho_c=+0.453 AUCc=0.764. FT: Llama-1B L8 dmgL=+18.06 rho_c=+0.036; Qwen-1.5B L14 dmgL=+8.11 rho_c=+0.143. Mechanism (rome_native.py:203): delta=outer(residual,k)/(k.k), rank-one in key k captured as down_proj input (dim=intermediate).",
+        "confidence": "medium",
+        "surprises_or_confounds": [
+          "AUCc stays a misleadingly-healthy 0.65-0.77 for Qwen-CF even where Spearman rho_c is NEGATIVE -- the relationship is non-monotone/tail-driven, so AUROC overstates Qwen signal. Spearman on KNOWN_PROBES is the honest metric and it is the one that reveals the family split.",
+          "With Qwen mean damage ~0, the Spearman is computed over near-noise, so its sign is partly arbitrary -- but that near-zero damage IS the finding (localized edits), not a measurement artifact.",
+          "frac_probes_known is much lower for Qwen (0.175-0.253) than Llama (0.305-0.352) DESPITE Qwen's larger vocab; fewer known probes = noisier damage estimates, a partial confound, though the damage-magnitude gap (200x) dominates.",
+          "Coverage is thin on the Qwen side: Qwen-1.5B has only one rome+cf config (L14), so its per-model mean is n=1. gemma-2-2b and Phi-3.5 are still pending and would test whether the split is Qwen-specific or a general wide-MLP / low-key-cosine phenomenon.",
+          "The split is not a pure binary: within-Llama the headline already flips at the deepest layer (1B L14: norm-growth rho_n=0.565 > cosine rho_c=0.232), so layer choice matters and Llama-3B's weaker signal (+0.27) sits on the same scale-attenuation curve that pushes Qwen below zero.",
+          "The MLP-expansion-ratio explanation is a hypothesis consistent with the measured lower key cosine; it is not directly tested by an intervention. rms_norm_eps (1e-6 vs 1e-5) and Qwen2 QKV-bias / aggressive GQA are alternative un-eliminated contributors."
+        ]
+      },
+      {
+        "lens": "editor & layer: why rank-one ROME makes key-cosine a damage predictor while FT-L gradient editing does not, and how that predictor's strength tracks edit-layer depth on Llama-3.2-1B (16 layers).",
+        "claims": [
+          "Q1 VERIFIED — the effect is ROME-specific, not a property of editing in general. On the clean controlled comparison (Llama-1B, same edit layer L8, same 18,300 known pairs, both esr~1.0), ROME gives rho_cos=0.389 / AUCcos=0.714 whereas FT-L gives rho_cos=0.036 / AUCcos=0.519 (= chance). The FT-L weakness reproduces across all three FT rows: Llama-1B L8 (0.036/0.519), Llama-3B L14 (0.123/0.576), Qwen-1.5B L14 (0.143/0.573) — all AUC in 0.52-0.58.",
+          "Q1 MECHANISM — ROME's collateral damage is analytically proportional to key cosine because its update is rank-one with row-space exactly k_edit^T. editors/rome_native.py line 203: delta = outer(v-Wk, k)/||k||^2. The output change a probe j receives is therefore delta @ k_probe = (v-Wk) * (k_edit . k_probe)/||k_edit||^2 — i.e. the perturbation MAGNITUDE on every other fact is the inner product (cosine x norms) of its key with the edit key. So cosine predicting damage is built into the rank-one structure; rho is ~0.4-0.5 rather than 1.0 only because the down_proj-output perturbation passes through softmax + downstream layers before becoming the measured logit drop.",
+          "Q1 CONTRAST — FT-L's update is a sum of Adam steps on the full dense down_proj.weight (editors/ft_editor.py), so DeltaW_FT is full-rank and oriented by the target-NLL gradient, NOT by k_edit. The per-probe perturbation DeltaW_FT @ k_probe has no reason to scale with k_edit.k_probe, decoupling damage from key geometry (AUC ~chance). Being only weakly regularized (lambda_l2=1e-3, no KL neighbours), FT-L also inflicts roughly 3-4x larger, diffuse damage: meanDmg_logit 18.06 (FT) vs 4.44 (ROME) at L8; 13.18 vs 0.89 at Llama-3B L14; 8.11 vs -0.10 at Qwen-1.5B L14. Damage is large and indiscriminate, exactly what 'geometry does not predict it' looks like.",
+          "Q2 LAYER CURVE — On Llama-3.2-1B (16 layers; 'auto'=L8 is mid-stack) rho_cos rises L4->L12: 0.333(L4) -> 0.379(L6) -> 0.389(L8) -> 0.478(L10) -> 0.496(L12), then collapses to 0.232 at L14 where norm-growth overtakes (rho_ng 0.565 > rho_cos 0.232). AUCcos peaks at L10 (0.826) and falls to 0.658 at L14. The crossover layer is L12, where geometry AND magnitude both predict (rho_cos 0.496 ~ rho_ng 0.469); by L14 magnitude wins outright.",
+          "Q2 INTERPRETATION — the key-geometry predictor is sharpest in the mid-to-late-mid MLP band (L8-L12 of 16), the canonical ROME fact-storage site, where keys are still directionally distinct (moderate meanCos 0.22-0.31) so key overlap discriminates which facts an edit hits. It degrades at the ends for two different reasons: early layers (L4-L6) are less fact-specialized so the signal is real but weaker (rho 0.33-0.38); the final layer L14 shows KEY ANISOTROPY — meanCos jumps to 0.437 (highest of the sweep), i.e. late-layer down_proj-input directions collapse toward a shared direction, so any two keys look similar and cosine loses discriminative power.",
+          "Q2 IMPLICATION ('where edits live') — at L14 damage becomes magnitude-driven not geometry-driven (rho_ng 0.565), edit_success_rate drops (0.907 vs ~0.99 mid-stack) and meanDmg rises (5.49, highest), because the late down_proj writes more directly into next-token logits (nearer the unembedding), so a large-norm edit clobbers output broadly regardless of key alignment. Net: factual edits 'live' in the mid-stack MLPs where keys are simultaneously the causal store AND geometrically separable, and that is exactly the band where key-cosine is a sharp interference predictor. Cross-model support: best ROME layer scales with depth (Llama-3B 28 layers peaks at mid-stack L14 rho_cos 0.300 vs L6 0.235; meanCos L6 0.12 < L14 0.22)."
+        ],
+        "evidence": "Controlled ROME-vs-FT at Llama-1B L8 (n=18300 known pairs, esr 1.0 both): ROME rho_cos=0.389 AUCcos=0.714 meanDmg=4.44; FT rho_cos=0.036 AUCcos=0.519 meanDmg=18.06. FT replications: Llama-3B L14 rho_cos=0.123 AUC=0.576 meanDmg=13.18 (vs ROME L14 0.300/0.749/0.89); Qwen-1.5B L14 rho_cos=0.143 AUC=0.573 meanDmg=8.11 (vs ROME L14 -0.141/0.679/-0.10). ROME update form: editors/rome_native.py L203 delta=outer(residual,k)/denom, denom=k.k; weights restored each edit (killgate_keygeom.py L184 W.copy_(W_base)) so all keys are base-model keys. FT update: editors/ft_editor.py full down_proj.weight, lr=5e-3, lambda_l2=1e-3, no KL. Llama-1B layer sweep (rho_cos, rho_ng, AUCcos, meanCos, esr): L4 .333/.256/.739/.133/.987; L6 .379/.226/.734/.244/.94; L8 .389/.103/.714/.314/1.0; L10 .478/.267/.826/.222/.993; L12 .496/.469/.778/.301/.993; L14 .232/.565/.658/.437/.907. nL=16 confirmed via 'auto'=nL//2=8.",
+        "confidence": "high",
+        "surprises_or_confounds": [
+          "CONFOUND on Q1: this FT-L config is under-regularized (lambda_l2=1e-3, no KL neighbours, esr=1.0 with meanDmg 8-18), so part of FT's huge damage is config-driven. But regularization would only shrink magnitude, not make DeltaW_FT rank-one or k_edit-aligned, so a tighter FT-L would still leave cosine near-chance — the structural argument dominates the regularization confound.",
+          "SURPRISE: norm-growth ANTI-predicts FT-L damage (rho_ng=-0.123 Llama-1B, -0.067 Llama-3B; AUCng 0.44/0.46 below chance). FT damage is decoupled from BOTH key cosine and weight-norm-growth — it is genuinely unstructured w.r.t. these geometric scalars, unlike ROME where both predict.",
+          "meanCos is not perfectly monotone in depth (L10 dips to 0.222 below L8's 0.314), but L14's 0.437 is unambiguously the peak and coincides exactly with the rho_cos collapse — the cleanest correlational support for the late-layer key-anisotropy explanation.",
+          "L12 is a genuine geometry/magnitude crossover (rho_cos 0.496 ~ rho_ng 0.469 both high), so the headline 'key cosine beats norm-growth' is layer-contingent: it holds clearly at L4-L10, ties at L12, and reverses at L14.",
+          "Qwen models are weak everywhere for ROME too (rho_cos mostly negative, e.g. Qwen-1.5B L14 -0.141, Qwen-3B L18 -0.107), so the whole key-geometry story is currently Llama-family-specific; the ROME-vs-FT contrast is cleanest where ROME itself works (Llama)."
+        ]
+      },
+      {
+        "lens": "Baseline & metric integrity: key-overlap (cosine) vs ENCORE norm-growth, and the AUROC-vs-Spearman discrepancy on the KNOWN_PROBES subset.",
+        "claims": [
+          "DISCREPANCY EXPLAINED (heteroscedasticity, NOT a monotone relationship): AUCc stays 0.65-0.77 while rhoc is ~0 or negative on Qwen because pre-edit key cosine predicts the MAGNITUDE of a ROME edit's perturbation to a probe, not its signed direction. On Qwen, ROME edits move probe logits roughly symmetrically about ~0 (KNOWN-probe mean damage = -0.04 to -0.45 logit, i.e. net slight HELP), so signed-rank correlation cancels to ~0/negative, but the top-decile of signed damage is enriched with high-variance = high-cosine pairs, lifting AUROC above 0.6.",
+          "VERIFIED FROM RAW ARRAYS (Qwen-1.5B L14 reduced run): Spearman(cos,signed)=-0.175 but Spearman(cos,|damage|)=+0.374 (opposite signs); AUROC(cos->damage-tail)=0.612 while AUROC(cos->HELP-tail)=0.794 (cosine predicts the help tail even BETTER than the damage tail); damage std rises monotonically with cosine bin (0.19->0.53) and BOTH P(top-decile) and P(bottom-decile) rise with cosine (0.05->0.17 and 0.02->0.30). This is a two-sided tail/variance effect = magnitude detector, not directional damage prediction.",
+          "CONTRAST WHERE CLAIM IS REAL (Llama-1B L8 raw): mean damage +4.65 (median +3.7, nearly all pairs broken); Spearman(signed)=0.345 ~= Spearman(|dmg|)=0.348 (agree because damage is one-sided positive); AUROC(damage-tail)=0.674 but AUROC(help-tail)=0.385 (<0.5 - cosine ASYMMETRICALLY flags the damage tail); per-cos-bin mean damage rises +3.55->+6.44 with P(top) rising 0.06->0.19 while P(bot) FALLS 0.13->0.07. Genuinely directional.",
+          "WHICH METRIC TO TRUST: For the core 'which facts a ROME edit BREAKS' claim, trust signed Spearman; AUROC(cosine->broken) alone is misleading because it conflates two-sided disturbance with one-sided damage. The existing kill-gate AND-rule (|rhoc|>=0.2 AND AUC>=0.6 AND beats norm-growth) is the correct design - it already fails EVERY Qwen config because rhoc collapses even though AUC passes. Recommended added control: report AUROC(cosine->help-tail); if cosine predicts the help tail >= the damage tail, it is a magnitude detector and must be rejected.",
+          "WHERE COSINE WINS, BY HOW MUCH: cosine beats norm-growth on AUROC in 17/20 configs and wins on BOTH metrics wherever damage is real and the edit is rank-one (ROME on Llama mid-layers L4-L12): rhoc 0.33-0.50, AUCc 0.71-0.83. Largest genuine margins: Llama-1B L10 (AUCc 0.83 vs 0.64, dAUC +0.19; rhoc 0.48 vs 0.27), zsRE L8 (dAUC +0.22), Llama-3B L6 (dAUC +0.22), L8 (dAUC +0.17). Median cosine AUROC advantage over norm-growth across Llama-ROME ~ +0.16.",
+          "WHERE NORM-GROWTH WINS: only at the deepest pre-output layer, Llama-1B L14 - rhon 0.57 vs rhoc 0.23 and AUCn 0.75 vs AUCc 0.66 (dAUC -0.09, the single clean both-metric reversal). Near the output, raw edit magnitude dominates the probe perturbation and key-subspace geometry washes out. Norm-growth's advantage there ~ +0.30 Spearman / +0.09 AUROC.",
+          "FT EDITOR: both predictors fail the gate (rhoc 0.04-0.14, AUC 0.52-0.58) - FT-L spreads the edit with no rank-one key direction, so cosine has no purchase and norm-growth is worse (negative rhon on Llama). FT also produces huge but UNPREDICTABLE damage (KNOWN-probe mean 8-18 logits), confirming destructiveness != predictability.",
+          "QWEN CAVEAT: across all Qwen ROME configs the precondition for the whole claim is ABSENT - mean damage ~ 0, so there is barely any breakage to predict; cosine's residual AUROC edge (dAUC +0.00 to +0.15) is the magnitude artifact, not directional signal. On deep-layer zsRE cosine is actively ANTI-predictive and beaten by norm-growth (Qwen-1.5B zsre L14 rhoc -0.34 / AUCc 0.50 / dAUC -0.07; Qwen-3B zsre L18 rhoc -0.23 / dAUC -0.05)."
+        ],
+        "evidence": "Raw reproductions (env python, reduced n_edits=50, n_probes=120, seed0, same harness functions): Qwen2.5-1.5B L14 -> 1500 KNOWN pairs, mean dmg -0.104, std 0.344, Spearman signed -0.175 vs |dmg| +0.374, AUROC damage-tail 0.612 vs help-tail 0.794; cos-bins std 0.193/0.278/0.274/0.324/0.527, P(top)0.05->0.167, P(bot)0.017->0.297. Llama-3.2-1B L8 -> 1750 KNOWN pairs, mean dmg +4.65 median +3.7, Spearman signed 0.345 vs |dmg| 0.348, AUROC damage-tail 0.674 vs help-tail 0.385; cos-bins meanDmg +3.55/+5.27/+6.44, P(top)0.055/0.114/0.191, P(bot)0.129/0.072/0.069. Full-sweep KNOWN_PROBES table (n=10500-21150 pairs each): Llama1b rome cf L4-L12 rhoc 0.33-0.50/AUCc 0.71-0.83/dAUC +0.02..+0.19; L14 rhoc 0.23 rhon 0.57 AUCc 0.66 AUCn 0.75 dAUC -0.09; zsre L8 dAUC +0.22; Llama3b rome dAUC +0.15/+0.22; Qwen rome cf mean dmg -0.04..+0.17 rhoc -0.14..+0.13 AUCc 0.65-0.77 dAUC +0.00..+0.15; Qwen zsre rhoc -0.34/-0.23 dAUC -0.07/-0.05; FT (llama1b/llama3b/qwen1.5b) rhoc 0.04-0.14 AUC 0.52-0.58 mean dmg 8-18. Metric defs grounded in experiments/killgate_keygeom.py: damage_l = pre_logit - post_logit of probe target_true token (line 182); broken = top-decile of damage (line 198); cosine from base-model down_proj keys captured once (lines 142-151); report() computes spearman_cos_damage, spearman_normgrowth_damage, auroc_cos_broken, auroc_normgrowth_broken (lines 199-206); kill-gate AND-rule lines 222-227.",
+        "confidence": "high",
+        "surprises_or_confounds": [
+          "The AUROC>0.6-with-rho~0 pattern is a textbook heteroscedasticity artifact: cosine predicts |perturbation|, and a top-decile-of-signed-damage label leaks magnitude. Directly demonstrated: on Qwen cosine predicts the HELP tail (AUROC 0.79) better than the damage tail (0.61).",
+          "The real precondition failure on Qwen is that ROME edits barely damage probes at all (mean damage ~0 or negative); the headline claim is essentially untestable there - there is little breakage to predict, so any cosine signal is noise/magnitude.",
+          "Llama vs Qwen split may be model-family specific (key-space anisotropy / tokenizer) rather than a universal law - only Llama shows the large one-sided damage that makes the directional claim meaningful; gemma-2-2b and Phi-3.5 (present in data/models but not yet swept) are needed to know if 'works' generalizes beyond Llama.",
+          "norm-growth is NOT a strong baseline anywhere except the single deepest layer; its apparent competitiveness on Qwen is because both predictors are near-chance, not because norm-growth is good.",
+          "Recommend the harness additionally log mean signed damage and AUROC(cos->help-tail) per config - without them, the moderate Qwen AUROCs read as partial successes when they are magnitude artifacts."
+        ]
+      },
+      {
+        "lens": "Adversarial confound hunt: try to kill the Llama key-geometry result and explain the Qwen nulls as artifacts.",
+        "claims": [
+          "The Qwen nulls are NOT a falsification of H1 — they are an ABSENCE of the phenomenon H1 predicts. On Qwen ROME the edits cause essentially zero net collateral damage (mean_damage_logit = +0.17, +0.09, -0.036, -0.0006, -0.04, -0.095 across cf configs; -0.45/-0.24 on zsre), versus +2.1 to +5.5 on Llama-1B. You cannot rank-predict damage that does not occur; ρc on Qwen is a correlation against a near-constant ~zero noise variable.",
+          "The 'failed edits => no signal' confound is RULED OUT for Qwen: edit_success_rate is 0.98-1.00 on every Qwen ROME config, identical to Llama (0.91-1.00). Qwen edits successfully flip the target token; they simply do not spill damage onto neighbors.",
+          "The 'tiny noisy n' confound is only PARTIALLY real and is dwarfed by a non-independence problem affecting ALL configs including Llama. Qwen frac_probes_known (0.175-0.253) is lower than Llama (0.305-0.352) but n_known_pairs is still 10.5k-15k. The real issue: pairs = n_edits x n_probes with each probe reused 150x and each edit 400x, so the effective independent unit count is ~70-150 probes / 150 edits, NOT 18,300. Significance implied by n=18,300 is massively overstated for every row in the table.",
+          "STRONGEST kill angle on Llama: AUROC_cos_broken is confounded by probe-marginal structure and the flattened Spearman cannot separate genuine pairwise key-geometry from per-probe fragility. Proof: Qwen configs show AUROC 0.71-0.80 while ρc is ~0 or NEGATIVE (qwen0.5b L6: ρc=-0.092, AUROC=0.71; L18: ρc=0.128, AUROC=0.77). AUROC of 0.7+ at Spearman~0 means the metric is driven by 'which probe' (columns where high key-cosine coincides with intrinsic fragility), not by edit-specific prediction. Llama's ρc=0.48 inherits the same un-partialled confound and is therefore NOT cleanly established as pairwise geometry.",
+          "This confound CANNOT be adjudicated from saved artifacts: grep finds no np.save/savez/.npy anywhere; only scalar summaries persist. The raw COS and damage_l matrices are discarded, so within-probe / within-edit (partialled) correlations and a row/column-permutation null cannot be recomputed without a full rerun (~12-40 min/config).",
+          "The negative Qwen ρc values are noise/regime artifacts, NOT real anti-correlations. They correlate against a damage variable with mean ~0 and tiny variance; their magnitudes are incoherent across layers (-0.09, -0.14, -0.11); and on Qwen zsRE AUROC = 0.50-0.53 (literal chance), confirming no structure. The larger zsRE negatives (-0.34, -0.23) co-occur with negative mean damage (probes improve) — consistent with the edit broadly nudging logits, not localized breakage.",
+          "What SURVIVES as trustworthy for Llama: (a) the layer dose-response + predictor CROSSOVER (ρc climbs to ~0.48-0.50 at L10-12 then norm_growth overtakes at L14 where ρn=0.57 > ρc=0.23) is mechanistically coherent and hard to produce from a pure probe-identity artifact; (b) Llama-3B reproduces directionally (ρc 0.24-0.30, AUROC 0.75, beats norm_growth), so it is not a 1B-only fluke. These are the only results I would not flag for rerun.",
+          "The FT editor is a clean negative control SUPPORTING the mechanism: FT-L causes enormous damage (mean_damage_logit 15-18 on Llama, 6-8 on Qwen) yet cosine fails to predict it (ρc 0.03-0.14, AUROC 0.52-0.58) because the FT gradient update is not rank-one along k, so damage is global rather than key-localized. ROME-damage-is-key-predictable vs FT-damage-is-not is a genuine dissociation favoring H1.",
+          "Llama zsRE PASS (ρc=0.45) should be DISCOUNTED: frac_probes_known=0.05 means only ~20 unique known probes underlie the 3,000 pairs — the most fragile PASS in the set.",
+          "The 'few high-leverage edits dominate damage' confound is plausible and UNTESTABLE from saved data. norm_growth is repeated across all 400 probes (ng_flat=repeat(norm_growth, n_probes)), so a handful of high-deltaW edits damage everything and define the top-decile 'broken' set; whether cosine's predictive power is concentrated in those few edits cannot be checked without per-edit breakdown."
+        ],
+        "evidence": "mean_damage_logit (KNOWN): llama1b rome cf L4-L14 = 2.39/4.30/4.44/2.10/3.33/5.49; qwen0.5b cf = -0.036/0.172/0.092; qwen3b cf = -0.0006/-0.040; qwen1.5b cf = -0.095; qwen zsre = -0.448(1.5b)/-0.243(3b). edit_success_rate: qwen rome 0.98-1.00, llama 0.91-1.00. mean_cosine keys: qwen3b L9=0.017, qwen0.5b L6=0.11 vs llama1b 0.13-0.44. AUROC-vs-Spearman dissociation: qwen0.5b_L6  rho=-0.0917/AUROC=0.7096; qwen0.5b_L18 rho=0.1284/AUROC=0.7695; qwen1.5b_L14 rho=-0.1413/AUROC=0.6792. Qwen zsRE AUROC=0.4989/0.5267 (chance). Llama layer crossover: L10 rho_c0.478/rho_ng0.267; L12 0.496/0.469; L14 0.232/0.565. Llama3b rome: rho 0.235(L6)/0.300(L14), AUROC 0.76/0.75. FT: llama1b rho_c0.036 mean_dmg18.06; llama3b rho_c0.123 mean_dmg13.18; qwen1.5b rho_c0.143 mean_dmg8.11. n_known_pairs=18300=150x122 (llama cf), 3000=150x20 (llama zsre). No np.save/savez/.npy in experiments/, engine.py, runner.py — only scalar summaries persisted.",
+        "confidence": "medium",
+        "surprises_or_confounds": [
+          "Surprise: AUROC_cos_broken stays 0.65-0.80 on Qwen even when Spearman is ~0 or negative — a strong tell that AUROC is inflated by probe-marginal (column) structure rather than genuine pairwise key alignment; this caveat propagates to the Llama PASS and is the single biggest threat to the headline.",
+          "Confound not in the prompt's checklist: the Llama-vs-Qwen difference is largely a DAMAGE-EXISTENCE difference driven by key orthogonality (Qwen mean_cosine ~0.02-0.11 vs Llama 0.13-0.44). Qwen's near-orthogonal MLP keys make rank-one ROME edits intrinsically local, so there is no collateral damage to predict. This is a real architectural difference, and notably it is CONSISTENT with H1's damage~alignment mechanism, not a refutation.",
+          "The raw per-pair matrices are not saved (no np.save anywhere), so the decisive test — partial/within-probe correlation and a column-shuffle null to separate pairwise geometry from probe fragility — is impossible offline and REQUIRES a rerun with matrix dumps.",
+          "Negative mean_damage_logit on several Qwen/zsRE configs means probes get BETTER after an unrelated edit; the 'damage' variable there is mostly sign-flipped noise, so its negative ρc must not be read as anti-prediction.",
+          "Each Spearman is computed over 10k-21k pairs that are not independent (150 edits x ~70-150 probes reused); reported effect sizes are usable but any implied p-value/CI is invalid. Recommend rerun with >=3 seeds and within-probe/within-edit partialled stats + permutation null before trusting any single config, and treat the Llama zsRE PASS (20 unique probes) as non-load-bearing."
+        ]
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Analyze"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Synthesize"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "lens:arch_scale",
+      "phaseIndex": 1,
+      "phaseTitle": "Analyze",
+      "agentId": "a104941e6386d01f1",
+      "model": "claude-opus-4-8[1m]",
+      "state": "done",
+      "startedAt": 1782861266626,
+      "queuedAt": 1782861266611,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "architecture & scale: why ROME key-geometry predicts collat…",
+      "promptPreview": "LENS: architecture & scale. Breadth sweep results (engine/consolidated.json), KNOWN_PROBES subset. ρc=Spearman(key-cosine,damage), ρn=Spearman(norm-growth,damage), AUCc=AUROC(cosine->broken). Higher ρc = key geometry predicts which facts an edit breaks.\nLlama-3.2-1B  ft   cf   L8   ρc=0.04 ρn=-0.12 AUCc=0.52 WEAK\nLlama-3.2-1B  rome cf   L4   ρc=0.33 ρn=0.26  AUCc=0.74 PASS\nLlama-3.2-1B  rome cf   …",
+      "lastProgressAt": 1782861418437,
+      "tokens": 54464,
+      "toolCalls": 8,
+      "durationMs": 151811,
+      "resultPreview": "{\"lens\":\"architecture & scale: why ROME key-geometry predicts collateral damage on Llama but not Qwen\",\"claims\":[\"FAMILY SIGN SPLIT IS REAL AND CLEAN. On rome+counterfact KNOWN_PROBES, Llama mean rho_c = +0.359 (all 7 configs positive, range +0.23..+0.50); Qwen mean rho_c = -0.032 (mixed: 0.5B faintly positive, 1.5B and 3B negative). Key geometry is predictive on Llama and null-to-negative on Qwen…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "lens:editor_layer",
+      "phaseIndex": 1,
+      "phaseTitle": "Analyze",
+      "agentId": "a93974ca2c6462199",
+      "model": "claude-opus-4-8[1m]",
+      "state": "done",
+      "startedAt": 1782861266627,
+      "queuedAt": 1782861266611,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "editor & layer: why rank-one ROME makes key-cosine a damage…",
+      "promptPreview": "LENS: editor & layer. Breadth sweep results (engine/consolidated.json), KNOWN_PROBES subset. ρc=Spearman(key-cosine,damage), ρn=Spearman(norm-growth,damage), AUCc=AUROC(cosine->broken). Higher ρc = key geometry predicts which facts an edit breaks.\nLlama-3.2-1B  ft   cf   L8   ρc=0.04 ρn=-0.12 AUCc=0.52 WEAK\nLlama-3.2-1B  rome cf   L4   ρc=0.33 ρn=0.26  AUCc=0.74 PASS\nLlama-3.2-1B  rome cf   L6   ρ…",
+      "lastProgressAt": 1782861409958,
+      "tokens": 55659,
+      "toolCalls": 7,
+      "durationMs": 143331,
+      "resultPreview": "{\"lens\":\"editor & layer: why rank-one ROME makes key-cosine a damage predictor while FT-L gradient editing does not, and how that predictor's strength tracks edit-layer depth on Llama-3.2-1B (16 layers).\",\"claims\":[\"Q1 VERIFIED — the effect is ROME-specific, not a property of editing in general. On the clean controlled comparison (Llama-1B, same edit layer L8, same 18,300 known pairs, both esr~1.0…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "lens:baseline_metric",
+      "phaseIndex": 1,
+      "phaseTitle": "Analyze",
+      "agentId": "ae6457b4844d617df",
+      "model": "claude-opus-4-8[1m]",
+      "state": "done",
+      "startedAt": 1782861266628,
+      "queuedAt": 1782861266611,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Baseline & metric integrity: key-overlap (cosine) vs ENCORE…",
+      "promptPreview": "LENS: baseline & metric integrity. Breadth sweep results (engine/consolidated.json), KNOWN_PROBES subset. ρc=Spearman(key-cosine,damage), ρn=Spearman(norm-growth,damage), AUCc=AUROC(cosine->broken). Higher ρc = key geometry predicts which facts an edit breaks.\nLlama-3.2-1B  ft   cf   L8   ρc=0.04 ρn=-0.12 AUCc=0.52 WEAK\nLlama-3.2-1B  rome cf   L4   ρc=0.33 ρn=0.26  AUCc=0.74 PASS\nLlama-3.2-1B  rom…",
+      "lastProgressAt": 1782861815202,
+      "tokens": 56504,
+      "toolCalls": 11,
+      "durationMs": 548574,
+      "resultPreview": "{\"lens\":\"Baseline & metric integrity: key-overlap (cosine) vs ENCORE norm-growth, and the AUROC-vs-Spearman discrepancy on the KNOWN_PROBES subset.\",\"claims\":[\"DISCREPANCY EXPLAINED (heteroscedasticity, NOT a monotone relationship): AUCc stays 0.65-0.77 while rhoc is ~0 or negative on Qwen because pre-edit key cosine predicts the MAGNITUDE of a ROME edit's perturbation to a probe, not its signed d…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "lens:skeptic",
+      "phaseIndex": 1,
+      "phaseTitle": "Analyze",
+      "agentId": "a89963b8e78cbe41d",
+      "model": "claude-opus-4-8[1m]",
+      "state": "done",
+      "startedAt": 1782861266628,
+      "queuedAt": 1782861266611,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Adversarial confound hunt: try to kill the Llama key-geomet…",
+      "promptPreview": "LENS: adversarial confound hunt. Breadth sweep results (engine/consolidated.json), KNOWN_PROBES subset. ρc=Spearman(key-cosine,damage), ρn=Spearman(norm-growth,damage), AUCc=AUROC(cosine->broken). Higher ρc = key geometry predicts which facts an edit breaks.\nLlama-3.2-1B  ft   cf   L8   ρc=0.04 ρn=-0.12 AUCc=0.52 WEAK\nLlama-3.2-1B  rome cf   L4   ρc=0.33 ρn=0.26  AUCc=0.74 PASS\nLlama-3.2-1B  rome …",
+      "lastProgressAt": 1782861431784,
+      "tokens": 67851,
+      "toolCalls": 7,
+      "durationMs": 165156,
+      "resultPreview": "{\"lens\":\"Adversarial confound hunt: try to kill the Llama key-geometry result and explain the Qwen nulls as artifacts.\",\"claims\":[\"The Qwen nulls are NOT a falsification of H1 — they are an ABSENCE of the phenomenon H1 predicts. On Qwen ROME the edits cause essentially zero net collateral damage (mean_damage_logit = +0.17, +0.09, -0.036, -0.0006, -0.04, -0.095 across cf configs; -0.45/-0.24 on zsr…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "Synthesize the whole-board analysis of the knowledge-editing",
+      "phaseIndex": 2,
+      "phaseTitle": "Synthesize",
+      "agentId": "a9400876de72a2d62",
+      "model": "claude-opus-4-8[1m]",
+      "state": "done",
+      "startedAt": 1782861815204,
+      "queuedAt": 1782861815203,
+      "attempt": 1,
+      "promptPreview": "Synthesize the whole-board analysis of the knowledge-editing breadth sweep into a decision for the researcher (single 24GB GPU). Lens findings (JSON):\n\n[\n  {\n    \"lens\": \"architecture & scale: why ROME key-geometry predicts collateral damage on Llama but not Qwen\",\n    \"claims\": [\n      \"FAMILY SIGN SPLIT IS REAL AND CLEAN. On rome+counterfact KNOWN_PROBES, Llama mean rho_c = +0.359 (all 7 configs…",
+      "lastProgressAt": 1782861862188,
+      "tokens": 42382,
+      "toolCalls": 0,
+      "durationMs": 46984,
+      "resultPreview": "## DECISION: Scope the claim, ship it as a conditional phenomenon, do two cheap reruns first\n\n---\n\n### (1) THE SCOPED FINDING\n\nPre-edit subject-key cosine predicts which neighboring facts a ROME edit damages **only for Llama-family models edited with rank-one ROME in the mid-stack MLP band (Llama-3.2-1B L4–L12: ρc=0.33–0.50, AUCc=0.71–0.83, beating norm-growth; replicated on Llama-3.2-3B L6/L14 ρc…"
+    }
+  ],
+  "totalTokens": 276860,
+  "totalToolCalls": 33
+}

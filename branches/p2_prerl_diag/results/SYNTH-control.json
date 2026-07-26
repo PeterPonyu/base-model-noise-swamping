@@ -1,0 +1,39 @@
+{
+  "checkpoint_id": "SYNTH-control",
+  "counts": {
+    "n_problems": 150,
+    "n_traces": 1200,
+    "n_right": 599,
+    "n_wrong": 601,
+    "n_mixed_problems": 146
+  },
+  "mean_len_right": 203.8913188647746,
+  "mean_len_wrong": 205.48602329450915,
+  "D_pooled": {
+    "point": 1.0078213454040788,
+    "ci_level": 0.95,
+    "ci_lo": 0.9609929454824313,
+    "ci_hi": 1.0572392012815335,
+    "boot_se": 0.0243587725221442,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "D_within": {
+    "point": 1.0065478577787519,
+    "ci_level": 0.95,
+    "ci_lo": 0.9876571410320828,
+    "ci_hi": 1.0257755407934548,
+    "boot_se": 0.009756209461827332,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "length_bias_flag": false,
+  "_meta": {
+    "input": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/samples/SYNTH-control.json",
+    "generated_at": "2026-07-01T03:07:09.890850+00:00",
+    "tool": "run_diag.py",
+    "note": "CPU diagnostic; sample generation is a separate queued GPU job."
+  }
+}

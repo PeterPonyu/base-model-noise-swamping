@@ -1,0 +1,286 @@
+{
+  "experiment": "CP-Edit E2 Mondrian conditional-coverage audit (coarse strata, ROME)",
+  "rng_seed": 12345,
+  "B": 1000,
+  "target_coverage": 0.9,
+  "band_fix_2026_07_01": "The previously shipped MC bands were computed for the WRONG statistic: a single-split coverage (B=1) with a Mondrian-sized calibration set (~N/6), while the gated number is a B-split bootstrap-MEAN coverage under POOLED calibration (~N/2). Those bands (e.g. [0.7765, 0.9894] for the L14 top-NG stratum) were several times too wide, so real under-/over-coverage was silently missed and the prereg confirmation cleared its band by only 0.005 for the wrong reason. Bands here are recomputed with the matched procedure (conformal.mc_null_band_mondrian). All pooled_under/over_covers_vs_band flags are re-derived against the corrected bands.",
+  "ng_stratifier_timing_note": "The NG stratifier (norm_growth = ||delta_W|| at the edit layer) is NOT a pre-edit quantity: it requires the edit to be computed (post-edit weights; probe-outcome-free and closed-form predictable for rank-one ROME). The L14 x NG-tercile Mondrian arm therefore ships under the 'probe-outcome-free / computable at edit time' banner, not 'pre-edit-only'.",
+  "note_marginal_nonconformity": "conditional coverage measured with the marginal nonconformity (r=y, U=q_hat) so strata coverage is a clean statement about the certificate itself.",
+  "block1_SxC_terciles": {
+    "8": {
+      "B": 1000,
+      "terciles": [
+        {
+          "tercile": 0,
+          "n_cal_mean": 99.0,
+          "n_test_mean": 99.253,
+          "pooled_coverage": 0.9691657125253302,
+          "mondrian_coverage": 0.9005863040285427,
+          "pooled_dev_pp": 6.916571252533021,
+          "mondrian_dev_pp": 0.05863040285426502,
+          "mc_band_lo": 0.8582617786806945,
+          "mc_band_hi": 0.9406498183739386,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": true
+        },
+        {
+          "tercile": 1,
+          "n_cal_mean": 98.0,
+          "n_test_mean": 98.295,
+          "pooled_coverage": 0.8913688366866555,
+          "mondrian_coverage": 0.9103977537881036,
+          "pooled_dev_pp": -0.863116331334457,
+          "mondrian_dev_pp": 1.0397753788103592,
+          "mc_band_lo": 0.8625057386847366,
+          "mc_band_hi": 0.9353978972926005,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": false
+        },
+        {
+          "tercile": 2,
+          "n_cal_mean": 99.0,
+          "n_test_mean": 99.452,
+          "pooled_coverage": 0.8468423670563245,
+          "mondrian_coverage": 0.8988366499716924,
+          "pooled_dev_pp": -5.315763294367548,
+          "mondrian_dev_pp": -0.1163350028307586,
+          "mc_band_lo": 0.8660493747158884,
+          "mc_band_hi": 0.9386536366811237,
+          "pooled_under_covers_vs_band": true,
+          "pooled_over_covers_vs_band": false
+        }
+      ],
+      "mc_band_meta": {
+        "n_outer": 400,
+        "B": 1000,
+        "band_level": 0.99,
+        "statistic": "bootstrap-mean pooled-tercile coverage, pooled-cal q_hat, per-split tercile assignment from an independent null stratifier (matched to mondrian_bootstrap exactly)",
+        "note_qhat_clamp": "q_hat_from_cal clamps k=min(k,n): for n_cal<9 the 0.90 split-CP order statistic k=ceil((n+1)*0.9) exceeds n and the 'no finite bound' case silently becomes the sample max. The pooled q_hat here uses ~N/2 cal points (>>9) so the clamp never fires for the pooled statistic; the Mondrian arm's ct.sum()>=3 guard permits it in principle for tiny strata \u2014 flagged as a caveat."
+      }
+    },
+    "10": {
+      "B": 1000,
+      "terciles": [
+        {
+          "tercile": 0,
+          "n_cal_mean": 98.0,
+          "n_test_mean": 99.175,
+          "pooled_coverage": 0.9954330873547679,
+          "mondrian_coverage": 0.9103993202950027,
+          "pooled_dev_pp": 9.543308735476785,
+          "mondrian_dev_pp": 1.0399320295002679,
+          "mc_band_lo": 0.8617094680573033,
+          "mc_band_hi": 0.9388531904289424,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": true
+        },
+        {
+          "tercile": 1,
+          "n_cal_mean": 98.0,
+          "n_test_mean": 98.251,
+          "pooled_coverage": 0.9184148564324303,
+          "mondrian_coverage": 0.9090725580678661,
+          "pooled_dev_pp": 1.8414856432430238,
+          "mondrian_dev_pp": 0.907255806786611,
+          "mc_band_lo": 0.8603453737862513,
+          "mc_band_hi": 0.9369985154939955,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": false
+        },
+        {
+          "tercile": 2,
+          "n_cal_mean": 98.0,
+          "n_test_mean": 98.574,
+          "pooled_coverage": 0.7931860540008118,
+          "mondrian_coverage": 0.9092629537620803,
+          "pooled_dev_pp": -10.681394599918825,
+          "mondrian_dev_pp": 0.9262953762080306,
+          "mc_band_lo": 0.8612605313467431,
+          "mc_band_hi": 0.9394703060556564,
+          "pooled_under_covers_vs_band": true,
+          "pooled_over_covers_vs_band": false
+        }
+      ],
+      "mc_band_meta": {
+        "n_outer": 400,
+        "B": 1000,
+        "band_level": 0.99,
+        "statistic": "bootstrap-mean pooled-tercile coverage, pooled-cal q_hat, per-split tercile assignment from an independent null stratifier (matched to mondrian_bootstrap exactly)",
+        "note_qhat_clamp": "q_hat_from_cal clamps k=min(k,n): for n_cal<9 the 0.90 split-CP order statistic k=ceil((n+1)*0.9) exceeds n and the 'no finite bound' case silently becomes the sample max. The pooled q_hat here uses ~N/2 cal points (>>9) so the clamp never fires for the pooled statistic; the Mondrian arm's ct.sum()>=3 guard permits it in principle for tiny strata \u2014 flagged as a caveat."
+      }
+    },
+    "12": {
+      "B": 1000,
+      "terciles": [
+        {
+          "tercile": 0,
+          "n_cal_mean": 99.0,
+          "n_test_mean": 100.008,
+          "pooled_coverage": 1.0,
+          "mondrian_coverage": 0.9013379762894267,
+          "pooled_dev_pp": 9.999999999999998,
+          "mondrian_dev_pp": 0.13379762894266678,
+          "mc_band_lo": 0.8564347655318032,
+          "mc_band_hi": 0.944741716430583,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": true
+        },
+        {
+          "tercile": 1,
+          "n_cal_mean": 99.0,
+          "n_test_mean": 98.505,
+          "pooled_coverage": 0.9723646022154522,
+          "mondrian_coverage": 0.8973226572484083,
+          "pooled_dev_pp": 7.236460221545215,
+          "mondrian_dev_pp": -0.2677342751591705,
+          "mc_band_lo": 0.8669282609761013,
+          "mc_band_hi": 0.9411417523353174,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": true
+        },
+        {
+          "tercile": 2,
+          "n_cal_mean": 99.0,
+          "n_test_mean": 99.487,
+          "pooled_coverage": 0.7334040556594957,
+          "mondrian_coverage": 0.9003807021459922,
+          "pooled_dev_pp": -16.65959443405043,
+          "mondrian_dev_pp": 0.038070214599217334,
+          "mc_band_lo": 0.8640271995036879,
+          "mc_band_hi": 0.9411170596290627,
+          "pooled_under_covers_vs_band": true,
+          "pooled_over_covers_vs_band": false
+        }
+      ],
+      "mc_band_meta": {
+        "n_outer": 400,
+        "B": 1000,
+        "band_level": 0.99,
+        "statistic": "bootstrap-mean pooled-tercile coverage, pooled-cal q_hat, per-split tercile assignment from an independent null stratifier (matched to mondrian_bootstrap exactly)",
+        "note_qhat_clamp": "q_hat_from_cal clamps k=min(k,n): for n_cal<9 the 0.90 split-CP order statistic k=ceil((n+1)*0.9) exceeds n and the 'no finite bound' case silently becomes the sample max. The pooled q_hat here uses ~N/2 cal points (>>9) so the clamp never fires for the pooled statistic; the Mondrian arm's ct.sum()>=3 guard permits it in principle for tiny strata \u2014 flagged as a caveat."
+      }
+    },
+    "14": {
+      "B": 1000,
+      "terciles": [
+        {
+          "tercile": 0,
+          "n_cal_mean": 93.0,
+          "n_test_mean": 94.379,
+          "pooled_coverage": 0.9763989213601892,
+          "mondrian_coverage": 0.9032830773916959,
+          "pooled_dev_pp": 7.639892136018922,
+          "mondrian_dev_pp": 0.32830773916958655,
+          "mc_band_lo": 0.8583271093759864,
+          "mc_band_hi": 0.9428895489863702,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": true
+        },
+        {
+          "tercile": 1,
+          "n_cal_mean": 93.0,
+          "n_test_mean": 93.014,
+          "pooled_coverage": 0.9399917823866119,
+          "mondrian_coverage": 0.9041751328362337,
+          "pooled_dev_pp": 3.999178238661183,
+          "mondrian_dev_pp": 0.4175132836233719,
+          "mc_band_lo": 0.8562841777544059,
+          "mc_band_hi": 0.9358578871228773,
+          "pooled_under_covers_vs_band": false,
+          "pooled_over_covers_vs_band": true
+        },
+        {
+          "tercile": 2,
+          "n_cal_mean": 93.0,
+          "n_test_mean": 93.607,
+          "pooled_coverage": 0.7864088956654625,
+          "mondrian_coverage": 0.9067538322615414,
+          "pooled_dev_pp": -11.359110433453756,
+          "mondrian_dev_pp": 0.6753832261541359,
+          "mc_band_lo": 0.8563533777560498,
+          "mc_band_hi": 0.9433418535494702,
+          "pooled_under_covers_vs_band": true,
+          "pooled_over_covers_vs_band": false
+        }
+      ],
+      "mc_band_meta": {
+        "n_outer": 400,
+        "B": 1000,
+        "band_level": 0.99,
+        "statistic": "bootstrap-mean pooled-tercile coverage, pooled-cal q_hat, per-split tercile assignment from an independent null stratifier (matched to mondrian_bootstrap exactly)",
+        "note_qhat_clamp": "q_hat_from_cal clamps k=min(k,n): for n_cal<9 the 0.90 split-CP order statistic k=ceil((n+1)*0.9) exceeds n and the 'no finite bound' case silently becomes the sample max. The pooled q_hat here uses ~N/2 cal points (>>9) so the clamp never fires for the pooled statistic; the Mondrian arm's ct.sum()>=3 guard permits it in principle for tiny strata \u2014 flagged as a caveat."
+      }
+    }
+  },
+  "block2_L14_NG_terciles": {
+    "B": 1000,
+    "terciles": [
+      {
+        "tercile": 0,
+        "n_cal_mean": 92.981,
+        "n_test_mean": 94.118,
+        "pooled_coverage": 0.9767194293696541,
+        "mondrian_coverage": 0.9065093454110245,
+        "pooled_dev_pp": 7.6719429369654035,
+        "mondrian_dev_pp": 0.6509345411024436,
+        "mc_band_lo": 0.8583271093759864,
+        "mc_band_hi": 0.9428895489863702,
+        "pooled_under_covers_vs_band": false,
+        "pooled_over_covers_vs_band": true
+      },
+      {
+        "tercile": 1,
+        "n_cal_mean": 93.019,
+        "n_test_mean": 93.014,
+        "pooled_coverage": 0.9568189612950867,
+        "mondrian_coverage": 0.9063116995971602,
+        "pooled_dev_pp": 5.681896129508668,
+        "mondrian_dev_pp": 0.6311699597160159,
+        "mc_band_lo": 0.8562841777544059,
+        "mc_band_hi": 0.9358578871228773,
+        "pooled_under_covers_vs_band": false,
+        "pooled_over_covers_vs_band": true
+      },
+      {
+        "tercile": 2,
+        "n_cal_mean": 93.0,
+        "n_test_mean": 93.868,
+        "pooled_coverage": 0.7718052665132029,
+        "mondrian_coverage": 0.9070771194012259,
+        "pooled_dev_pp": -12.819473348679711,
+        "mondrian_dev_pp": 0.7077119401225906,
+        "mc_band_lo": 0.8563533777560498,
+        "mc_band_hi": 0.9433418535494702,
+        "pooled_under_covers_vs_band": true,
+        "pooled_over_covers_vs_band": false
+      }
+    ],
+    "mc_band_meta": {
+      "n_outer": 400,
+      "B": 1000,
+      "band_level": 0.99,
+      "statistic": "bootstrap-mean pooled-tercile coverage, pooled-cal q_hat, per-split tercile assignment from an independent null stratifier (matched to mondrian_bootstrap exactly)",
+      "note_qhat_clamp": "q_hat_from_cal clamps k=min(k,n): for n_cal<9 the 0.90 split-CP order statistic k=ceil((n+1)*0.9) exceeds n and the 'no finite bound' case silently becomes the sample max. The pooled q_hat here uses ~N/2 cal points (>>9) so the clamp never fires for the pooled statistic; the Mondrian arm's ct.sum()>=3 guard permits it in principle for tiny strata \u2014 flagged as a caveat."
+    }
+  },
+  "preregistered_L14_highNG": {
+    "stratum": "L14 x top-NG-tercile",
+    "pooled_coverage": 0.7718052665132029,
+    "pooled_dev_pp": -12.819473348679711,
+    "mc_band": [
+      0.8563533777560498,
+      0.9433418535494702
+    ],
+    "mondrian_coverage": 0.9070771194012259,
+    "mondrian_dev_pp": 0.7077119401225906,
+    "PREREG_PREDICTION": "pooled calibration UNDER-covers in L14 x high-NG",
+    "prereg_pass": true,
+    "verbatim_result": "CONFIRMED: pooled under-covers below MC band"
+  },
+  "e2_arm_verdict": {
+    "any_pooled_deviation_ge_5pp": true,
+    "arm_dies_all_dev_below_5pp": false,
+    "verdict": "MONDRIAN ARM SURVIVES \u2014 >=5pp conditional deviation exists to repair"
+  },
+  "runtime_s": 209.9
+}

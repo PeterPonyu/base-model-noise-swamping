@@ -1,0 +1,98 @@
+wrote /home/zeyufu/Desktop/idea-feasibility-analysis/edit-harness/experiments/../results/quant_survival/aggregate/gate_readout.json
+
+=== Paper B Track-1 Phase-1 aggregate gate readout ===
+Thresholds: {
+  "fp32_law_gate": 0.3,
+  "esr_survival_4bit": 0.8,
+  "esr_survival_8bit": 0.9,
+  "delta_rho_tolerance": 0.15,
+  "rank_survival_4bit": 0.85,
+  "rank_survival_8bit": 0.95,
+  "median_ratio_concentration": 1.0
+}
+
+K1_geometry_ranking_survival: FAIL
+  failures:
+    - Llama-3.2-3B_rome_L24/nf4dq_full_model: rank_surv=0.680 < 0.85
+
+K2_esr_survival_4bit: PASS
+
+K3_M_concentration: FAIL
+  failures:
+    - Llama-3.2-1B_rome_L12: median_ratio=0.036, F_above=0.001
+    - Llama-3.2-3B_rome_L24: median_ratio=0.031, F_above=0.004
+    - Qwen2.5-1.5B_rome_L21: median_ratio=0.010, F_above=0.000
+
+--- Cell summary ---
+
+Llama-3.2-1B_memit_L12: n_seeds=3 c2_eligible=True fp32_within=0.469
+  nf4dq_edited_layer: esr_surv=1.000 Δρ=-0.001 rank_surv=0.993
+  nf4dq_full_model: esr_surv=0.998 Δρ=-0.024 rank_surv=0.832
+  int8_edited_layer: esr_surv=1.000 Δρ=-0.000 rank_surv=1.000
+  int8_full_model: esr_surv=1.000 Δρ=0.000 rank_surv=0.995
+  [C3 nf4dq] median_ratio=0.010 F_above=0.000
+  [C3 int8] median_ratio=0.076 F_above=0.036
+
+Llama-3.2-1B_alpha_L12: n_seeds=3 c2_eligible=False fp32_within=0.043
+  nf4dq_edited_layer: esr_surv=1.000 Δρ=0.007 rank_surv=0.903
+  nf4dq_full_model: esr_surv=0.998 Δρ=0.007 rank_surv=0.238
+  int8_edited_layer: esr_surv=1.000 Δρ=0.000 rank_surv=0.998
+  int8_full_model: esr_surv=1.000 Δρ=0.001 rank_surv=0.769
+  [C3 nf4dq] median_ratio=0.104 F_above=0.022
+  [C3 int8] median_ratio=0.797 F_above=0.435
+
+Llama-3.2-3B_alpha_L24: n_seeds=3 c2_eligible=False fp32_within=-0.030
+  nf4dq_edited_layer: esr_surv=1.000 Δρ=-0.000 rank_surv=0.800
+  nf4dq_full_model: esr_surv=0.987 Δρ=0.006 rank_surv=0.091
+  int8_edited_layer: esr_surv=1.000 Δρ=-0.000 rank_surv=0.995
+  int8_full_model: esr_surv=1.000 Δρ=-0.001 rank_surv=0.455
+  [C3 nf4dq] median_ratio=0.076 F_above=0.012
+  [C3 int8] median_ratio=0.602 F_above=0.358
+
+Qwen2.5-1.5B_memit_L21: n_seeds=3 c2_eligible=False fp32_within=-0.010
+  nf4dq_edited_layer: esr_surv=0.989 Δρ=0.005 rank_surv=0.904
+  nf4dq_full_model: esr_surv=0.832 Δρ=-0.017 rank_surv=0.279
+  int8_edited_layer: esr_surv=1.000 Δρ=0.001 rank_surv=0.997
+  int8_full_model: esr_surv=0.982 Δρ=0.002 rank_surv=0.891
+  [C3 nf4dq] median_ratio=0.004 F_above=0.000
+  [C3 int8] median_ratio=0.029 F_above=0.005
+
+Qwen2.5-1.5B_alpha_L21: n_seeds=3 c2_eligible=False fp32_within=0.008
+  nf4dq_edited_layer: esr_surv=0.989 Δρ=-0.005 rank_surv=0.551
+  nf4dq_full_model: esr_surv=0.811 Δρ=-0.001 rank_surv=0.063
+  int8_edited_layer: esr_surv=1.000 Δρ=-0.002 rank_surv=0.961
+  int8_full_model: esr_surv=0.978 Δρ=-0.003 rank_surv=0.377
+  [C3 nf4dq] median_ratio=0.023 F_above=0.002
+  [C3 int8] median_ratio=0.159 F_above=0.073
+
+Llama-3.2-3B_memit_L24: n_seeds=3 c2_eligible=False fp32_within=0.226
+  nf4dq_edited_layer: esr_surv=1.000 Δρ=-0.003 rank_surv=0.950
+  nf4dq_full_model: esr_surv=0.987 Δρ=-0.007 rank_surv=0.349
+  int8_edited_layer: esr_surv=1.000 Δρ=0.000 rank_surv=0.999
+  int8_full_model: esr_surv=1.000 Δρ=-0.000 rank_surv=0.887
+  [C3 nf4dq] median_ratio=0.009 F_above=0.000
+  [C3 int8] median_ratio=0.072 F_above=0.031
+
+Llama-3.2-1B_rome_L12: n_seeds=3 c2_eligible=True fp32_within=0.581
+  nf4dq_edited_layer: esr_surv=1.000 Δρ=-0.000 rank_surv=0.999
+  nf4dq_full_model: esr_surv=0.997 Δρ=-0.017 rank_surv=0.904
+  int8_edited_layer: esr_surv=1.000 Δρ=0.000 rank_surv=1.000
+  int8_full_model: esr_surv=1.000 Δρ=-0.000 rank_surv=0.998
+  [C3 nf4dq] median_ratio=0.036 F_above=0.001
+  [C3 int8] median_ratio=0.280 F_above=0.182
+
+Llama-3.2-3B_rome_L24: n_seeds=3 c2_eligible=True fp32_within=0.369
+  nf4dq_edited_layer: esr_surv=1.000 Δρ=-0.002 rank_surv=0.998
+  nf4dq_full_model: esr_surv=0.997 Δρ=-0.001 rank_surv=0.680
+  int8_edited_layer: esr_surv=1.000 Δρ=-0.000 rank_surv=1.000
+  int8_full_model: esr_surv=1.000 Δρ=-0.003 rank_surv=0.979
+  [C3 nf4dq] median_ratio=0.031 F_above=0.004
+  [C3 int8] median_ratio=0.251 F_above=0.176
+
+Qwen2.5-1.5B_rome_L21: n_seeds=3 c2_eligible=False fp32_within=-0.003
+  nf4dq_edited_layer: esr_surv=0.996 Δρ=0.002 rank_surv=0.953
+  nf4dq_full_model: esr_surv=0.852 Δρ=-0.026 rank_surv=0.276
+  int8_edited_layer: esr_surv=1.000 Δρ=0.000 rank_surv=0.999
+  int8_full_model: esr_surv=0.982 Δρ=0.000 rank_surv=0.873
+  [C3 nf4dq] median_ratio=0.010 F_above=0.000
+  [C3 int8] median_ratio=0.073 F_above=0.024

@@ -1,0 +1,49 @@
+{
+  "aggregate": {
+    "n_seeds": 1,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": NaN,
+    "within_probe_std_across_seeds": NaN,
+    "per_edit_mean_across_seeds": 0.0208,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "UNDETERMINED"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_neox20b_rome_cf_L33_s0.npz",
+      "shape": [
+        2,
+        117
+      ],
+      "flat_spearman_INFLATED": 0.0557,
+      "within_probe_mean": NaN,
+      "within_probe_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_ci95_editcluster": [
+        NaN,
+        NaN
+      ],
+      "within_probe_frac_positive": 0.0,
+      "per_edit_mean": 0.0208,
+      "per_edit_ci95": [
+        NaN,
+        NaN
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": NaN,
+      "editlevel_null_std": NaN,
+      "editlevel_z": null,
+      "flat_perm_p": 0.4795,
+      "within_probe_mean_normgrowth": NaN,
+      "mean_residual_norm(S)": 24.2788
+    }
+  ]
+}

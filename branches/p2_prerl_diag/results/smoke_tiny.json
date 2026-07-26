@@ -1,0 +1,39 @@
+{
+  "checkpoint_id": "smoke_tiny",
+  "counts": {
+    "n_problems": 3,
+    "n_traces": 12,
+    "n_right": 0,
+    "n_wrong": 12,
+    "n_mixed_problems": 0
+  },
+  "mean_len_right": NaN,
+  "mean_len_wrong": 24.0,
+  "D_pooled": {
+    "point": NaN,
+    "ci_level": 0.95,
+    "ci_lo": NaN,
+    "ci_hi": NaN,
+    "boot_se": NaN,
+    "n_boot": 200,
+    "frac_finite": 0.0,
+    "seed": 0
+  },
+  "D_within": {
+    "point": NaN,
+    "ci_level": 0.95,
+    "ci_lo": NaN,
+    "ci_hi": NaN,
+    "boot_se": NaN,
+    "n_boot": 200,
+    "frac_finite": 0.0,
+    "seed": 0
+  },
+  "length_bias_flag": false,
+  "_meta": {
+    "input": "/tmp/claude-1000/-home-zeyufu-Desktop-idea-feasibility-analysis/b2b95f81-2779-4b3c-b076-ba7d4b6280d4/scratchpad/p2_smoke_samples.json",
+    "generated_at": "2026-07-04T03:13:26.793759+00:00",
+    "tool": "run_diag.py",
+    "note": "CPU diagnostic; sample generation is a separate queued GPU job."
+  }
+}

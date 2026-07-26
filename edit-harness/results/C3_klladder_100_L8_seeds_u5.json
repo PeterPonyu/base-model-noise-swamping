@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.1493,
+    "within_probe_std_across_seeds": 0.0237,
+    "per_edit_mean_across_seeds": 0.1776,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.002,
+    "VERDICT": "BORDERLINE \u2014 weak within-probe signal; needs more edits/probes or reframe"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_llama1b_ftkl100_cf_L8_s0.npz",
+      "shape": [
+        200,
+        149
+      ],
+      "flat_spearman_INFLATED": 0.2102,
+      "within_probe_mean": 0.1727,
+      "within_probe_ci95": [
+        0.1581,
+        0.1874
+      ],
+      "within_probe_ci95_editcluster": [
+        0.1123,
+        0.223
+      ],
+      "within_probe_frac_positive": 0.96,
+      "per_edit_mean": 0.2557,
+      "per_edit_ci95": [
+        0.2376,
+        0.2728
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.001,
+      "editlevel_null_std": 0.0289,
+      "editlevel_z": 5.94,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.0302,
+      "mean_residual_norm(S)": null
+    },
+    {
+      "npz": "gate_llama1b_ftkl100_cf_L8_s1.npz",
+      "shape": [
+        200,
+        154
+      ],
+      "flat_spearman_INFLATED": 0.1411,
+      "within_probe_mean": 0.1585,
+      "within_probe_ci95": [
+        0.1424,
+        0.1743
+      ],
+      "within_probe_ci95_editcluster": [
+        0.0939,
+        0.2176
+      ],
+      "within_probe_frac_positive": 0.896,
+      "per_edit_mean": 0.16,
+      "per_edit_ci95": [
+        0.137,
+        0.1831
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0011,
+      "editlevel_null_std": 0.0298,
+      "editlevel_z": 5.28,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.0403,
+      "mean_residual_norm(S)": null
+    },
+    {
+      "npz": "gate_llama1b_ftkl100_cf_L8_s2.npz",
+      "shape": [
+        200,
+        154
+      ],
+      "flat_spearman_INFLATED": 0.0718,
+      "within_probe_mean": 0.1168,
+      "within_probe_ci95": [
+        0.0995,
+        0.1344
+      ],
+      "within_probe_ci95_editcluster": [
+        0.0461,
+        0.1873
+      ],
+      "within_probe_frac_positive": 0.831,
+      "per_edit_mean": 0.1171,
+      "per_edit_ci95": [
+        0.0996,
+        0.1356
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.002,
+      "editlevel_null_mean": -0.0021,
+      "editlevel_null_std": 0.0328,
+      "editlevel_z": 3.62,
+      "flat_perm_p": 0.019,
+      "within_probe_mean_normgrowth": -0.0159,
+      "mean_residual_norm(S)": null
+    }
+  ]
+}

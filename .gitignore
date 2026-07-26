@@ -1,0 +1,84 @@
+# Code-and-provenance repo only. The tree is ~90G; ~89G of that is model weights,
+# datasets, result matrices and Zenodo tarballs that must NEVER enter git history
+# (unrecoverable bloat, and they are reproducible or separately archived).
+# What IS tracked: source, drivers, prereg/design/findings docs, manuscripts,
+# canonical small result TABLES (the JSONs papers actually quote).
+
+# ---------------- weights & datasets (67G)
+data/
+edit-harness/data/
+**/models/
+
+# ---------------- raw result artifacts (12G)
+edit-harness/results/**/*.npz
+edit-harness/results/**/*.pt
+edit-harness/results/**/*.bin
+edit-harness/results/**/*.safetensors
+edit-harness/results/matrices/
+edit-harness/results/vectors/
+edit-harness/results/mechanism/
+edit-harness/results/smoke/
+edit-harness/results/smoke_revins/
+branches/**/results/**/*.npz
+branches/**/*.gguf
+
+# ---------------- submission bulk (10.4G) — deposits are archived separately
+**/zenodo-deposit.tar.gz
+**/zenodo-deposit/
+submissions/**/*.pdf
+paper-arr/*.pdf
+!submissions/ieee/main.pdf          # the under-review artifact: keep one copy
+
+# ---------------- LaTeX build intermediates
+*.aux
+*.log
+*.out
+*.blg
+*.spl
+*.fls
+*.fdb_latexmk
+*.synctex*
+*.toc
+*.lof
+*.lot
+!**/main.bbl                         # needed to compile
+
+# ---------------- runtime / operational litter
+__pycache__/
+*.pyc
+*.pyo
+.omc/
+*.pid
+*.ok
+*.nohup.log
+engine/*.log
+edit-harness/engine/*.log
+edit-harness/engine/archive/
+_trash-*/
+.cache/
+.ipynb_checkpoints/
+
+# ---------------- quarantined evidence (kept on disk, not in history)
+**/.synthetic-relabel-bak/
+**/*.PARTIAL-KILLED-*
+**/*.INVALID-*
+**/*.MIXA-QUARANTINE-*
+
+# ---------------- explicitly TRACK these small canonical tables
+# (negations must come after the broad rules above)
+!edit-harness/results/*.json
+!edit-harness/results/merging/*.json
+!edit-harness/results/quant_survival/aggregate/*.json
+!edit-harness/results/sham_control/*.json
+!edit-harness/results/frame_a/*.json
+
+# ---------------- training/merge outputs (P2 GRPO smoke: 1.2G incl. 942M safetensors)
+branches/**/grpo_out*/
+branches/**/*_out/
+**/checkpoint-*/
+**/adapter/
+**/merged/
+*.safetensors
+*.pt
+*.gguf
+branches/**/samples/*.json

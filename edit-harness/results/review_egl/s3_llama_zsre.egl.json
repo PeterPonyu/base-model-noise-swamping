@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "subject": "Wishman",
+      "E": 1.0,
+      "G": 1.0,
+      "L": 1.0
+    },
+    {
+      "subject": "K-9 Mail",
+      "E": 0.0,
+      "G": 0.0,
+      "L": 1.0
+    },
+    {
+      "subject": "John Charles Thomas",
+      "E": 1.0,
+      "G": 1.0,
+      "L": 1.0
+    },
+    {
+      "subject": "Charles Champion",
+      "E": 0.0,
+      "G": 0.0,
+      "L": 1.0
+    }
+  ],
+  "summary": {
+    "n_edits": 4,
+    "E": 0.5,
+    "G": 0.5,
+    "L": 1.0,
+    "n_generality_missing": 0,
+    "n_locality_missing": 0
+  },
+  "model": "HuggingFaceM4/tiny-random-LlamaForCausalLM",
+  "editor": "rome",
+  "dataset": "zsre",
+  "layer": 1,
+  "seed": 0,
+  "steps": 2,
+  "alpha_proj_source": null,
+  "egl_max_neighborhood": 10,
+  "egl_max_paraphrase": 2
+}

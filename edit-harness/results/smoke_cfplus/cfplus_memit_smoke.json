@@ -1,0 +1,43 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 12,
+  "editor": "memit",
+  "seed": 0,
+  "steps": 2,
+  "max_neighborhood": 4,
+  "n_fit": 8,
+  "memit_layers": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "records": [
+    {
+      "subject": "Ugo Rondinone",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.04786382003931067,
+      "KL_hard_mean": 2.6796465888619423,
+      "n_neighborhood": 4
+    },
+    {
+      "subject": "Heath Brothers",
+      "NS": 1.0,
+      "NS_hard": 0.5,
+      "KL_std_mean": 0.006235854474653024,
+      "KL_hard_mean": 0.028747328789904714,
+      "n_neighborhood": 4
+    }
+  ],
+  "summary": {
+    "n_edits": 2,
+    "NS": 1.0,
+    "NS_hard": 0.25,
+    "KL_std_mean": 0.027049837256981846,
+    "KL_hard_mean": 1.3541969588259235,
+    "hard_ns_le_std_ns": true,
+    "hard_ns_le_std_ns_note": "HYPOTHESIS, not asserted: CF+'s harder distribution-shifted prompts are expected to expose MORE collateral damage than standard neighborhood prompts, i.e. NS_hard <= NS. Reported, not gated on."
+  },
+  "runtime_s": 255.7
+}

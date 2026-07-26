@@ -1,0 +1,27 @@
+# AFTER REBOOT — 2026-07-16 (SW-thermal cap wedged the 5090 at 1012/3090 MHz; reboot clears it)
+
+## 1. Verify the throttle actually cleared (GEMM burn, ~25 s)
+cd ~/Desktop/idea-feasibility-analysis/edit-harness
+timeout 30 python3 -c "
+import torch
+a=torch.randn(8192,8192,device='cuda'); b=torch.randn(8192,8192,device='cuda')
+for _ in range(200): a=(a@b).tanh()
+torch.cuda.synchronize()" &
+sleep 15 && nvidia-smi --query-gpu=power.draw,clocks.sm --format=csv,noheader
+# EXPECT power well above 120 W and clocks near 3 GHz. If still ~60-70 W / ~1 GHz,
+# the cap did not clear — do NOT relaunch; another reboot or cooldown needed.
+
+## 2. Relaunch Frame-A wave (idempotent resume; 2 done cells skip; smoke marker still
+##    valid — frame_a code unchanged since the smoke that passed)
+cd ~/Desktop/idea-feasibility-analysis/edit-harness
+nohup ./run_frame_a_wave1.sh >> engine/run_frame_a_wave1.nohup.log 2>&1 &
+echo $! > engine/run_frame_a_wave1.pid
+
+## 3. Keep the lid OPEN under load (nvidia_uvm wedge) — standing rule.
+
+## Notes
+- Wave state at stop: 2/99 cells done (MIX_A both_s0, cost_only_s0), stopped cleanly by
+  PID mid-cell-3; no partial cell files (cells write atomically at cell end).
+- Cloud: box 36039 fully staged (gpt2-xl + Phi-3.5 verified); revision wave R-D/R-F run
+  there when GPU mode flips; R-E gated on prereg ratification; R-C waits for a Pro-6000.
+- If Claude session is running, it can do all of the above on request.

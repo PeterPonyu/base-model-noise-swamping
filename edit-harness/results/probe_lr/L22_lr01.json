@@ -1,0 +1,53 @@
+{
+  "model": "data/models/gpt-neox-20b",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 22,
+  "n_edits": 20,
+  "n_probes": 50,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "gptneox",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.2,
+  "mean_residual_norm": 41.3444,
+  "frac_probes_known(pre_p>0.05)": 0.28,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 1000,
+    "spearman_cos_damage": 0.0316,
+    "spearman_normgrowth_damage": -0.0321,
+    "auroc_cos_broken": 0.5107,
+    "auroc_normgrowth_broken": 0.5204,
+    "mean_damage_logit": 0.0395,
+    "mean_cosine": 0.2607
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 280,
+    "spearman_cos_damage": -0.0282,
+    "spearman_normgrowth_damage": -0.0431,
+    "auroc_cos_broken": 0.551,
+    "auroc_normgrowth_broken": 0.5354,
+    "mean_damage_logit": 0.0875,
+    "mean_cosine": 0.2551
+  },
+  "runtime_s": 142.2,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0282,
+    "auroc": 0.551,
+    "beats_normgrowth": true
+  },
+  "matrices_npz": "results/probe_lr/matrices/L22_lr01.npz"
+}

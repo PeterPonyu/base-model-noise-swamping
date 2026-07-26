@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": -0.0395,
+    "within_probe_std_across_seeds": 0.0433,
+    "per_edit_mean_across_seeds": 0.0364,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.4875,
+    "VERDICT": "DEAD \u2014 within-probe rho < 0.10; demote headline, pivot to Qwen-null / FT-overcollateral"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_llama1b_alpha_mquake_L12_s0.npz",
+      "shape": [
+        177,
+        201
+      ],
+      "flat_spearman_INFLATED": -0.0421,
+      "within_probe_mean": -0.0741,
+      "within_probe_ci95": [
+        -0.0923,
+        -0.0556
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.1503,
+        0.0003
+      ],
+      "within_probe_frac_positive": 0.244,
+      "per_edit_mean": 0.038,
+      "per_edit_ci95": [
+        0.0176,
+        0.0588
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.0619,
+      "editlevel_null_mean": 0.0013,
+      "editlevel_null_std": 0.0405,
+      "editlevel_z": -1.86,
+      "flat_perm_p": 1.0,
+      "within_probe_mean_normgrowth": 0.4989,
+      "mean_residual_norm(S)": 22.8731
+    },
+    {
+      "npz": "gate_llama1b_alpha_mquake_L12_s1.npz",
+      "shape": [
+        180,
+        207
+      ],
+      "flat_spearman_INFLATED": 0.0209,
+      "within_probe_mean": 0.0216,
+      "within_probe_ci95": [
+        0.0041,
+        0.0385
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.0301,
+        0.0714
+      ],
+      "within_probe_frac_positive": 0.522,
+      "per_edit_mean": 0.0397,
+      "per_edit_ci95": [
+        0.0232,
+        0.056
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.4875,
+      "editlevel_null_mean": -0.0013,
+      "editlevel_null_std": 0.032,
+      "editlevel_z": 0.72,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.3364,
+      "mean_residual_norm(S)": 23.1019
+    },
+    {
+      "npz": "gate_llama1b_alpha_mquake_L12_s2.npz",
+      "shape": [
+        173,
+        207
+      ],
+      "flat_spearman_INFLATED": -0.0494,
+      "within_probe_mean": -0.066,
+      "within_probe_ci95": [
+        -0.0802,
+        -0.0522
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.1377,
+        -0.0013
+      ],
+      "within_probe_frac_positive": 0.295,
+      "per_edit_mean": 0.0314,
+      "per_edit_ci95": [
+        0.0129,
+        0.0509
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.043,
+      "editlevel_null_mean": 0.0005,
+      "editlevel_null_std": 0.0338,
+      "editlevel_z": -1.96,
+      "flat_perm_p": 1.0,
+      "within_probe_mean_normgrowth": 0.3671,
+      "mean_residual_norm(S)": 22.9203
+    }
+  ]
+}

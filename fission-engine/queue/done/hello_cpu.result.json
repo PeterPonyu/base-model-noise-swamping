@@ -1,0 +1,21 @@
+{
+  "id": "hello_cpu",
+  "status": "done",
+  "returncode": 0,
+  "reason": "ok",
+  "started": "2026-07-01T04:22:28",
+  "finished": "2026-07-01T04:22:28",
+  "duration_s": 0.019861221313476562,
+  "cmd": [
+    "/home/zeyufu/miniconda3/bin/python3",
+    "-c",
+    "import json,os,time,pathlib;p=pathlib.Path('results/hello.json');p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps({'hello':'fission','pid':os.getpid(),'ts':time.time(),'ok':True},indent=2));print('wrote',p.resolve())"
+  ],
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis/fission-engine",
+  "outputs_present": [
+    "/home/zeyufu/Desktop/idea-feasibility-analysis/fission-engine/results/hello.json"
+  ],
+  "outputs_missing": [],
+  "log_path": "/home/zeyufu/Desktop/idea-feasibility-analysis/fission-engine/queue/done/hello_cpu.log",
+  "branch": "G"
+}

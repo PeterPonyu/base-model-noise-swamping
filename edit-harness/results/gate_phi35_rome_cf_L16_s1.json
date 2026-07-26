@@ -1,0 +1,51 @@
+{
+  "model": "data/models/Phi-3.5-mini",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 16,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 1,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.12.1+cu130",
+    "transformers": "5.12.1",
+    "numpy": "2.3.4",
+    "dtype": "float32",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.985,
+  "mean_residual_norm": 32.0328,
+  "frac_probes_known(pre_p>0.05)": 0.14,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": -0.0338,
+    "spearman_normgrowth_damage": -0.1282,
+    "auroc_cos_broken": 0.59,
+    "auroc_normgrowth_broken": 0.5982,
+    "mean_damage_logit": 0.08089,
+    "mean_cosine": 0.1717
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 14000,
+    "spearman_cos_damage": -0.0021,
+    "spearman_normgrowth_damage": 0.1586,
+    "auroc_cos_broken": 0.6129,
+    "auroc_normgrowth_broken": 0.6803,
+    "mean_damage_logit": 0.14445,
+    "mean_cosine": 0.161
+  },
+  "runtime_s": 3914.2,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.0021,
+    "auroc": 0.6129,
+    "beats_normgrowth": false
+  },
+  "matrices_npz": "results/matrices/gate_phi35_rome_cf_L16_s1.npz"
+}

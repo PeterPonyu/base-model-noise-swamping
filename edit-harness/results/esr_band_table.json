@@ -1,0 +1,880 @@
+{
+ "n_rows": 63,
+ "rows": [
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 14,
+   "seed": 0,
+   "n_layers": 28,
+   "depth_frac": 0.5,
+   "esr": 0.99,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L14_s0.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 14,
+   "seed": 1,
+   "n_layers": 28,
+   "depth_frac": 0.5,
+   "esr": 0.99,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L14_s1.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 14,
+   "seed": 2,
+   "n_layers": 28,
+   "depth_frac": 0.5,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L14_s2.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 18,
+   "seed": 0,
+   "n_layers": 28,
+   "depth_frac": 0.6429,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L18_s0.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 18,
+   "seed": 1,
+   "n_layers": 28,
+   "depth_frac": 0.6429,
+   "esr": 0.96,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L18_s1.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 18,
+   "seed": 2,
+   "n_layers": 28,
+   "depth_frac": 0.6429,
+   "esr": 0.99,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L18_s2.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 21,
+   "seed": 0,
+   "n_layers": 28,
+   "depth_frac": 0.75,
+   "esr": 0.79,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L21_s0.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 21,
+   "seed": 1,
+   "n_layers": 28,
+   "depth_frac": 0.75,
+   "esr": 0.78,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L21_s1.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 21,
+   "seed": 2,
+   "n_layers": 28,
+   "depth_frac": 0.75,
+   "esr": 0.785,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L21_s2.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 24,
+   "seed": 0,
+   "n_layers": 28,
+   "depth_frac": 0.8571,
+   "esr": 0.415,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L24_s0.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 24,
+   "seed": 1,
+   "n_layers": 28,
+   "depth_frac": 0.8571,
+   "esr": 0.395,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L24_s1.npz"
+  },
+  {
+   "model": "gptj",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 24,
+   "seed": 2,
+   "n_layers": 28,
+   "depth_frac": 0.8571,
+   "esr": 0.395,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_gptj_rome_cf_L24_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "alpha",
+   "dataset": "mquake",
+   "layer": 12,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.885,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_alpha_mquake_L12_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "alpha",
+   "dataset": "mquaket",
+   "layer": 12,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.415,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_alpha_mquaket_L12_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 12,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_cf_L12_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 10,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.625,
+   "esr": 0.985,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L10_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 10,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.625,
+   "esr": 0.98,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L10_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 10,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.625,
+   "esr": 0.965,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L10_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 12,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.98,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L12_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 12,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.98,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L12_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 12,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.98,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L12_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 14,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.875,
+   "esr": 0.95,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L14_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 14,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.875,
+   "esr": 0.94,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L14_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 14,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.875,
+   "esr": 0.96,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L14_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 8,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.5,
+   "esr": 0.98,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L8_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 8,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.5,
+   "esr": 0.975,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L8_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquake",
+   "layer": 8,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.5,
+   "esr": 0.965,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquake_L8_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 10,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.625,
+   "esr": 0.895,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L10_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 10,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.625,
+   "esr": 0.905,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L10_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 10,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.625,
+   "esr": 0.91,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L10_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 12,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.96,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L12_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 12,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.98,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L12_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 12,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.75,
+   "esr": 0.985,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L12_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 14,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.875,
+   "esr": 0.985,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L14_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 14,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.875,
+   "esr": 0.94,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L14_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 14,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.875,
+   "esr": 0.945,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L14_s2.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 8,
+   "seed": 0,
+   "n_layers": 16,
+   "depth_frac": 0.5,
+   "esr": 0.96,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L8_s0.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 8,
+   "seed": 1,
+   "n_layers": 16,
+   "depth_frac": 0.5,
+   "esr": 0.925,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L8_s1.npz"
+  },
+  {
+   "model": "llama1b",
+   "editor": "rome",
+   "dataset": "mquaket",
+   "layer": 8,
+   "seed": 2,
+   "n_layers": 16,
+   "depth_frac": 0.5,
+   "esr": 0.9,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama1b_rome_mquaket_L8_s2.npz"
+  },
+  {
+   "model": "llama8b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 16,
+   "seed": 0,
+   "n_layers": 32,
+   "depth_frac": 0.5,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama8b_rome_cf_L16_s0.npz"
+  },
+  {
+   "model": "llama8b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 16,
+   "seed": 1,
+   "n_layers": 32,
+   "depth_frac": 0.5,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama8b_rome_cf_L16_s1.npz"
+  },
+  {
+   "model": "llama8b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 24,
+   "seed": 0,
+   "n_layers": 32,
+   "depth_frac": 0.75,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama8b_rome_cf_L24_s0.npz"
+  },
+  {
+   "model": "llama8b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 24,
+   "seed": 1,
+   "n_layers": 32,
+   "depth_frac": 0.75,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama8b_rome_cf_L24_s1.npz"
+  },
+  {
+   "model": "llama8b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 24,
+   "seed": 2,
+   "n_layers": 32,
+   "depth_frac": 0.75,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama8b_rome_cf_L24_s2.npz"
+  },
+  {
+   "model": "llama8b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 28,
+   "seed": 0,
+   "n_layers": 32,
+   "depth_frac": 0.875,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_llama8b_rome_cf_L28_s0.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 12,
+   "seed": 0,
+   "n_layers": 24,
+   "depth_frac": 0.5,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L12_s0.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 12,
+   "seed": 1,
+   "n_layers": 24,
+   "depth_frac": 0.5,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L12_s1.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 12,
+   "seed": 2,
+   "n_layers": 24,
+   "depth_frac": 0.5,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L12_s2.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 15,
+   "seed": 0,
+   "n_layers": 24,
+   "depth_frac": 0.625,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L15_s0.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 15,
+   "seed": 1,
+   "n_layers": 24,
+   "depth_frac": 0.625,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L15_s1.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 15,
+   "seed": 2,
+   "n_layers": 24,
+   "depth_frac": 0.625,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L15_s2.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 6,
+   "seed": 0,
+   "n_layers": 24,
+   "depth_frac": 0.25,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L6_s0.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 6,
+   "seed": 1,
+   "n_layers": 24,
+   "depth_frac": 0.25,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L6_s1.npz"
+  },
+  {
+   "model": "pythia14b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 6,
+   "seed": 2,
+   "n_layers": 24,
+   "depth_frac": 0.25,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia14b_rome_cf_L6_s2.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 16,
+   "seed": 0,
+   "n_layers": 32,
+   "depth_frac": 0.5,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L16_s0.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 16,
+   "seed": 1,
+   "n_layers": 32,
+   "depth_frac": 0.5,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L16_s1.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 16,
+   "seed": 2,
+   "n_layers": 32,
+   "depth_frac": 0.5,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L16_s2.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 20,
+   "seed": 0,
+   "n_layers": 32,
+   "depth_frac": 0.625,
+   "esr": 0.94,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L20_s0.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 20,
+   "seed": 1,
+   "n_layers": 32,
+   "depth_frac": 0.625,
+   "esr": 0.94,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L20_s1.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 20,
+   "seed": 2,
+   "n_layers": 32,
+   "depth_frac": 0.625,
+   "esr": 0.945,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L20_s2.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 8,
+   "seed": 0,
+   "n_layers": 32,
+   "depth_frac": 0.25,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L8_s0.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 8,
+   "seed": 1,
+   "n_layers": 32,
+   "depth_frac": 0.25,
+   "esr": 0.995,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L8_s1.npz"
+  },
+  {
+   "model": "pythia28b",
+   "editor": "rome",
+   "dataset": "cf",
+   "layer": 8,
+   "seed": 2,
+   "n_layers": 32,
+   "depth_frac": 0.25,
+   "esr": 1.0,
+   "n_edits": 200,
+   "npz": "results/matrices/gate_pythia28b_rome_cf_L8_s2.npz"
+  }
+ ],
+ "curves": {
+  "gptj|rome|cf": {
+   "0.5": {
+    "mean_esr": 0.9933,
+    "n_seeds": 3
+   },
+   "0.6429": {
+    "mean_esr": 0.9833,
+    "n_seeds": 3
+   },
+   "0.75": {
+    "mean_esr": 0.785,
+    "n_seeds": 3
+   },
+   "0.8571": {
+    "mean_esr": 0.4017,
+    "n_seeds": 3
+   }
+  },
+  "llama1b|alpha|mquake": {
+   "0.75": {
+    "mean_esr": 0.885,
+    "n_seeds": 1
+   }
+  },
+  "llama1b|alpha|mquaket": {
+   "0.75": {
+    "mean_esr": 0.415,
+    "n_seeds": 1
+   }
+  },
+  "llama1b|rome|cf": {
+   "0.75": {
+    "mean_esr": 0.995,
+    "n_seeds": 1
+   }
+  },
+  "llama1b|rome|mquake": {
+   "0.5": {
+    "mean_esr": 0.9733,
+    "n_seeds": 3
+   },
+   "0.625": {
+    "mean_esr": 0.9767,
+    "n_seeds": 3
+   },
+   "0.75": {
+    "mean_esr": 0.98,
+    "n_seeds": 3
+   },
+   "0.875": {
+    "mean_esr": 0.95,
+    "n_seeds": 3
+   }
+  },
+  "llama1b|rome|mquaket": {
+   "0.5": {
+    "mean_esr": 0.9283,
+    "n_seeds": 3
+   },
+   "0.625": {
+    "mean_esr": 0.9033,
+    "n_seeds": 3
+   },
+   "0.75": {
+    "mean_esr": 0.975,
+    "n_seeds": 3
+   },
+   "0.875": {
+    "mean_esr": 0.9567,
+    "n_seeds": 3
+   }
+  },
+  "llama8b|rome|cf": {
+   "0.5": {
+    "mean_esr": 1.0,
+    "n_seeds": 2
+   },
+   "0.75": {
+    "mean_esr": 0.9983,
+    "n_seeds": 3
+   },
+   "0.875": {
+    "mean_esr": 1.0,
+    "n_seeds": 1
+   }
+  },
+  "pythia14b|rome|cf": {
+   "0.25": {
+    "mean_esr": 0.9983,
+    "n_seeds": 3
+   },
+   "0.5": {
+    "mean_esr": 0.9967,
+    "n_seeds": 3
+   },
+   "0.625": {
+    "mean_esr": 0.9967,
+    "n_seeds": 3
+   }
+  },
+  "pythia28b|rome|cf": {
+   "0.25": {
+    "mean_esr": 0.9983,
+    "n_seeds": 3
+   },
+   "0.5": {
+    "mean_esr": 0.9967,
+    "n_seeds": 3
+   },
+   "0.625": {
+    "mean_esr": 0.9417,
+    "n_seeds": 3
+   }
+  }
+ },
+ "unmapped": [],
+ "unreadable": [],
+ "note": "esr = mean(edit_ok) as stored by killgate_keygeom.py (argmax==target). Smoke-sized probe npz are excluded by the gate_* glob (probes live in results/probe_lr/, smokes in results/smoke_*/)."
+}

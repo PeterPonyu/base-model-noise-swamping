@@ -1,0 +1,203 @@
+{
+ "rows": [
+  {
+   "row": "gb_llama1b_alpha_L12_s0",
+   "editor": "alpha",
+   "layer": 12,
+   "seed": 0,
+   "esr": 0.995,
+   "pre_accuracy": {
+    "mrpc": 0.65,
+    "rte": 0.58,
+    "sst2": 0.72
+   },
+   "cos_within_example_rho_filtered": -0.0064,
+   "mean_abs_margin_damage": 0.0875,
+   "flip_rate": 0.00582,
+   "mean_norm_growth": 6.845,
+   "ng_to_margin_damage_rho": 0.3426,
+   "ng_to_margin_damage_p": 7.3e-07,
+   "ng_to_flip_rho": 0.2374,
+   "ng_to_flip_p": 0.00074,
+   "n_edit_ok": 199
+  },
+  {
+   "row": "gb_llama1b_alpha_L12_s1",
+   "editor": "alpha",
+   "layer": 12,
+   "seed": 1,
+   "esr": 0.985,
+   "pre_accuracy": {
+    "mrpc": 0.72,
+    "rte": 0.55,
+    "sst2": 0.72
+   },
+   "cos_within_example_rho_filtered": 0.067,
+   "mean_abs_margin_damage": 0.0852,
+   "flip_rate": 0.00227,
+   "mean_norm_growth": 6.586,
+   "ng_to_margin_damage_rho": 0.4731,
+   "ng_to_margin_damage_p": 2.2e-12,
+   "ng_to_flip_rho": 0.3392,
+   "ng_to_flip_p": 1.1e-06,
+   "n_edit_ok": 197
+  },
+  {
+   "row": "gb_llama1b_alpha_L12_s2",
+   "editor": "alpha",
+   "layer": 12,
+   "seed": 2,
+   "esr": 0.99,
+   "pre_accuracy": {
+    "mrpc": 0.65,
+    "rte": 0.56,
+    "sst2": 0.74
+   },
+   "cos_within_example_rho_filtered": -0.0373,
+   "mean_abs_margin_damage": 0.0826,
+   "flip_rate": 0.00492,
+   "mean_norm_growth": 6.502,
+   "ng_to_margin_damage_rho": 0.4133,
+   "ng_to_margin_damage_p": 1.4e-09,
+   "ng_to_flip_rho": 0.1259,
+   "ng_to_flip_p": 0.077,
+   "n_edit_ok": 198
+  },
+  {
+   "row": "gb_llama1b_rome_L12_s0",
+   "editor": "rome",
+   "layer": 12,
+   "seed": 0,
+   "esr": 0.995,
+   "pre_accuracy": {
+    "mrpc": 0.65,
+    "rte": 0.58,
+    "sst2": 0.72
+   },
+   "cos_within_example_rho_filtered": -0.0823,
+   "mean_abs_margin_damage": 0.492,
+   "flip_rate": 0.03242,
+   "mean_norm_growth": 4.361,
+   "ng_to_margin_damage_rho": 0.4136,
+   "ng_to_margin_damage_p": 1.3e-09,
+   "ng_to_flip_rho": 0.2505,
+   "ng_to_flip_p": 0.00036,
+   "n_edit_ok": 199
+  },
+  {
+   "row": "gb_llama1b_rome_L12_s1",
+   "editor": "rome",
+   "layer": 12,
+   "seed": 1,
+   "esr": 0.99,
+   "pre_accuracy": {
+    "mrpc": 0.72,
+    "rte": 0.55,
+    "sst2": 0.72
+   },
+   "cos_within_example_rho_filtered": -0.0462,
+   "mean_abs_margin_damage": 0.462,
+   "flip_rate": 0.0253,
+   "mean_norm_growth": 4.233,
+   "ng_to_margin_damage_rho": 0.5655,
+   "ng_to_margin_damage_p": 3.9e-18,
+   "ng_to_flip_rho": 0.4229,
+   "ng_to_flip_p": 5.4e-10,
+   "n_edit_ok": 198
+  },
+  {
+   "row": "gb_llama1b_rome_L12_s2",
+   "editor": "rome",
+   "layer": 12,
+   "seed": 2,
+   "esr": 0.99,
+   "pre_accuracy": {
+    "mrpc": 0.65,
+    "rte": 0.56,
+    "sst2": 0.74
+   },
+   "cos_within_example_rho_filtered": -0.095,
+   "mean_abs_margin_damage": 0.4645,
+   "flip_rate": 0.03245,
+   "mean_norm_growth": 4.247,
+   "ng_to_margin_damage_rho": 0.3709,
+   "ng_to_margin_damage_p": 7.5e-08,
+   "ng_to_flip_rho": 0.2366,
+   "ng_to_flip_p": 0.00079,
+   "n_edit_ok": 198
+  },
+  {
+   "row": "gb_llama1b_rome_L14_s0",
+   "editor": "rome",
+   "layer": 14,
+   "seed": 0,
+   "esr": 0.91,
+   "pre_accuracy": {
+    "mrpc": 0.65,
+    "rte": 0.58,
+    "sst2": 0.72
+   },
+   "cos_within_example_rho_filtered": -0.0791,
+   "mean_abs_margin_damage": 0.8508,
+   "flip_rate": 0.06932,
+   "mean_norm_growth": 2.677,
+   "ng_to_margin_damage_rho": 0.1087,
+   "ng_to_margin_damage_p": 0.14,
+   "ng_to_flip_rho": 0.0452,
+   "ng_to_flip_p": 0.55,
+   "n_edit_ok": 182
+  },
+  {
+   "row": "gb_llama1b_rome_L8_s0",
+   "editor": "rome",
+   "layer": 8,
+   "seed": 0,
+   "esr": 0.99,
+   "pre_accuracy": {
+    "mrpc": 0.65,
+    "rte": 0.58,
+    "sst2": 0.72
+   },
+   "cos_within_example_rho_filtered": 0.0256,
+   "mean_abs_margin_damage": 0.5662,
+   "flip_rate": 0.06112,
+   "mean_norm_growth": 5.002,
+   "ng_to_margin_damage_rho": 0.0162,
+   "ng_to_margin_damage_p": 0.82,
+   "ng_to_flip_rho": 0.0548,
+   "ng_to_flip_p": 0.44,
+   "n_edit_ok": 198
+  }
+ ],
+ "rome_vs_alpha_L12": {
+  "mean_abs_margin_damage": {
+   "rome_L12_mean": 0.4728,
+   "alpha_L12_mean": 0.0851,
+   "n_seeds": [
+    3,
+    3
+   ],
+   "ratio_rome_over_alpha": 5.56
+  },
+  "flip_rate": {
+   "rome_L12_mean": 0.0301,
+   "alpha_L12_mean": 0.0043,
+   "n_seeds": [
+    3,
+    3
+   ],
+   "ratio_rome_over_alpha": 7.0
+  },
+  "mean_norm_growth": {
+   "rome_L12_mean": 4.2803,
+   "alpha_L12_mean": 6.6443,
+   "n_seeds": [
+    3,
+    3
+   ],
+   "ratio_rome_over_alpha": 0.64
+  }
+ },
+ "coverage": "8/8 planned science rows (driver's '9 done' includes the smoke)",
+ "estimand_note": "cos rho = within-example Spearman across edits, edit_ok x pre-correct filtered; NG rhos = edit-level Spearman of norm_growth vs per-edit mean damage / flip rate"
+}

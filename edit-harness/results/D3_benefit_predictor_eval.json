@@ -1,0 +1,860 @@
+{
+  "artifact": "D3 benefit-magnitude predictor (geometry -> AlphaEdit collateral-damage removed)",
+  "framing": "Deployable pre-edit MAGNITUDE gate: predict how much collateral damage AlphaEdit removes vs ROME on an edit. NOT a router (the AlphaEdit>ROME choice is degenerate 12/12); this predicts the benefit MAGNITUDE.",
+  "metric": "damage_logit; realized benefit = rome_damage - alpha_damage on matched (edit,probe) pairs",
+  "statistic": "signed within-probe Spearman(prediction, realized); rank-based, mirrors aggregate_g4_causal",
+  "data": {
+    "rome_glob": "results/matrices/gate_llama1b_rome_cf_L{L}_s{s}.npz",
+    "alpha_glob": "results/matrices/g4_llama1b_alpha_cf_L{L}_s{s}.npz",
+    "projector_source": "probes (the canonical C4 table cells)",
+    "layers": [
+      8,
+      10,
+      12,
+      14
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "cells_loaded": [
+      "L8_s0",
+      "L8_s1",
+      "L8_s2",
+      "L10_s0",
+      "L10_s1",
+      "L10_s2",
+      "L12_s0",
+      "L12_s1",
+      "L12_s2",
+      "L14_s0",
+      "L14_s1",
+      "L14_s2"
+    ],
+    "cells_missing": [],
+    "n_pairs_per_layer": {
+      "8": 90183,
+      "10": 89721,
+      "12": 90481,
+      "14": 84868
+    },
+    "n_edits_per_cell": {
+      "L8_s0": 197,
+      "L8_s1": 199,
+      "L8_s2": 196,
+      "L10_s0": 197,
+      "L10_s1": 194,
+      "L10_s2": 198,
+      "L12_s0": 199,
+      "L12_s1": 197,
+      "L12_s2": 198,
+      "L14_s0": 182,
+      "L14_s1": 186,
+      "L14_s2": 189
+    }
+  },
+  "reproduction_check": {
+    "per_layer": {
+      "8": {
+        "canonical_within_probe_rho": 0.3969,
+        "recomputed_within_probe_rho": 0.3969,
+        "recomputed_per_seed": [
+          0.4033,
+          0.406,
+          0.3816
+        ],
+        "abs_diff": 0.0
+      },
+      "10": {
+        "canonical_within_probe_rho": 0.5323,
+        "recomputed_within_probe_rho": 0.5323,
+        "recomputed_per_seed": [
+          0.5258,
+          0.5215,
+          0.5495
+        ],
+        "abs_diff": 0.0
+      },
+      "12": {
+        "canonical_within_probe_rho": 0.5968,
+        "recomputed_within_probe_rho": 0.5968,
+        "recomputed_per_seed": [
+          0.5955,
+          0.6172,
+          0.5778
+        ],
+        "abs_diff": 0.0
+      },
+      "14": {
+        "canonical_within_probe_rho": 0.3018,
+        "recomputed_within_probe_rho": 0.3018,
+        "recomputed_per_seed": [
+          0.268,
+          0.2704,
+          0.3671
+        ],
+        "abs_diff": 0.0
+      }
+    },
+    "max_abs_diff": 0.0,
+    "tolerance": 0.02,
+    "passed": true
+  },
+  "predictors": {
+    "raw_keycos": "prediction = signed key-cosine (zero parameters; deployable from the edit key alone)",
+    "ols_combo": {
+      "features": [
+        "key_cos",
+        "S",
+        "S_x_absC"
+      ],
+      "note": "closed-form OLS on z-scored features (full-data fit shown; splits refit)",
+      "coefficients_full_fit": {
+        "key_cos": 1.5918,
+        "S": 0.25915,
+        "S_x_absC": 0.23409,
+        "intercept": 3.60057
+      }
+    }
+  },
+  "evaluation": {
+    "in_sample_within_probe_rho": {
+      "raw_keycos": {
+        "8": 0.3969,
+        "10": 0.5323,
+        "12": 0.5968,
+        "14": 0.3018
+      },
+      "ols_combo": {
+        "8": 0.4044,
+        "10": 0.5509,
+        "12": 0.649,
+        "14": 0.3767
+      }
+    },
+    "leave_one_seed_out": {
+      "raw_keycos": {
+        "8": {
+          "mean": 0.3969,
+          "per_fold": [
+            0.4033,
+            0.406,
+            0.3816
+          ]
+        },
+        "10": {
+          "mean": 0.5323,
+          "per_fold": [
+            0.5258,
+            0.5215,
+            0.5495
+          ]
+        },
+        "12": {
+          "mean": 0.5968,
+          "per_fold": [
+            0.5955,
+            0.6172,
+            0.5778
+          ]
+        },
+        "14": {
+          "mean": 0.3018,
+          "per_fold": [
+            0.268,
+            0.2704,
+            0.3671
+          ]
+        }
+      },
+      "ols_combo": {
+        "8": {
+          "mean": 0.4036,
+          "per_fold": [
+            0.4118,
+            0.4145,
+            0.3845
+          ]
+        },
+        "10": {
+          "mean": 0.55,
+          "per_fold": [
+            0.5577,
+            0.536,
+            0.5563
+          ]
+        },
+        "12": {
+          "mean": 0.6617,
+          "per_fold": [
+            0.6576,
+            0.7126,
+            0.6149
+          ]
+        },
+        "14": {
+          "mean": 0.5359,
+          "per_fold": [
+            0.5113,
+            0.5786,
+            0.5178
+          ]
+        }
+      }
+    },
+    "leave_one_layer_out": {
+      "raw_keycos": {
+        "8": 0.3969,
+        "10": 0.5323,
+        "12": 0.5968,
+        "14": 0.3018
+      },
+      "ols_combo": {
+        "8": {
+          "held_out_within_probe_rho": 0.4007,
+          "train_coefficients": {
+            "key_cos": 1.45679,
+            "S": -0.03672,
+            "S_x_absC": 0.38625
+          }
+        },
+        "10": {
+          "held_out_within_probe_rho": 0.551,
+          "train_coefficients": {
+            "key_cos": 1.37209,
+            "S": 0.23809,
+            "S_x_absC": 0.32175
+          }
+        },
+        "12": {
+          "held_out_within_probe_rho": 0.6346,
+          "train_coefficients": {
+            "key_cos": 1.16342,
+            "S": -0.12018,
+            "S_x_absC": 0.79352
+          }
+        },
+        "14": {
+          "held_out_within_probe_rho": 0.5235,
+          "train_coefficients": {
+            "key_cos": -0.119,
+            "S": 0.26257,
+            "S_x_absC": 1.65593
+          }
+        }
+      }
+    },
+    "quartile_calibration_pred_to_realized": {
+      "raw_keycos": {
+        "8": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 22546,
+            "mean_pred": 0.16581,
+            "realized_mean_damage_removed": 2.41377
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 22545,
+            "mean_pred": 0.26087,
+            "realized_mean_damage_removed": 3.72667
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 22546,
+            "mean_pred": 0.3358,
+            "realized_mean_damage_removed": 4.8788
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 22546,
+            "mean_pred": 0.46432,
+            "realized_mean_damage_removed": 6.22453
+          }
+        ],
+        "10": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 22430,
+            "mean_pred": 0.09954,
+            "realized_mean_damage_removed": 0.82225
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 22430,
+            "mean_pred": 0.16729,
+            "realized_mean_damage_removed": 1.35572
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 22430,
+            "mean_pred": 0.22593,
+            "realized_mean_damage_removed": 2.04801
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 22431,
+            "mean_pred": 0.36199,
+            "realized_mean_damage_removed": 3.6394
+          }
+        ],
+        "12": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 22620,
+            "mean_pred": 0.14931,
+            "realized_mean_damage_removed": 1.5718
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 22620,
+            "mean_pred": 0.23583,
+            "realized_mean_damage_removed": 2.30834
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 22620,
+            "mean_pred": 0.30673,
+            "realized_mean_damage_removed": 3.06522
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 22621,
+            "mean_pred": 0.44712,
+            "realized_mean_damage_removed": 4.70573
+          }
+        ],
+        "14": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 21217,
+            "mean_pred": 0.27697,
+            "realized_mean_damage_removed": 4.04764
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 21217,
+            "mean_pred": 0.37934,
+            "realized_mean_damage_removed": 4.82453
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 21217,
+            "mean_pred": 0.45413,
+            "realized_mean_damage_removed": 5.55214
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 21217,
+            "mean_pred": 0.5899,
+            "realized_mean_damage_removed": 6.80214
+          }
+        ]
+      },
+      "ols_combo": {
+        "8": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 22546,
+            "mean_pred": 2.0779,
+            "realized_mean_damage_removed": 2.38275
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 22545,
+            "mean_pred": 3.36078,
+            "realized_mean_damage_removed": 3.74151
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 22546,
+            "mean_pred": 4.36747,
+            "realized_mean_damage_removed": 4.87109
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 22546,
+            "mean_pred": 6.08007,
+            "realized_mean_damage_removed": 6.24843
+          }
+        ],
+        "10": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 22430,
+            "mean_pred": 0.94941,
+            "realized_mean_damage_removed": 0.77988
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 22430,
+            "mean_pred": 1.89325,
+            "realized_mean_damage_removed": 1.34196
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 22430,
+            "mean_pred": 2.68784,
+            "realized_mean_damage_removed": 2.05759
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 22431,
+            "mean_pred": 4.50261,
+            "realized_mean_damage_removed": 3.68595
+          }
+        ],
+        "12": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 22620,
+            "mean_pred": 1.54313,
+            "realized_mean_damage_removed": 1.44268
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 22620,
+            "mean_pred": 2.75435,
+            "realized_mean_damage_removed": 2.27029
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 22620,
+            "mean_pred": 3.73763,
+            "realized_mean_damage_removed": 3.07826
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 22621,
+            "mean_pred": 5.6513,
+            "realized_mean_damage_removed": 4.85985
+          }
+        ],
+        "14": [
+          {
+            "pred_quartile": "Q1(low)",
+            "n_pairs": 21217,
+            "mean_pred": 2.66741,
+            "realized_mean_damage_removed": 3.82537
+          },
+          {
+            "pred_quartile": "Q2",
+            "n_pairs": 21217,
+            "mean_pred": 3.9782,
+            "realized_mean_damage_removed": 4.7666
+          },
+          {
+            "pred_quartile": "Q3",
+            "n_pairs": 21217,
+            "mean_pred": 4.9277,
+            "realized_mean_damage_removed": 5.6035
+          },
+          {
+            "pred_quartile": "Q4(high)",
+            "n_pairs": 21217,
+            "mean_pred": 6.63406,
+            "realized_mean_damage_removed": 7.03099
+          }
+        ]
+      }
+    },
+    "decile_screening_pair_level": {
+      "raw_keycos": {
+        "8": {
+          "frac": 0.1,
+          "n_units": 90183,
+          "k": 9018,
+          "recall": 0.2626,
+          "chance": 0.1
+        },
+        "10": {
+          "frac": 0.1,
+          "n_units": 89721,
+          "k": 8972,
+          "recall": 0.4175,
+          "chance": 0.1
+        },
+        "12": {
+          "frac": 0.1,
+          "n_units": 90481,
+          "k": 9048,
+          "recall": 0.4042,
+          "chance": 0.1
+        },
+        "14": {
+          "frac": 0.1,
+          "n_units": 84868,
+          "k": 8487,
+          "recall": 0.2439,
+          "chance": 0.1
+        }
+      },
+      "ols_combo": {
+        "8": {
+          "frac": 0.1,
+          "n_units": 90183,
+          "k": 9018,
+          "recall": 0.2655,
+          "chance": 0.1
+        },
+        "10": {
+          "frac": 0.1,
+          "n_units": 89721,
+          "k": 8972,
+          "recall": 0.426,
+          "chance": 0.1
+        },
+        "12": {
+          "frac": 0.1,
+          "n_units": 90481,
+          "k": 9048,
+          "recall": 0.4336,
+          "chance": 0.1
+        },
+        "14": {
+          "frac": 0.1,
+          "n_units": 84868,
+          "k": 8487,
+          "recall": 0.2639,
+          "chance": 0.1
+        }
+      }
+    },
+    "decile_screening_lift_scoped": {
+      "pair_level": {
+        "8": {
+          "raw": 2.63,
+          "ols": 2.65
+        },
+        "10": {
+          "raw": 4.17,
+          "ols": 4.26
+        },
+        "12": {
+          "raw": 4.04,
+          "ols": 4.34
+        },
+        "14": {
+          "raw": 2.44,
+          "ols": 2.64
+        }
+      },
+      "per_edit": {
+        "8": {
+          "raw": 2.38,
+          "ols": 2.04
+        },
+        "10": {
+          "raw": 3.04,
+          "ols": 3.55
+        },
+        "12": {
+          "raw": 4.44,
+          "ols": 4.78
+        },
+        "14": {
+          "raw": 1.42,
+          "ols": 2.84
+        }
+      },
+      "pair_level_range_x": [
+        2.44,
+        4.34
+      ],
+      "per_edit_range_x": [
+        1.42,
+        4.78
+      ],
+      "note": "Lift = recall / chance(=0.10). Ranges are scoped by view, NOT pooled into one range. Per-edit raw L14 is the floor at ~1.4x (marginally above chance)."
+    },
+    "feature_ablation_loso": {
+      "8": {
+        "key_cos_only": {
+          "loso_within_probe_rho": 0.3969,
+          "per_fold": [
+            0.4033,
+            0.406,
+            0.3816
+          ]
+        },
+        "S_only": {
+          "loso_within_probe_rho": 0.0825,
+          "per_fold": [
+            0.0903,
+            0.0853,
+            0.072
+          ]
+        },
+        "key_cos+S": {
+          "loso_within_probe_rho": 0.4043,
+          "per_fold": [
+            0.4124,
+            0.4145,
+            0.3859
+          ]
+        },
+        "full(key_cos+S+interaction)": {
+          "loso_within_probe_rho": 0.4036,
+          "per_fold": [
+            0.4118,
+            0.4145,
+            0.3845
+          ]
+        }
+      },
+      "10": {
+        "key_cos_only": {
+          "loso_within_probe_rho": 0.5323,
+          "per_fold": [
+            0.5258,
+            0.5215,
+            0.5495
+          ]
+        },
+        "S_only": {
+          "loso_within_probe_rho": 0.2468,
+          "per_fold": [
+            0.2813,
+            0.2052,
+            0.2539
+          ]
+        },
+        "key_cos+S": {
+          "loso_within_probe_rho": 0.5486,
+          "per_fold": [
+            0.557,
+            0.5333,
+            0.5554
+          ]
+        },
+        "full(key_cos+S+interaction)": {
+          "loso_within_probe_rho": 0.55,
+          "per_fold": [
+            0.5577,
+            0.536,
+            0.5563
+          ]
+        }
+      },
+      "12": {
+        "key_cos_only": {
+          "loso_within_probe_rho": 0.5968,
+          "per_fold": [
+            0.5955,
+            0.6172,
+            0.5778
+          ]
+        },
+        "S_only": {
+          "loso_within_probe_rho": 0.5035,
+          "per_fold": [
+            0.4805,
+            0.5802,
+            0.4499
+          ]
+        },
+        "key_cos+S": {
+          "loso_within_probe_rho": 0.6618,
+          "per_fold": [
+            0.6576,
+            0.711,
+            0.6169
+          ]
+        },
+        "full(key_cos+S+interaction)": {
+          "loso_within_probe_rho": 0.6617,
+          "per_fold": [
+            0.6576,
+            0.7126,
+            0.6149
+          ]
+        }
+      },
+      "14": {
+        "key_cos_only": {
+          "loso_within_probe_rho": 0.3018,
+          "per_fold": [
+            0.268,
+            0.2704,
+            0.3671
+          ]
+        },
+        "S_only": {
+          "loso_within_probe_rho": 0.4936,
+          "per_fold": [
+            0.4682,
+            0.5715,
+            0.441
+          ]
+        },
+        "key_cos+S": {
+          "loso_within_probe_rho": 0.5363,
+          "per_fold": [
+            0.5117,
+            0.5794,
+            0.5178
+          ]
+        },
+        "full(key_cos+S+interaction)": {
+          "loso_within_probe_rho": 0.5359,
+          "per_fold": [
+            0.5113,
+            0.5786,
+            0.5178
+          ]
+        }
+      },
+      "interpretation": "At L14 the ols_combo gain (0.302->0.536 LOSO) is a NORM-GROWTH-MAGNITUDE effect: S_only already reaches ~0.494 while key_cos_only stays at 0.302 and adding the S*|cos| interaction does not improve on key_cos+S (inert). This is the documented L14 regime transition (norm-growth overtakes key-cosine); key geometry does NOT predict better at L14. At L8/L10/L12 key-cos is the primary carrier and S adds little to nothing."
+    },
+    "per_edit_magnitude_gate": {
+      "note": "raw_keycos_heldout_clean is the clean held-out-style headline (zero-param). ols_combo_in_sample_full_fit is fit on ALL data including the evaluated edits -> IN-SAMPLE, not a held-out number.",
+      "headline_held_out_clean": "raw_keycos",
+      "raw_keycos_heldout_clean": {
+        "8": {
+          "per_edit_within_cell_spearman_mean": 0.4458,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.4717,
+            0.4906,
+            0.375
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 592,
+            "k": 59,
+            "recall": 0.2373,
+            "chance": 0.0997
+          },
+          "n_edits_pooled": 592
+        },
+        "10": {
+          "per_edit_within_cell_spearman_mean": 0.6005,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.5818,
+            0.5935,
+            0.626
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 589,
+            "k": 59,
+            "recall": 0.3051,
+            "chance": 0.1002
+          },
+          "n_edits_pooled": 589
+        },
+        "12": {
+          "per_edit_within_cell_spearman_mean": 0.7251,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.7201,
+            0.7775,
+            0.6778
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 594,
+            "k": 59,
+            "recall": 0.4407,
+            "chance": 0.0993
+          },
+          "n_edits_pooled": 594
+        },
+        "14": {
+          "per_edit_within_cell_spearman_mean": 0.3092,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.2305,
+            0.2681,
+            0.429
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 557,
+            "k": 56,
+            "recall": 0.1429,
+            "chance": 0.1005
+          },
+          "n_edits_pooled": 557
+        }
+      },
+      "ols_combo_in_sample_full_fit": {
+        "8": {
+          "per_edit_within_cell_spearman_mean": 0.4593,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.4878,
+            0.5025,
+            0.3876
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 592,
+            "k": 59,
+            "recall": 0.2034,
+            "chance": 0.0997
+          },
+          "n_edits_pooled": 592
+        },
+        "10": {
+          "per_edit_within_cell_spearman_mean": 0.6301,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.6299,
+            0.6219,
+            0.6386
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 589,
+            "k": 59,
+            "recall": 0.3559,
+            "chance": 0.1002
+          },
+          "n_edits_pooled": 589
+        },
+        "12": {
+          "per_edit_within_cell_spearman_mean": 0.784,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.7866,
+            0.8391,
+            0.7265
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 594,
+            "k": 59,
+            "recall": 0.4746,
+            "chance": 0.0993
+          },
+          "n_edits_pooled": 594
+        },
+        "14": {
+          "per_edit_within_cell_spearman_mean": 0.4333,
+          "per_edit_within_cell_spearman_per_cell": [
+            0.3688,
+            0.4056,
+            0.5254
+          ],
+          "top_decile_edit_recall": {
+            "frac": 0.1,
+            "n_units": 557,
+            "k": 56,
+            "recall": 0.2857,
+            "chance": 0.1005
+          },
+          "n_edits_pooled": 557
+        }
+      }
+    }
+  },
+  "caveats": [
+    "L14 ATTRIBUTION: the ols_combo L14 gain (0.302->0.536 LOSO) is a norm-growth-MAGNITUDE effect; key-geometry and the S*|cos| interaction are inert there (ablation: key_cos_only 0.302, S_only 0.494, key_cos+S 0.536, full 0.536). Consistent with the documented L14 regime transition (norm-growth overtakes key-cosine). Do NOT read this as geometry predicting better at L14 \u2014 it does not.",
+    "OLS gain is claimable only at L12 (+0.065 LOSO) and L14 (+0.234, and that is a norm-growth effect); the L8 (+0.007) and L10 (+0.018) ols gains over raw key-cos are within seed noise.",
+    "Per-edit ols_combo rhos (0.459/0.630/0.784/0.433) are IN-SAMPLE (full-data fit); the clean held-out-style per-edit headline is raw_keycos (0.446/0.601/0.725/0.309).",
+    "Single edit family (ROME collateral, AlphaEdit as the repair editor); does not cover MEMIT/FT/GRACE editors.",
+    "CounterFact only \u2014 not validated on zsRE / MQuAKE / RippleEdits benefit.",
+    "Llama-3.2-1B only \u2014 cross-arch geometry law does NOT transfer off Llama (Qwen L14 sign-inverts), so these predictor coefficients are Llama-specific.",
+    "AlphaEdit projector = 'probes' source (the C4 table). The disjoint-projector holdout/generic causal cells (E6) are NOT used here; benefit magnitudes under a disjoint projector may differ.",
+    "S (=norm_growth) requires the solved ROME update, so ols_combo costs one update solve; raw_keycos needs only the edit key.",
+    "LOLO transfers a single coefficient vector across layers whose damage scales differ ~3x; rank-based eval tolerates this but absolute calibration does not (refit per deployment layer).",
+    "Realized benefit is measured, not predicted-at-fit-time out-of-model; the honest generalization tests are LOSO / LOLO (held-out data), not in-sample rho.",
+    "Per-edit gate aggregates by MEAN over the known-probe bank; a deployment with a different probe/reference bank will see different magnitudes."
+  ]
+}

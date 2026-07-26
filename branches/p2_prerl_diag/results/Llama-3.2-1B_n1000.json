@@ -1,0 +1,39 @@
+{
+  "checkpoint_id": "Llama-3.2-1B_n1000",
+  "counts": {
+    "n_problems": 1000,
+    "n_traces": 8000,
+    "n_right": 13,
+    "n_wrong": 7987,
+    "n_mixed_problems": 13
+  },
+  "mean_len_right": 413.6923076923077,
+  "mean_len_wrong": 334.59984975585326,
+  "D_pooled": {
+    "point": 0.8088133222064137,
+    "ci_level": 0.95,
+    "ci_lo": 0.6280455634543466,
+    "ci_hi": 1.138429495395579,
+    "boot_se": 0.1341178126679903,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "D_within": {
+    "point": 0.9457521343698928,
+    "ci_level": 0.95,
+    "ci_lo": 0.6032275655412145,
+    "ci_hi": 1.3091492871417976,
+    "boot_se": 0.17507457643822782,
+    "n_boot": 2000,
+    "frac_finite": 1.0,
+    "seed": 0
+  },
+  "length_bias_flag": false,
+  "_meta": {
+    "input": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p2_prerl_diag/samples/Llama-3.2-1B_n1000.json",
+    "generated_at": "2026-07-11T13:03:57.305716+00:00",
+    "tool": "run_diag.py",
+    "note": "CPU diagnostic; sample generation is a separate queued GPU job."
+  }
+}

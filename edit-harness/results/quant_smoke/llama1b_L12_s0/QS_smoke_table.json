@@ -1,0 +1,97 @@
+{
+  "experiment": "quant_survival_smoke",
+  "schema_version": "qs.smoke.v1",
+  "created": "2026-07-15T22:38:49",
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 12,
+  "editor": "rome",
+  "n_edits": 50,
+  "n_probes": 40,
+  "seed": 0,
+  "schemes": [
+    "nf4",
+    "int8"
+  ],
+  "blocksize": 64,
+  "quant_note": "simulated quantization via weight round-trip dequant(quant(W)); INT8 per-row symmetric, NF4 bitsandbytes codebook + blockwise absmax; REAL GGUF/GPTQ deferred to the full paper",
+  "damage_metric_note": "signed damage_logit = pre_l(fp32 unedited) \u2212 post_l; never AUROC",
+  "esr": {
+    "mean_esr_fp32": 0.98,
+    "n_edits_worked_fp32": 49
+  },
+  "mechanism_tie": {
+    "rho_keycos_damage_fp32_pooled": 0.5604,
+    "rho_keycos_damage_fp32_within_probe": 0.6098,
+    "within_probe_n_cols": 40
+  },
+  "arms": {
+    "nf4_edited_layer": {
+      "locality": "edited_layer",
+      "scheme": "nf4",
+      "mean_esr": 0.98,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.5621,
+      "rho_keycos_damage_pooled_base_subtracted": 0.5633,
+      "rho_keycos_damage_within_probe": 0.6104,
+      "delta_rho_vs_fp32_pooled": 0.0017,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.9994,
+      "added_damage_logit_mean": -0.01432,
+      "added_damage_logit_std": 0.0651,
+      "base_quant_noise_logit_mean_abs": 0.0394
+    },
+    "nf4_full_model": {
+      "locality": "full_model",
+      "scheme": "nf4",
+      "mean_esr": 0.98,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.5217,
+      "rho_keycos_damage_pooled_base_subtracted": 0.5157,
+      "rho_keycos_damage_within_probe": 0.5917,
+      "delta_rho_vs_fp32_pooled": -0.0387,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.8689,
+      "added_damage_logit_mean": 0.30221,
+      "added_damage_logit_std": 1.1846,
+      "base_quant_noise_logit_mean_abs": 0.88088
+    },
+    "int8_edited_layer": {
+      "locality": "edited_layer",
+      "scheme": "int8",
+      "mean_esr": 0.98,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.5604,
+      "rho_keycos_damage_pooled_base_subtracted": 0.5601,
+      "rho_keycos_damage_within_probe": 0.6096,
+      "delta_rho_vs_fp32_pooled": 0.0001,
+      "rho_damage_fp32_vs_arm_rank_survival": 1.0,
+      "added_damage_logit_mean": 0.00065,
+      "added_damage_logit_std": 0.00739,
+      "base_quant_noise_logit_mean_abs": 0.00453
+    },
+    "int8_full_model": {
+      "locality": "full_model",
+      "scheme": "int8",
+      "mean_esr": 0.98,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.5507,
+      "rho_keycos_damage_pooled_base_subtracted": 0.5601,
+      "rho_keycos_damage_within_probe": 0.6108,
+      "delta_rho_vs_fp32_pooled": -0.0097,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.9966,
+      "added_damage_logit_mean": -0.03003,
+      "added_damage_logit_std": 0.15988,
+      "base_quant_noise_logit_mean_abs": 0.09234
+    }
+  },
+  "frozen_prediction_readout": {
+    "p1_esr_survival_nf4_full_gt_0.9": true,
+    "p1_value": 1.0,
+    "p2_geometry_within_pm0.15_by_arm": {
+      "nf4_edited_layer": true,
+      "nf4_full_model": true,
+      "int8_edited_layer": true,
+      "int8_full_model": true
+    },
+    "p3_edited_vs_full_esr_gap_nf4": 0.0,
+    "note": "EXPLORATORY smoke \u2014 directional read-outs only, not a gate"
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "analysis": "anisotropy_whitening_edit_keys",
+  "pass": "AUTHORING (hostile review gates any paper claim)",
+  "rng_seed": 12345,
+  "params": {
+    "n_rep": 200,
+    "var_keep": 0.95,
+    "shrink_grid": [
+      0.01,
+      0.1,
+      0.5
+    ]
+  },
+  "banks": [
+    {
+      "provenance": {
+        "npz": "results/vectors/vectors_qv_llama1b_rome_cf_L14_s1.npz",
+        "model": "data/models/Llama-3.2-1B",
+        "editor": "rome",
+        "dataset": "counterfact",
+        "layer": 14,
+        "seed": 1,
+        "N": 200,
+        "d_in": 8192,
+        "vectors_valid": 1,
+        "n_nonfinite_rows": 0
+      },
+      "key_norm": {
+        "mean": 9.4527,
+        "std": 0.8853
+      },
+      "anisotropy": {
+        "participation_ratio_uncentered": 5.1373,
+        "participation_ratio_centered": 39.8013,
+        "pr_uncentered_frac_of_N": 0.0257,
+        "pr_centered_frac_of_Nminus1": 0.2,
+        "spectrum_uncentered": {
+          "top1_frac": 0.4325,
+          "top5_frac": 0.5682,
+          "n_comp_50pct": 3,
+          "n_comp_90pct": 83,
+          "n_comp_99pct": 170,
+          "loglog_slope": -1.1472,
+          "n_positive_eigs": 200
+        },
+        "spectrum_centered": {
+          "top1_frac": 0.1009,
+          "top5_frac": 0.2798,
+          "n_comp_50pct": 20,
+          "n_comp_90pct": 111,
+          "n_comp_99pct": 179,
+          "loglog_slope": -1.0711,
+          "n_positive_eigs": 199
+        },
+        "mean_pairwise_cos": 0.4297,
+        "std_pairwise_cos": 0.1304,
+        "mean_abs_pairwise_cos": 0.4297,
+        "n_pairs": 19900,
+        "baselines": {
+          "isotropic_gaussian_norm_matched": {
+            "pr_centered": {
+              "mean": 187.0118,
+              "std": 0.044,
+              "p05": 186.9411,
+              "p95": 187.0838,
+              "n_rep": 200
+            },
+            "mean_cos": {
+              "mean": -0.0,
+              "std": 0.0001,
+              "p05": -0.0001,
+              "p95": 0.0001,
+              "n_rep": 200
+            },
+            "note": "no-anisotropy floor (finite N,d). Empirical PR << this band and mean_cos >> this band => real anisotropy."
+          },
+          "column_permutation": {
+            "pr_centered": {
+              "mean": 108.1938,
+              "std": 0.473,
+              "p05": 107.3091,
+              "p95": 108.9356,
+              "n_rep": 200
+            },
+            "mean_cos_UNINFORMATIVE": {
+              "mean": 0.4202,
+              "std": 0.0002,
+              "p05": 0.4198,
+              "p95": 0.4205,
+              "n_rep": 200
+            },
+            "note": "destroys off-axis covariance, PRESERVES per-neuron variance + mean vector; PR gap vs empirical = rotational (non-axis-aligned) anisotropy. mean_cos here is not a valid null (mean direction survives the shuffle)."
+          }
+        }
+      },
+      "whitening_subspace": {
+        "rank_kept": 140,
+        "var_kept_frac": 0.9509,
+        "by_shrinkage": {
+          "alpha_0.01": {
+            "shrink_abs": 0.003559,
+            "mean_cos": -0.0044,
+            "std_cos": 0.0581,
+            "mean_abs_cos": 0.0305
+          },
+          "alpha_0.1": {
+            "shrink_abs": 0.035591,
+            "mean_cos": -0.0043,
+            "std_cos": 0.0593,
+            "mean_abs_cos": 0.0308
+          },
+          "alpha_0.5": {
+            "shrink_abs": 0.177957,
+            "mean_cos": -0.004,
+            "std_cos": 0.0663,
+            "mean_abs_cos": 0.0357
+          }
+        }
+      }
+    },
+    {
+      "provenance": {
+        "npz": "results/vectors/vectors_qv_qwen15b_rome_cf_L14_s1.npz",
+        "model": "data/models/Qwen2.5-1.5B",
+        "editor": "rome",
+        "dataset": "counterfact",
+        "layer": 14,
+        "seed": 1,
+        "N": 200,
+        "d_in": 8960,
+        "vectors_valid": 1,
+        "n_nonfinite_rows": 0
+      },
+      "key_norm": {
+        "mean": 12.3745,
+        "std": 1.2909
+      },
+      "anisotropy": {
+        "participation_ratio_uncentered": 18.4783,
+        "participation_ratio_centered": 65.7479,
+        "pr_uncentered_frac_of_N": 0.0924,
+        "pr_centered_frac_of_Nminus1": 0.3304,
+        "spectrum_uncentered": {
+          "top1_frac": 0.2131,
+          "top5_frac": 0.3428,
+          "n_comp_50pct": 18,
+          "n_comp_90pct": 120,
+          "n_comp_99pct": 185,
+          "loglog_slope": -0.9437,
+          "n_positive_eigs": 200
+        },
+        "spectrum_centered": {
+          "top1_frac": 0.0718,
+          "top5_frac": 0.1987,
+          "n_comp_50pct": 32,
+          "n_comp_90pct": 130,
+          "n_comp_99pct": 187,
+          "loglog_slope": -0.8906,
+          "n_positive_eigs": 199
+        },
+        "mean_pairwise_cos": 0.1956,
+        "std_pairwise_cos": 0.1119,
+        "mean_abs_pairwise_cos": 0.1959,
+        "n_pairs": 19900,
+        "baselines": {
+          "isotropic_gaussian_norm_matched": {
+            "pr_centered": {
+              "mean": 187.0161,
+              "std": 0.0429,
+              "p05": 186.9453,
+              "p95": 187.0782,
+              "n_rep": 200
+            },
+            "mean_cos": {
+              "mean": 0.0,
+              "std": 0.0001,
+              "p05": -0.0001,
+              "p95": 0.0001,
+              "n_rep": 200
+            },
+            "note": "no-anisotropy floor (finite N,d). Empirical PR << this band and mean_cos >> this band => real anisotropy."
+          },
+          "column_permutation": {
+            "pr_centered": {
+              "mean": 164.9717,
+              "std": 0.3379,
+              "p05": 164.4426,
+              "p95": 165.5382,
+              "n_rep": 200
+            },
+            "mean_cos_UNINFORMATIVE": {
+              "mean": 0.1934,
+              "std": 0.0001,
+              "p05": 0.1932,
+              "p95": 0.1935,
+              "n_rep": 200
+            },
+            "note": "destroys off-axis covariance, PRESERVES per-neuron variance + mean vector; PR gap vs empirical = rotational (non-axis-aligned) anisotropy. mean_cos here is not a valid null (mean direction survives the shuffle)."
+          }
+        }
+      },
+      "whitening_subspace": {
+        "rank_kept": 156,
+        "var_kept_frac": 0.9509,
+        "by_shrinkage": {
+          "alpha_0.01": {
+            "shrink_abs": 0.007617,
+            "mean_cos": -0.0048,
+            "std_cos": 0.0432,
+            "mean_abs_cos": 0.0246
+          },
+          "alpha_0.1": {
+            "shrink_abs": 0.076166,
+            "mean_cos": -0.0048,
+            "std_cos": 0.0437,
+            "mean_abs_cos": 0.0249
+          },
+          "alpha_0.5": {
+            "shrink_abs": 0.380832,
+            "mean_cos": -0.0047,
+            "std_cos": 0.0484,
+            "mean_abs_cos": 0.0287
+          }
+        }
+      }
+    }
+  ],
+  "array_provenance_notes": {
+    "K": "base-model EDIT keys = down_proj input at edit layer L, subject last-token position, raw/un-normalised [N, d_in]. Source: killgate_keygeom.py:363-376 (key_for -> _capture_key), saved :814.",
+    "knorm": "row norms of K (||k|| per edit), killgate_keygeom.py:823.",
+    "layer/model/editor/seed": "run provenance scalars stored in the bank.",
+    "NOT_PRESENT": "probe keys, probe cosine matrix, and collateral-damage matrices are NOT in these banks (K_probe computed but unsaved; GRAM_pre only in SEQ mode). No proxy used."
+  },
+  "interpretation_constraints": [
+    "COVERAGE: this run profiles 2 bank(s): Llama-3.2-1B@L14s1, Qwen2.5-1.5B@L14s1. All statements below are properties of exactly these banks.",
+    "CROSS-MODEL contrast (Llama-3.2-1B@L14s1 vs Qwen2.5-1.5B@L14s1) is DESCRIPTIVE only and single-seed per model: read RELATIVE deltas, not absolute values, and do not over-read a two-point contrast (the null BANDS quantify metric sampling noise, not seed-to-seed variation).",
+    "PROBE-PAIR arm UNAVAILABLE: no current bank saves probe keys, so 'random-pair vs matched-probe-pair cosine' cannot be computed. This measures EDIT-key anisotropy only.",
+    "KEY-SPACE ONLY: these banks carry no COS / damage matrices, so NO damage join is possible from the key banks alone. This characterises the key distribution; it does NOT by itself show anisotropy CAUSES the damage regime transition. Attribution needs a damage-joined follow-up.",
+    "n (=N edits, ~200) << d (=8192-8960): the d x d covariance has rank <= N-1, so ~ (d-N+1) directions carry zero empirical variance and the spectrum tail beyond ~N-1 is zero BY CONSTRUCTION, not signal. Full d-space whitening is ILL-POSED; only populated-subspace (top-r) whitening is reported, across a shrinkage grid. Whitening mechanically isotropizes the RETAINED subspace, so read RELATIVE cross-bank contrasts of the whitened cosine, not the absolute whitened numbers, and read the alpha-dependence.",
+    "PER-BANK SINGLE SEED (seeds present: [1]): each bank is one seed, so no cross-seed stability is estimated within this file \u2014 the null BANDS quantify metric sampling noise, not seed-to-seed variation. Aggregate the per-seed output files externally for seed stability.",
+    "column_permutation preserves per-neuron variance AND the mean vector, so its mean_cos is not a valid isotropy null (use the Gaussian band); it is a valid null ONLY for rotational (off-axis) PR.",
+    "Anisotropy is a property of THIS edit-key sample (CounterFact subjects); it cannot be separated from tokenizer / subject-frequency confounds without a controlled probe set."
+  ],
+  "runtime_s": 33.9,
+  "cross_model_contrast": {
+    "pair": [
+      "data/models/Llama-3.2-1B@L14",
+      "data/models/Qwen2.5-1.5B@L14"
+    ],
+    "participation_ratio_uncentered": {
+      "data/models/Llama-3.2-1B@L14": 5.1373,
+      "data/models/Qwen2.5-1.5B@L14": 18.4783
+    },
+    "mean_pairwise_cos": {
+      "data/models/Llama-3.2-1B@L14": 0.4297,
+      "data/models/Qwen2.5-1.5B@L14": 0.1956
+    },
+    "std_pairwise_cos": {
+      "data/models/Llama-3.2-1B@L14": 0.1304,
+      "data/models/Qwen2.5-1.5B@L14": 0.1119
+    },
+    "top1_frac_uncentered": {
+      "data/models/Llama-3.2-1B@L14": 0.4325,
+      "data/models/Qwen2.5-1.5B@L14": 0.2131
+    },
+    "whitened_mean_cos": {
+      "alpha_used": [
+        "alpha_0.1",
+        "alpha_0.1"
+      ],
+      "data/models/Llama-3.2-1B@L14": -0.0043,
+      "data/models/Qwen2.5-1.5B@L14": -0.0048
+    },
+    "note": "Descriptive only. Whether a PR/cosine gap 'explains' the damage regime difference cannot be decided here (no damage matrices in these banks). Do NOT over-read a single-seed two-point contrast."
+  }
+}

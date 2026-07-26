@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.054,
+    "within_probe_std_across_seeds": 0.0196,
+    "per_edit_mean_across_seeds": 0.0649,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.2068,
+    "VERDICT": "DEAD \u2014 within-probe rho < 0.10; demote headline, pivot to Qwen-null / FT-overcollateral"
+  },
+  "per_seed": [
+    {
+      "npz": "gate_neox20b_rome_cf_L22_s0.npz",
+      "shape": [
+        99,
+        117
+      ],
+      "flat_spearman_INFLATED": 0.1254,
+      "within_probe_mean": 0.0464,
+      "within_probe_ci95": [
+        0.0232,
+        0.0708
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.0019,
+        0.0941
+      ],
+      "within_probe_frac_positive": 0.658,
+      "per_edit_mean": 0.1701,
+      "per_edit_ci95": [
+        0.1512,
+        0.189
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.0739,
+      "editlevel_null_mean": 0.0005,
+      "editlevel_null_std": 0.0261,
+      "editlevel_z": 1.76,
+      "flat_perm_p": 0.002,
+      "within_probe_mean_normgrowth": 0.1624,
+      "mean_residual_norm(S)": 61.9497
+    },
+    {
+      "npz": "gate_neox20b_rome_cf_L22_s1.npz",
+      "shape": [
+        100,
+        119
+      ],
+      "flat_spearman_INFLATED": 0.033,
+      "within_probe_mean": 0.0809,
+      "within_probe_ci95": [
+        0.0533,
+        0.1097
+      ],
+      "within_probe_ci95_editcluster": [
+        0.0328,
+        0.1271
+      ],
+      "within_probe_frac_positive": 0.689,
+      "per_edit_mean": -0.026,
+      "per_edit_ci95": [
+        -0.0426,
+        -0.0105
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.006,
+      "editlevel_null_mean": -0.0016,
+      "editlevel_null_std": 0.0275,
+      "editlevel_z": 3.0,
+      "flat_perm_p": 0.6523,
+      "within_probe_mean_normgrowth": 0.1872,
+      "mean_residual_norm(S)": 61.5859
+    },
+    {
+      "npz": "gate_neox20b_rome_cf_L22_s2.npz",
+      "shape": [
+        101,
+        109
+      ],
+      "flat_spearman_INFLATED": 0.0458,
+      "within_probe_mean": 0.0347,
+      "within_probe_ci95": [
+        0.007,
+        0.064
+      ],
+      "within_probe_ci95_editcluster": [
+        -0.0132,
+        0.0848
+      ],
+      "within_probe_frac_positive": 0.569,
+      "per_edit_mean": 0.0506,
+      "per_edit_ci95": [
+        0.0315,
+        0.0701
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.2068,
+      "editlevel_null_mean": 0.001,
+      "editlevel_null_std": 0.027,
+      "editlevel_z": 1.25,
+      "flat_perm_p": 0.2478,
+      "within_probe_mean_normgrowth": 0.0862,
+      "mean_residual_norm(S)": 62.5237
+    }
+  ]
+}

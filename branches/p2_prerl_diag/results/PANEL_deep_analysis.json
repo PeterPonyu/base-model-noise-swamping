@@ -1,0 +1,602 @@
+{
+  "_meta": {
+    "tool": "analysis_deep.py",
+    "generated_at": "2026-07-11T01:50:58.153463+00:00",
+    "note": "CPU deep analysis; imports diagnostic.py, reads results/ + samples/. No GPU / model loading.",
+    "seeds": {
+      "strata": 12345,
+      "ksens": 20260710,
+      "robust": 777,
+      "power": 999
+    },
+    "n_boot": 2000
+  },
+  "usability_rule": "A checkpoint is UNUSABLE for the cross-checkpoint correlation if n_right < 20 (too few correct traces to control difficulty) OR the 95% cluster-bootstrap CI width on the primary effect size D_within exceeds 1.5 (estimate too imprecise to rank the panel). Otherwise USABLE.",
+  "usable_checkpoints": [
+    "Qwen2.5-0.5B",
+    "Qwen2.5-1.5B",
+    "Qwen2.5-3B",
+    "Phi-3.5-mini"
+  ],
+  "panel": {
+    "Qwen2.5-0.5B": {
+      "n_right": 118,
+      "n_wrong": 1482,
+      "n_mixed_problems": 77,
+      "mean_len_right": 270.60169491525426,
+      "mean_len_wrong": 261.2287449392713,
+      "D_pooled": {
+        "point": 0.9653625599835273,
+        "ci_lo": 0.882105994611291,
+        "ci_hi": 1.0674255413973333,
+        "boot_se": 0.0473366230297505
+      },
+      "D_within": {
+        "point": 0.9760169375884513,
+        "ci_lo": 0.8730462160450765,
+        "ci_hi": 1.0922480925543399,
+        "boot_se": 0.056025269917831085,
+        "ci_width": 0.21920187650926337
+      },
+      "usable": true,
+      "unusable_reasons": []
+    },
+    "Qwen2.5-1.5B": {
+      "n_right": 189,
+      "n_wrong": 1411,
+      "n_mixed_problems": 115,
+      "mean_len_right": 231.04232804232805,
+      "mean_len_wrong": 209.13749114103473,
+      "D_pooled": {
+        "point": 0.9051912388223501,
+        "ci_lo": 0.8336289343914636,
+        "ci_hi": 0.9856616114318334,
+        "boot_se": 0.039477211735168445
+      },
+      "D_within": {
+        "point": 0.9169016643084008,
+        "ci_lo": 0.8428291670615997,
+        "ci_hi": 1.010822706065496,
+        "boot_se": 0.04183085838687383,
+        "ci_width": 0.16799353900389624
+      },
+      "usable": true,
+      "unusable_reasons": []
+    },
+    "Qwen2.5-3B": {
+      "n_right": 456,
+      "n_wrong": 1144,
+      "n_mixed_problems": 166,
+      "mean_len_right": 203.04605263157896,
+      "mean_len_wrong": 180.68094405594405,
+      "D_pooled": {
+        "point": 0.8898520395458476,
+        "ci_lo": 0.8297682376737608,
+        "ci_hi": 0.9560963417759241,
+        "boot_se": 0.03214749065678465
+      },
+      "D_within": {
+        "point": 0.9043187766047678,
+        "ci_lo": 0.8454796055583959,
+        "ci_hi": 0.9695718278913806,
+        "boot_se": 0.03185091186312409,
+        "ci_width": 0.12409222233298478
+      },
+      "usable": true,
+      "unusable_reasons": []
+    },
+    "Llama-3.2-1B": {
+      "n_right": 5,
+      "n_wrong": 1595,
+      "n_mixed_problems": 5,
+      "mean_len_right": 354.0,
+      "mean_len_wrong": 341.29529780564263,
+      "D_pooled": {
+        "point": 0.964111010750403,
+        "ci_lo": 0.5386605245540175,
+        "ci_hi": 2.912208308164885,
+        "boot_se": 0.5391093612636182
+      },
+      "D_within": {
+        "point": 1.2495053048142333,
+        "ci_lo": 0.42339285714285707,
+        "ci_hi": 2.0720644897959146,
+        "boot_se": 0.3903715292084269,
+        "ci_width": 1.6486716326530575
+      },
+      "usable": false,
+      "unusable_reasons": [
+        "n_right=5 < 20",
+        "D_within_CI_width=1.649 > 1.5"
+      ]
+    },
+    "Llama-3.2-3B": {
+      "n_right": 27,
+      "n_wrong": 1573,
+      "n_mixed_problems": 24,
+      "mean_len_right": 202.85185185185185,
+      "mean_len_wrong": 317.0050858232676,
+      "D_pooled": {
+        "point": 1.5627418873887577,
+        "ci_lo": 1.1269634242345792,
+        "ci_hi": 2.3454476473034123,
+        "boot_se": 0.3077005841418132
+      },
+      "D_within": {
+        "point": 3.5510313780044522,
+        "ci_lo": 2.130250918971724,
+        "ci_hi": 5.323362969585854,
+        "boot_se": 0.8028944888416694,
+        "ci_width": 3.19311205061413
+      },
+      "usable": false,
+      "unusable_reasons": [
+        "D_within_CI_width=3.193 > 1.5"
+      ]
+    },
+    "gemma-2-2b": {
+      "n_right": 16,
+      "n_wrong": 1584,
+      "n_mixed_problems": 16,
+      "mean_len_right": 174.0625,
+      "mean_len_wrong": 199.33585858585857,
+      "D_pooled": {
+        "point": 1.1451970331683077,
+        "ci_lo": 0.8367956847993118,
+        "ci_hi": 1.6673425658578533,
+        "boot_se": 0.21288193429612032
+      },
+      "D_within": {
+        "point": 1.7086603496639872,
+        "ci_lo": 0.967352048123915,
+        "ci_hi": 2.6808956216526543,
+        "boot_se": 0.4528834044676882,
+        "ci_width": 1.7135435735287392
+      },
+      "usable": false,
+      "unusable_reasons": [
+        "n_right=16 < 20",
+        "D_within_CI_width=1.714 > 1.5"
+      ]
+    },
+    "Phi-3.5-mini": {
+      "n_right": 482,
+      "n_wrong": 1118,
+      "n_mixed_problems": 173,
+      "mean_len_right": 237.82157676348547,
+      "mean_len_wrong": 315.0232558139535,
+      "D_pooled": {
+        "point": 1.324620163153848,
+        "ci_lo": 1.242267116942448,
+        "ci_hi": 1.4177967318585456,
+        "boot_se": 0.044780967288738205
+      },
+      "D_within": {
+        "point": 1.4919925577089364,
+        "ci_lo": 1.3876338515183346,
+        "ci_hi": 1.6049492933464757,
+        "boot_se": 0.054925397182754035,
+        "ci_width": 0.2173154418281411
+      },
+      "usable": true,
+      "unusable_reasons": []
+    }
+  },
+  "difficulty_stratification": {
+    "Qwen2.5-0.5B": {
+      "n_mixed_total": 77,
+      "strata": {
+        "(0,0.25]": {
+          "n_problems": 65,
+          "d_within": 0.9917124443881022,
+          "ci_lo": 0.8782522539260645,
+          "ci_hi": 1.116113477518037,
+          "boot_se": 0.06218996330932486,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.25,0.5]": {
+          "n_problems": 12,
+          "d_within": 0.8909996090903413,
+          "ci_lo": 0.7604814654496868,
+          "ci_hi": 1.0552953658664561,
+          "boot_se": 0.07412164855636438,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.5,1)": {
+          "n_problems": 0,
+          "d_within": null,
+          "note": "empty stratum"
+        }
+      }
+    },
+    "Qwen2.5-1.5B": {
+      "n_mixed_total": 115,
+      "strata": {
+        "(0,0.25]": {
+          "n_problems": 101,
+          "d_within": 0.9253934933704266,
+          "ci_lo": 0.841185001000249,
+          "ci_hi": 1.0302489472737864,
+          "boot_se": 0.04726056619163462,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.25,0.5]": {
+          "n_problems": 13,
+          "d_within": 0.8311364916060644,
+          "ci_lo": 0.7035554584906663,
+          "ci_hi": 0.9477414888524281,
+          "boot_se": 0.06333624297964269,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.5,1)": {
+          "n_problems": 1,
+          "d_within": 1.1741741741741742,
+          "ci_lo": 1.1741741741741742,
+          "ci_hi": 1.1741741741741742,
+          "boot_se": 0.0,
+          "frac_finite": 1.0,
+          "small_stratum_warn": true
+        }
+      }
+    },
+    "Qwen2.5-3B": {
+      "n_mixed_total": 166,
+      "strata": {
+        "(0,0.25]": {
+          "n_problems": 81,
+          "d_within": 0.9813144512044427,
+          "ci_lo": 0.8957088429545317,
+          "ci_hi": 1.0772784823971562,
+          "boot_se": 0.04737952472774424,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.25,0.5]": {
+          "n_problems": 62,
+          "d_within": 0.823884958559584,
+          "ci_lo": 0.7435125591798435,
+          "ci_hi": 0.910447105929366,
+          "boot_se": 0.04183298908245274,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.5,1)": {
+          "n_problems": 23,
+          "d_within": 0.8499816929624946,
+          "ci_lo": 0.6695596670781914,
+          "ci_hi": 1.0612876420226742,
+          "boot_se": 0.09946527247737391,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        }
+      }
+    },
+    "Llama-3.2-1B": {
+      "n_mixed_total": 5,
+      "strata": {
+        "(0,0.25]": {
+          "n_problems": 5,
+          "d_within": 1.2495053048142333,
+          "ci_lo": 0.5679052197802198,
+          "ci_hi": 1.931105389848247,
+          "boot_se": 0.34005252057912955,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.25,0.5]": {
+          "n_problems": 0,
+          "d_within": null,
+          "note": "empty stratum"
+        },
+        "(0.5,1)": {
+          "n_problems": 0,
+          "d_within": null,
+          "note": "empty stratum"
+        }
+      }
+    },
+    "Llama-3.2-3B": {
+      "n_mixed_total": 24,
+      "strata": {
+        "(0,0.25]": {
+          "n_problems": 24,
+          "d_within": 3.5510313780044522,
+          "ci_lo": 2.2107627737905564,
+          "ci_hi": 5.305872435698958,
+          "boot_se": 0.8070284290058084,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.25,0.5]": {
+          "n_problems": 0,
+          "d_within": null,
+          "note": "empty stratum"
+        },
+        "(0.5,1)": {
+          "n_problems": 0,
+          "d_within": null,
+          "note": "empty stratum"
+        }
+      }
+    },
+    "gemma-2-2b": {
+      "n_mixed_total": 16,
+      "strata": {
+        "(0,0.25]": {
+          "n_problems": 16,
+          "d_within": 1.7086603496639872,
+          "ci_lo": 0.9670457041227574,
+          "ci_hi": 2.6694110051481994,
+          "boot_se": 0.43601664212273705,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.25,0.5]": {
+          "n_problems": 0,
+          "d_within": null,
+          "note": "empty stratum"
+        },
+        "(0.5,1)": {
+          "n_problems": 0,
+          "d_within": null,
+          "note": "empty stratum"
+        }
+      }
+    },
+    "Phi-3.5-mini": {
+      "n_mixed_total": 173,
+      "strata": {
+        "(0,0.25]": {
+          "n_problems": 83,
+          "d_within": 1.5885452147948467,
+          "ci_lo": 1.4394161844480602,
+          "ci_hi": 1.749836263356705,
+          "boot_se": 0.07775729113073931,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.25,0.5]": {
+          "n_problems": 64,
+          "d_within": 1.4707221015035636,
+          "ci_lo": 1.3014951293833392,
+          "ci_hi": 1.6610022160777795,
+          "boot_se": 0.09118709479418685,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        },
+        "(0.5,1)": {
+          "n_problems": 26,
+          "d_within": 1.2361248138248313,
+          "ci_lo": 1.0204522449283553,
+          "ci_hi": 1.4936813723828484,
+          "boot_se": 0.12149673881394496,
+          "frac_finite": 1.0,
+          "small_stratum_warn": false
+        }
+      }
+    }
+  },
+  "k_sensitivity": {
+    "Qwen2.5-0.5B": {
+      "k": 4,
+      "n_draws": 300,
+      "d_within_full_k8": 0.9760169375884513,
+      "mean_k4": 0.9904835157334416,
+      "sd_k4": 0.06602489461599982,
+      "min_k4": 0.7791506053199939,
+      "max_k4": 1.159892393441341,
+      "frac_finite": 1.0
+    },
+    "Qwen2.5-1.5B": {
+      "k": 4,
+      "n_draws": 300,
+      "d_within_full_k8": 0.9169016643084008,
+      "mean_k4": 0.9263054637348065,
+      "sd_k4": 0.04995848685288167,
+      "min_k4": 0.8135255601534719,
+      "max_k4": 1.1022231629746269,
+      "frac_finite": 1.0
+    },
+    "Qwen2.5-3B": {
+      "k": 4,
+      "n_draws": 300,
+      "d_within_full_k8": 0.9043187766047678,
+      "mean_k4": 0.9539342450361407,
+      "sd_k4": 0.03937851611525779,
+      "min_k4": 0.8610628436092889,
+      "max_k4": 1.059753172012543,
+      "frac_finite": 1.0
+    },
+    "Llama-3.2-1B": {
+      "k": 4,
+      "n_draws": 300,
+      "d_within_full_k8": 1.2495053048142333,
+      "mean_k4": 1.3204768155112767,
+      "sd_k4": 0.6760395074824644,
+      "min_k4": 0.1671875,
+      "max_k4": 3.8053333333333335,
+      "frac_finite": 0.9666666666666667
+    },
+    "Llama-3.2-3B": {
+      "k": 4,
+      "n_draws": 300,
+      "d_within_full_k8": 3.5510313780044522,
+      "mean_k4": 3.6894483319887854,
+      "sd_k4": 0.9084043022462113,
+      "min_k4": 1.6930954047524682,
+      "max_k4": 6.3831633060066775,
+      "frac_finite": 1.0
+    },
+    "gemma-2-2b": {
+      "k": 4,
+      "n_draws": 300,
+      "d_within_full_k8": 1.7086603496639872,
+      "mean_k4": 1.7410640947382394,
+      "sd_k4": 0.5926798044289586,
+      "min_k4": 0.5423804865030311,
+      "max_k4": 4.2213620884435015,
+      "frac_finite": 1.0
+    },
+    "Phi-3.5-mini": {
+      "k": 4,
+      "n_draws": 300,
+      "d_within_full_k8": 1.4919925577089364,
+      "mean_k4": 1.5086975613792795,
+      "sd_k4": 0.06087717523609266,
+      "min_k4": 1.3618448901163616,
+      "max_k4": 1.6962213659022005,
+      "frac_finite": 1.0
+    }
+  },
+  "robust_logmean": {
+    "Qwen2.5-0.5B": {
+      "delta_point": -0.24181489978982215,
+      "delta_ci_lo": -0.34642430820312936,
+      "delta_ci_hi": -0.13382592607007857,
+      "boot_se": 0.05519029059041267,
+      "frac_finite": 1.0,
+      "exp_delta": 0.7852015050649575,
+      "exp_ci_lo": 0.7072123474347713,
+      "exp_ci_hi": 0.874742321184516,
+      "d_within_point": 0.9760169375884513
+    },
+    "Qwen2.5-1.5B": {
+      "delta_point": -0.27750151753149055,
+      "delta_ci_lo": -0.3522360956338262,
+      "delta_ci_hi": -0.20246972179339198,
+      "boot_se": 0.03895188698705769,
+      "frac_finite": 1.0,
+      "exp_delta": 0.7576744148073179,
+      "exp_ci_lo": 0.7031141002094639,
+      "exp_ci_hi": 0.8167112107745255,
+      "d_within_point": 0.9169016643084008
+    },
+    "Qwen2.5-3B": {
+      "delta_point": -0.2544796538017464,
+      "delta_ci_lo": -0.31587977644292736,
+      "delta_ci_hi": -0.19213991781498585,
+      "boot_se": 0.031390877405044156,
+      "frac_finite": 1.0,
+      "exp_delta": 0.7753198277412173,
+      "exp_ci_lo": 0.7291471055570562,
+      "exp_ci_hi": 0.8251914014360876,
+      "d_within_point": 0.9043187766047678
+    },
+    "Llama-3.2-1B": {
+      "delta_point": -0.32258272886035844,
+      "delta_ci_lo": -1.1225345143223397,
+      "delta_ci_hi": 0.33491705714114905,
+      "boot_se": 0.3677088239964619,
+      "frac_finite": 0.993,
+      "exp_delta": 0.7242760107993932,
+      "exp_ci_lo": 0.32545388089768307,
+      "exp_ci_hi": 1.3978244408588585,
+      "d_within_point": 1.2495053048142333
+    },
+    "Llama-3.2-3B": {
+      "delta_point": 0.528704704780095,
+      "delta_ci_lo": 0.09615510531897228,
+      "delta_ci_hi": 0.9712480114909945,
+      "boot_se": 0.2203146447172374,
+      "frac_finite": 1.0,
+      "exp_delta": 1.6967331143306614,
+      "exp_ci_lo": 1.1009298108212395,
+      "exp_ci_hi": 2.6412386995492665,
+      "d_within_point": 3.5510313780044522
+    },
+    "gemma-2-2b": {
+      "delta_point": -0.30126409890328537,
+      "delta_ci_lo": -0.8101239795922199,
+      "delta_ci_hi": 0.2185655111919176,
+      "boot_se": 0.2630819593676248,
+      "frac_finite": 1.0,
+      "exp_delta": 0.739882344825865,
+      "exp_ci_lo": 0.44480291632009694,
+      "exp_ci_hi": 1.2442905289127946,
+      "d_within_point": 1.7086603496639872
+    },
+    "Phi-3.5-mini": {
+      "delta_point": 0.1397095972278254,
+      "delta_ci_lo": 0.07466119300125183,
+      "delta_ci_hi": 0.20599858028308698,
+      "boot_se": 0.03326170102408164,
+      "frac_finite": 1.0,
+      "exp_delta": 1.1499398046560476,
+      "exp_ci_lo": 1.077519018048745,
+      "exp_ci_hi": 1.2287514595148448,
+      "d_within_point": 1.4919925577089364
+    }
+  },
+  "power_analysis": {
+    "n_sims": 8000,
+    "target_rhos": [
+      0.5,
+      0.7,
+      0.9
+    ],
+    "assumptions": "Plug-in: panel D_within points = true latent D; observed ~ N(point, boot_se); post = rho*z(trueD)+sqrt(1-rho^2)*N(0,1); one-sided exact-permutation Spearman(observed, post); power=P(p<0.05).",
+    "n7_all": {
+      "n": 7,
+      "ids": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-1.5B",
+        "Qwen2.5-3B",
+        "Llama-3.2-1B",
+        "Llama-3.2-3B",
+        "gemma-2-2b",
+        "Phi-3.5-mini"
+      ],
+      "min_attainable_p": 0.0001984126984126984,
+      "critical_rho_p05_onesided": 0.7142857142857143,
+      "power": {
+        "rho=0.5": 0.18625,
+        "rho=0.7": 0.297875,
+        "rho=0.9": 0.536875
+      }
+    },
+    "n6_excl_Llama1B": {
+      "n": 6,
+      "ids": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-1.5B",
+        "Qwen2.5-3B",
+        "Llama-3.2-3B",
+        "gemma-2-2b",
+        "Phi-3.5-mini"
+      ],
+      "min_attainable_p": 0.001388888888888889,
+      "critical_rho_p05_onesided": 0.8285714285714286,
+      "power": {
+        "rho=0.5": 0.138,
+        "rho=0.7": 0.223,
+        "rho=0.9": 0.43325
+      }
+    },
+    "n_usable_only": {
+      "n": 4,
+      "ids": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-1.5B",
+        "Qwen2.5-3B",
+        "Phi-3.5-mini"
+      ],
+      "min_attainable_p": 0.041666666666666664,
+      "critical_rho_p05_onesided": 1.0,
+      "power": {
+        "rho=0.5": 0.122375,
+        "rho=0.7": 0.157,
+        "rho=0.9": 0.228
+      }
+    },
+    "usable_ids": [
+      "Qwen2.5-0.5B",
+      "Qwen2.5-1.5B",
+      "Qwen2.5-3B",
+      "Phi-3.5-mini"
+    ]
+  }
+}

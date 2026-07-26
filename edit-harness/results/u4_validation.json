@@ -1,0 +1,117 @@
+{
+ "n": 16,
+ "rows": [
+  {
+   "json": "results/egl_llama1b_alpha_cf_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "egl_present": true
+  },
+  {
+   "json": "results/egl_llama1b_memit_cf_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "egl_present": true
+  },
+  {
+   "json": "results/egl_llama1b_rome_cf_L12_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.995,
+   "egl_present": true
+  },
+  {
+   "json": "results/gate_llama1b_ftkl003_cf_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "egl_present": false
+  },
+  {
+   "json": "results/gate_llama1b_ftkl030_cf_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "egl_present": false
+  },
+  {
+   "json": "results/gate_llama1b_ftkl100_cf_L8_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "egl_present": false
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L10_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "egl_present": false
+  },
+  {
+   "json": "results/gate_llama1b_memit_cf_L14_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.935,
+   "egl_present": false
+  },
+  {
+   "json": "results/seq_llama1b_nr_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98,
+   "egl_present": false
+  },
+  {
+   "json": "results/seq_llama1b_nr_L12_s3.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.98,
+   "egl_present": false
+  },
+  {
+   "json": "results/seq_llama1b_nr_L14_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.82,
+   "egl_present": false
+  },
+  {
+   "json": "results/seq_llama1b_nr_L8_s0.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.84,
+   "egl_present": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_eos_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "egl_present": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_eos_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 1.0,
+   "egl_present": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_suppress_L12_s1.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.875,
+   "egl_present": false
+  },
+  {
+   "json": "results/u1e0_llama1b_delete_suppress_L12_s2.json",
+   "npz_found": true,
+   "json_ok": true,
+   "esr": 0.88,
+   "egl_present": false
+  }
+ ]
+}

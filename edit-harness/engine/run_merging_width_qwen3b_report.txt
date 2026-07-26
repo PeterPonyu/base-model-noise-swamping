@@ -1,0 +1,39 @@
+RUN_MERGING_WIDTH REPORT tag=qwen3b model=data/models/Qwen2.5-3B layer=27 2026-07-15 14:24:27  elapsed 0m/90m
+[2026-07-15 12:54:00] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 27
+[2026-07-15 12:54:00] DRYRUN tag=qwen3b layer=27 est=30m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --rg --model data/models/Qwen2.5-3B --data data/counterfact.json --n_edits 200 --layer 27 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --out_dir results/merging --table_out results/merging/RG_operating_curve_table_qwen3b_L27.json
+[2026-07-15 13:17:30] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 27
+[2026-07-15 13:17:30] DRYRUN tag=qwen3b layer=27 est=30m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --rg --model data/models/Qwen2.5-3B --data data/counterfact.json --n_edits 200 --layer 27 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20 --out_dir results/merging --table_out results/merging/RG_operating_curve_table_qwen3b_L27.json
+[2026-07-15 13:17:30] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 27
+[2026-07-15 13:17:30] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_width_selftest_qwen3b.log
+[2026-07-15 13:17:31] SMOKE OK: self-test passed (identity + M0 partial/coherence fixtures + RG pass/kill)
+[2026-07-15 13:17:31] gpu poll util=0 mem=661 consec=1/3
+[2026-07-15 13:18:01] gpu poll util=0 mem=717 consec=2/3
+[2026-07-15 13:18:31] gpu poll util=0 mem=723 consec=3/3
+[2026-07-15 13:18:31] RUN rg tag=qwen3b (est 30m, cap 6600s, elapsed 0m) -> engine/merging_width_qwen3b_run.log
+[2026-07-15 13:27:55] done rg tag=qwen3b (564s) VALIDATE-OK verdict=PASS qualifying_g=[5, 10, 20]
+[2026-07-15 13:27:55] ---------------- POST-RUN (CPU) tag=qwen3b ----------------
+[rg post] VERDICT overall=PASS qualifying_g=[5, 10, 20] testable_cells=8
+[rg post] scoped-federation boundary: per_seed={'0': 20, '1': 20, '2': 20} conservative=20
+[rg post]   g=2: partial_by_seed={'0': 0.0196, '1': 0.0562, '2': 0.0344} pass_geometry=0 qualifies=False
+[rg post]   g=3: partial_by_seed={'0': 0.0811, '1': 0.1577, '2': 0.0579} pass_geometry=0 qualifies=False
+[rg post]   g=5: partial_by_seed={'0': 0.3721, '1': 0.3896, '2': 0.1936} pass_geometry=2 qualifies=True
+[rg post]   g=10: partial_by_seed={'0': 0.6313, '1': 0.541, '2': 0.5547} pass_geometry=3 qualifies=True
+[rg post]   g=20: partial_by_seed={'0': 0.5416, '1': 0.558, '2': 0.5444} pass_geometry=3 qualifies=True
+[2026-07-15 13:56:55] WARN: explicit LAYER=18 != the 75%-depth rule's 27 for this model — proceeding with the explicit override, but this is NOT the D2 layer rule
+[2026-07-15 13:56:55] SMOKE merging_m0 --selftest (CPU, ~5s) -> engine/merging_width_selftest_qwen3b.log
+[2026-07-15 13:56:55] SMOKE OK: self-test passed (identity + M0 partial/coherence fixtures + RG pass/kill)
+[2026-07-15 13:56:55] gpu poll util=0 mem=709 consec=1/3
+[2026-07-15 13:57:25] gpu poll util=0 mem=703 consec=2/3
+[2026-07-15 13:57:55] gpu poll util=0 mem=709 consec=3/3
+[2026-07-15 13:57:55] RUN rg tag=qwen3b (est 30m, cap 6600s, elapsed 0m) -> engine/merging_width_qwen3b_run.log
+[2026-07-15 14:08:09] done rg tag=qwen3b (614s) VALIDATE-OK verdict=INCONCLUSIVE qualifying_g=[]
+[2026-07-15 14:08:09] ---------------- POST-RUN (CPU) tag=qwen3b ----------------
+[rg post] VERDICT overall=INCONCLUSIVE qualifying_g=[] testable_cells=0
+[rg post] scoped-federation boundary: per_seed={'0': 20, '1': 20, '2': 20} conservative=20
+[rg post]   g=2: partial_by_seed={'0': 0.1321, '1': 0.0506, '2': 0.1181} pass_geometry=0 qualifies=False
+[rg post]   g=3: partial_by_seed={'0': 0.2742, '1': 0.2171, '2': -0.0087} pass_geometry=0 qualifies=False
+[rg post]   g=5: partial_by_seed={'0': 0.1965, '1': 0.1817, '2': 0.1605} pass_geometry=0 qualifies=False
+[rg post]   g=10: partial_by_seed={'0': 0.1632, '1': 0.2038, '2': 0.258} pass_geometry=0 qualifies=False
+[rg post]   g=20: partial_by_seed={'0': 0.1601, '1': 0.3119, '2': 0.2426} pass_geometry=0 qualifies=False
+[2026-07-15 14:24:27] LAYER auto-computed from config.json: floor(num_hidden_layers*0.75) = 27
+[2026-07-15 14:24:27] DRYRUN tag=qwen3b layer=27 est=30m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/merging_m0.py --rg --model data/models/Qwen2.5-3B --data data/counterfact.json --n_edits 200 --layer 27 --steps 20 --lr 0.1 --device cuda --rg_seeds 0,1,2 --rg_group_sizes 2,3,5,10,20,50,100 --out_dir results/merging --table_out results/merging/RG_operating_curve_table_qwen3b_L27.json

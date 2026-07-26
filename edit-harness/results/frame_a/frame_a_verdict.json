@@ -1,0 +1,178 @@
+{
+  "VERDICT": "INCOMPLETE",
+  "incomplete": {
+    "absent_mixes": [
+      "MIX_B",
+      "MIX_C"
+    ],
+    "missing_baselines": {}
+  },
+  "note": "verdict refused: pre-registered grid not fully on disk; no PASS/GREY/KILL is derivable from a partial wave.",
+  "per_mix": {
+    "MIX_A": {
+      "P1_dominates_all_fixed": false,
+      "P1_detail": {
+        "always_edit": {
+          "dominates": true,
+          "dQ": 0.11170271596670456,
+          "dQ_ci": [
+            0.10609314637572065,
+            0.11713898468294848
+          ],
+          "d_cost_adv": 1.3472445488172013,
+          "d_cost_adv_ci": [
+            1.196422505130613,
+            1.4892169473823742
+          ],
+          "strict_Q": true,
+          "strict_cost": true
+        },
+        "always_grace": {
+          "dominates": false,
+          "dQ": -0.016122111748460677,
+          "dQ_ci": [
+            -0.041044586468582445,
+            -0.0030884375318567248
+          ],
+          "d_cost_adv": 4.93263713748911,
+          "d_cost_adv_ci": [
+            -5.957932348982467,
+            12.881921917338332
+          ],
+          "strict_Q": false,
+          "strict_cost": false
+        },
+        "always_rag": {
+          "dominates": false,
+          "dQ": 0.33427788825153937,
+          "dQ_ci": [
+            0.3093554135314176,
+            0.3473115624681433
+          ],
+          "d_cost_adv": -37.50548113000727,
+          "d_cost_adv_ci": [
+            -64.37926946383959,
+            -17.244758039065346
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "always_ft": {
+          "dominates": false,
+          "dQ": 0.6382778882515394,
+          "dQ_ci": [
+            0.6133554135314176,
+            0.6513115624681434
+          ],
+          "d_cost_adv": -218.1738718343128,
+          "d_cost_adv_ci": [
+            -238.66822589985168,
+            -200.93431745110865
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "always_reject": {
+          "dominates": false,
+          "dQ": 0.6382778882515394,
+          "dQ_ci": [
+            0.6133554135314176,
+            0.6513115624681434
+          ],
+          "d_cost_adv": -218.17927610105139,
+          "d_cost_adv_ci": [
+            -238.66342856085248,
+            -200.94076176327508
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        },
+        "random": {
+          "dominates": false,
+          "dQ": 0.17259218243119956,
+          "dQ_ci": [
+            0.13984702277085392,
+            0.1917718259960104
+          ],
+          "d_cost_adv": -136.4678583523571,
+          "d_cost_adv_ci": [
+            -155.71466892085408,
+            -119.79950153813843
+          ],
+          "strict_Q": true,
+          "strict_cost": false
+        }
+      },
+      "P3_beats_ft_merge": false,
+      "discovery": {
+        "mean_recall_at_decile": 1.0,
+        "mean_lift": 10.070493454179255,
+        "predictor_ceiling": 0.4407,
+        "n_damaging_gt": 35,
+        "point_floor": 50,
+        "ci_only": true,
+        "point_claim_allowed": false,
+        "recall_ci": [
+          1.0,
+          1.0
+        ],
+        "point_recall": null,
+        "point_claim": "SUPPRESSED_below_point_floor (rev.5: CI-only)",
+        "per_fact_type": {
+          "cf": {
+            "mean_recall_at_decile": 1.0,
+            "n_damaging_gt": 35
+          },
+          "zsre": {
+            "mean_recall_at_decile": NaN,
+            "n_damaging_gt": 0
+          },
+          "mquake_mh": {
+            "mean_recall_at_decile": NaN,
+            "n_damaging_gt": 0
+          },
+          "ripple": {
+            "mean_recall_at_decile": NaN,
+            "n_damaging_gt": 0
+          }
+        }
+      }
+    }
+  },
+  "measured_vs_synthetic_cost_ratio_check": {
+    "per_arm": {
+      "edit": {
+        "measured_serve_gpu_s": 0.014386692821795536,
+        "synthetic_serve_gpu_s": 1.0,
+        "measured_over_synthetic": 0.014386692821795536,
+        "n_queries": 3237
+      },
+      "ft": {
+        "measured_serve_gpu_s": 0.011705940036037,
+        "synthetic_serve_gpu_s": 1.0,
+        "measured_over_synthetic": 0.011705940036037,
+        "n_queries": 3439
+      },
+      "grace": {
+        "measured_serve_gpu_s": 0.012994342937119934,
+        "synthetic_serve_gpu_s": 1.15,
+        "measured_over_synthetic": 0.011299428640973858,
+        "n_queries": 5262
+      },
+      "rag": {
+        "measured_serve_gpu_s": 0.2850267221009191,
+        "synthetic_serve_gpu_s": 1.6,
+        "measured_over_synthetic": 0.17814170131307444,
+        "n_queries": 2733
+      },
+      "reject": {
+        "measured_serve_gpu_s": 0.011774881184663933,
+        "synthetic_serve_gpu_s": 1.0,
+        "measured_over_synthetic": 0.011774881184663933,
+        "n_queries": 1829
+      }
+    },
+    "note": "wave-1 router uses the frozen synthetic cost table; measured-vs-synthetic per-arm serving ratios reported here \u2014 material divergence triggers a wave-1b sensitivity re-run with measured router costs (PREREG \u00a7c decision note).",
+    "applicable": true
+  }
+}

@@ -1,0 +1,1461 @@
+{
+  "thresholds": {
+    "fp32_law_gate": 0.3,
+    "esr_survival_4bit": 0.8,
+    "esr_survival_8bit": 0.9,
+    "delta_rho_tolerance": 0.15,
+    "rank_survival_4bit": 0.85,
+    "rank_survival_8bit": 0.95,
+    "median_ratio_concentration": 1.0
+  },
+  "cells": {
+    "Llama-3.2-1B_memit_L12": {
+      "model": "data/models/Llama-3.2-1B",
+      "editor": "memit",
+      "layer": 12,
+      "n_seeds": 3,
+      "c2_eligible": true,
+      "fp32_rho_within_probe_mean": 0.4690666666666667,
+      "fp32_rho_within_probe_ci95": [
+        0.4457,
+        0.4854
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0013333333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0029,
+            -0.0002
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.004866666666666667,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0082,
+            -0.0018
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9930333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9928,
+            0.9934
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9929333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9926,
+            0.9935
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.995
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9983333333333334,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.995,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0237,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0385,
+            -0.0148
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.06193333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0718,
+            -0.0435
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.8319,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.8208,
+            0.8492
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.8346666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.8201,
+            0.8506
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9933333333333333
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0002666666666666667,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0004,
+            -0.0002
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 6.666666666666666e-05,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0001,
+            0.0003
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9998999999999999,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9999,
+            0.9999
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9998999999999999,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9999,
+            0.9999
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.995
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0003333333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0002,
+            0.0011
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.0026999999999999997,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0046,
+            -0.0003
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9946666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9927,
+            0.9957
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9947,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9928,
+            0.9957
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.995
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.0003,
+          "median_ratio_mean": 0.009666666666666665,
+          "r_func_mean": 0.5546,
+          "r_param_mean": 22.935066666666668
+        },
+        "int8": {
+          "F_above_mean": 0.03593333333333334,
+          "median_ratio_mean": 0.0756,
+          "r_func_mean": 0.06523333333333332,
+          "r_param_mean": 2.9966333333333335
+        }
+      }
+    },
+    "Llama-3.2-1B_alpha_L12": {
+      "model": "data/models/Llama-3.2-1B",
+      "editor": "alpha",
+      "layer": 12,
+      "n_seeds": 3,
+      "c2_eligible": false,
+      "fp32_rho_within_probe_mean": 0.04253333333333333,
+      "fp32_rho_within_probe_ci95": [
+        0.022,
+        0.0558
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0068,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0042,
+            0.0113
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.0122,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0037,
+            0.0217
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9027,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9,
+            0.9076
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9134666666666668,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9109,
+            0.9167
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9916666666666667
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9983333333333334,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.995,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0067666666666666665,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0004,
+            0.0152
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.018566666666666665,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0084,
+            0.0334
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.23796666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.2204,
+            0.2554
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.22340000000000002,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.2098,
+            0.2347
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9933333333333333
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0001333333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0,
+            0.0003
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.0003,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0,
+            0.0006
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9979,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9978,
+            0.998
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9979,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9978,
+            0.998
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9916666666666667
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0014333333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0004,
+            0.0022
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.005066666666666666,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0144,
+            0.0123
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.7688,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.7488,
+            0.7824
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.7685666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.7526,
+            0.7835
+          ],
+          "permutation_null_p_pooled_mean": 0.07192666666666667,
+          "permutation_null_p_pooled_max": 0.1988,
+          "mean_esr_mean": 0.9916666666666667
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.021933333333333332,
+          "median_ratio_mean": 0.1038,
+          "r_func_mean": 0.018066666666666665,
+          "r_param_mean": 2.281333333333333
+        },
+        "int8": {
+          "F_above_mean": 0.43453333333333327,
+          "median_ratio_mean": 0.7967,
+          "r_func_mean": 0.002,
+          "r_param_mean": 0.3021666666666667
+        }
+      }
+    },
+    "Llama-3.2-3B_alpha_L24": {
+      "model": "data/models/Llama-3.2-3B",
+      "editor": "alpha",
+      "layer": 24,
+      "n_seeds": 3,
+      "c2_eligible": false,
+      "fp32_rho_within_probe_mean": -0.03006666666666667,
+      "fp32_rho_within_probe_ci95": [
+        -0.0331,
+        -0.0247
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.00043333333333333326,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0048,
+            0.0046
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.008066666666666666,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0132,
+            -0.0014
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.8002666666666668,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.7945,
+            0.8071
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.8286666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.826,
+            0.833
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9966666666666667
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9866,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.9798,
+            0.99
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0061333333333333335,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0024,
+            0.0124
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.0016333333333333339,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0317,
+            0.0564
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.09116666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.0856,
+            0.0944
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.10756666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.1021,
+            0.1123
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.985
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.00013333333333333337,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0015,
+            0.0009
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.0007999999999999999,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0,
+            0.0018
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9949,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9947,
+            0.995
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.995,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9949,
+            0.9951
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9966666666666667
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0008666666666666666,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0018,
+            0.0001
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.0253,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.074,
+            0.0209
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.45543333333333336,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.4464,
+            0.4662
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.4676,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.4378,
+            0.4826
+          ],
+          "permutation_null_p_pooled_mean": 0.21345333333333336,
+          "permutation_null_p_pooled_max": 0.63836,
+          "mean_esr_mean": 0.9966666666666667
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.011899999999999999,
+          "median_ratio_mean": 0.07593333333333334,
+          "r_func_mean": 0.0256,
+          "r_param_mean": 3.3930000000000002
+        },
+        "int8": {
+          "F_above_mean": 0.35823333333333335,
+          "median_ratio_mean": 0.6018333333333333,
+          "r_func_mean": 0.002766666666666667,
+          "r_param_mean": 0.4334
+        }
+      }
+    },
+    "Qwen2.5-1.5B_memit_L21": {
+      "model": "data/models/Qwen2.5-1.5B",
+      "editor": "memit",
+      "layer": 21,
+      "n_seeds": 3,
+      "c2_eligible": false,
+      "fp32_rho_within_probe_mean": -0.009866666666666668,
+      "fp32_rho_within_probe_ci95": [
+        -0.0141,
+        -0.0051
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9893333333333333,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.9891,
+            0.9895
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.004933333333333334,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.004,
+            0.0054
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.009966666666666667,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0078,
+            0.0213
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9037666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.8944,
+            0.909
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9074666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.898,
+            0.9126
+          ],
+          "permutation_null_p_pooled_mean": 0.046953333333333326,
+          "permutation_null_p_pooled_max": 0.13287,
+          "mean_esr_mean": 0.4683333333333333
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.8320666666666666,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.7609,
+            0.8842
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0168,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0226,
+            -0.0133
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.036866666666666666,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0067,
+            0.0817
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.2794666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.2642,
+            0.2983
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.2753333333333334,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.2409,
+            0.3191
+          ],
+          "permutation_null_p_pooled_mean": 0.00433,
+          "permutation_null_p_pooled_max": 0.01099,
+          "mean_esr_mean": 0.41
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0008,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0004,
+            0.0011
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.0002333333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0013,
+            0.0017
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9968666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9966,
+            0.997
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9969,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9966,
+            0.9971
+          ],
+          "permutation_null_p_pooled_mean": 0.013986666666666668,
+          "permutation_null_p_pooled_max": 0.03996,
+          "mean_esr_mean": 0.4683333333333333
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9821666666666666,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.9574,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0017333333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0004,
+            0.0026
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.008766666666666667,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0045,
+            0.0147
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.8911666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.8761,
+            0.9016
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.8818999999999999,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.8654,
+            0.891
+          ],
+          "permutation_null_p_pooled_mean": 0.08558333333333333,
+          "permutation_null_p_pooled_max": 0.25475,
+          "mean_esr_mean": 0.465
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.0,
+          "median_ratio_mean": 0.0041333333333333335,
+          "r_func_mean": 0.1975,
+          "r_param_mean": 70.30233333333332
+        },
+        "int8": {
+          "F_above_mean": 0.004533333333333334,
+          "median_ratio_mean": 0.028866666666666665,
+          "r_func_mean": 0.027966666666666667,
+          "r_param_mean": 10.035
+        }
+      }
+    },
+    "Qwen2.5-1.5B_alpha_L21": {
+      "model": "data/models/Qwen2.5-1.5B",
+      "editor": "alpha",
+      "layer": 21,
+      "n_seeds": 3,
+      "c2_eligible": false,
+      "fp32_rho_within_probe_mean": 0.007766666666666667,
+      "fp32_rho_within_probe_ci95": [
+        0.0051,
+        0.0121
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9888333333333333,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.9775,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.004633333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0076,
+            -0.0018
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.039933333333333335,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0888,
+            -0.004
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.5506666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.5425,
+            0.5578
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.6130666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.6062,
+            0.6219
+          ],
+          "permutation_null_p_pooled_mean": 0.06926333333333333,
+          "permutation_null_p_pooled_max": 0.20579,
+          "mean_esr_mean": 0.4466666666666667
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.8113,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.7416,
+            0.8571
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0007999999999999998,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0042,
+            0.0027
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.01416666666666667,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0177,
+            0.0734
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.06266666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.0576,
+            0.0715
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.0554,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.0445,
+            0.0638
+          ],
+          "permutation_null_p_pooled_mean": 0.19680333333333333,
+          "permutation_null_p_pooled_max": 0.58841,
+          "mean_esr_mean": 0.385
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.002433333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0058,
+            0.001
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.0029999999999999996,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0039,
+            -0.0016
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9614333333333334,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9602,
+            0.9635
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9647333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9639,
+            0.9656
+          ],
+          "permutation_null_p_pooled_mean": 0.19380666666666668,
+          "permutation_null_p_pooled_max": 0.2018,
+          "mean_esr_mean": 0.45166666666666666
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9778333333333333,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.956,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.002533333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0073,
+            0.0008
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.0161,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0333,
+            0.0013
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.37696666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.3707,
+            0.3846
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.36833333333333335,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.3433,
+            0.3941
+          ],
+          "permutation_null_p_pooled_mean": 0.023643333333333336,
+          "permutation_null_p_pooled_max": 0.06893,
+          "mean_esr_mean": 0.4466666666666667
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.0015333333333333334,
+          "median_ratio_mean": 0.022500000000000003,
+          "r_func_mean": 0.08193333333333334,
+          "r_param_mean": 13.8556
+        },
+        "int8": {
+          "F_above_mean": 0.0734,
+          "median_ratio_mean": 0.1586,
+          "r_func_mean": 0.011266666666666666,
+          "r_param_mean": 1.9781333333333333
+        }
+      }
+    },
+    "Llama-3.2-3B_memit_L24": {
+      "model": "data/models/Llama-3.2-3B",
+      "editor": "memit",
+      "layer": 24,
+      "n_seeds": 3,
+      "c2_eligible": false,
+      "fp32_rho_within_probe_mean": 0.22643333333333335,
+      "fp32_rho_within_probe_ci95": [
+        0.2122,
+        0.2432
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0026999999999999997,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0051,
+            -0.0006
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.004266666666666666,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0157,
+            0.0084
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9501666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9485,
+            0.9512
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9518666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9497,
+            0.9542
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 1.0
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9866666666666667,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.98,
+            0.995
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.006566666666666666,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0103,
+            -0.0031
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.11683333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.1547,
+            -0.0465
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.34926666666666667,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.3244,
+            0.3691
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.3697333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.3422,
+            0.4154
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9866666666666667
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.00016666666666666666,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0001,
+            0.0002
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.0004,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0003,
+            0.0005
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9993666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9993,
+            0.9994
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9993666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9993,
+            0.9994
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 1.0
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0001,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0014,
+            0.0018
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.037766666666666664,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0528,
+            -0.0256
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.8867666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.8597,
+            0.9131
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.8849,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.8636,
+            0.9005
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 1.0
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.00013333333333333334,
+          "median_ratio_mean": 0.009,
+          "r_func_mean": 0.1802,
+          "r_param_mean": 27.26993333333333
+        },
+        "int8": {
+          "F_above_mean": 0.031,
+          "median_ratio_mean": 0.0717,
+          "r_func_mean": 0.020433333333333335,
+          "r_param_mean": 3.4764666666666666
+        }
+      }
+    },
+    "Llama-3.2-1B_rome_L12": {
+      "model": "data/models/Llama-3.2-1B",
+      "editor": "rome",
+      "layer": 12,
+      "n_seeds": 3,
+      "c2_eligible": true,
+      "fp32_rho_within_probe_mean": 0.5805333333333333,
+      "fp32_rho_within_probe_ci95": [
+        0.5587,
+        0.6169
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -9.999999999999999e-05,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0003,
+            0.0002
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 9.999999999999999e-05,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0003,
+            0.0006
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9993666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9993,
+            0.9994
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9994,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9993,
+            0.9995
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9916666666666667
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9966333333333334,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.9899,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.016833333333333336,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0242,
+            -0.0125
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.053233333333333334,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0623,
+            -0.0368
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9038,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.8843,
+            0.9294
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9037000000000001,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.8921,
+            0.9247
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9916666666666667
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0,
+            0.0
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.0,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0,
+            0.0
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 1.0,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            1.0,
+            1.0
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 1.0,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            1.0,
+            1.0
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9916666666666667
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0004333333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0006,
+            -0.0003
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.0022333333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0043,
+            -0.0002
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9976333333333334,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9966,
+            0.9983
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9976666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9967,
+            0.9983
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9916666666666667
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.0012333333333333335,
+          "median_ratio_mean": 0.0359,
+          "r_func_mean": 0.01846666666666667,
+          "r_param_mean": 5.820733333333333
+        },
+        "int8": {
+          "F_above_mean": 0.18233333333333335,
+          "median_ratio_mean": 0.2801666666666667,
+          "r_func_mean": 0.0019666666666666665,
+          "r_param_mean": 0.7616
+        }
+      }
+    },
+    "Llama-3.2-3B_rome_L24": {
+      "model": "data/models/Llama-3.2-3B",
+      "editor": "rome",
+      "layer": 24,
+      "n_seeds": 3,
+      "c2_eligible": true,
+      "fp32_rho_within_probe_mean": 0.3688,
+      "fp32_rho_within_probe_ci95": [
+        0.3644,
+        0.3752
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0015999999999999999,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0018,
+            -0.0013
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.002533333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.004,
+            -0.0012
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9984333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9983,
+            0.9987
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9984333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9983,
+            0.9987
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 1.0
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9966666666666667,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.995,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.0014,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0063,
+            0.0037
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.09393333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.1232,
+            -0.0521
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.6797333333333334,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.6602,
+            0.7017
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.6855666666666668,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.6491,
+            0.7295
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 0.9966666666666667
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -3.3333333333333335e-05,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0001,
+            0.0001
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 3.3333333333333335e-05,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0001,
+            0.0001
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 1.0,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            1.0,
+            1.0
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 1.0,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            1.0,
+            1.0
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 1.0
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.002766666666666667,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0037,
+            -0.0018
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.014833333333333332,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.023,
+            -0.0087
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9791333333333334,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9694,
+            0.9869
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9802666666666666,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9725,
+            0.9861
+          ],
+          "permutation_null_p_pooled_mean": 0.001,
+          "permutation_null_p_pooled_max": 0.001,
+          "mean_esr_mean": 1.0
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.003533333333333333,
+          "median_ratio_mean": 0.031466666666666664,
+          "r_func_mean": 0.025899999999999996,
+          "r_param_mean": 7.7839
+        },
+        "int8": {
+          "F_above_mean": 0.17600000000000002,
+          "median_ratio_mean": 0.251,
+          "r_func_mean": 0.002766666666666667,
+          "r_param_mean": 0.9918333333333332
+        }
+      }
+    },
+    "Qwen2.5-1.5B_rome_L21": {
+      "model": "data/models/Qwen2.5-1.5B",
+      "editor": "rome",
+      "layer": 21,
+      "n_seeds": 3,
+      "c2_eligible": false,
+      "fp32_rho_within_probe_mean": -0.0025,
+      "fp32_rho_within_probe_ci95": [
+        -0.0134,
+        0.0046
+      ],
+      "arms": {
+        "nf4dq_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9963000000000001,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.9889,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0023333333333333335,
+          "delta_rho_vs_fp32_within_ci95": [
+            0.0012,
+            0.0032
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.006433333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0174,
+            0.0031
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9529,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9512,
+            0.9545
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9538333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9506,
+            0.9563
+          ],
+          "permutation_null_p_pooled_mean": 0.22078,
+          "permutation_null_p_pooled_max": 0.63636,
+          "mean_esr_mean": 0.45
+        },
+        "nf4dq_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.8523000000000001,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.8222,
+            0.8791
+          ],
+          "delta_rho_vs_fp32_within_mean": -0.025533333333333335,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0341,
+            -0.02
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.025933333333333336,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0021,
+            0.0685
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.2759,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.2617,
+            0.2833
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.2546333333333333,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.2275,
+            0.2907
+          ],
+          "permutation_null_p_pooled_mean": 0.04362333333333334,
+          "permutation_null_p_pooled_max": 0.12887,
+          "mean_esr_mean": 0.40499999999999997
+        },
+        "int8_edited_layer": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 1.0,
+          "esr_survival_given_fp32_worked_ci95": [
+            1.0,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.0001333333333333333,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.0001,
+            0.0003
+          ],
+          "delta_rho_vs_fp32_pooled_mean": -0.00023333333333333333,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            -0.0005,
+            0.0001
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.9989,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.9989,
+            0.9989
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.9989,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.9989,
+            0.9989
+          ],
+          "permutation_null_p_pooled_mean": 0.1601733333333333,
+          "permutation_null_p_pooled_max": 0.25075,
+          "mean_esr_mean": 0.45166666666666666
+        },
+        "int8_full_model": {
+          "n_seeds": 3,
+          "esr_survival_given_fp32_worked_mean": 0.9815,
+          "esr_survival_given_fp32_worked_ci95": [
+            0.9667,
+            1.0
+          ],
+          "delta_rho_vs_fp32_within_mean": 0.00016666666666666666,
+          "delta_rho_vs_fp32_within_ci95": [
+            -0.001,
+            0.0014
+          ],
+          "delta_rho_vs_fp32_pooled_mean": 0.007733333333333334,
+          "delta_rho_vs_fp32_pooled_ci95": [
+            0.0034,
+            0.0131
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_mean": 0.8729333333333334,
+          "rho_damage_fp32_vs_arm_rank_survival_ci95": [
+            0.8566,
+            0.8858
+          ],
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_mean": 0.8649999999999999,
+          "rho_damage_fp32_vs_arm_rank_survival_base_subtracted_ci95": [
+            0.85,
+            0.8741
+          ],
+          "permutation_null_p_pooled_mean": 0.2670666666666667,
+          "permutation_null_p_pooled_max": 0.7982,
+          "mean_esr_mean": 0.45
+        }
+      },
+      "c3": {
+        "nf4dq": {
+          "F_above_mean": 0.0002,
+          "median_ratio_mean": 0.0104,
+          "r_func_mean": 0.0817,
+          "r_param_mean": 29.9344
+        },
+        "int8": {
+          "F_above_mean": 0.02363333333333333,
+          "median_ratio_mean": 0.07333333333333333,
+          "r_func_mean": 0.011433333333333332,
+          "r_param_mean": 4.2739666666666665
+        }
+      }
+    }
+  },
+  "gates": {
+    "K1_geometry_ranking_survival": {
+      "status": "FAIL",
+      "n_cells_evaluated": 2,
+      "failures": [
+        "Llama-3.2-3B_rome_L24/nf4dq_full_model: rank survival=0.680 < 0.85",
+        "Llama-3.2-3B_rome_L24/nf4dq_full_model: base-subtracted rank survival=0.686 < 0.85"
+      ],
+      "arm_status": {
+        "Llama-3.2-1B_rome_L12": {
+          "nf4dq_edited_layer": {
+            "status": "PASS",
+            "rank_threshold": 0.95,
+            "failures": []
+          },
+          "nf4dq_full_model": {
+            "status": "PASS",
+            "rank_threshold": 0.85,
+            "failures": []
+          },
+          "int8_edited_layer": {
+            "status": "PASS",
+            "rank_threshold": 0.95,
+            "failures": []
+          },
+          "int8_full_model": {
+            "status": "PASS",
+            "rank_threshold": 0.95,
+            "failures": []
+          }
+        },
+        "Llama-3.2-3B_rome_L24": {
+          "nf4dq_edited_layer": {
+            "status": "PASS",
+            "rank_threshold": 0.95,
+            "failures": []
+          },
+          "nf4dq_full_model": {
+            "status": "FAIL",
+            "rank_threshold": 0.85,
+            "failures": [
+              "rank survival=0.680 < 0.85",
+              "base-subtracted rank survival=0.686 < 0.85"
+            ]
+          },
+          "int8_edited_layer": {
+            "status": "PASS",
+            "rank_threshold": 0.95,
+            "failures": []
+          },
+          "int8_full_model": {
+            "status": "PASS",
+            "rank_threshold": 0.95,
+            "failures": []
+          }
+        }
+      },
+      "note": "A single-cell full-model NF4 failure narrows C2 to INT8 plus edited-layer NF4 across both cells and full-model NF4 where supported; it does not kill the complete ranking-survival result."
+    },
+    "K2_esr_survival_4bit": {
+      "status": "PASS",
+      "n_cells_evaluated": 2,
+      "cells_evaluated": [
+        "Llama-3.2-1B_rome_L12",
+        "Qwen2.5-1.5B_rome_L21"
+      ],
+      "failures": [],
+      "note": "K2 covers the preregistered ROME threshold component on Llama-3.2-1B and Qwen2.5-1.5B. The stronger C1 prediction that MEMIT/AlphaEdit are no less robust than ROME is reported separately."
+    },
+    "K3_M_concentration": {
+      "status": "UNADJUDICATED",
+      "legacy_sensitivity_observations": [
+        "Llama-3.2-1B_rome_L12: median_ratio=0.036, F_above=0.001",
+        "Llama-3.2-3B_rome_L24: median_ratio=0.031, F_above=0.004",
+        "Qwen2.5-1.5B_rome_L21: median_ratio=0.010, F_above=0.000"
+      ],
+      "failures": [],
+      "note": "Legacy/local-gap ratios are sensitivity observations only; amended channel-scale x NF4 minimum-gap K3 requires targeted rerun."
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "editor": "rome",
+  "dataset": "mquake",
+  "layer": 10,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 1,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "float32",
+    "model_dtype_arg": "fp32",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.905,
+  "mean_residual_norm": 21.326,
+  "frac_probes_known(pre_p>0.05)": 0.612,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.4952,
+    "spearman_normgrowth_damage": 0.3669,
+    "auroc_cos_broken": 0.7539,
+    "auroc_normgrowth_broken": 0.6645,
+    "mean_damage_logit": 7.10945,
+    "mean_cosine": 0.3434
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 61200,
+    "spearman_cos_damage": 0.4264,
+    "spearman_normgrowth_damage": 0.3787,
+    "auroc_cos_broken": 0.7084,
+    "auroc_normgrowth_broken": 0.6633,
+    "mean_damage_logit": 7.86321,
+    "mean_cosine": 0.3612
+  },
+  "runtime_s": 1212.1,
+  "VERDICT": "PASS \u2014 key geometry predicts damage",
+  "verdict_detail": {
+    "abs_spearman": 0.4264,
+    "auroc": 0.7084,
+    "beats_normgrowth": true
+  },
+  "matrices_npz": "results/matrices/gate_llama1b_rome_mquaket_L10_s1.npz"
+}

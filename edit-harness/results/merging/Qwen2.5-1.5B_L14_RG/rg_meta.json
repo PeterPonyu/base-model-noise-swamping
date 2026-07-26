@@ -1,0 +1,44 @@
+{
+  "schema_version": "m0.v1",
+  "experiment": "RG",
+  "model": "data/models/Qwen2.5-1.5B",
+  "model_tag": "Qwen2.5-1.5B",
+  "dataset": "counterfact",
+  "layer": 14,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20,
+    50,
+    100
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "reuse": {
+    "0": "fresh 200-edit phase-1 (saved for future reuse)",
+    "1": "fresh 200-edit phase-1 (saved for future reuse)",
+    "2": "fresh 200-edit phase-1 (saved for future reuse)"
+  },
+  "esr_by_seed": {
+    "0": 0.985,
+    "1": 0.99,
+    "2": 0.995
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 2.479472129834903e-07,
+    "1": 2.7427117288425507e-07,
+    "2": 2.8744111091327795e-07
+  },
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1",
+  "numpy": "2.3.4"
+}

@@ -1,0 +1,11 @@
+{
+  "job_kind": "diag",
+  "job_id": "p2_diag_Llama-3.2-1B",
+  "gpu_required": false,
+  "created": "2026-07-01T03:05:31.838134+00:00",
+  "checkpoint_id": "Llama-3.2-1B",
+  "depends_on": "p2_gen_Llama-3.2-1B",
+  "env": "dl",
+  "_note": "CPU diagnostic on the generated samples; numpy/stdlib only.",
+  "cmd": "conda run -n dl python3 branches/p2_prerl_diag/run_diag.py branches/p2_prerl_diag/samples/Llama-3.2-1B.json --id Llama-3.2-1B --n-boot 2000 --seed 0"
+}

@@ -1,0 +1,342 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 12,
+  "editor": "rome",
+  "seed": 2,
+  "steps": 20,
+  "max_neighborhood": 5,
+  "n_fit": 0,
+  "memit_layers": null,
+  "records": [
+    {
+      "subject": "Toei Company",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.08991352319717408,
+      "KL_hard_mean": 4.437802314758301,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Earl Zindars",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 5.016958218812943,
+      "KL_hard_mean": 7.467786502838135,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Babcock & Brown",
+      "NS": 0.8,
+      "NS_hard": 0.6,
+      "KL_std_mean": 0.3121702969074249,
+      "KL_hard_mean": 0.6552329421043396,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Adam Kendon",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 5.258701491355896,
+      "KL_hard_mean": 7.488821887969971,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Ulf von Euler",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.054944324493408,
+      "KL_hard_mean": 7.110119438171386,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "John Buchanan",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.879321670532226,
+      "KL_hard_mean": 5.282715320587158,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Gary Unmarried",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.511518955230713,
+      "KL_hard_mean": 8.343890571594239,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Yahoo! Tech",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.9156580924987794,
+      "KL_hard_mean": 8.335388088226319,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Saunders Mountain",
+      "NS": 0.4,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.4495130151510238,
+      "KL_hard_mean": 1.896316684782505,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Soha Ali Khan",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.5355032756924629,
+      "KL_hard_mean": 4.5359162330627445,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "2009 Shanghai Masters",
+      "NS": 0.6,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.35522455275058745,
+      "KL_hard_mean": 4.499086093902588,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Prince Oscar Bernadotte",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.751776027679443,
+      "KL_hard_mean": 7.784327602386474,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Fiat Multipla",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.0718358039855955,
+      "KL_hard_mean": 6.251825332641602,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Pedro Martinez",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.7947101831436156,
+      "KL_hard_mean": 6.010250473022461,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Pep Guardiola",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.1816378802061081,
+      "KL_hard_mean": 1.2307955265045165,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Samuel Adams",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.1525245774537325,
+      "KL_hard_mean": 8.588161373138428,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Aleksei Dikiy",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.024797248840332,
+      "KL_hard_mean": 4.951313591003418,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Amsterdam",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.5122007966041564,
+      "KL_hard_mean": 3.211257314682007,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Albanians",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.185563659667969,
+      "KL_hard_mean": 3.0823607444763184,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Electric Light Orchestra",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.0441710293293,
+      "KL_hard_mean": 8.024939918518067,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Harry Ham",
+      "NS": 1.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.006770270131528378,
+      "KL_hard_mean": 6.49433810710907,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Scheibbs District",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.8417730093002319,
+      "KL_hard_mean": 3.462889862060547,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "IA-32",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.081566873192787,
+      "KL_hard_mean": 6.9679337501525875,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Chris Philp",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.366935110092163,
+      "KL_hard_mean": 7.648411464691162,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Philips Records",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.2395796656608582,
+      "KL_hard_mean": 7.155268955230713,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Ethelbert Nevin",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.7210200905799864,
+      "KL_hard_mean": 8.834840011596679,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Crescenzio Sepe",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 5.057889413833618,
+      "KL_hard_mean": 7.865278911590576,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Johan Huizinga",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.605394577980041,
+      "KL_hard_mean": 6.566373538970947,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Washington, D.C.",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.4094255924224854,
+      "KL_hard_mean": 10.381623935699462,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "The Archers",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.5947234630584717,
+      "KL_hard_mean": 1.5957826972007751,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Helsinki",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.2623938009142877,
+      "KL_hard_mean": 1.3448964953422546,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Venice Film Festival",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.44024561941623686,
+      "KL_hard_mean": 0.6542041420936584,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Monaco",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.291231316328049,
+      "KL_hard_mean": 5.072393178939819,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Il Sole 24 Ore",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 7.682404017448425,
+      "KL_hard_mean": 14.30740146636963,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Lyon",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.34963022172451,
+      "KL_hard_mean": 8.566801643371582,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Obsidian Entertainment",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.2683686017990112,
+      "KL_hard_mean": 8.336705493927003,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Antonio Valencia",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.2686818823218347,
+      "KL_hard_mean": 9.274754905700684,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Roger Oakley",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 7.754570770263672,
+      "KL_hard_mean": 6.618255710601806,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Honda Prelude",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 9.770279216766358,
+      "KL_hard_mean": 11.153872776031495,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Brown Company",
+      "NS": 0.8,
+      "NS_hard": 0.2,
+      "KL_std_mean": 0.668059977889061,
+      "KL_hard_mean": 5.021228075027466,
+      "n_neighborhood": 5
+    }
+  ],
+  "summary": {
+    "n_edits": 40,
+    "NS": 0.12999999999999998,
+    "NS_hard": 0.02,
+    "KL_std_mean": 3.169489702866413,
+    "KL_hard_mean": 6.162789076901972,
+    "hard_ns_le_std_ns": true,
+    "hard_ns_le_std_ns_note": "HYPOTHESIS, not asserted: CF+'s harder distribution-shifted prompts are expected to expose MORE collateral damage than standard neighborhood prompts, i.e. NS_hard <= NS. Reported, not gated on."
+  },
+  "runtime_s": 94.3
+}

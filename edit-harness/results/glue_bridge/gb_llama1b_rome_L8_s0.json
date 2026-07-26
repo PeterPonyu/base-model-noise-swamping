@@ -1,0 +1,43 @@
+{
+ "model": "data/models/Llama-3.2-1B",
+ "editor": "rome",
+ "layer": 8,
+ "seed": 0,
+ "steps": 20,
+ "lr": 0.1,
+ "n_edits": 200,
+ "n_glue": 300,
+ "tasks": [
+  "mrpc",
+  "rte",
+  "sst2"
+ ],
+ "edit_success_rate": 0.99,
+ "pre_accuracy": {
+  "mrpc": 0.65,
+  "rte": 0.58,
+  "sst2": 0.72
+ },
+ "mean_norm_growth": 5.0055,
+ "rho": {
+  "margin": {
+   "within_example_mean_all": 0.0062,
+   "within_example_mean_editok_precorrect": 0.0256,
+   "n_cols_all": 300,
+   "n_cols_filtered": 195
+  },
+  "flip": {
+   "within_example_mean_all": 0.0492,
+   "within_example_mean_editok_precorrect": 0.0484,
+   "n_cols_all": 172,
+   "n_cols_filtered": 172
+  }
+ },
+ "provenance": {
+  "protocol": "restore-every-edit, GLUE examples as probes, last-token keys",
+  "alpha_proj_source": null,
+  "model_dtype": "fp32"
+ },
+ "runtime_s": 1037.4,
+ "matrices_npz": "results/matrices/gb_llama1b_rome_L8_s0.npz"
+}

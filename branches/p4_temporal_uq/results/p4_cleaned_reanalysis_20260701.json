@@ -1,0 +1,110 @@
+{
+  "statistic": "calibration_report on saved per-window scalars after plausible_mask (rel_cap=10000); raw decodes not on disk, corrupt windows dropped not repaired",
+  "runs": {
+    "p4_ett_pilot.json": {
+      "backend": "mock",
+      "dataset": "?",
+      "n_windows_total": 58,
+      "n_dropped_implausible": 0,
+      "cleaned": {
+        "spearman_cross_rho": 0.0473407364114553,
+        "spearman_cross_p": 0.7241740258639878,
+        "spearman_resampling_rho": 0.06216739979697931,
+        "picp_090": 0.13793103448275862,
+        "mean_width": 2.641162882881641,
+        "crps": 3.028078057608707,
+        "delta_point": -0.014826663385524005,
+        "delta_ci": [
+          -0.05777434571888012,
+          0.023593575009281866
+        ],
+        "gate_pass": false
+      },
+      "original_gate_pass": false
+    },
+    "p4_etth1_20260630_2359.json": {
+      "backend": "mock",
+      "dataset": "?",
+      "n_windows_total": 58,
+      "n_dropped_implausible": 0,
+      "cleaned": {
+        "spearman_cross_rho": 0.0473407364114553,
+        "spearman_cross_p": 0.7241740258639878,
+        "spearman_resampling_rho": 0.06216739979697931,
+        "picp_090": 0.13793103448275862,
+        "mean_width": 2.641162882881641,
+        "crps": 3.028078057608707,
+        "delta_point": -0.014826663385524005,
+        "delta_ci": [
+          -0.05777434571888012,
+          0.023593575009281866
+        ],
+        "gate_pass": false
+      },
+      "original_gate_pass": false
+    },
+    "p4_etth2_20260630_2359.json": {
+      "backend": "ollama",
+      "dataset": "?",
+      "n_windows_total": 60,
+      "n_dropped_implausible": 15,
+      "cleaned": {
+        "spearman_cross_rho": -0.2673254281949934,
+        "spearman_cross_p": 0.0758522596009857,
+        "spearman_resampling_rho": -0.08061270546692147,
+        "picp_090": 0.3111111111111111,
+        "mean_width": 89.79326219815765,
+        "crps": 18.968198289137984,
+        "delta_point": -0.18671272272807193,
+        "delta_ci": [
+          -0.6317907941655132,
+          0.28468925514715504
+        ],
+        "gate_pass": false
+      },
+      "original_gate_pass": false
+    },
+    "p4_ettm1_20260630_2359.json": {
+      "backend": "ollama",
+      "dataset": "?",
+      "n_windows_total": 60,
+      "n_dropped_implausible": 31,
+      "cleaned": {
+        "spearman_cross_rho": -0.11921182266009848,
+        "spearman_cross_p": 0.5379345304849434,
+        "spearman_resampling_rho": -0.08132500607904442,
+        "picp_090": 0.2413793103448276,
+        "mean_width": 25.39257243557607,
+        "crps": 5.719627783918702,
+        "delta_point": -0.03788681658105407,
+        "delta_ci": [
+          -0.4823336166847259,
+          0.4247742002687606
+        ],
+        "gate_pass": false
+      },
+      "original_gate_pass": false
+    },
+    "p4_ettm2_20260630_2359.json": {
+      "backend": "ollama",
+      "dataset": "?",
+      "n_windows_total": 60,
+      "n_dropped_implausible": 5,
+      "cleaned": {
+        "spearman_cross_rho": 0.06392496392496393,
+        "spearman_cross_p": 0.6428871548327599,
+        "spearman_resampling_rho": -0.15346402418027918,
+        "picp_090": 0.5636363636363636,
+        "mean_width": 7.512289464233263,
+        "crps": 2.41001207855931,
+        "delta_point": 0.2173889881052431,
+        "delta_ci": [
+          -0.154358923481991,
+          0.5974752063132606
+        ],
+        "gate_pass": false
+      },
+      "original_gate_pass": false
+    }
+  }
+}

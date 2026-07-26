@@ -1,0 +1,342 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "layer": 12,
+  "editor": "rome",
+  "seed": 0,
+  "steps": 20,
+  "max_neighborhood": 5,
+  "n_fit": 0,
+  "memit_layers": null,
+  "records": [
+    {
+      "subject": "Ugo Rondinone",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.8682055950164793,
+      "KL_hard_mean": 9.126371479034423,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Heath Brothers",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.1274024724960325,
+      "KL_hard_mean": 9.202482604980469,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "English Vinglish",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.7639428198337557,
+      "KL_hard_mean": 4.376476192474366,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Matthew Henry",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.4914682388305664,
+      "KL_hard_mean": 5.597679376602173,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Friedrich Georg Wilhelm von Struve",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.7047256946563722,
+      "KL_hard_mean": 6.003249645233154,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Lisa Appignanesi",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.859830379486084,
+      "KL_hard_mean": 7.454995059967041,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Juan Rodrigo Rojas",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.871760231256485,
+      "KL_hard_mean": 9.469517993927003,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Ehrenfried Walther von Tschirnhaus",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.888294529914856,
+      "KL_hard_mean": 6.5012815475463865,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Neptune Glacier",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.047860884666443,
+      "KL_hard_mean": 8.013839864730835,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Second Spanish Republic",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.154990196228027,
+      "KL_hard_mean": 7.404497241973877,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Kuala Langat",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.494548988342285,
+      "KL_hard_mean": 6.741375207901001,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Vichy France",
+      "NS": 0.0,
+      "NS_hard": 0.6,
+      "KL_std_mean": 0.6122857660055161,
+      "KL_hard_mean": 0.8961211323738099,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Tapio Kantanen",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 11.130160331726074,
+      "KL_hard_mean": 9.62055549621582,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Intel 80486SX",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.5002646625041962,
+      "KL_hard_mean": 6.532730436325073,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Chicago Story",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 7.801938056945801,
+      "KL_hard_mean": 12.42529067993164,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Sid Waddell",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.8941691309213637,
+      "KL_hard_mean": 8.16119384765625,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Sultan Satuq Bughra Khan",
+      "NS": 0.2,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.6976035594940186,
+      "KL_hard_mean": 2.4354554042220116,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Athens",
+      "NS": 0.0,
+      "NS_hard": 0.2,
+      "KL_std_mean": 3.7202763080596926,
+      "KL_hard_mean": 0.9708286404609681,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Mountain Jews",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.7803219437599183,
+      "KL_hard_mean": 6.171594142913818,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "CSR Limited",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.6769077003002166,
+      "KL_hard_mean": 7.650502395629883,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Himmelbjerget",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.45230004787445,
+      "KL_hard_mean": 9.627929592132569,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Von Miller",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.4365977846086024,
+      "KL_hard_mean": 11.37823028564453,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Dominique Pinon",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.1066743947565554,
+      "KL_hard_mean": 3.407746458053589,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Google Street View",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.153564929962158,
+      "KL_hard_mean": 5.342359638214111,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Nicolas Jenson",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.472329652309418,
+      "KL_hard_mean": 8.700288391113281,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Roy Barnes",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.162480616569519,
+      "KL_hard_mean": 4.0498326301574705,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Northern Nigeria Protectorate",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 4.507372283935547,
+      "KL_hard_mean": 6.45379409790039,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Innocent XIII",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 7.0472582340240475,
+      "KL_hard_mean": 11.516607284545898,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Samuel Benchetrit",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 5.2004893779754635,
+      "KL_hard_mean": 6.814942359924316,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Ray Houghton",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.505770993232727,
+      "KL_hard_mean": 8.370147895812988,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "2013 WTA Tour Championships",
+      "NS": 0.8,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.13979315459728242,
+      "KL_hard_mean": 1.191670024394989,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Sky Witness",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 7.946560382843018,
+      "KL_hard_mean": 13.51401252746582,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "George Plimpton",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 2.0533214569091798,
+      "KL_hard_mean": 3.4564794421195986,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Concrete Sox",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.23958496153354644,
+      "KL_hard_mean": 2.7176952362060547,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Shakira",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 5.845194625854492,
+      "KL_hard_mean": 10.403199386596679,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Sandvine",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 1.9935132622718812,
+      "KL_hard_mean": 9.721500873565674,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Susquehanna Radio Corporation",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.880111598968506,
+      "KL_hard_mean": 15.776505279541016,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Paluzzo Paluzzi Altieri degli Albertoni",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 3.705311119556427,
+      "KL_hard_mean": 6.755179500579834,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Volvo S70",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 6.9012528419494625,
+      "KL_hard_mean": 9.562736511230469,
+      "n_neighborhood": 5
+    },
+    {
+      "subject": "Battle of Ullais",
+      "NS": 0.0,
+      "NS_hard": 0.0,
+      "KL_std_mean": 0.8226584732532501,
+      "KL_hard_mean": 3.846607804298401,
+      "n_neighborhood": 5
+    }
+  ],
+  "summary": {
+    "n_edits": 40,
+    "NS": 0.025,
+    "NS_hard": 0.02,
+    "KL_std_mean": 3.741477442085743,
+    "KL_hard_mean": 7.184087590239942,
+    "hard_ns_le_std_ns": true,
+    "hard_ns_le_std_ns_note": "HYPOTHESIS, not asserted: CF+'s harder distribution-shifted prompts are expected to expose MORE collateral damage than standard neighborhood prompts, i.e. NS_hard <= NS. Reported, not gated on."
+  },
+  "runtime_s": 116.1
+}

@@ -1,0 +1,41 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 12,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 0,
+  "edit_success_rate": 0.995,
+  "mean_residual_norm": 23.1171,
+  "frac_probes_known(pre_p>0.05)": 0.298,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.4986,
+    "spearman_normgrowth_damage": 0.4406,
+    "auroc_cos_broken": 0.801,
+    "auroc_normgrowth_broken": 0.7598,
+    "mean_damage_logit": 3.05953,
+    "mean_cosine": 0.3051
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 29800,
+    "spearman_cos_damage": 0.5116,
+    "spearman_normgrowth_damage": 0.4506,
+    "auroc_cos_broken": 0.79,
+    "auroc_normgrowth_broken": 0.7477,
+    "mean_damage_logit": 3.33262,
+    "mean_cosine": 0.2932
+  },
+  "runtime_s": 1432.1,
+  "VERDICT": "PASS \u2014 key geometry predicts damage",
+  "verdict_detail": {
+    "abs_spearman": 0.5116,
+    "auroc": 0.79,
+    "beats_normgrowth": true
+  },
+  "matrices_npz": "/home/zeyufu/Desktop/idea-feasibility-analysis/edit-harness/results/matrices/gate_llama1b_rome_cf_L12_s0.npz"
+}

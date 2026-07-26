@@ -1,0 +1,45 @@
+{
+  "schema_version": "m0.v1",
+  "experiment": "RG",
+  "model": "/root/autodl-tmp/models/Llama-2-13b-hf",
+  "model_tag": "Llama-2-13b-hf",
+  "dataset": "counterfact",
+  "layer": 30,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "group_sizes": [
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "n_edits": 200,
+  "steps": 20,
+  "lr": 0.1,
+  "device": "cuda",
+  "layer_device": "cuda:0",
+  "model_dtype": "bf16",
+  "device_map": "auto",
+  "reuse": {
+    "0": "fresh 200-edit phase-1 (saved for future reuse)",
+    "1": "fresh 200-edit phase-1 (saved for future reuse)",
+    "2": "fresh 200-edit phase-1 (saved for future reuse)"
+  },
+  "esr_by_seed": {
+    "0": 0.975,
+    "1": 0.96,
+    "2": 0.945
+  },
+  "max_recon_rel_err_by_seed": {
+    "0": 0.007379571907222271,
+    "1": 0.006368839647620916,
+    "2": 0.009068070910871029
+  },
+  "torch": "2.8.0+cu128",
+  "transformers": "5.13.0",
+  "numpy": "2.3.2"
+}

@@ -1,0 +1,58 @@
+RUN_8BCAUSAL REPORT 2026-07-07 20:23:40  jobs: 0 done / 0 fail / 0 skipped  elapsed 0m/400m  abort=0
+[2026-07-06 11:44:49] preflight OK: integrity_check.py
+[2026-07-06 11:44:49] integrity OK: Llama-3.1-8B
+[2026-07-06 11:44:49] DRYRUN equiv_llama1b_bf16_L12_s0 [SCIENCE] est=22m needs=engine/r3_integrity_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 0 --out results/equiv_llama1b_bf16_L12_s0.json
+[2026-07-06 11:44:49] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:44:49] DRYRUN alphaHO_8b [SMOKE] est=15m needs=engine/r3_integrity_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 4 --n_probes 40 --steps 2 --save_matrices --matrix_dir results/smoke_8bcausal/matrices --lr 0.1 --layer 16 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/smoke_8bcausal/alphaHO_8b.json
+[2026-07-06 11:44:50] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:44:50] DRYRUN gate_llama8b_rome_cf_L24_s0 [SCIENCE] est=100m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 24 --seed 0 --out results/gate_llama8b_rome_cf_L24_s0.json
+[2026-07-06 11:44:50] DRYRUN gate_llama8b_rome_cf_L16_s0 [SCIENCE] est=100m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 16 --seed 0 --out results/gate_llama8b_rome_cf_L16_s0.json
+[2026-07-06 11:44:50] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:44:50] DRYRUN g4_llama8b_alphaHO_cf_L24_s0 [SCIENCE] est=120m needs=engine/r3_integrity_8b.ok,engine/smoke_8bcausal_alphaHO_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 24 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L24_s0.json
+[2026-07-06 11:44:50] DRYRUN g4_llama8b_alphaHO_cf_L16_s0 [SCIENCE] est=120m needs=engine/r3_integrity_8b.ok,engine/smoke_8bcausal_alphaHO_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 16 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L16_s0.json
+[2026-07-06 11:44:50] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:44:50] ---------------- POST-RUN (CPU) ----------------
+[2026-07-06 11:44:50] ================ RUN_8BCAUSAL COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-06 11:57:43] preflight OK: integrity_check.py
+[2026-07-06 11:57:43] integrity OK: Llama-3.1-8B
+[2026-07-06 11:57:43] DRYRUN equiv_llama1b_bf16_L12_s0 [SCIENCE] est=22m needs=engine/r3_integrity_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-1B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 12 --seed 0 --out results/equiv_llama1b_bf16_L12_s0.json
+[2026-07-06 11:57:43] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:57:43] DRYRUN alphaHO_8b [SMOKE] est=15m needs=engine/r3_integrity_8b.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 4 --n_probes 40 --steps 2 --save_matrices --matrix_dir results/smoke_8bcausal/matrices --lr 0.1 --layer 16 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/smoke_8bcausal/alphaHO_8b.json
+[2026-07-06 11:57:43] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:57:43] DRYRUN gate_llama8b_rome_cf_L24_s0 [SCIENCE] est=100m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 24 --seed 0 --out results/gate_llama8b_rome_cf_L24_s0.json
+[2026-07-06 11:57:43] DRYRUN gate_llama8b_rome_cf_L16_s0 [SCIENCE] est=100m needs=engine/r3_integrity_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor rome --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 16 --seed 0 --out results/gate_llama8b_rome_cf_L16_s0.json
+[2026-07-06 11:57:43] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:57:43] DRYRUN g4_llama8b_alphaHO_cf_L24_s0 [SCIENCE] est=120m needs=engine/r3_integrity_8b.ok,engine/smoke_8bcausal_alphaHO_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 24 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L24_s0.json
+[2026-07-06 11:57:43] DRYRUN g4_llama8b_alphaHO_cf_L16_s0 [SCIENCE] est=120m needs=engine/r3_integrity_8b.ok,engine/smoke_8bcausal_alphaHO_8b.ok,engine/r3_equiv_bf16.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.1-8B --model_dtype bf16 --editor alpha --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 16 --seed 0 --alpha_proj_source holdout --holdout_frac 1.0 --out results/g4_llama8b_alphaHO_cf_L16_s0.json
+[2026-07-06 11:57:43] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=300m
+[2026-07-06 11:57:43] ---------------- POST-RUN (CPU) ----------------
+[2026-07-06 11:57:43] ================ RUN_8BCAUSAL COMPLETE (0 done / 0 fail / 0 skip) ================
+[2026-07-07 05:47:35] preflight OK: integrity_check.py
+[2026-07-07 05:47:35] integrity OK: Llama-3.1-8B
+[2026-07-07 05:48:35] RUN equiv_llama1b_bf16_L12_s0 [SCIENCE] (est 22m, cap 5160s, elapsed 0m) -> engine/8bcausal_equiv_llama1b_bf16_L12_s0.log
+[2026-07-07 05:59:17] done equiv_llama1b_bf16_L12_s0 (642s) VALIDATE-OK
+[8bcausal equiv-gate] fp32 rho=+0.6016 bf16 rho=+0.5996 |drho|=0.0020 bar=0.02
+[8bcausal equiv-gate] PASS — 8B science admitted
+[2026-07-07 05:59:18] PROGRESS jobs=1done/0fail/0skip elapsed=10m budget_left=390m
+[2026-07-07 05:59:18] RUN alphaHO_8b [SMOKE] (est 15m, cap 3900s, elapsed 10m) -> engine/8bcausal_alphaHO_8b.log
+[2026-07-07 05:59:41] done alphaHO_8b (23s) VALIDATE-OK
+[2026-07-07 05:59:41] PROGRESS jobs=2done/0fail/0skip elapsed=11m budget_left=389m
+[2026-07-07 05:59:42] PROGRESS jobs=2done/0fail/0skip elapsed=11m budget_left=389m
+[2026-07-07 05:59:42] RUN g4_llama8b_alphaHO_cf_L24_s0 [SCIENCE] (est 120m, cap 22800s, elapsed 11m) -> engine/8bcausal_g4_llama8b_alphaHO_cf_L24_s0.log
+[2026-07-07 06:43:32] done g4_llama8b_alphaHO_cf_L24_s0 (2630s) VALIDATE-OK
+[2026-07-07 06:43:32] RUN g4_llama8b_alphaHO_cf_L16_s0 [SCIENCE] (est 120m, cap 22800s, elapsed 54m) -> engine/8bcausal_g4_llama8b_alphaHO_cf_L16_s0.log
+[2026-07-07 07:28:20] done g4_llama8b_alphaHO_cf_L16_s0 (2688s) VALIDATE-OK
+[2026-07-07 07:28:20] PROGRESS jobs=4done/0fail/0skip elapsed=99m budget_left=301m
+[2026-07-07 07:28:20] ---------------- POST-RUN (CPU) ----------------
+[2026-07-07 07:28:20] post: C4_causal_8b_table done (atomic)
+[2026-07-07 07:28:20] ================ RUN_8BCAUSAL COMPLETE (4 done / 0 fail / 0 skip) ================
+[2026-07-07 20:22:39] preflight OK: integrity_check.py
+[2026-07-07 20:22:40] integrity OK: Llama-3.1-8B
+[8bcausal equiv-gate] fp32 rho=+0.6016 bf16 rho=+0.5996 |drho|=0.0020 bar=0.02
+[8bcausal equiv-gate] PASS — 8B science admitted
+[2026-07-07 20:23:40] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=400m
+[2026-07-07 20:23:40] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=400m
+[2026-07-07 20:23:40] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=400m
+[2026-07-07 20:23:40] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=400m
+[2026-07-07 20:23:40] ---------------- POST-RUN (CPU) ----------------
+[2026-07-07 20:23:40] post: C4_causal_8b_table done (atomic)

@@ -1,0 +1,38 @@
+{
+  "id": "p4_ettm2_20260630_2359",
+  "backend": "ollama",
+  "_comment": "P4 pilot: cross-architecture committee disagreement as calibrated UQ for zero-shot numeric TS forecasting on ETT. GPU jobs run backend=ollama; a CPU dry-run uses `--backend mock` (synthetic forecasts, no Ollama). If data.csv is missing on disk, run_committee falls back to a synthetic sine series so the pipeline stays runnable.",
+  "models": [
+    "llama3.1:8b-instruct-q8_0",
+    "qwen2.5:7b-instruct-q8_0",
+    "gemma2:9b-instruct-q8_0",
+    "mistral:7b-instruct-v0.3-q8_0",
+    "glm4:9b",
+    "deepseek-r1:8b",
+    "yi:9b",
+    "internlm2:7b",
+    "falcon3:10b",
+    "granite3.3:8b"
+  ],
+  "null_model": "qwen2.5:7b-instruct-q8_0",
+  "data": {
+    "csv": "data/ETTm2.csv",
+    "column": "OT",
+    "max_rows": 2000,
+    "synthetic_n": 1500,
+    "seed": 0
+  },
+  "context": 96,
+  "horizon": 24,
+  "stride": 24,
+  "max_windows": 60,
+  "prec": 3,
+  "temperature": 0.8,
+  "n_resamples": 5,
+  "disagreement_metric": "std",
+  "picp_level": 0.9,
+  "n_boot": 2000,
+  "seed": 0,
+  "_derived_from": "configs/ett_pilot.json",
+  "_dataset": "ETTm2"
+}

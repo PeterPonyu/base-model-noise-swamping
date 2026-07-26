@@ -1,0 +1,117 @@
+{
+ "n": 16,
+ "rows": [
+  {
+   "json": "results/gate_llama1b_alpha_mquake_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.885
+  },
+  {
+   "json": "results/gate_llama1b_alpha_mquake_L12_s1.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.9
+  },
+  {
+   "json": "results/gate_llama1b_alpha_mquake_L12_s2.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.865
+  },
+  {
+   "json": "results/g4_instruct_alphaHO_cf_L12_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/g4_instruct_alphaHO_cf_L12_s1.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/g4_instruct_alphaHO_cf_L12_s2.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/gate_llama8b_rome_cf_L16_s2.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L16_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L16_s1.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L16_s2.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L24_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L24_s1.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L24_s2.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 0.99
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L28_s0.json",
+   "npz_found": true,
+   "touched_this_run": false,
+   "json_ok": true,
+   "esr": 1.0
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L28_s1.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.995
+  },
+  {
+   "json": "results/g4_llama8b_alphaHO_cf_L28_s2.json",
+   "npz_found": true,
+   "touched_this_run": true,
+   "json_ok": true,
+   "esr": 0.99
+  }
+ ]
+}

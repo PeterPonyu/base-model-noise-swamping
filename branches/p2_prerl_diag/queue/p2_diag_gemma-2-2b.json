@@ -1,0 +1,11 @@
+{
+  "job_kind": "diag",
+  "job_id": "p2_diag_gemma-2-2b",
+  "gpu_required": false,
+  "created": "2026-07-01T03:05:31.838305+00:00",
+  "checkpoint_id": "gemma-2-2b",
+  "depends_on": "p2_gen_gemma-2-2b",
+  "env": "dl",
+  "_note": "CPU diagnostic on the generated samples; numpy/stdlib only.",
+  "cmd": "conda run -n dl python3 branches/p2_prerl_diag/run_diag.py branches/p2_prerl_diag/samples/gemma-2-2b.json --id gemma-2-2b --n-boot 2000 --seed 0"
+}

@@ -1,0 +1,54 @@
+{
+  "model": "/root/autodl-tmp/models/Llama-3.1-8B-Instruct",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 28,
+  "n_edits": 200,
+  "n_probes": 100,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.995,
+  "mean_residual_norm": 34.8095,
+  "frac_probes_known(pre_p>0.05)": 0.4,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 20000,
+    "spearman_cos_damage": 0.1497,
+    "spearman_normgrowth_damage": 0.2169,
+    "auroc_cos_broken": 0.6853,
+    "auroc_normgrowth_broken": 0.7021,
+    "mean_damage_logit": 0.19571,
+    "mean_cosine": 0.3994
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 8000,
+    "spearman_cos_damage": 0.1556,
+    "spearman_normgrowth_damage": 0.2934,
+    "auroc_cos_broken": 0.6842,
+    "auroc_normgrowth_broken": 0.7158,
+    "mean_damage_logit": 0.18373,
+    "mean_cosine": 0.4088
+  },
+  "runtime_s": 578.0,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.1556,
+    "auroc": 0.6842,
+    "beats_normgrowth": false
+  },
+  "vectors_npz": "/root/edit-harness/results/vectors/vectors_qv_llama31_8bi_rome_cf_L28_s0.npz",
+  "vectors_valid": false
+}

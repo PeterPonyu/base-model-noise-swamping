@@ -1,0 +1,912 @@
+{
+  "module": "paperb_editor_ordering_bootstrap",
+  "version": "1.0.0",
+  "generated_at": "2026-07-26T13:51:49.733767+00:00",
+  "estimand": "conditional survival = mean_seeds( mean_edits( edit_ok_arm | edit_ok_fp32 ) ); point = mean of per-seed values, matching quant_survival_repair_v1 point policy",
+  "bootstrap": {
+    "kind": "hierarchical paired, seeds-then-edits",
+    "pairing": "one edit-index resample per drawn seed, applied identically to all three editors; valid because the edit and probe sets are byte-identical across editors within each (model, seed)",
+    "n_boot": 10000,
+    "rng_seed": 12345,
+    "ci": "percentile 95",
+    "p_value": "two-sided; 2 x min(P(d<=0), P(d>0)), floored at 1/n_boot"
+  },
+  "pairing_audit": {
+    "llama1b_s0": {
+      "cos_hash": "9d73138a494810f1",
+      "identical_across_editors": true
+    },
+    "llama1b_s1": {
+      "cos_hash": "1270850241f4a0b5",
+      "identical_across_editors": true
+    },
+    "llama1b_s2": {
+      "cos_hash": "3f91d66e4479ebec",
+      "identical_across_editors": true
+    },
+    "llama3b_s0": {
+      "cos_hash": "cffeda213ebbf22f",
+      "identical_across_editors": true
+    },
+    "llama3b_s1": {
+      "cos_hash": "677534703712671e",
+      "identical_across_editors": true
+    },
+    "llama3b_s2": {
+      "cos_hash": "05827a99c29d5696",
+      "identical_across_editors": true
+    },
+    "qwen15b_s0": {
+      "cos_hash": "2107fb1ada40332e",
+      "identical_across_editors": true
+    },
+    "qwen15b_s1": {
+      "cos_hash": "438c9805e6f0e604",
+      "identical_across_editors": true
+    },
+    "qwen15b_s2": {
+      "cos_hash": "c8481ebadc16d80a",
+      "identical_across_editors": true
+    }
+  },
+  "grid": {
+    "models": [
+      "llama1b",
+      "llama3b",
+      "qwen15b"
+    ],
+    "editors": [
+      "rome",
+      "memit",
+      "alpha"
+    ],
+    "arms": [
+      "nf4dq_edited_layer",
+      "nf4dq_full_model",
+      "int8_edited_layer",
+      "int8_full_model"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "n_edits": 200
+  },
+  "summary": {
+    "n_contrasts": 36,
+    "n_distinguishable_at_95": 0,
+    "n_not_distinguishable": 36
+  },
+  "results": {
+    "llama1b__nf4dq_edited_layer": {
+      "levels": {
+        "rome": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "llama1b__nf4dq_full_model": {
+      "levels": {
+        "rome": {
+          "point": 0.9966329966329966,
+          "boot_dist_mean": 0.9965724486597779,
+          "ci95": [
+            0.9881813054401887,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 0.9983249581239532,
+          "boot_dist_mean": 0.9982701044180576,
+          "ci95": [
+            0.9932659932659932,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 0.9983249581239532,
+          "boot_dist_mean": 0.9983361937517832,
+          "ci95": [
+            0.9932744530734481,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": -0.0016919614909565173,
+          "boot_dist_mean": -0.0016976557582797363,
+          "ci95": [
+            -0.006778289692750966,
+            0.0
+          ],
+          "p_two_sided": 0.7402,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": -0.0016919614909565173,
+          "boot_dist_mean": -0.0017637450920052907,
+          "ci95": [
+            -0.011784511784511786,
+            0.006700167504187671
+          ],
+          "p_two_sided": 0.8684,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": -6.608933372555413e-05,
+          "ci95": [
+            -0.006708627311642346,
+            0.006700167504187671
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "llama1b__int8_edited_layer": {
+      "levels": {
+        "rome": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "llama1b__int8_full_model": {
+      "levels": {
+        "rome": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "llama3b__nf4dq_edited_layer": {
+      "levels": {
+        "rome": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "llama3b__nf4dq_full_model": {
+      "levels": {
+        "rome": {
+          "point": 0.9966666666666667,
+          "boot_dist_mean": 0.9966263333333333,
+          "ci95": [
+            0.9899999999999999,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 0.9866666666666667,
+          "boot_dist_mean": 0.9867528333333334,
+          "ci95": [
+            0.975,
+            0.9966666666666667
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 0.9865993265993266,
+          "boot_dist_mean": 0.986662344426128,
+          "ci95": [
+            0.9747474747474748,
+            0.9966329966329966
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.010000000000000009,
+          "boot_dist_mean": 0.009873500000000038,
+          "ci95": [
+            -0.0016666666666667052,
+            0.021666666666666834
+          ],
+          "p_two_sided": 0.1256,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.010067340067340114,
+          "boot_dist_mean": 0.009963988907205387,
+          "ci95": [
+            0.0,
+            0.021666666666666612
+          ],
+          "p_two_sided": 0.059,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 6.734006734010478e-05,
+          "boot_dist_mean": 9.04889072053484e-05,
+          "ci95": [
+            -0.008333333333333304,
+            0.01000000000000012
+          ],
+          "p_two_sided": 0.9822,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "llama3b__int8_edited_layer": {
+      "levels": {
+        "rome": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "llama3b__int8_full_model": {
+      "levels": {
+        "rome": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "qwen15b__nf4dq_edited_layer": {
+      "levels": {
+        "rome": {
+          "point": 0.9962962962962963,
+          "boot_dist_mean": 0.9963691636163813,
+          "ci95": [
+            0.9845445366545602,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 0.9893219403735981,
+          "boot_dist_mean": 0.9892089994288452,
+          "ci95": [
+            0.9757473490783918,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 0.9888463596328765,
+          "boot_dist_mean": 0.988925867354465,
+          "ci95": [
+            0.9700374531835206,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.006974355922698239,
+          "boot_dist_mean": 0.007160164187536262,
+          "ci95": [
+            -0.007933054971207637,
+            0.02204038556853529
+          ],
+          "p_two_sided": 0.383,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.007449936663419865,
+          "boot_dist_mean": 0.0074432962619161895,
+          "ci95": [
+            -0.006832190878756661,
+            0.025167992659553474
+          ],
+          "p_two_sided": 0.392,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.00047558074072162615,
+          "boot_dist_mean": 0.0002831320743799289,
+          "ci95": [
+            -0.018572703922037106,
+            0.02188449268596316
+          ],
+          "p_two_sided": 0.9748,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "qwen15b__nf4dq_full_model": {
+      "levels": {
+        "rome": {
+          "point": 0.8522995522995522,
+          "boot_dist_mean": 0.8522718186760417,
+          "ci95": [
+            0.8011050878762817,
+            0.8989480561428235
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 0.8320479737734715,
+          "boot_dist_mean": 0.8318497379761116,
+          "ci95": [
+            0.7536994274902695,
+            0.8976044594505229
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 0.8112935753385192,
+          "boot_dist_mean": 0.811270703301436,
+          "ci95": [
+            0.7343190652794043,
+            0.8773673138123883
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.020251578526080727,
+          "boot_dist_mean": 0.02042208069993012,
+          "ci95": [
+            -0.021045464618741575,
+            0.07181258481313277
+          ],
+          "p_two_sided": 0.3892,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.04100597696103303,
+          "boot_dist_mean": 0.041001115374605775,
+          "ci95": [
+            -0.0007690502026895817,
+            0.09126263016797258
+          ],
+          "p_two_sided": 0.057,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.020754398434952304,
+          "boot_dist_mean": 0.020579034674675655,
+          "ci95": [
+            -0.016002184460399,
+            0.05644421646052527
+          ],
+          "p_two_sided": 0.2618,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "qwen15b__int8_edited_layer": {
+      "levels": {
+        "rome": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 1.0,
+          "boot_dist_mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.0,
+          "boot_dist_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "p_two_sided": 1.0,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    },
+    "qwen15b__int8_full_model": {
+      "levels": {
+        "rome": {
+          "point": 0.9814814814814815,
+          "boot_dist_mean": 0.9816119809247082,
+          "ci95": [
+            0.9567805304235418,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "memit": {
+          "point": 0.9821924144310823,
+          "boot_dist_mean": 0.982166801056473,
+          "ci95": [
+            0.9526465283082929,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        },
+        "alpha": {
+          "point": 0.9778573486438655,
+          "boot_dist_mean": 0.9779182351845784,
+          "ci95": [
+            0.9471047883530327,
+            1.0
+          ],
+          "boot_n_finite": 10000
+        }
+      },
+      "contrasts": {
+        "rome_minus_memit": {
+          "observed_diff": -0.0007109329496007843,
+          "boot_dist_mean": -0.0005548201317648418,
+          "ci95": [
+            -0.02592629190455265,
+            0.027181275540043157
+          ],
+          "p_two_sided": 0.9472,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "rome_minus_alpha": {
+          "observed_diff": 0.0036241328376159787,
+          "boot_dist_mean": 0.00369374574012975,
+          "ci95": [
+            -0.018684054189103235,
+            0.026921701054943358
+          ],
+          "p_two_sided": 0.7898,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        },
+        "memit_minus_alpha": {
+          "observed_diff": 0.004335065787216763,
+          "boot_dist_mean": 0.004248565871894592,
+          "ci95": [
+            -0.015174731860811705,
+            0.0258637352600244
+          ],
+          "p_two_sided": 0.6666,
+          "boot_n_finite": 10000,
+          "distinguishable_at_95": false,
+          "verdict": "not statistically distinguishable"
+        }
+      }
+    }
+  },
+  "numpy_version": "2.2.6"
+}

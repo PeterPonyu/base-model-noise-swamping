@@ -1,0 +1,55 @@
+{
+  "model": "data/models/Llama-3.2-1B",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 14,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.12.1+cu130",
+    "transformers": "5.12.1",
+    "numpy": "2.3.4",
+    "dtype": "float32",
+    "model_dtype_arg": "fp32",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.91,
+  "mean_residual_norm": 24.0791,
+  "frac_probes_known(pre_p>0.05)": 0.298,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.2656,
+    "spearman_normgrowth_damage": 0.5072,
+    "auroc_cos_broken": 0.6578,
+    "auroc_normgrowth_broken": 0.7075,
+    "mean_damage_logit": 5.5613,
+    "mean_cosine": 0.4453
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 29800,
+    "spearman_cos_damage": 0.2485,
+    "spearman_normgrowth_damage": 0.5258,
+    "auroc_cos_broken": 0.6743,
+    "auroc_normgrowth_broken": 0.7166,
+    "mean_damage_logit": 5.46632,
+    "mean_cosine": 0.429
+  },
+  "runtime_s": 1244.0,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.2485,
+    "auroc": 0.6743,
+    "beats_normgrowth": false
+  },
+  "matrices_npz": "results/matrices/qv_llama1b_rome_cf_L14_s0.npz",
+  "vectors_npz": "/home/zeyufu/Desktop/idea-feasibility-analysis/edit-harness/results/vectors/vectors_qv_llama1b_rome_cf_L14_s0.npz",
+  "vectors_valid": true
+}

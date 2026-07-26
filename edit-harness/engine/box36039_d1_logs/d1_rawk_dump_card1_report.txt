@@ -1,0 +1,4 @@
+D1_RAWK_DUMP REPORT 2026-07-15 01:10:16  card=1  8 done / 0 fail / 0 skip  elapsed 107m/260m
+banks -> /root/edit-harness/results/vectors/vectors_qv_{mistral7b,llama31_8bi,gemma9b,qwen3_8b}_rome_cf_L*_s0.npz
+next (ON-BOX CPU — banks are large, keep them on-box): python experiments/d1_sign_stat.py --vector_dir /root/edit-harness/results/vectors
+     then pull ONLY results/analysis/D1_sign_stat_table.json home (prereg docs/plans/PREREG-D1-SIGN-E0-20260714.md)

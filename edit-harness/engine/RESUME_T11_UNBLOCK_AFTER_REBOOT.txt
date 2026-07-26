@@ -1,0 +1,35 @@
+RESUME NOTE — T1.1 unblock chain (written 2026-07-14 ~12:15 EDT)
+
+WHY STOPPED: the local 5090 hit the known SW-thermal wedge (51W @ 757MHz under 98% load —
+signature matches memory gpu-60w-thermal-cap-reboot-fix). Cells ran at ~1/3 speed, first
+cell rc=124 at the 45-min cap, so the chain was killed cleanly (0 of 11 cells completed;
+no partial artifacts — the timed-out cell wrote no json/npz; killgate writes atomically).
+
+FIX: reboot the laptop (restores ~175W/2GHz per the July incident). After reboot, verify
+with a 25s GEMM burn or just: nvidia-smi during the first cell should show >100W.
+
+RELAUNCH (idempotent, skip-if-exists; identical to the original launch):
+  cd /home/zeyufu/Desktop/idea-feasibility-analysis/edit-harness
+  setsid nohup ./engine/run_t11_unblock_20260714.sh > engine/run_t11_unblock_20260714.nohup.log 2>&1 < /dev/null &
+  # verify: p=$(cat engine/run_t11_unblock_20260714.pid); kill -0 $p && echo ALIVE
+  # progress: tail -f engine/run_t11_unblock_20260714.log
+Expected at full speed: 9 gate cells ~25min each + 2 RG cells ~20min each ≈ 4.5h.
+(Optional: CELL_TIMEOUT_MIN=60 env to give headroom over the 45-min default.)
+
+AFTER THE CHAIN DRAINS (the T1.1 endgame):
+1. Push the new artifacts to box 36039 (if it is still up; ~30MB):
+   results/matrices/gate_qwen15b_rome_cf_L{17,21,24}_s{0,1,2}.npz
+   results/merging/RG_operating_curve_table_qwen15b_L{14,24}.json (+ existing L21)
+2. Run the final gate ON-BOX (banks live there):
+   PY=/root/miniconda3/bin/python3 VECTOR_ROOT=/root/edit-harness/results/vectors \
+     ./onbox/t11_gate_onbox.sh
+   (box copy of experiments/depth_dissoc_gate.py + onbox wrapper must be re-synced first —
+   they were updated today AFTER the last box push: literal-gate + tri-regime sign policy.)
+3. Pull results/analysis/T11_gate_report.json home. Expected verdict tokens:
+   PASS (only if arch-2 C were positive — it is not), PASS_ABS_CONVENTION (needs prereg
+   amendment ratification — pending user decision), AMBIGUOUS, KILL, or UNDECIDABLE with
+   literal.merge_window_failure=true if Qwen's small-g merge incoherence blocks §2.2.
+Box 36039 note: D1 dump was running there (16 cells, ~12.5min each, started 23:13 box
+time); its endgame = verify banks (incl. vectors_valid semantics!), run d1_sign_stat.py
+ON-BOX with --vector_dir, pull results/analysis/D1_sign_stat_table.json, ask user before
+shutdown.

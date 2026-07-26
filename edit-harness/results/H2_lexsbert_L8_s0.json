@@ -1,0 +1,45 @@
+{
+  "npz": "gate_llama1b_rome_cf_L8_s0.npz",
+  "dataset": "counterfact",
+  "field": "prompt",
+  "metric": "logit",
+  "seed": 0,
+  "n_edits": 200,
+  "n_probes": 500,
+  "filters": {
+    "known": true,
+    "edit_ok": true
+  },
+  "shape_after_masks": [
+    198,
+    149
+  ],
+  "mean_signed_damage": 4.44588,
+  "keycos": {
+    "within_probe_mean": 0.406,
+    "within_probe_frac_positive": 1.0,
+    "nan_column_count": 0,
+    "n_columns": 149
+  },
+  "lexical": {
+    "within_probe_mean": 0.0382,
+    "within_probe_frac_positive": 0.617,
+    "nan_column_count": 0,
+    "n_columns": 149
+  },
+  "sbert_info": {
+    "sbert": "OK",
+    "model": "BAAI/bge-m3"
+  },
+  "sbert": {
+    "within_probe_mean": 0.1161,
+    "within_probe_frac_positive": 0.913,
+    "nan_column_count": 0,
+    "n_columns": 149
+  },
+  "verdict_detail": {
+    "keycos_beats_lexical": true,
+    "keycos_beats_sbert": true
+  },
+  "VERDICT": "key-cosine BEATS surface similarity (H2 rebuttal closed)"
+}

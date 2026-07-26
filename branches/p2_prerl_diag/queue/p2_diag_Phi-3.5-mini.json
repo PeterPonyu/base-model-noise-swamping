@@ -1,0 +1,11 @@
+{
+  "job_kind": "diag",
+  "job_id": "p2_diag_Phi-3.5-mini",
+  "gpu_required": false,
+  "created": "2026-07-01T03:05:31.838389+00:00",
+  "checkpoint_id": "Phi-3.5-mini",
+  "depends_on": "p2_gen_Phi-3.5-mini",
+  "env": "dl",
+  "_note": "CPU diagnostic on the generated samples; numpy/stdlib only.",
+  "cmd": "conda run -n dl python3 branches/p2_prerl_diag/run_diag.py branches/p2_prerl_diag/samples/Phi-3.5-mini.json --id Phi-3.5-mini --n-boot 2000 --seed 0"
+}

@@ -1,0 +1,53 @@
+{
+  "model": "/root/autodl-tmp/models/gemma-2-9b-bf16",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 36,
+  "n_edits": 200,
+  "n_probes": 500,
+  "steps": 20,
+  "seed": 1,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
+    "dtype": "bfloat16",
+    "model_dtype_arg": "bf16",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 20
+  },
+  "edit_success_rate": 0.895,
+  "mean_residual_norm": 30.6361,
+  "frac_probes_known(pre_p>0.05)": 0.374,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 100000,
+    "spearman_cos_damage": 0.1456,
+    "spearman_normgrowth_damage": 0.0632,
+    "auroc_cos_broken": 0.5939,
+    "auroc_normgrowth_broken": 0.5033,
+    "mean_damage_logit": 1.92772,
+    "mean_cosine": 0.4504
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 37400,
+    "spearman_cos_damage": 0.1152,
+    "spearman_normgrowth_damage": 0.0849,
+    "auroc_cos_broken": 0.5693,
+    "auroc_normgrowth_broken": 0.5145,
+    "mean_damage_logit": 1.54904,
+    "mean_cosine": 0.4231
+  },
+  "runtime_s": 3426.7,
+  "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
+  "verdict_detail": {
+    "abs_spearman": 0.1152,
+    "auroc": 0.5693,
+    "beats_normgrowth": true
+  },
+  "matrices_npz": "/root/edit-harness/results/matrices/gate_gemma9b_rome_cf_L36_s1.npz"
+}

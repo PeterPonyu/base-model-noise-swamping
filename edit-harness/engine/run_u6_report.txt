@@ -1,0 +1,61 @@
+RUN_U6 REPORT 2026-07-08 04:16:26  jobs: 14 done / 0 fail / 0 skipped  elapsed 453m/700m  abort=0
+[2026-07-06 11:57:04] PROGRESS jobs=0done/0fail/1skip elapsed=0m budget_left=560m
+[2026-07-06 11:57:04] DRYRUN u1e0_llama3b_delete_refusal_L24_s0 [SCIENCE] est=55m needs=engine/smoke_u6_llama3b_delete_smoke.ok cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/killgate_keygeom.py --model data/models/Llama-3.2-3B --editor rome --edit_mode delete --delete_variant refusal --dataset counterfact --data data/counterfact.json --n_edits 200 --n_probes 500 --steps 20 --save_matrices --matrix_dir results/matrices --lr 0.1 --layer 24 --seed 0 --out results/u1e0_llama3b_delete_refusal_L24_s0.json
+[2026-07-06 11:57:04] PROGRESS jobs=0done/0fail/1skip elapsed=0m budget_left=560m
+[2026-07-06 11:57:04] ---------------- POST-RUN (CPU) ----------------
+[2026-07-07 18:22:54] grace gate: marker=1 file=1 argparse=1
+[2026-07-07 18:23:55] RUN egl_ft_smoke [SMOKE] (est 4m, cap 1920s, elapsed 0m) -> engine/u6_egl_ft_smoke.log
+[2026-07-07 18:24:07] done egl_ft_smoke (12s) VALIDATE-OK
+[2026-07-07 18:24:07] RUN egl_ftkl_smoke [SMOKE] (est 4m, cap 1920s, elapsed 0m) -> engine/u6_egl_ftkl_smoke.log
+[2026-07-07 18:24:18] done egl_ftkl_smoke (11s) VALIDATE-OK
+[2026-07-07 18:24:18] RUN llama3b_delete_smoke [SMOKE] (est 6m, cap 2280s, elapsed 0m) -> engine/u6_llama3b_delete_smoke.log
+[2026-07-07 18:24:33] done llama3b_delete_smoke (15s) VALIDATE-OK
+[2026-07-07 18:24:33] PROGRESS jobs=3done/0fail/0skip elapsed=0m budget_left=700m
+[2026-07-07 18:24:33] RUN egl_llama1b_rome_cf_L12_s2 [SCIENCE] (est 30m, cap 6600s, elapsed 0m) -> engine/u6_egl_llama1b_rome_cf_L12_s2.log
+[2026-07-07 18:45:47] done egl_llama1b_rome_cf_L12_s2 (1274s) VALIDATE-OK
+[2026-07-07 18:45:47] RUN egl_llama1b_memit_cf_L12_s2 [SCIENCE] (est 35m, cap 7500s, elapsed 21m) -> engine/u6_egl_llama1b_memit_cf_L12_s2.log
+[2026-07-07 19:36:00] done egl_llama1b_memit_cf_L12_s2 (3013s) VALIDATE-OK
+[2026-07-07 19:36:00] THERMAL-WATCH egl_llama1b_memit_cf_L12_s2 ran 3013s > 1.4x est; power.draw now=32.42W (wedge if <100 under load)
+[2026-07-07 19:36:00] RUN egl_llama1b_alpha_cf_L12_s2 [SCIENCE] (est 30m, cap 6600s, elapsed 72m) -> engine/u6_egl_llama1b_alpha_cf_L12_s2.log
+[2026-07-07 19:57:28] done egl_llama1b_alpha_cf_L12_s2 (1288s) VALIDATE-OK
+[2026-07-07 19:57:28] PROGRESS jobs=6done/0fail/0skip elapsed=93m budget_left=607m
+[2026-07-07 19:57:28] RUN egl_llama1b_ft_cf_L12_s0 [SCIENCE] (est 25m, cap 5700s, elapsed 93m) -> engine/u6_egl_llama1b_ft_cf_L12_s0.log
+[2026-07-07 20:41:33] grace gate: marker=1 file=1 argparse=1
+[2026-07-07 20:42:34] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=700m
+[2026-07-07 20:42:34] PROGRESS jobs=0done/0fail/0skip elapsed=0m budget_left=700m
+[2026-07-07 20:42:34] RUN egl_llama1b_ft_cf_L12_s0 [SCIENCE] (est 25m, cap 5700s, elapsed 0m) -> engine/u6_egl_llama1b_ft_cf_L12_s0.log
+[2026-07-07 21:18:41] done egl_llama1b_ft_cf_L12_s0 (2167s) VALIDATE-OK
+[2026-07-07 21:18:41] THERMAL-WATCH egl_llama1b_ft_cf_L12_s0 ran 2167s > 1.4x est; power.draw now=54.90W (wedge if <100 under load)
+[2026-07-07 21:18:41] RUN egl_llama1b_ft_cf_L12_s1 [SCIENCE] (est 25m, cap 5700s, elapsed 36m) -> engine/u6_egl_llama1b_ft_cf_L12_s1.log
+[2026-07-07 21:52:42] done egl_llama1b_ft_cf_L12_s1 (2041s) VALIDATE-WARN esr=0.895<0.9
+[2026-07-07 21:52:42] RUN egl_llama1b_ft_cf_L12_s2 [SCIENCE] (est 25m, cap 5700s, elapsed 70m) -> engine/u6_egl_llama1b_ft_cf_L12_s2.log
+[2026-07-07 22:26:28] done egl_llama1b_ft_cf_L12_s2 (2026s) VALIDATE-OK
+[2026-07-07 22:26:28] PROGRESS jobs=3done/0fail/0skip elapsed=103m budget_left=597m
+[2026-07-07 22:26:28] RUN egl_llama1b_ftkl030_cf_L12_s0 [SCIENCE] (est 30m, cap 6600s, elapsed 103m) -> engine/u6_egl_llama1b_ftkl030_cf_L12_s0.log
+[2026-07-07 22:53:58] done egl_llama1b_ftkl030_cf_L12_s0 (1650s) VALIDATE-OK
+[2026-07-07 22:53:58] RUN egl_llama1b_ftkl030_cf_L12_s1 [SCIENCE] (est 30m, cap 6600s, elapsed 131m) -> engine/u6_egl_llama1b_ftkl030_cf_L12_s1.log
+[2026-07-07 23:22:57] done egl_llama1b_ftkl030_cf_L12_s1 (1739s) VALIDATE-OK
+[2026-07-07 23:22:57] RUN egl_llama1b_ftkl030_cf_L12_s2 [SCIENCE] (est 30m, cap 6600s, elapsed 160m) -> engine/u6_egl_llama1b_ftkl030_cf_L12_s2.log
+[2026-07-07 23:50:19] done egl_llama1b_ftkl030_cf_L12_s2 (1642s) VALIDATE-OK
+[2026-07-07 23:50:19] PROGRESS jobs=6done/0fail/0skip elapsed=187m budget_left=513m
+[2026-07-07 23:50:19] RUN egl_llama1b_grace_cf_L12_s0 [SCIENCE] (est 30m, cap 6600s, elapsed 187m) -> engine/u6_egl_llama1b_grace_cf_L12_s0.log
+[2026-07-08 00:12:51] done egl_llama1b_grace_cf_L12_s0 (1352s) VALIDATE-OK
+[2026-07-08 00:12:51] PROGRESS jobs=7done/0fail/0skip elapsed=210m budget_left=490m
+[2026-07-08 00:12:51] RUN gate_llama1b_memit_cf_L10_s1 [SCIENCE] (est 32m, cap 6960s, elapsed 210m) -> engine/u6_gate_llama1b_memit_cf_L10_s1.log
+[2026-07-08 00:41:04] done gate_llama1b_memit_cf_L10_s1 (1693s) VALIDATE-OK
+[2026-07-08 00:41:04] RUN gate_llama1b_memit_cf_L10_s2 [SCIENCE] (est 32m, cap 6960s, elapsed 238m) -> engine/u6_gate_llama1b_memit_cf_L10_s2.log
+[2026-07-08 01:22:02] done gate_llama1b_memit_cf_L10_s2 (2458s) VALIDATE-OK
+[2026-07-08 01:22:02] RUN gate_llama1b_memit_cf_L14_s1 [SCIENCE] (est 32m, cap 6960s, elapsed 279m) -> engine/u6_gate_llama1b_memit_cf_L14_s1.log
+[2026-07-08 01:53:47] done gate_llama1b_memit_cf_L14_s1 (1905s) VALIDATE-OK
+[2026-07-08 01:53:47] RUN gate_llama1b_memit_cf_L14_s2 [SCIENCE] (est 32m, cap 6960s, elapsed 311m) -> engine/u6_gate_llama1b_memit_cf_L14_s2.log
+[2026-07-08 02:20:11] done gate_llama1b_memit_cf_L14_s2 (1584s) VALIDATE-OK
+[2026-07-08 02:20:11] PROGRESS jobs=11done/0fail/0skip elapsed=337m budget_left=363m
+[2026-07-08 02:20:11] RUN u1e0_llama1b_delete_refusal_zsre_L10_s1 [SCIENCE] (est 30m, cap 6600s, elapsed 337m) -> engine/u6_u1e0_llama1b_delete_refusal_zsre_L10_s1.log
+[2026-07-08 02:44:40] done u1e0_llama1b_delete_refusal_zsre_L10_s1 (1469s) VALIDATE-OK
+[2026-07-08 02:44:40] RUN u1e0_llama1b_delete_refusal_zsre_L10_s2 [SCIENCE] (est 30m, cap 6600s, elapsed 362m) -> engine/u6_u1e0_llama1b_delete_refusal_zsre_L10_s2.log
+[2026-07-08 03:09:20] done u1e0_llama1b_delete_refusal_zsre_L10_s2 (1480s) VALIDATE-OK
+[2026-07-08 03:09:20] PROGRESS jobs=13done/0fail/0skip elapsed=386m budget_left=314m
+[2026-07-08 03:09:20] RUN u1e0_llama3b_delete_refusal_L24_s0 [SCIENCE] (est 55m, cap 11100s, elapsed 386m) -> engine/u6_u1e0_llama3b_delete_refusal_L24_s0.log
+[2026-07-08 04:00:33] done u1e0_llama3b_delete_refusal_L24_s0 (3073s) VALIDATE-OK
+[2026-07-08 04:00:33] PROGRESS jobs=14done/0fail/0skip elapsed=438m budget_left=262m
+[2026-07-08 04:00:33] ---------------- POST-RUN (CPU) ----------------

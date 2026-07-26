@@ -1,0 +1,12 @@
+RUN_REVWAVE_RF REPORT 2026-07-16 07:17:18  cells_failed=0/2
+[2026-07-16 07:01:23] ======== RUN_REVWAVE_RF START pid=3016634 gpt2xl=data/models/gpt2-xl phi35=data/models/Phi-3.5-mini budget=150m/cell ========
+[2026-07-16 07:01:23] ---- cell gpt2xl (MODEL_DIR=data/models/gpt2-xl) ----
+[2026-07-16 07:01:25] ---- cell gpt2xl rc=0 ----
+[2026-07-16 07:01:25] ---- cell phi35 (MODEL_DIR=data/models/Phi-3.5-mini) ----
+[2026-07-16 07:01:27] ---- cell phi35 rc=0 ----
+[2026-07-16 07:01:27] ======== RUN_REVWAVE_RF COMPLETE (cells_failed=0/2) ========
+[2026-07-16 07:17:15] ======== RUN_REVWAVE_RF START pid=3110619 gpt2xl=data/models/gpt2-xl phi35=data/models/Phi-3.5-mini budget=150m/cell ========
+[2026-07-16 07:17:15] ---- cell gpt2xl (MODEL_DIR=data/models/gpt2-xl) ----
+[2026-07-16 07:17:17] ---- cell gpt2xl rc=0 ----
+[2026-07-16 07:17:17] ---- cell phi35 (MODEL_DIR=data/models/Phi-3.5-mini) ----
+[2026-07-16 07:17:18] ---- cell phi35 rc=0 ----

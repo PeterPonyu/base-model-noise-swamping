@@ -1,0 +1,205 @@
+{
+  "prereg": "PREREG-T12-TAMPER-E0-20260713.md",
+  "phase": "Phase-0-CPU",
+  "cells": [
+    "llama1b_rome_cf_L8_s0",
+    "llama1b_rome_cf_L12_s0",
+    "llama1b_rome_cf_L14_s0",
+    "llama1b_rome_cf_L14_s1",
+    "llama1b_rome_cf_L14_s2",
+    "qwen15b_rome_cf_L14_s0",
+    "qwen15b_rome_cf_L14_s1",
+    "qwen15b_rome_cf_L14_s2"
+  ],
+  "missing_cells": [],
+  "rng_seed": 12345,
+  "S1": {
+    "per_arch": {
+      "llama": 0.5239,
+      "qwen": 0.9991
+    },
+    "armr_ceiling": {
+      "llama": 0.9593,
+      "qwen": 0.8626
+    },
+    "pooled": 0.7256,
+    "logistic_secondary": {
+      "train_arch": "llama",
+      "test_arch": "qwen",
+      "train_auroc": 0.8813,
+      "heldout_auroc": 0.1003,
+      "note": "reported per prereg section 2; the GATE uses the train-free statistic (1)"
+    }
+  },
+  "S2": {
+    "per_arch": {
+      "llama": 0.7397,
+      "qwen": 0.9876
+    },
+    "pooled_rmt": 0.8473,
+    "armn_pooled": 0.7256,
+    "armn_ge_rmt": false
+  },
+  "H1": {
+    "per_cell": {
+      "llama1b_rome_cf_L8_s0": {
+        "top1": 0.0,
+        "chance": 0.0625
+      },
+      "llama1b_rome_cf_L12_s0": {
+        "top1": 0.0,
+        "chance": 0.0625
+      },
+      "llama1b_rome_cf_L14_s0": {
+        "top1": 0.0,
+        "chance": 0.0625
+      },
+      "llama1b_rome_cf_L14_s1": {
+        "top1": 0.0,
+        "chance": 0.0625
+      },
+      "llama1b_rome_cf_L14_s2": {
+        "top1": 0.0,
+        "chance": 0.0625
+      },
+      "qwen15b_rome_cf_L14_s0": {
+        "top1": 1.0,
+        "chance": 0.0357
+      },
+      "qwen15b_rome_cf_L14_s1": {
+        "top1": 1.0,
+        "chance": 0.0357
+      },
+      "qwen15b_rome_cf_L14_s2": {
+        "top1": 1.0,
+        "chance": 0.0357
+      }
+    },
+    "per_arch": {
+      "llama": {
+        "top1": 0.0,
+        "chance": 0.0625,
+        "x_chance": 0.0
+      },
+      "qwen": {
+        "top1": 1.0,
+        "chance": 0.0357,
+        "x_chance": 28.0
+      }
+    }
+  },
+  "H3": {
+    "per_cell": {
+      "llama1b_rome_cf_L8_s0": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 1.6317350863838903e-07,
+        "rho_spike_damage": 0.1211,
+        "n_edit_ok": 198
+      },
+      "llama1b_rome_cf_L12_s0": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 1.6665139534356152e-07,
+        "rho_spike_damage": 0.5872,
+        "n_edit_ok": 199
+      },
+      "llama1b_rome_cf_L14_s0": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 1.7236553895220438e-07,
+        "rho_spike_damage": 0.5544,
+        "n_edit_ok": 182
+      },
+      "llama1b_rome_cf_L14_s1": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 1.6987147487724388e-07,
+        "rho_spike_damage": 0.6841,
+        "n_edit_ok": 187
+      },
+      "llama1b_rome_cf_L14_s2": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 1.7048353360088484e-07,
+        "rho_spike_damage": 0.533,
+        "n_edit_ok": 191
+      },
+      "qwen15b_rome_cf_L14_s0": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 1.9547500542164327e-07,
+        "rho_spike_damage": 0.0815,
+        "n_edit_ok": 197
+      },
+      "qwen15b_rome_cf_L14_s1": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 2.276893341367654e-07,
+        "rho_spike_damage": 0.061,
+        "n_edit_ok": 198
+      },
+      "qwen15b_rome_cf_L14_s2": {
+        "rho_spike_S": 1.0,
+        "identity_max_rel_diff": 1.493689653249285e-07,
+        "rho_spike_damage": 0.1802,
+        "n_edit_ok": 199
+      }
+    },
+    "per_arch": {
+      "llama": {
+        "mean_rho_spike_S": 1.0,
+        "mean_rho_spike_damage": 0.496
+      },
+      "qwen": {
+        "mean_rho_spike_S": 1.0,
+        "mean_rho_spike_damage": 0.1076
+      }
+    }
+  },
+  "H4": {
+    "per_cell": {
+      "llama1b_rome_cf_L8_s0": {
+        "within_probe_rho_keycos_R": -0.0565,
+        "mean_reversal_R": 1.287
+      },
+      "llama1b_rome_cf_L12_s0": {
+        "within_probe_rho_keycos_R": -0.4055,
+        "mean_reversal_R": 0.5693
+      },
+      "llama1b_rome_cf_L14_s0": {
+        "within_probe_rho_keycos_R": -0.16,
+        "mean_reversal_R": 1.9867
+      },
+      "llama1b_rome_cf_L14_s1": {
+        "within_probe_rho_keycos_R": -0.2022,
+        "mean_reversal_R": 1.991
+      },
+      "llama1b_rome_cf_L14_s2": {
+        "within_probe_rho_keycos_R": -0.1396,
+        "mean_reversal_R": 1.9331
+      },
+      "qwen15b_rome_cf_L14_s0": {
+        "within_probe_rho_keycos_R": -0.137,
+        "mean_reversal_R": 4.4263
+      },
+      "qwen15b_rome_cf_L14_s1": {
+        "within_probe_rho_keycos_R": -0.0907,
+        "mean_reversal_R": 4.4167
+      },
+      "qwen15b_rome_cf_L14_s2": {
+        "within_probe_rho_keycos_R": -0.0981,
+        "mean_reversal_R": 4.4935
+      }
+    },
+    "per_arch": {
+      "llama": -0.1928,
+      "qwen": -0.1086
+    },
+    "note": "SECONDARY; reported, not in the CPU gate"
+  },
+  "GRACE_control": {
+    "status": "SKIPPED (no inputs)"
+  },
+  "verdict": "KILL",
+  "verdict_reasons": [
+    "S1: pooled=0.7256 llama=0.5239 qwen=0.9991 -> fail",
+    "H1: llama_ok=False qwen_ok=True",
+    "H3: {'llama': {'mean_rho_spike_S': 1.0, 'mean_rho_spike_damage': 0.496}, 'qwen': {'mean_rho_spike_S': 1.0, 'mean_rho_spike_damage': 0.1076}} -> ok",
+    "S2: armn_pooled=0.7256 >= rmt_pooled=0.8473 -> False",
+    "KILL: H1 fails 3x chance on BOTH arch, or S1(llama) <= 0.70"
+  ]
+}

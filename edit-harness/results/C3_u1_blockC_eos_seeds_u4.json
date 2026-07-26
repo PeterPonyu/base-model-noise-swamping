@@ -1,0 +1,111 @@
+{
+  "aggregate": {
+    "n_seeds": 3,
+    "metric": "logit",
+    "filters": {
+      "known": true,
+      "edit_ok": true
+    },
+    "within_probe_mean_across_seeds": 0.6161,
+    "within_probe_std_across_seeds": 0.0084,
+    "per_edit_mean_across_seeds": 0.4906,
+    "max_within_probe_perm_p": 0.0033,
+    "max_within_probe_perm_p_editlevel": 0.001,
+    "VERDICT": "PASS \u2014 headline survives (edit-specific pairwise geometry, not probe-marginal)"
+  },
+  "per_seed": [
+    {
+      "npz": "u1e0_llama1b_delete_eos_L12_s0.npz",
+      "shape": [
+        200,
+        149
+      ],
+      "flat_spearman_INFLATED": 0.5401,
+      "within_probe_mean": 0.6046,
+      "within_probe_ci95": [
+        0.5898,
+        0.6199
+      ],
+      "within_probe_ci95_editcluster": [
+        0.5397,
+        0.6628
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.4348,
+      "per_edit_ci95": [
+        0.4116,
+        0.4564
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0029,
+      "editlevel_null_std": 0.0489,
+      "editlevel_z": 12.3,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.5499,
+      "mean_residual_norm(S)": 27.0027
+    },
+    {
+      "npz": "u1e0_llama1b_delete_eos_L12_s1.npz",
+      "shape": [
+        200,
+        154
+      ],
+      "flat_spearman_INFLATED": 0.5864,
+      "within_probe_mean": 0.6244,
+      "within_probe_ci95": [
+        0.6085,
+        0.6393
+      ],
+      "within_probe_ci95_editcluster": [
+        0.5547,
+        0.681
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.583,
+      "per_edit_ci95": [
+        0.562,
+        0.6044
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": 0.0009,
+      "editlevel_null_std": 0.0486,
+      "editlevel_z": 12.82,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.6096,
+      "mean_residual_norm(S)": 27.1017
+    },
+    {
+      "npz": "u1e0_llama1b_delete_eos_L12_s2.npz",
+      "shape": [
+        200,
+        154
+      ],
+      "flat_spearman_INFLATED": 0.5613,
+      "within_probe_mean": 0.6194,
+      "within_probe_ci95": [
+        0.6045,
+        0.6343
+      ],
+      "within_probe_ci95_editcluster": [
+        0.555,
+        0.6751
+      ],
+      "within_probe_frac_positive": 1.0,
+      "per_edit_mean": 0.4541,
+      "per_edit_ci95": [
+        0.4322,
+        0.4763
+      ],
+      "within_probe_perm_p": 0.0033,
+      "within_probe_perm_p_editlevel": 0.001,
+      "editlevel_null_mean": -0.0013,
+      "editlevel_null_std": 0.0489,
+      "editlevel_z": 12.69,
+      "flat_perm_p": 0.001,
+      "within_probe_mean_normgrowth": 0.5713,
+      "mean_residual_norm(S)": 27.0468
+    }
+  ]
+}

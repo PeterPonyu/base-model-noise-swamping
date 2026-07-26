@@ -1,0 +1,13 @@
+{
+  "id": "p4_etth2_20260630_2359",
+  "created": "20260630_2359",
+  "gpu_required": true,
+  "env": "dl",
+  "cwd": "/home/zeyufu/Desktop/idea-feasibility-analysis/branches/p4_temporal_uq",
+  "config": "configs/p4_etth2_20260630_2359.json",
+  "cmd": "conda run -n dl python3 run_committee.py configs/p4_etth2_20260630_2359.json",
+  "expect_result": "results/p4_etth2_20260630_2359.json",
+  "dataset": "ETTh2",
+  "backend": "ollama",
+  "notes": "P4 cross-architecture committee disagreement UQ on ETT; needs Ollama on GPU. Kill-gate: cross-arch Spearman(disagreement,|error|) > temperature-resampling null (bootstrap CI of delta > 0)."
+}
