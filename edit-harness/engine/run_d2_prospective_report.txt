@@ -1,0 +1,4 @@
+RUN_D2_PROSPECTIVE REPORT 2026-07-26 12:59:20  jobs: 0 done / 0 fail / 0 skipped  elapsed 0m/240m
+[2026-07-26 12:59:06] ABORT: prereg UNRATIFIED — /home/zeyufu/Desktop/idea-feasibility-analysis/docs/plans/PREREG-D2-PROSPECTIVE-2026-07-26.md has no line reading exactly 'STATUS: RATIFIED'
+[2026-07-26 12:59:20] ratification OK: /tmp/pa_ratified.md is marked STATUS: RATIFIED
+[2026-07-26 12:59:20] DRYRUN prospadm est=105m cmd: env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1 /home/zeyufu/miniconda3/envs/dl/bin/python3 experiments/prospective_admission.py --model data/models/Llama-3.2-1B --data data/counterfact.json --layer 12 --n_pool 100 --budget 0.25 --group_size 5 --n_random_draws 3 --n_retention 200 --ns_reference solo --prereg /tmp/pa_ratified.md --seeds 0,1,2 --steps 20 --lr 0.1 --device cuda --out_dir results/prospective_admission --table_out results/prospective_admission/prospective_admission_table.json

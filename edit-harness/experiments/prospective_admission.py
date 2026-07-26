@@ -1,9 +1,10 @@
 """prospective_admission.py — R-E prospective admission-policy evaluation.
 
-DRAFT / GATED: docs/plans/PREREG-PROSPECTIVE-ADMISSION-DRAFT-2026-07-16.md freezes the design
-below and is marked DRAFT — USER MUST RATIFY IT BEFORE ANY GPU RUN of this module. No launch
-driver ships with this revision on purpose (see the prereg's "Launch" section). --selftest
-(CPU, synthetic, no model) is safe to run any time and is exercised at build time.
+GATED: the GPU path runs only when --prereg points at a prereg markdown containing a line
+reading exactly "STATUS: RATIFIED" — a line the USER writes. docs/plans/PREREG-D2-PROSPECTIVE-
+2026-07-26.md is the file to ratify (it supersedes the 07-16 DRAFT and resolves its three open
+decision points). The driver run_d2_prospective.sh passes --prereg but cannot ratify: it fails
+closed on the same guard. --selftest (CPU, synthetic, no model) is safe to run any time.
 
 WHY THIS EXISTS. Every existing D2 federation result (merging_m0.py, merging_editors.py,
 d3_benefit_predictor.py, rg_admission_benefit.py) is RETROSPECTIVE: edits are measured, merged,
@@ -70,11 +71,13 @@ prereg); PID-only process control belongs to the (not-yet-written) driver, not t
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import socket
+import subprocess
 import sys
 import time
-from collections import defaultdict
 
 import numpy as np
 
@@ -224,6 +227,48 @@ def load_retention_prompts(data_path, n_pool_per_seed, seeds, n_retention=200, s
         raise RuntimeError(f"[prospadm] only {len(out)} pool-disjoint retention prompts available "
                            f"(<{n_retention}) — increase the over-fetch margin")
     return out[:n_retention]
+
+
+def _nvidia_smi_sample():
+    try:
+        out = subprocess.run(
+            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used,power.draw",
+             "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=20)
+        return out.stdout.strip().splitlines()[0].strip() if out.returncode == 0 else None
+    except Exception:
+        return None
+
+
+def _code_sha256():
+    h = hashlib.sha256()
+    for rel in ("experiments/prospective_admission.py", "experiments/merging_m0.py",
+                "experiments/egl_metrics.py"):
+        p = os.path.join(HARNESS, rel)
+        try:
+            with open(p, "rb") as f:
+                h.update(f.read())
+        except OSError:
+            h.update(b"<missing:" + rel.encode() + b">")
+    return h.hexdigest()
+
+
+def _runner_stamp(wall_start, wall_end, gpu_before, gpu_after):
+    """Compute-time provenance stamp, written by the process that actually produced the
+    numbers (the Frame-A synthetic-relabel incident is why this cannot be added downstream:
+    a stamp attached after the fact certifies nothing). Field set mirrors
+    experiments/frame_a/provenance_gate_v2.py's STAMP_REQUIRED_FIELDS so the same gate can
+    read it."""
+    return {
+        "stamp_version": "runner_stamp.v2",
+        "code_sha256": _code_sha256(),
+        "pid": os.getpid(),
+        "hostname": socket.gethostname(),
+        "wall_start": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(wall_start)),
+        "wall_end": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(wall_end)),
+        "elapsed_s": round(float(wall_end - wall_start), 3),
+        "nvidia_smi_sample": {"before": gpu_before, "after": gpu_after},
+    }
 
 
 def _solo_delta_w(K, R, denom, a, device):
@@ -430,11 +475,11 @@ def run_admission_seed(model, tok, layer, device, args, seed, retention_prompts)
 
 
 def run_admission(args):
-    """Top-level GPU entrypoint: load model once, run every seed, write the results JSON.
-    NOT wired to a driver yet (prereg is DRAFT, unratified) — invoke directly only after
-    ratification, per the prereg's Launch section."""
+    """Top-level GPU entrypoint: load model once, run every seed, write the results JSON with a
+    compute-time runner_stamp. Reached only past main()'s ratification guard."""
     import torch
     t0 = time.time()
+    gpu_before = _nvidia_smi_sample()
     model, tok, layer, _nL = _load_edit_model(args.model, args.layer, args.device)
     seeds = [int(x) for x in str(args.seeds).split(",") if x != ""]
     retention_prompts = load_retention_prompts(args.data, args.n_pool, seeds,
@@ -443,18 +488,24 @@ def run_admission(args):
 
     seed_reports = []
     for s in seeds:
-        seed_reports.append(run_admission_seed(model, tok, layer, args.device, args, s,
-                                               retention_prompts))
+        s_t0 = time.time()
+        rep = run_admission_seed(model, tok, layer, args.device, args, s, retention_prompts)
+        rep["seed_wall_start"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(s_t0))
+        rep["seed_wall_end"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        rep["seed_elapsed_s"] = round(time.time() - s_t0, 3)
+        seed_reports.append(rep)
 
     report = {
         "experiment": "prospective_admission", "schema_version": SCHEMA_VERSION,
-        "status": "PROSPECTIVE (DRAFT design — see PREREG-PROSPECTIVE-ADMISSION-DRAFT-2026-07-16.md)",
+        "status": "PROSPECTIVE_PREREGISTERED",
+        "prereg": os.path.relpath(args.prereg, os.path.dirname(HARNESS)) if args.prereg else None,
         "created": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "model": args.model, "model_tag": _model_tag(args.model), "layer": layer,
         "dataset": "counterfact", "n_pool": args.n_pool, "budget": args.budget,
         "group_size": args.group_size, "n_random_draws": args.n_random_draws,
         "n_retention": args.n_retention, "seeds": seeds, "ns_reference": args.ns_reference,
         "seed_reports": seed_reports,
+        "runner_stamp": _runner_stamp(t0, time.time(), gpu_before, _nvidia_smi_sample()),
     }
     out = args.table_out or os.path.join(args.out_dir, "prospective_admission_table.json")
     _write_table(report, out)
@@ -562,15 +613,15 @@ def selftest():
          "correctness, synthetic end-to-end aggregation, --ns_reference solo/base dispatch "
          "mechanics) — NO MODEL, NO GPU. This does NOT validate the GPU measurement path "
          "(_measure_one_group / egl_metrics integration, or --ns_reference against a real "
-         "full_target_scores call); that requires a real model and is gated behind prereg "
-         "ratification (see the DRAFT doc).",
+         "full_target_scores call); that requires a real model and is gated behind the "
+         "--prereg 'STATUS: RATIFIED' guard.",
          flush=True)
 
 
 def main():
-    ap = argparse.ArgumentParser(description="R-E prospective admission-policy evaluation "
-                                             "(DRAFT — see PREREG-PROSPECTIVE-ADMISSION-DRAFT-"
-                                             "2026-07-16.md; ratify before any GPU run).")
+    ap = argparse.ArgumentParser(description="R-E prospective admission-policy evaluation. The "
+                                             "GPU path requires --prereg pointing at a prereg "
+                                             "marked 'STATUS: RATIFIED' by the user.")
     ap.add_argument("--selftest", action="store_true",
                     help="CPU self-test: pool-screening vs brute-force + admission/partition "
                          "correctness + synthetic end-to-end aggregation. No model, no GPU.")
@@ -589,6 +640,11 @@ def main():
                          "= measure with edit a installed alone (option i, true federation-added "
                          "damage). NO DEFAULT -- must be passed explicitly; this is the "
                          "ratification choice, both options are already implemented.")
+    ap.add_argument("--prereg", default=None,
+                    help="Path to the RATIFIED prereg markdown. The GPU path refuses unless this "
+                         "file exists AND contains a line reading exactly 'STATUS: RATIFIED' "
+                         "(the user writes that line; no driver or agent may add it on the "
+                         "user's behalf).")
     ap.add_argument("--seeds", default="0,1,2")
     ap.add_argument("--steps", type=int, default=20)
     ap.add_argument("--lr", type=float, default=0.1)
@@ -602,16 +658,33 @@ def main():
         return
     if not args.ns_reference:
         raise SystemExit(
-            "[prospadm] REFUSING: --ns_reference {solo,base} was not passed. This is now the "
-            "ratification decision point (PREREG-PROSPECTIVE-ADMISSION-DRAFT-2026-07-16.md's "
-            "'NEIGHBORHOOD-DAMAGE REFERENCE' amendment): 'base' = neighbor NS measured against "
+            "[prospadm] REFUSING: --ns_reference {solo,base} was not passed. This is ratification "
+            "decision point 1 (PREREG-D2-PROSPECTIVE-2026-07-26.md, 'NEIGHBORHOOD-DAMAGE "
+            "REFERENCE'; recommended: solo): 'base' = neighbor NS measured against "
             "the unedited base model (option ii, includes solo-edit collateral); 'solo' = "
             "measured with edit a installed alone (option i, true federation-added damage). Both "
             "are implemented -- ratifying means passing one explicitly, not waiting on new code.")
-    raise SystemExit(
-        "[prospadm] REFUSING to run the GPU path: docs/plans/PREREG-PROSPECTIVE-ADMISSION-"
-        "DRAFT-2026-07-16.md is a DRAFT and has not been ratified by the user. Run --selftest "
-        "for the CPU-only correctness checks; do not remove this guard without ratification.")
+    # Ratification guard. The original revision raised unconditionally because no ratified
+    # prereg could exist yet. It now checks the real thing instead: a prereg file the USER has
+    # marked 'STATUS: RATIFIED'. Weakening this to a flag the driver can pass itself would make
+    # the guard decorative — the whole point is that the authorizing act is the user's.
+    if not args.prereg:
+        raise SystemExit(
+            "[prospadm] REFUSING to run the GPU path: --prereg <ratified-prereg.md> was not "
+            "passed. Point it at the FROZEN prereg (docs/plans/PREREG-D2-PROSPECTIVE-2026-07-26"
+            ".md); the GPU path runs only once that file contains a line reading exactly "
+            "'STATUS: RATIFIED', written by the user. Run --selftest for the CPU-only checks.")
+    if not os.path.isfile(args.prereg):
+        raise SystemExit(f"[prospadm] REFUSING: --prereg {args.prereg!r} does not exist.")
+    with open(args.prereg, encoding="utf-8") as f:
+        ratified = any(ln.strip() == "STATUS: RATIFIED" for ln in f)
+    if not ratified:
+        raise SystemExit(
+            f"[prospadm] REFUSING to run the GPU path: {args.prereg} contains no line reading "
+            "exactly 'STATUS: RATIFIED'. The prereg is still unratified. The user writes that "
+            "line after resolving the decision points; do not add it on their behalf and do not "
+            "patch around this guard.")
+    run_admission(args)
 
 
 if __name__ == "__main__":
