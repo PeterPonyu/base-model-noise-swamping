@@ -129,24 +129,13 @@ else
   # CPU synthetic selftest (fast structural check; NOT a substitute for the GPU smoke below)
   $PY -m experiments.frame_a.run_stream --selftest >> "$LOG" 2>&1 \
     || { flag "S1 post-patch selftest FAILED"; exit 6; }
-  # Same drain window: apply the AlphaEdit sham-projector patch (B6 Cell S). Separate
-  # concern from the runner stamp, but killgate is equally unsafe to edit mid-wave because
-  # frame_a lazy-imports it. Non-fatal: if it fails, the chain continues and run_b6ins.sh's
-  # Cell S guard simply skips.
-  if grep -q 'alpha_proj_source == "sham"' experiments/killgate_keygeom.py 2>/dev/null; then
-    log "S1c SKIP: killgate already has --alpha_proj_source sham"
-  elif ( cd experiments && patch --dry-run --forward --batch -p0 \
-         < patches/alpha_sham_projector_20260726.patch ) >> "$LOG" 2>&1; then
-    ( cd experiments && patch --forward --batch -p0 \
-      < patches/alpha_sham_projector_20260726.patch ) >> "$LOG" 2>&1
-    if $PY -c "import ast;ast.parse(open('experiments/killgate_keygeom.py').read())" 2>>"$LOG"; then
-      log "S1c DONE: sham-projector patch applied (Cell S armed in run_b6ins.sh)"
-    else
-      log "S1c WARN: post-patch parse FAILED — restoring is manual; Cell S will be skipped"
-    fi
-  else
-    log "S1c WARN: sham patch dry-run failed (killgate diverged) — Cell S will be skipped"
-  fi
+  # (Stage S1c REMOVED 2026-07-26: it used to apply the AlphaEdit sham-projector patch.
+  # That control was measured to be ILL-POSED — rank-matching is a no-op projection (keeps
+  # 97.8% of key energy vs the honest projector's 0.99%), while energy-matching degenerates
+  # to the honest projector itself (subspace overlap 1.000) because the key spectrum is
+  # rank-200 and top-heavy. No projector substitution can adjudicate the tautology
+  # objection. See submissions/ieee/revision/PROJECTOR-CONTROL-ILLPOSED-20260726.md.
+  # The patch file is retained but must NOT be applied.)
 
   # The patch is now live: every cell written from here on MUST carry a stamp.
   STAMP_CUTOFF_UTC=$(date -u '+%Y-%m-%dT%H:%M:%SZ')

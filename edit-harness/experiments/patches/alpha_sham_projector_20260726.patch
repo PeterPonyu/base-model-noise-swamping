@@ -1,3 +1,12 @@
+# !!!! DO NOT APPLY — THE CONTROL THIS ENABLES IS ILL-POSED (measured 2026-07-26).
+# !!!! Rank-matched random projection keeps 97.8% of key energy where the honest projector
+# !!!! keeps 0.99%, so the sham arm barely projects and cannot fail. Energy-matching instead
+# !!!! degenerates to the honest projector (subspace overlap 1.000) because the key matrix is
+# !!!! rank-200 with the top 10 directions carrying 50% of the energy. "Same energy, different
+# !!!! directions" does not exist in this geometry => no projector substitution can adjudicate
+# !!!! the algebraic-tautology objection. Retained only as a record of what was tried.
+# !!!! See submissions/ieee/revision/PROJECTOR-CONTROL-ILLPOSED-20260726.md
+#
 # APPLY AFTER THE LIVE FRAME-A GPU WAVE HAS FULLY DRAINED.
 #
 # WHY STAGED: experiments/frame_a/{real_replay,stream_builder}.py LAZY-import

@@ -121,24 +121,18 @@ for L in 8 12; do
   done
 done
 
-# ---------------------------------------------------------------- Cell S: GPU-level sham
-# Runs ONLY if the sham patch has been applied (post-drain). Until then the guard logs and
-# skips, so this driver is safe to launch at any time.
-if $PY -c "import sys; sys.path.insert(0,'experiments'); import re; \
-    src=open('experiments/killgate_keygeom.py').read(); \
-    sys.exit(0 if '\"sham\"' in src and 'alpha_proj_source == \"sham\"' in src else 1)" 2>/dev/null; then
-  for L in 8 12; do
-    for s in 0 1 2; do
-      run_row "alphaSHAM_L${L}_s${s}" 25 "results/g4_llama1b_alphaSHAM_cf_L${L}_s${s}.json" \
-        "$PY $KG --model $MODEL --editor alpha $CF $COMMON --lr 0.1 --layer $L --seed $s \
-         --alpha_proj_source sham --holdout_frac 1.0 \
-         --out results/g4_llama1b_alphaSHAM_cf_L${L}_s${s}.json" || break 2
-    done
-  done
-else
-  log "Cell S SKIPPED: --alpha_proj_source sham not present in killgate_keygeom.py"
-  log "  apply experiments/patches/alpha_sham_projector_20260726.patch after the Frame-A wave drains"
-fi
+# ---------------------------------------------------------------- Cell S: DISARMED
+# The GPU sham-projector control is ILL-POSED and will NOT be run. Measured on real edit
+# keys (L12 s0, n=200, d=8192, honest r=176): rank-matched random projection keeps 97.8%
+# of key energy (honest keeps 0.99%) so the sham arm barely projects at all and cannot
+# fail; energy-matched substitution has subspace overlap 1.000 with the honest projector
+# — it IS the honest projector, because the key spectrum is rank-200 and top-heavy.
+# "Same energy, different directions" does not exist in this geometry, so no projector
+# substitution can adjudicate the algebraic-tautology objection.
+# Record + the honest framing that replaces it, and the one control that WOULD be
+# informative (random-direction rank-one update, a G1-side test needing its own prereg):
+#   submissions/ieee/revision/PROJECTOR-CONTROL-ILLPOSED-20260726.md
+log "Cell S DISARMED: projector-substitution control is ill-posed (see revision/PROJECTOR-CONTROL-ILLPOSED-20260726.md)"
 
 # ---------------------------------------------------------------- CPU tail: REMOVED
 # The CPU sham control was rejected on 2026-07-26 (degenerate proxy — the rescale cancels
