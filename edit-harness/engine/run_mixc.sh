@@ -22,10 +22,21 @@ log "LID-OPEN REMINDER: keep lid open (nvidia_uvm wedge)."
 ENVP="env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1"
 
 log "MIX_C start (33 cells + p2 structural file)"
-$ENVP $PY -m experiments.frame_a.run_stream --run --real \
-    --mixes MIX_C --model_dir data/models/Llama-3.2-1B 2>&1 | tee -a "$LOG"
-
+# setsid: the cell runs in its OWN session/process group, so a SIGTERM aimed at
+# this wrapper (or the monitor supervising it) does NOT propagate to the cell —
+# the 07-29 4x-SIGTERM incident: python ran in a `| tee` pipeline inside the
+# wrapper's process group and died with it, losing ~29 GPU-h mid-stream.
+# Side fix: rc now comes from `wait` (real python rc), not from `tee`.
+CHILD_PIDFILE=engine/run_mixc.child.pid
+setsid $ENVP $PY -m experiments.frame_a.run_stream --run --real \
+    --mixes MIX_C --model_dir data/models/Llama-3.2-1B >> "$LOG" 2>&1 &
+CHILD=$!
+echo "$CHILD" > "$CHILD_PIDFILE"
+trap 'log "WRAPPER caught TERM/INT — setsid cell pid '"$CHILD"' stays alive; relaunch resumes landed cells"; exit 143' TERM INT
+wait "$CHILD"
 rc=$?
+trap - TERM INT
+rm -f "$CHILD_PIDFILE"
 if [ $rc -eq 0 ]; then
   # 验证细胞数量
   count=$(ls results/frame_a/cells/cell_llama-3.2-1b_real_MIX_C_*.json 2>/dev/null | wc -l)

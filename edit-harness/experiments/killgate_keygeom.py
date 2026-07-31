@@ -208,6 +208,14 @@ def main():
                          "(only used when --alpha_proj_source in {holdout,generic})")
     ap.add_argument("--ft_kl", type=float, default=0.0,
                     help="D1 control: FT-L KL-locality weight (>0 => regularized FT)")
+    ap.add_argument("--rank_one_random", action="store_true",
+                    help="A-RAND control arm (PREREG-B6-RANDOM-DIRECTION-CONTROL-2026-07-30): "
+                         "replace ROME's optimised residual direction with an isotropic random "
+                         "vector rescaled to the MATCHED A-OPT edit's ||v*-Wk*|| read from "
+                         "--rank_one_random_norms. Damage-side control only; its esr~0 is intended.")
+    ap.add_argument("--rank_one_random_norms", default=None,
+                    help="path to the matched A-OPT npz whose resid_norm array supplies the "
+                         "per-edit matched norms (required with --rank_one_random)")
     ap.add_argument("--ft_kl_n", type=int, default=5,
                     help="number of neighbor prompts used as the FT KL anchor")
     ap.add_argument("--out", default=os.path.join(HARNESS, "results", "killgate.json"))
@@ -358,6 +366,16 @@ def main():
     if args.egl and args.no_restore:
         raise SystemExit("[kg] --egl requires the restore-every-edit invariant (baselines are "
                          "base-model state); no sequential EGL")
+    if args.rank_one_random:
+        if args.editor != "rome":
+            raise SystemExit("[kg] --rank_one_random is defined for --editor rome only "
+                             "(it substitutes ROME's rank-one residual direction)")
+        if args.edit_mode == "delete":
+            raise SystemExit("[kg] --rank_one_random + --edit_mode delete is undesigned "
+                             "(A-RAND is an insertion-arm control)")
+        if not args.rank_one_random_norms or not os.path.isfile(args.rank_one_random_norms):
+            raise SystemExit("[kg] --rank_one_random requires --rank_one_random_norms <A-OPT npz> "
+                             "(matched per-edit norms are READ, never recomputed)")
     if args.egl and args.dataset == "mquake":
         # FENCED (not graceful-degrade): egl_metrics.attach_egl_fields has a CF branch (expects
         # requested_rewrite as a single dict — mquake's is a LIST) and a zsre branch (expects
@@ -480,6 +498,28 @@ def main():
         perm = np.random.default_rng(args.order_seed).permutation(len(edits))
         edits = [edits[k] for k in perm]
         orig_index = perm.astype(np.int64)
+
+    # ---- A-RAND matched norms: read resid_norm from the matched A-OPT npz. The
+    # A-RAND driver MUST pass the same --seed/--order_seed/--n_edits as that A-OPT
+    # cell so row i here is the same edit as row i there — asserted by length and
+    # finiteness; alignment itself is the driver's launch-time contract.
+    matched_rand_norms = None
+    if args.rank_one_random:
+        with np.load(args.rank_one_random_norms, allow_pickle=True) as _aopt:
+            if "resid_norm" not in _aopt.files:
+                raise SystemExit(f"[kg] {args.rank_one_random_norms} has no resid_norm array "
+                                 f"— is this an A-OPT (rome) npz?")
+            matched_rand_norms = _aopt["resid_norm"].astype(np.float64)
+        if len(matched_rand_norms) != len(edits):
+            raise SystemExit(f"[kg] A-RAND norm alignment failed: {len(matched_rand_norms)} "
+                             f"matched norms vs {len(edits)} edits — mirror the A-OPT cell's "
+                             f"--seed/--order_seed/--n_edits exactly")
+        if not np.all(np.isfinite(matched_rand_norms)) or not np.all(matched_rand_norms > 0):
+            raise SystemExit("[kg] A-RAND matched norms contain NaN/<=0 entries — "
+                             "the A-OPT cell is not quotable as a norm source")
+        print(f"[kg] A-RAND: random direction per edit, matched ||v*-Wk*|| from "
+              f"{os.path.basename(args.rank_one_random_norms)} "
+              f"(median {float(np.median(matched_rand_norms)):.3g})", flush=True)
 
     # ---- U1-E0 deletion swap — at the DATA layer, AFTER load_fn (loader internals are
     # reimplemented VERBATIM by u1_transplant.py / lexical_sbert_baseline.py; mutating them
@@ -674,6 +714,8 @@ def main():
                                  f"state corrupted, aborting")
         if args.editor == "rome":
             cfg = {"layer": layer, "steps": args.steps, "lr": args.lr}
+            if args.rank_one_random:  # A-RAND: direction-only contrast, norm-matched
+                cfg["random_residual"] = (args.seed * 100003 + i, float(matched_rand_norms[i]))
             if args.edit_mode == "delete" and args.delete_variant in ("eos", "suppress"):
                 cfg["delete_variant"] = args.delete_variant
         elif args.editor == "ft":  # ft edits the same down_proj; FT-L lr is much smaller
@@ -958,6 +1000,12 @@ def main():
             args.refusal_string if (args.edit_mode == "delete"
                                     and args.delete_variant == "refusal") else "n/a", dtype="U32")
         arrs["delta_norm_total"] = delta_norm_total.astype(np.float32)   # [N] total ΔW over layers
+        arrs["rank_one_random"] = np.array(int(args.rank_one_random), dtype=np.int8)
+        if args.rank_one_random:
+            arrs["rank_one_random_norms_sha256"] = np.array(
+                hashlib.sha256(open(args.rank_one_random_norms, "rb").read()).hexdigest(), dtype="U64")
+            arrs["rank_one_random_norms_path"] = np.array(
+                os.path.basename(args.rank_one_random_norms), dtype="U64")
         arrs["memit_layers"] = np.array(
             ",".join(map(str, memit_layers)) if args.editor == "memit" else "n/a", dtype="U32")
         arrs["memit_cov_source"] = np.array(

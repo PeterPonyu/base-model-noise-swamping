@@ -195,6 +195,18 @@ check_cli(){
   esac
 }
 
+# Regression lock for the 2026-07-30 Phi-3.5 first-token collision: every model a
+# wave touches must map distinct edit targets to distinct first CONTENT tokens.
+# Tokenizer-only, CPU, seconds per model — runs BEFORE any GPU spend.
+check_tokenizer_gate(){
+  while IFS='|' read -r repo name expected; do
+    dir="$MODEL_ROOT/$name"
+    [ -d "$dir" ] || { fail "tokenizer gate: missing model dir $dir"; continue; }
+    "$PY" "$H/experiments/selftest_target_token.py" --tokenizer "$dir" >/dev/null 2>&1 \
+      || fail "tokenizer gate FAIL: $name (first-token collision class bug — see findings-PHI35-TOKENIZER-COLLISION-2026-07-30.md)"
+  done < <(model_lines)
+}
+
 phase_check(){
   case "$WAVE" in
     deletion-wave1) driver="$H/run_deletion_wave1.sh" ;;
@@ -213,6 +225,7 @@ phase_check(){
   check_models
   check_wave_inputs
   check_cli
+  check_tokenizer_gate
   if [ "$FAILED" -eq 0 ]; then
     {
       printf 'READY wave=%s host=%s at=%s\n' "$WAVE" "$(hostname)" "$(date -u '+%FT%TZ')"

@@ -1,0 +1,58 @@
+# Pull manifest — chain_36039_20260731.sh outputs (gap-closure batch 0+1, 2026-07-31)
+# Exact paths only (box_preflight_local rejects globs). Gated cells appear only if their
+# prereg was ratified on-box at launch; rsync --files-from skips missing entries upstream.
+# --- chain receipts ---
+engine/chain_36039_20260731.log
+engine/chain_36039_20260731.report
+# --- H1: Phi refix completion (insertion s2 + deletion s0/1/2) ---
+results/gate_phi35_rome_cf_L16_s2.json
+results/matrices/gate_phi35_rome_cf_L16_s2.npz
+results/u1e0_phi35_delete_refusal_L16_s0.json
+results/u1e0_phi35_delete_refusal_L16_s1.json
+results/u1e0_phi35_delete_refusal_L16_s2.json
+results/matrices/u1e0_phi35_delete_refusal_L16_s0.npz
+results/matrices/u1e0_phi35_delete_refusal_L16_s1.npz
+results/matrices/u1e0_phi35_delete_refusal_L16_s2.npz
+# --- H6: alphaHO L10/L14 x s0/1/2 ---
+results/g4_llama1b_alphaHO_cf_L10_s0.json
+results/g4_llama1b_alphaHO_cf_L10_s1.json
+results/g4_llama1b_alphaHO_cf_L10_s2.json
+results/g4_llama1b_alphaHO_cf_L14_s0.json
+results/g4_llama1b_alphaHO_cf_L14_s1.json
+results/g4_llama1b_alphaHO_cf_L14_s2.json
+results/matrices/g4_llama1b_alphaHO_cf_L10_s0.npz
+results/matrices/g4_llama1b_alphaHO_cf_L10_s1.npz
+results/matrices/g4_llama1b_alphaHO_cf_L10_s2.npz
+results/matrices/g4_llama1b_alphaHO_cf_L14_s0.npz
+results/matrices/g4_llama1b_alphaHO_cf_L14_s1.npz
+results/matrices/g4_llama1b_alphaHO_cf_L14_s2.npz
+# --- H3: qwen15b delete refusal L21 s1/s2 ---
+results/u1e0_qwen15b_delete_refusal_L21_s1.json
+results/u1e0_qwen15b_delete_refusal_L21_s2.json
+results/matrices/u1e0_qwen15b_delete_refusal_L21_s1.npz
+results/matrices/u1e0_qwen15b_delete_refusal_L21_s2.npz
+# --- H5: A-RAND random-direction control (gated; 12 cells) ---
+results/arand_llama1b_rome_cf_L8_s0.json
+results/arand_llama1b_rome_cf_L8_s1.json
+results/arand_llama1b_rome_cf_L8_s2.json
+results/arand_llama1b_rome_cf_L10_s0.json
+results/arand_llama1b_rome_cf_L10_s1.json
+results/arand_llama1b_rome_cf_L10_s2.json
+results/arand_llama1b_rome_cf_L12_s0.json
+results/arand_llama1b_rome_cf_L12_s1.json
+results/arand_llama1b_rome_cf_L12_s2.json
+results/arand_llama1b_rome_cf_L14_s0.json
+results/arand_llama1b_rome_cf_L14_s1.json
+results/arand_llama1b_rome_cf_L14_s2.json
+results/matrices/arand_llama1b_rome_cf_L8_s0.npz
+results/matrices/arand_llama1b_rome_cf_L8_s1.npz
+results/matrices/arand_llama1b_rome_cf_L8_s2.npz
+results/matrices/arand_llama1b_rome_cf_L10_s0.npz
+results/matrices/arand_llama1b_rome_cf_L10_s1.npz
+results/matrices/arand_llama1b_rome_cf_L10_s2.npz
+results/matrices/arand_llama1b_rome_cf_L12_s0.npz
+results/matrices/arand_llama1b_rome_cf_L12_s1.npz
+results/matrices/arand_llama1b_rome_cf_L12_s2.npz
+results/matrices/arand_llama1b_rome_cf_L14_s0.npz
+results/matrices/arand_llama1b_rome_cf_L14_s1.npz
+results/matrices/arand_llama1b_rome_cf_L14_s2.npz

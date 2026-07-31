@@ -4,7 +4,7 @@
 # SHA256-stamped pull bundle. It never kills processes and never shuts down.
 set -euo pipefail
 
-H="${H:-/root/edit-harness-deploy-20260727}"
+H="${H:?H is required — pass the on-box deploy dir explicitly (e.g. H=/root/edit-harness); no default, a dated-dir default silently monitors the wrong tree}"
 PIDFILE="${PIDFILE:?PIDFILE is required}"
 MANIFEST="${MANIFEST:?MANIFEST is required}"
 TAG="${TAG:?TAG is required}"

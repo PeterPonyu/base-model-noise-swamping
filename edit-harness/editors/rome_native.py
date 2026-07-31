@@ -221,17 +221,33 @@ def apply_edit(
     # 1) key k (input to down_proj at the subject's last token)
     k = _capture_key(model, tokenizer, layer_idx, prompt, tok_index, device).float()
 
-    # 2) value v (optimise so the model predicts the new object)
-    v, v0, history = _optimise_value(
-        model, tokenizer, layer_idx, prompt, tok_index,
-        target_new, device, steps, lr, v_weight_decay,
-    )
-    v = v.float()
-
-    # 3) rank-one update:  ΔW = (v - W k) k^T / (k^T k)
+    # 2) key-side quantities the update needs regardless of how v is produced
     W = model.model.layers[layer_idx].mlp.down_proj.weight
     W_dtype = W.dtype
     Wk = (W.detach().float() @ k)                      # current output for key k
+
+    random_residual = config.get("random_residual")    # (seed, matched_norm) | None
+    if random_residual is not None:
+        # A-RAND arm (PREREG-B6-RANDOM-DIRECTION-CONTROL-2026-07-30): replace the
+        # optimised residual direction with an isotropic random vector rescaled to
+        # the MATCHED A-OPT edit's ||v* - Wk*||. Same k*, same denominator, same
+        # layer, same seed plumbing — only the direction changes. Value
+        # optimisation is skipped: its output would be discarded by construction.
+        rseed, matched_norm = int(random_residual[0]), float(random_residual[1])
+        gen = torch.Generator(device="cpu").manual_seed(rseed)
+        r = torch.randn(Wk.shape[0], generator=gen)
+        r = r / r.norm().clamp_min(1e-12) * matched_norm
+        v = (Wk + r.to(Wk.device)).detach()
+        v0, history = Wk, []
+    else:
+        # value v (optimise so the model predicts the new object)
+        v, v0, history = _optimise_value(
+            model, tokenizer, layer_idx, prompt, tok_index,
+            target_new, device, steps, lr, v_weight_decay,
+        )
+        v = v.float()
+
+    # 3) rank-one update:  ΔW = (v - W k) k^T / (k^T k)
     residual = (v - Wk)                                # what v must add (dim hidden)
     denom = float((k @ k).item()) + 1e-8
     # ---------------------------------------------------------------- #
@@ -267,6 +283,8 @@ def apply_edit(
         "value_loss_history": history,
         "final_value_loss": history[-1] if history else None,
         "covariance_used": False,
+        "random_residual": random_residual is not None,
+        "random_residual_norm": (float(random_residual[1]) if random_residual is not None else None),
         "todo": "MEMIT second-moment covariance C (see TODO block) not yet estimated.",
         # ADDITIVE (2026-07-06, true-backprop GradSim cell): the residual VECTOR itself,
         # r = v - Wk, dim = hidden_size (down_proj's OUTPUT dim) -- NOT the intermediate

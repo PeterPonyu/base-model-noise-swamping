@@ -4,6 +4,9 @@
 # through a forced PTY, decoded locally, and accepted only on exact SHA256.
 set -euo pipefail
 
+# BOX-SPECIFIC: PORT=36039 and the deploy-prefix allow-list below are pinned to the
+# 2026-07-27 SeetaCloud instance. For any other box, pass PORT= (and HOST=) explicitly
+# and extend the allow-list — do not reuse these defaults blindly.
 HOST="${HOST:-root@connect.cqa1.seetacloud.com}"
 PORT="${PORT:-36039}"
 REMOTE_PATH="${1:-}"

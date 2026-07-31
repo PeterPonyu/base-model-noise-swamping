@@ -36,6 +36,7 @@ INCLUDES=(
   --include='experiments/'            --include='experiments/**'
   --include='editors/'                --include='editors/**'
   --include='engine/'                 --include='engine/*.sh'
+  --include='engine/manifests/'       --include='engine/manifests/*.txt'   # wave cell manifests — 07-30 rc=14 lesson: drivers read these on-box
   --include='cloud/'                  --include='cloud/**'
   --include='onbox/'                  --include='onbox/**'
   --include='run_*.sh'
@@ -88,6 +89,12 @@ printf '%s\n' \
   results/matrices/gate_llama8b_rome_cf_L24_s0.npz \
   results/matrices/gate_llama8b_rome_cf_L24_s1.npz \
   results/matrices/gate_llama8b_rome_cf_L24_s2.npz > "$TWIN_LIST"
+# A-RAND norm sources (H5): the 12 A-OPT llama1b gate npz whose resid_norm arrays the
+# random-direction cells read their matched norms from (PREREG-B6-RANDOM-DIRECTION).
+for L in 8 10 12 14; do for s in 0 1 2; do
+  f="results/matrices/gate_llama1b_rome_cf_L${L}_s${s}.npz"
+  [ -f "$f" ] && printf '%s\n' "$f" >> "$TWIN_LIST"
+done; done
 rsync -az $DRY -e "ssh -p $PORT -o ServerAliveInterval=30" \
   --files-from="$TWIN_LIST" ./ "$HOST:$DEST/" \
   || { echo "matched twin sync FAILED"; rm -f "$TWIN_LIST"; exit 6; }

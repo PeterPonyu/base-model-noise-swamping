@@ -171,6 +171,65 @@ def _mean(xs: List[float]) -> float:
     return float(sum(xs) / len(xs)) if xs else 0.0
 
 
+# ---------------------------------------------------------------- Q_ext (M6 amendment)
+# PREREG-FRAME-A-AMENDMENT-M6-QMETRIC-2026-07-30 — **DRAFT, NOT yet user-ratified.**
+# CODE ARM ONLY: these functions exist so the gate can be reviewed, but NO Q_ext number
+# may be computed on real cells before ratification (the 07-26 always_grace>oracle artifact
+# showed Q hands GRACE a free w_loc=0.30 on zero-by-construction damage; Q_ext charges
+# capacity/latency/staleness). Synthetic selftest rows are fine — they compute nothing real.
+Q_EXT_LAMBDA = {"cap": 0.15, "lat": 0.10, "stale": 0.15}      # FROZEN by the M6 amendment
+Q_EXT_CAPACITY_BUDGET = 200.0                                  # one entry per stream edit
+Q_EXT_GRID = {"cap": (0.05, 0.15, 0.30),
+              "lat": (0.05, 0.10, 0.20),
+              "stale": (0.05, 0.15, 0.30)}                     # 27-setting sensitivity grid
+
+
+def quality_ext(rows: List[OutcomeRow], *, codebook_entries: float = 0.0,
+                latency_max: float = 0.0, latency_provenance: str = "measured",
+                lambdas: Optional[Dict[str, float]] = None) -> Dict[str, float]:
+    """Q_ext = Q − λ_cap·capacity_frac − λ_lat·latency_frac − λ_stale·stale_frac.
+
+    * capacity_frac = codebook_entries / 200, clipped [0,1] (0 for weight-editing policies,
+      which store nothing).
+    * latency_frac = mean per-query serve_overhead / the MIX's max observed overhead across
+      policies (caller supplies latency_max for the whole mix so policies are comparable),
+      clipped [0,1]. M2 provenance rule: synthetic latencies must arrive with an explicit
+      latency_provenance tag, never silently "measured".
+    * stale_frac = fraction of rows answered by fallback rather than the policy's own
+      mechanism — read from the existing OutcomeRow.stale field (no new measurement).
+    """
+    q = quality(rows)
+    lam = dict(Q_EXT_LAMBDA) if lambdas is None else dict(lambdas)
+    capacity_frac = min(1.0, max(0.0, codebook_entries / Q_EXT_CAPACITY_BUDGET))
+    per_query_overhead = _mean([r.serve_overhead for r in rows])
+    latency_frac = (min(1.0, max(0.0, per_query_overhead / latency_max))
+                    if latency_max > 0 else 0.0)
+    stale_frac = _mean([1.0 if r.stale else 0.0 for r in rows])
+    q_ext = (q["Q"] - lam["cap"] * capacity_frac
+             - lam["lat"] * latency_frac - lam["stale"] * stale_frac)
+    return {**q,
+            "capacity_frac": capacity_frac, "latency_frac": latency_frac,
+            "stale_frac": stale_frac, "latency_provenance": latency_provenance,
+            "lambda_cap": lam["cap"], "lambda_lat": lam["lat"], "lambda_stale": lam["stale"],
+            "Q_ext": q_ext}
+
+
+def q_ext_sensitivity_grid(rows: List[OutcomeRow], *, codebook_entries: float = 0.0,
+                           latency_max: float = 0.0,
+                           latency_provenance: str = "measured") -> List[Dict[str, float]]:
+    """The full 27-setting grid. A verdict holds only where it survives ALL settings —
+    the M6 amendment: fractions reported exactly, never rounded up to 'robust'."""
+    out = []
+    for lc in Q_EXT_GRID["cap"]:
+        for ll in Q_EXT_GRID["lat"]:
+            for ls in Q_EXT_GRID["stale"]:
+                out.append(quality_ext(rows, codebook_entries=codebook_entries,
+                                       latency_max=latency_max,
+                                       latency_provenance=latency_provenance,
+                                       lambdas={"cap": lc, "lat": ll, "stale": ls}))
+    return out
+
+
 # ---------------------------------------------------------------- selftest
 def _selftest() -> None:
     # Build two tiny synthetic streams: a good policy (routes damage away) and a bad one (edits all).
@@ -219,6 +278,32 @@ def _selftest() -> None:
                      stale=False, install_gpu_s=1.0, serve_overhead=0.5, serve_gpu_s=0.0)
     ec = error_cost_eval([row], {"C_wrong": 30.0, "C_stale": 9.0, "C_latency": 1.0, "C_compute": 1.0})
     assert abs(ec - (30 * 2.0 + 9 * 0 + 1 * 0.5 + 1 * 1.0)) < 1e-9, f"arithmetic {ec}"
+    # ---- Q_ext (M6 code arm; synthetic rows only — amendment NOT yet ratified) ----
+    # no-op check: zero fracs ⇒ Q_ext == Q exactly.
+    qx0 = quality_ext(good)
+    assert abs(qx0["Q_ext"] - qx0["Q"]) < 1e-12, "zero penalties must be a no-op"
+    # planted GRACE-like policy: zero collateral, full codebook, 60% fallback, overhead at max.
+    grace_like = mk("grace")
+    for r in grace_like:
+        r.stale = (r.t % 5 < 3)           # 60% fallback
+        r.serve_overhead = 0.6
+    qg_ext = quality_ext(grace_like, codebook_entries=200.0, latency_max=0.6)
+    expected = qg_ext["Q"] - 0.15 * 1.0 - 0.10 * 1.0 - 0.15 * 0.6
+    assert abs(qg_ext["Q_ext"] - expected) < 1e-9, f"penalty arithmetic {qg_ext['Q_ext']} vs {expected}"
+    # G-Q1-style sanity on synthetic rows: a full-capacity, high-staleness, max-latency
+    # zero-damage policy must NOT beat a perfect oracle policy under Q_ext.
+    oracle_like = mk("edit")
+    for r in oracle_like:
+        r.collateral = 0.0; r.applied = True; r.efficacy_correct = True
+        r.forgotten_at_end = False; r.stale = False; r.serve_overhead = 0.0
+    qo_ext = quality_ext(oracle_like, codebook_entries=0.0, latency_max=0.6)
+    assert qg_ext["Q_ext"] < qo_ext["Q_ext"], "charged GRACE-like must not beat oracle under Q_ext"
+    # grid: exactly 27 settings, and the verdict here survives all of them.
+    grid_g = q_ext_sensitivity_grid(grace_like, codebook_entries=200.0, latency_max=0.6)
+    grid_o = q_ext_sensitivity_grid(oracle_like, codebook_entries=0.0, latency_max=0.6)
+    assert len(grid_g) == 27 and len(grid_o) == 27
+    surv = sum(1 for a, b in zip(grid_g, grid_o) if a["Q_ext"] < b["Q_ext"])
+    assert surv == 27, f"synthetic verdict must survive 27/27, got {surv}"
     print("scorer.scoring selftest: PASS")
 
 

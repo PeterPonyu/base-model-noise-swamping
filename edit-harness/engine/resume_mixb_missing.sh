@@ -22,11 +22,19 @@ ENVP="env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1"
 
 # 只运行 ft_merge 和 random 的 seed 2
 log "Running ft_merge and random for seed 2 only"
-$ENVP $PY -m experiments.frame_a.run_stream --run --real \
+# setsid: cell in its OWN session/pgroup — wrapper SIGTERM cannot kill it
+# (07-29 4x-SIGTERM incident pattern; see run_mixc.sh). rc from `wait`, not tee.
+CHILD_PIDFILE=engine/resume_mixb_missing.child.pid
+setsid $ENVP $PY -m experiments.frame_a.run_stream --run --real \
     --mixes MIX_B --policies ft_merge,random \
-    --model_dir data/models/Llama-3.2-1B 2>&1 | tee -a "$LOG"
-
+    --model_dir data/models/Llama-3.2-1B >> "$LOG" 2>&1 &
+CHILD=$!
+echo "$CHILD" > "$CHILD_PIDFILE"
+trap 'log "WRAPPER caught TERM/INT — setsid cell pid '"$CHILD"' stays alive; relaunch resumes"; exit 143' TERM INT
+wait "$CHILD"
 rc=$?
+trap - TERM INT
+rm -f "$CHILD_PIDFILE"
 if [ $rc -eq 0 ]; then
   log "SUCCESS: MIX_B missing cells completed"
   # 验证文件存在
