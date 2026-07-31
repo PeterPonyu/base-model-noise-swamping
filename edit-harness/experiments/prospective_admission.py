@@ -480,7 +480,8 @@ def run_admission(args):
     import torch
     t0 = time.time()
     gpu_before = _nvidia_smi_sample()
-    model, tok, layer, _nL = _load_edit_model(args.model, args.layer, args.device)
+    model, tok, layer, _nL = _load_edit_model(args.model, args.layer, args.device,
+                                              model_dtype=args.model_dtype)
     seeds = [int(x) for x in str(args.seeds).split(",") if x != ""]
     retention_prompts = load_retention_prompts(args.data, args.n_pool, seeds,
                                                n_retention=args.n_retention)
@@ -501,6 +502,7 @@ def run_admission(args):
         "prereg": os.path.relpath(args.prereg, os.path.dirname(HARNESS)) if args.prereg else None,
         "created": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "model": args.model, "model_tag": _model_tag(args.model), "layer": layer,
+        "model_dtype": args.model_dtype,
         "dataset": "counterfact", "n_pool": args.n_pool, "budget": args.budget,
         "group_size": args.group_size, "n_random_draws": args.n_random_draws,
         "n_retention": args.n_retention, "seeds": seeds, "ns_reference": args.ns_reference,
@@ -649,6 +651,11 @@ def main():
     ap.add_argument("--steps", type=int, default=20)
     ap.add_argument("--lr", type=float, default=0.1)
     ap.add_argument("--device", choices=["cuda", "cpu"], default="cuda")
+    ap.add_argument("--model_dtype", choices=["fp32", "bf16"], default="fp32",
+                    help="Frozen-forward dtype, passed through to merging_m0._load_edit_model. "
+                         "fp32 (default) is byte-identical to the reference cell. bf16 is for "
+                         "the >=7B cloud confirmation arm on a 24GB card; ROME value-opt stays "
+                         "fp32 regardless (the editors' own .float() casts).")
     ap.add_argument("--out_dir", default=os.path.join(HARNESS, "results", "prospective_admission"))
     ap.add_argument("--table_out", default=None)
     args = ap.parse_args()

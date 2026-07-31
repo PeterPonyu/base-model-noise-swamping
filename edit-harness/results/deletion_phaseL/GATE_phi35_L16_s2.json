@@ -1,0 +1,143 @@
+{
+  "del_npz": "u1e0_phi35_delete_refusal_L16_s2.npz",
+  "ins_npz": "gate_phi35_rome_cf_L16_s2.npz",
+  "metric": "logit",
+  "n_perm": 1000,
+  "rng_seed": 12345,
+  "primary_arm": "known=True|edit_ok=False (DC SxC vs DC damage, edit-level perm null)",
+  "arms": {
+    "known=True|edit_ok=False": {
+      "dc_rho": 0.0333,
+      "dc_perm_p": 0.011,
+      "dc_null_mean": 0.0004,
+      "dc_null_std": 0.0117,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.1375,
+      "nondc_perm_p": 0.001,
+      "dc_ci95_editcluster": [
+        0.0058,
+        0.0627
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.0294,
+        "nan_cols": 0,
+        "n_cols": 62
+      },
+      "sxc_s_partialled": {
+        "mean": 0.0302,
+        "nan_cols": 0,
+        "n_cols": 62
+      },
+      "raw_cos": {
+        "mean": 0.0284,
+        "nan_cols": 0,
+        "n_cols": 62
+      },
+      "ng_baseline": {
+        "mean": 0.2079,
+        "nan_cols": 0,
+        "n_cols": 62
+      },
+      "s_alone": {
+        "mean": 0.2106,
+        "nan_cols": 0,
+        "n_cols": 62
+      }
+    },
+    "known=True|edit_ok=True": {
+      "dc_rho": null,
+      "dc_perm_p": null,
+      "nondc_rho": null,
+      "nondc_perm_p": null,
+      "note": "S (resid_norm) unavailable/degenerate \u2014 SxC arms skipped",
+      "raw_cos": {
+        "mean": null,
+        "nan_cols": 62,
+        "n_cols": 62
+      },
+      "ng_baseline": {
+        "mean": null,
+        "nan_cols": 62,
+        "n_cols": 62
+      },
+      "s_alone": {
+        "mean": null,
+        "nan_cols": 62,
+        "n_cols": 62
+      }
+    },
+    "known=False|edit_ok=False": {
+      "dc_rho": 0.0381,
+      "dc_perm_p": 0.001,
+      "dc_null_mean": 0.0006,
+      "dc_null_std": 0.01,
+      "dc_nan_cols": 0,
+      "nondc_rho": -0.0134,
+      "nondc_perm_p": 0.5504,
+      "dc_ci95_editcluster": [
+        0.008,
+        0.0736
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.0573,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "sxc_s_partialled": {
+        "mean": 0.0694,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "raw_cos": {
+        "mean": 0.0723,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "ng_baseline": {
+        "mean": -0.1138,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "s_alone": {
+        "mean": -0.1386,
+        "nan_cols": 0,
+        "n_cols": 500
+      }
+    },
+    "known=False|edit_ok=True": {
+      "dc_rho": null,
+      "dc_perm_p": null,
+      "nondc_rho": null,
+      "nondc_perm_p": null,
+      "note": "S (resid_norm) unavailable/degenerate \u2014 SxC arms skipped",
+      "raw_cos": {
+        "mean": null,
+        "nan_cols": 500,
+        "n_cols": 500
+      },
+      "ng_baseline": {
+        "mean": null,
+        "nan_cols": 500,
+        "n_cols": 500
+      },
+      "s_alone": {
+        "mean": null,
+        "nan_cols": 500,
+        "n_cols": 500
+      }
+    }
+  },
+  "variance_receipt": {
+    "var_del": 62.71496679427948,
+    "var_ins": 62.71496679427948,
+    "var_ratio": 1.0,
+    "n_del": 200,
+    "n_ins": 200,
+    "mean_del": 31.82432199716568,
+    "mean_ins": 31.82432199716568
+  },
+  "suppression_rate": 0.0,
+  "suppression_rate_ptrue_pre_gt_0.05": 0.0,
+  "delete_variant": "refusal",
+  "VERDICT": "KILL \u2014 dc_rho < 0.15 or perm_p >= 0.05; U1 dead at this cell (no resurrection without new prereg)"
+}

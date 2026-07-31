@@ -270,4 +270,9 @@ fi
   grep -E 'RUN |done |FAIL |SKIP|ABORT|SMOKE|ratification|prospadm post|gpu poll' "$LOG" | tail -60
 } > engine/run_d2_prospective_report.txt
 log "================ RUN_D2_PROSPECTIVE COMPLETE (${n_done} done / ${n_fail} fail / ${n_skip} skip) ================"
-echo "RUN_D2_PROSPECTIVE_DONE" >> "$LOG"
+if [ "$n_done" -eq 1 ] && [ "$n_fail" -eq 0 ] && [ "$n_skip" -eq 0 ]; then
+  echo "RUN_D2_PROSPECTIVE_DONE" >> "$LOG"
+  exit 0
+fi
+log "PARTIAL: expected exactly 1 validated cell"
+exit 11

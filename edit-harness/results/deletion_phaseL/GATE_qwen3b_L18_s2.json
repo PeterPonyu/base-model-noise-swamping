@@ -1,0 +1,175 @@
+{
+  "del_npz": "u1e0_qwen3b_delete_refusal_L18_s2.npz",
+  "ins_npz": "gate_qwen3b_rome_cf_L18_s2.npz",
+  "metric": "logit",
+  "n_perm": 1000,
+  "rng_seed": 12345,
+  "primary_arm": "known=True|edit_ok=False (DC SxC vs DC damage, edit-level perm null)",
+  "arms": {
+    "known=True|edit_ok=False": {
+      "dc_rho": -0.0358,
+      "dc_perm_p": 0.004,
+      "dc_null_mean": 0.0003,
+      "dc_null_std": 0.0122,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.015,
+      "nondc_perm_p": 0.3247,
+      "dc_ci95_editcluster": [
+        -0.0674,
+        -0.0021
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.0025,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "sxc_s_partialled": {
+        "mean": 0.0069,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "raw_cos": {
+        "mean": 0.0085,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "ng_baseline": {
+        "mean": 0.0366,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "s_alone": {
+        "mean": 0.0317,
+        "nan_cols": 0,
+        "n_cols": 152
+      }
+    },
+    "known=True|edit_ok=True": {
+      "dc_rho": -0.0346,
+      "dc_perm_p": 0.005,
+      "dc_null_mean": -0.0003,
+      "dc_null_std": 0.012,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.0153,
+      "nondc_perm_p": 0.3227,
+      "dc_ci95_editcluster": [
+        -0.0685,
+        -0.0002
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.0017,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "sxc_s_partialled": {
+        "mean": 0.0057,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "raw_cos": {
+        "mean": 0.0079,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "ng_baseline": {
+        "mean": 0.0387,
+        "nan_cols": 0,
+        "n_cols": 152
+      },
+      "s_alone": {
+        "mean": 0.035,
+        "nan_cols": 0,
+        "n_cols": 152
+      }
+    },
+    "known=False|edit_ok=False": {
+      "dc_rho": -0.004,
+      "dc_perm_p": 0.5554,
+      "dc_null_mean": 0.0001,
+      "dc_null_std": 0.0067,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.011,
+      "nondc_perm_p": 0.2797,
+      "dc_ci95_editcluster": [
+        -0.0224,
+        0.0154
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.0016,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "sxc_s_partialled": {
+        "mean": 0.0059,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "raw_cos": {
+        "mean": 0.0071,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "ng_baseline": {
+        "mean": 0.0287,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "s_alone": {
+        "mean": 0.0211,
+        "nan_cols": 0,
+        "n_cols": 500
+      }
+    },
+    "known=False|edit_ok=True": {
+      "dc_rho": -0.0046,
+      "dc_perm_p": 0.4885,
+      "dc_null_mean": -0.0004,
+      "dc_null_std": 0.0066,
+      "dc_nan_cols": 0,
+      "nondc_rho": 0.0106,
+      "nondc_perm_p": 0.2867,
+      "dc_ci95_editcluster": [
+        -0.0243,
+        0.0142
+      ],
+      "sxc_ng_partialled": {
+        "mean": 0.0004,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "sxc_s_partialled": {
+        "mean": 0.0048,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "raw_cos": {
+        "mean": 0.0063,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "ng_baseline": {
+        "mean": 0.0301,
+        "nan_cols": 0,
+        "n_cols": 500
+      },
+      "s_alone": {
+        "mean": 0.0226,
+        "nan_cols": 0,
+        "n_cols": 500
+      }
+    }
+  },
+  "variance_receipt": {
+    "var_del": 14.700511645042159,
+    "var_ins": 32.105920063042255,
+    "var_ratio": 0.4578754203641154,
+    "n_del": 200,
+    "n_ins": 200,
+    "mean_del": 34.67130925178528,
+    "mean_ins": 34.83446138381958
+  },
+  "suppression_rate": 0.98,
+  "suppression_rate_ptrue_pre_gt_0.05": 1.0,
+  "delete_variant": "refusal",
+  "VERDICT": "KILL \u2014 dc_rho < 0.15 or perm_p >= 0.05; U1 dead at this cell (no resurrection without new prereg)"
+}

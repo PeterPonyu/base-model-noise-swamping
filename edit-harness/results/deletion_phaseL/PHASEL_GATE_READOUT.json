@@ -1,0 +1,32 @@
+{
+  "status": "INCOMPLETE",
+  "missing": [
+    "/home/zeyufu/Desktop/idea-feasibility-analysis/edit-harness/results/deletion_phaseL/GATE_qwen15b_L21_s1.json",
+    "/home/zeyufu/Desktop/idea-feasibility-analysis/edit-harness/results/deletion_phaseL/GATE_qwen15b_L21_s2.json"
+  ],
+  "families": {
+    "gemma2b": {
+      "deletion_gate_decidable": true,
+      "variance": true,
+      "text_increment": false
+    },
+    "phi35": {
+      "deletion_gate_decidable": true,
+      "variance": true,
+      "text_increment": false
+    },
+    "qwen3b": {
+      "deletion_gate_decidable": true,
+      "variance": true,
+      "text_increment": true
+    },
+    "qwen15b": {
+      "deletion_gate_decidable": false,
+      "variance": false,
+      "text_increment": false
+    }
+  },
+  "G_D1_PASS": true,
+  "G_D2_PASS": true,
+  "TEXT_PASS": false
+}

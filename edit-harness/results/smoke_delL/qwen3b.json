@@ -1,0 +1,62 @@
+{
+  "model": "data/models/Qwen2.5-3B",
+  "editor": "rome",
+  "dataset": "counterfact",
+  "layer": 18,
+  "n_edits": 3,
+  "n_probes": 8,
+  "steps": 2,
+  "seed": 0,
+  "alpha_proj_source": null,
+  "provenance": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.3.0",
+    "numpy": "2.2.6",
+    "dtype": "float32",
+    "model_dtype_arg": "fp32",
+    "arch": "native",
+    "lr": 0.1,
+    "ft_lr": 0.005,
+    "steps": 2,
+    "edit_mode": "delete",
+    "delete_variant": "refusal",
+    "refusal_string": "I cannot answer"
+  },
+  "edit_success_rate": 0.667,
+  "mean_residual_norm": 8.2707,
+  "frac_probes_known(pre_p>0.05)": 0.125,
+  "ALL_PAIRS": {
+    "subset": "all",
+    "n_pairs": 24,
+    "spearman_cos_damage": 0.3157,
+    "spearman_normgrowth_damage": 0.2565,
+    "auroc_cos_broken": 0.9048,
+    "auroc_normgrowth_broken": 0.627,
+    "mean_damage_logit": 0.0149,
+    "mean_cosine": 0.129
+  },
+  "KNOWN_PROBES": {
+    "subset": "known_only",
+    "n_pairs": 3,
+    "note": "too few"
+  },
+  "runtime_s": 4.8,
+  "runner_stamp": {
+    "stamp_version": "runner_stamp.v1",
+    "code_sha256": "10a3e73b9d3ed03bdbaa4bb55ae5f67874da0223d98333ee376ce4613acce24a",
+    "pid": 65578,
+    "hostname": "zeyufu-ROG-Strix-SCAR-18-G835LX-G835LX",
+    "wall_start": "2026-07-28T12:05:30Z",
+    "wall_end": "2026-07-28T12:05:34Z",
+    "elapsed_s": 4.873,
+    "nvidia_smi_sample": "0, NVIDIA GeForce RTX 5090 Laptop GPU, 97 %, 13554 MiB"
+  },
+  "edit_mode": "delete",
+  "delete_variant": "refusal",
+  "refusal_string": "I cannot answer",
+  "suppression_rate": 0.667,
+  "mean_ptrue_pre": 0.03158,
+  "mean_ptrue_post": 0.0156,
+  "edit_argmax_ok_rate": 0.0,
+  "verdict_note": "legacy flat gate \u2014 the U1-E0 verdict comes from experiments/u1_deletion_gate.py"
+}

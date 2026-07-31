@@ -50,8 +50,11 @@ to results/quant_survival/. See the companion prereg + design docs for the froze
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import socket
+import subprocess
 import sys
 import time
 
@@ -464,6 +467,7 @@ def analyze(res):
         "arms": arms_out,
         "bin_width_mechanism_C3": c3_out,
         "generation_checks": gen_out,
+        "runner_stamp": meta.get("runner_stamp"),
     }
 
 
@@ -487,6 +491,29 @@ def print_table(table):
 
 
 # ============================================================ GPU run
+def _runner_stamp(start_time):
+    with open(__file__, "rb") as f:
+        code_sha256 = hashlib.sha256(f.read()).hexdigest()
+    try:
+        gpu = subprocess.run(
+            ["nvidia-smi", "--query-gpu=index,name,utilization.gpu,memory.used", "--format=csv,noheader"],
+            check=False, capture_output=True, text=True, timeout=10,
+        ).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        gpu = "unavailable"
+    end_time = time.time()
+    return {
+        "stamp_version": "runner_stamp.v1",
+        "code_sha256": code_sha256,
+        "pid": os.getpid(),
+        "hostname": socket.gethostname(),
+        "wall_start": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(start_time)),
+        "wall_end": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(end_time)),
+        "elapsed_s": round(end_time - start_time, 3),
+        "nvidia_smi_sample": gpu,
+    }
+
+
 def _editor_apply(editor):
     if editor == "rome":
         from editors.rome_native import apply_edit
@@ -785,7 +812,8 @@ def run(args):
         meta=dict(model=args.model, layer=layer, editor=args.editor, n_edits=N, seed=args.seed,
                   schemes=schemes, codec=codec, fullmodel_cache=("on" if use_cache else "off"),
                   edited_layers=edited_layers, n_perm=args.n_perm, n_boot=args.n_boot,
-                  torch=torch.__version__, transformers=_tf.__version__),
+                  torch=torch.__version__, transformers=_tf.__version__,
+                  runner_stamp=_runner_stamp(t0)),
     )
     _save_raw(res, args.out_dir)
     table = analyze(res)
@@ -808,6 +836,9 @@ def _save_raw(res, out_dir):
         arrs[f"c3_ratio__{s}"] = np.asarray(cc["ratio_pooled"], np.float32)
         arrs[f"c3_rfunc__{s}"] = np.asarray(cc["r_func"], np.float32)
         arrs[f"c3_rparam__{s}"] = np.asarray(cc["r_param"], np.float32)
+    stamp = res.get("meta", {}).get("runner_stamp")
+    if stamp:
+        arrs["runner_stamp_json"] = np.array(json.dumps(stamp, sort_keys=True), dtype="U2048")
     tmp = os.path.join(out_dir, "QS_phase1_raw.npz.tmp.npz")
     np.savez_compressed(tmp, **arrs)
     os.replace(tmp, os.path.join(out_dir, "QS_phase1_raw.npz"))
