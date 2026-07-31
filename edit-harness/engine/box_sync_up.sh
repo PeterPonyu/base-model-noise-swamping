@@ -19,6 +19,7 @@ HOST="${1:-}"
 GO="${2:-}"
 PORT="${PORT:-22}"
 DEST="${DEST:-/root/edit-harness}"
+WORKSPACE_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 
 if [ -z "$HOST" ]; then
   echo "usage: $0 <host> [--go]   (dry-run unless --go)"; exit 2
@@ -38,6 +39,7 @@ INCLUDES=(
   --include='cloud/'                  --include='cloud/**'
   --include='onbox/'                  --include='onbox/**'
   --include='run_*.sh'
+  --include='requirements-box-waves.txt'
   --include='*.py'
 )
 # Hard exclusions applied BEFORE the includes can match anything heavy.
@@ -73,6 +75,48 @@ if [ -n "$TABLES" ]; then
 else
   echo "    (none found)"
 fi
+
+# ---------------------------------------------------------------- named gate inputs
+# Deletion Wave 1 reuses these existing insertion twins instead of buying duplicate cells.
+# They are small, explicit exceptions to the raw-results exclusion; all other results stay home.
+echo "--- phase 2b: matched deletion gate inputs"
+TWIN_LIST=$(mktemp)
+printf '%s\n' \
+  results/matrices/gate_mistral7b_rome_cf_L24_s0.npz \
+  results/matrices/gate_mistral7b_rome_cf_L24_s1.npz \
+  results/matrices/gate_mistral7b_rome_cf_L24_s2.npz \
+  results/matrices/gate_llama8b_rome_cf_L24_s0.npz \
+  results/matrices/gate_llama8b_rome_cf_L24_s1.npz \
+  results/matrices/gate_llama8b_rome_cf_L24_s2.npz > "$TWIN_LIST"
+rsync -az $DRY -e "ssh -p $PORT -o ServerAliveInterval=30" \
+  --files-from="$TWIN_LIST" ./ "$HOST:$DEST/" \
+  || { echo "matched twin sync FAILED"; rm -f "$TWIN_LIST"; exit 6; }
+rm -f "$TWIN_LIST"
+
+# ---------------------------------------------------------------- required small inputs + gate receipts
+# CounterFact is 44MB and every prepared wave reads it. Receipts are absent until their
+# local prerequisite passes; sync only those that exist, never fabricate one.
+echo "--- phase 2c: dataset + available gate receipts"
+INPUT_LIST=$(mktemp)
+printf '%s\n' data/counterfact.json > "$INPUT_LIST"
+for receipt in \
+  engine/DELETION_PHASEL_GD1_PASS.ok \
+  engine/DELETION_PHASEL_GD2_PASS.ok \
+  engine/DELETION_PHASEL_TEXT_PASS.ok \
+  engine/DELETION_WAVE1_GD3_PASS.ok \
+  engine/PAPERB_CURVE_GS3_PASS.ok; do
+  [ -f "$receipt" ] && printf '%s\n' "$receipt" >> "$INPUT_LIST"
+done
+rsync -az $DRY -e "ssh -p $PORT -o ServerAliveInterval=30" \
+  --files-from="$INPUT_LIST" ./ "$HOST:$DEST/" \
+  || { echo "dataset/receipt sync FAILED"; rm -f "$INPUT_LIST"; exit 7; }
+rm -f "$INPUT_LIST"
+
+# ---------------------------------------------------------------- binding preregistrations
+rsync -az $DRY -e "ssh -p $PORT -o ServerAliveInterval=30" \
+  --include='/docs/' --include='/docs/plans/' --include='/docs/plans/PREREG-*.md' \
+  --exclude='*' "$WORKSPACE_ROOT/" "$HOST:$DEST/" \
+  || { echo "prereg sync FAILED"; exit 5; }
 
 echo
 if [ -n "$DRY" ]; then

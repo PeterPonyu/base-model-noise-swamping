@@ -29,7 +29,11 @@ say "=========== BOX BOOTSTRAP $(date '+%F %T') ==========="
 # ---------------------------------------------------------------- 1. GPU
 # nvidia-smi IGNORES CUDA_VISIBLE_DEVICES — always query by -i index (burned lesson).
 if ! command -v nvidia-smi >/dev/null 2>&1; then
-  bad "nvidia-smi not found — is this a no-card (无卡) boot? Downloads are fine here, compute is NOT."
+  if [ "${ALLOW_NO_GPU:-0}" = "1" ]; then
+    warn "nvidia-smi not found — accepted because ALLOW_NO_GPU=1 (downloads/deps only)."
+  else
+    bad "nvidia-smi not found — set ALLOW_NO_GPU=1 only for no-card download preparation."
+  fi
 else
   ncards=$(nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/null | wc -l)
   if [ "$ncards" -eq 0 ]; then
