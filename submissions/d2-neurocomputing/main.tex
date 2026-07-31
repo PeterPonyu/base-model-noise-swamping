@@ -423,8 +423,8 @@ Mistral-Nemo-12B L30 & Mixed & $\{20\}$ & 20 & $+0.37$ {\scriptsize[.26,\,.46]} 
 gemma-2b L13 (50\%) & Inconclusive & coherence & --- & $+0.08$ {\scriptsize[$-$.00,\,.14]} @2 \\
 gemma-2b L19 & Inconclusive & coherence & --- & $+0.13$ {\scriptsize[.01,\,.24]} @2 \\
 gemma-2-9b L31   & Inconclusive & coherence & --- & $+0.25$ {\scriptsize[.18,\,.30]} @2 \\
-Phi-3.5 L16 (50\%) & Mixed & none & --- & $+0.20$ {\scriptsize[.10,\,.35]} @20 \\
-Phi-3.5 L24 & Mixed & $\{20\}$ & 20 & $+0.39$ {\scriptsize[.34,\,.47]} @20 \\
+Phi-3.5 L16 (50\%) & Mixed & none & --- & $+0.23$ {\scriptsize[.17,\,.28]} @10 \\
+Phi-3.5 L24 & PASS & $\{10,20\}$ & 20 & $+0.67$ {\scriptsize[.63,\,.72]} @20 \\
 Qwen2.5-1.5B L14 (50\%) & Mixed & $\{10\}$ & 10 & $+0.34$ {\scriptsize[.33,\,.35]} @10 \\
 Qwen2.5-1.5B L21 & PASS & $\{10,20\}$ & 20 & $+0.35$ {\scriptsize[.24,\,.42]} @20 \\
 Qwen2.5-1.5B L24 (86\%) & Inconclusive & --- & --- & $+0.10$ {\scriptsize[.00,\,.20]} @20 \\
@@ -714,7 +714,7 @@ Qwen-1.5B L14 (50\%)& 28.1 & 0.242 & $+0.66$ & $+0.20$ & 0.99 \\
 Llama-1B L12        & 27.2 & 0.025 & $+0.78$ & $+0.42$ & 0.99 \\
 Llama-8B L24        & 22.2 & 0.127 & $+0.82$ & $+0.37$ & 1.00 \\
 gemma-2b L13 (50\%) & 20.0 & 0.287 & $+0.25$ & $+0.04$$^{\circ}$ & 0.92 \\
-Phi-3.5 L16 (50\%)  & 16.9 & 0.251 & $+0.36$ & $+0.13$ & 0.99 \\
+Phi-3.5 L16 (50\%)  & 15.6 & 0.252 & $+0.48$ & $+0.14$ & 0.99 \\
 gemma-2-9b L31      & 12.5 & 0.119 & $+0.53$ & $+0.19$ & 0.95 \\
 gemma-2b L19        & 12.5 & 0.115 & $+0.57$ & $+0.08$$^{\circ}$ & 0.98 \\
 Mistral-Nemo-12B L30 & 10.7 & 0.423 & $+0.41$ & $-0.05$$^{\circ}$ & 0.98 \\
@@ -723,12 +723,12 @@ Mistral-Nemo-12B L30 & 10.7 & 0.423 & $+0.41$ & $-0.05$$^{\circ}$ & 0.98 \\
 Figures~\ref{fig:gain}--\ref{fig:profiles}):}}\\
 Llama-2-13B L30$^{\dagger}$ & \gainThirteenB{} & \fracThirteenB{} & $\rhoDoseThirteenB{}$ & $\rhoGtwoThirteenB{}$ & \esrThirteenB{} \\
 \midrule
+Phi-3.5 L24         & 3.9  & 0.460 & $+0.49$ & $-0.43$ & 0.50 \\
 Qwen-3B L27         & 3.6  & 0.430 & $+0.50$ & $-0.13$ & 0.83 \\
 Qwen-7B L21         & 3.5  & 0.349 & $+0.40$ & $-0.06$$^{\circ}$ & 0.80 \\
 GPT-2-XL L24 (50\%) & 3.4  & 0.711 & $-0.10$ & $-0.35$ & 0.50 \\
 Qwen-1.5B L21       & 3.3  & 0.420 & $+0.38$ & $-0.26$ & 0.45 \\
 \textbf{Qwen-14B L36} & \textbf{3.1} & \textbf{0.836} & \textbf{$-0.34$} & $-0.57$ & 0.37 \\
-Phi-3.5 L24         & 1.9  & 0.556 & $+0.12$ & $-0.26$ & 0.46 \\
 Qwen-1.5B L24       & 1.1  & 0.471 & $+0.23$ & $-0.21$ & 0.05 \\
 \textbf{GPT-2-XL L36} & \textbf{0.84} & \textbf{0.725} & \textbf{$-0.45$} & $-0.39$ & 0.02 \\
 GPT-NeoX-20B L33    & 0.10 & 0.634 & $-0.12$ & $+0.03$$^{\circ}$ & 0.01 \\
@@ -749,7 +749,7 @@ the low-gain regime.
 
 \textbf{Depth gates the regime at fixed scale.} In Phi-3.5, gain falls
 \phiGainShallow{}$\to$\phiGainDeep{} and the $g{=}2$ effect of aligned cross-talk turns from
-$+0.14$ to $-0.35$ between 50\% and 75\% relative depth. In Qwen-3B, gain falls
+$+0.14$ to $-0.43$ between 50\% and 75\% relative depth. In Qwen-3B, gain falls
 \qwenThreeBGainShallow{}$\to$\qwenThreeBGainDeep{} and the same quantity turns $+0.13$ to
 $-0.12$. Same model, same scale: the regime is a property of the layer.
 
@@ -990,7 +990,8 @@ all information, magnitude-only ordering keeps the update-size scaffold but disc
 key geometry, and the full rule adds the geometric term --- so the gap between the
 magnitude-only and geometry-ordered columns isolates exactly what the key-geometry
 screen contributes: $+0.27$ logits per admitted edit at the 25\% budget
-($0.716-0.443$) and $+0.25$ at 50\% ($0.534-0.289$) --- the honest measure of what
+(\benefitHighQtwofive{}$-$\benefitMagQtwofive{}) and $+0.24$ at 50\%
+(\benefitHighQfifty{}$-$\benefitMagQfifty{}) --- the honest measure of what
 the geometric term adds over the update-size scaffold, alongside the headline
 vs-random numbers.
 
