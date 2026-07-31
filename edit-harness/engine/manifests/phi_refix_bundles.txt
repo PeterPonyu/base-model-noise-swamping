@@ -1,0 +1,15 @@
+# Phi-3.5 refix (2026-07-30) — the two rebuilt RG bundles, needed to recompute the gain-law
+# values behind \phiGainShallow / \phiGainDeep. rg_gain_law.py is CPU-only and reads these dirs.
+# SRC=/root/edit-harness-deploy-20260727
+results/merging/Phi-3.5-mini_L16_RG/RG_operating_curve_table.json
+results/merging/Phi-3.5-mini_L16_RG/rg_measurements.npz
+results/merging/Phi-3.5-mini_L16_RG/rg_meta.json
+results/merging/Phi-3.5-mini_L16_RG/rg_seed0_vectors.npz
+results/merging/Phi-3.5-mini_L16_RG/rg_seed1_vectors.npz
+results/merging/Phi-3.5-mini_L16_RG/rg_seed2_vectors.npz
+results/merging/Phi-3.5-mini_L24_RG/RG_operating_curve_table.json
+results/merging/Phi-3.5-mini_L24_RG/rg_measurements.npz
+results/merging/Phi-3.5-mini_L24_RG/rg_meta.json
+results/merging/Phi-3.5-mini_L24_RG/rg_seed0_vectors.npz
+results/merging/Phi-3.5-mini_L24_RG/rg_seed1_vectors.npz
+results/merging/Phi-3.5-mini_L24_RG/rg_seed2_vectors.npz

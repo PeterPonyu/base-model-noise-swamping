@@ -18,8 +18,11 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import socket
+import subprocess
 import sys
 import time
 
@@ -28,11 +31,36 @@ import torch
 
 HARNESS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, HARNESS)
-from metrics import next_token_logits, first_target_token_id, efficacy  # noqa: E402
+from metrics import (  # noqa: E402
+    next_token_logits, first_target_token_id, efficacy, assert_targets_distinguishable,
+)
 from editors.rome_native import (  # noqa: E402
     _capture_key, find_subject_last_token_index,
 )
 from editors.arch_compat import normalize_arch  # noqa: E402  (GPT-2 load-time normalization)
+
+
+def _runner_stamp(start_time):
+    with open(__file__, "rb") as f:
+        code_sha256 = hashlib.sha256(f.read()).hexdigest()
+    try:
+        gpu = subprocess.run(
+            ["nvidia-smi", "--query-gpu=index,name,utilization.gpu,memory.used", "--format=csv,noheader"],
+            check=False, capture_output=True, text=True, timeout=10,
+        ).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        gpu = "unavailable"
+    end_time = time.time()
+    return {
+        "stamp_version": "runner_stamp.v1",
+        "code_sha256": code_sha256,
+        "pid": os.getpid(),
+        "hostname": socket.gethostname(),
+        "wall_start": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(start_time)),
+        "wall_end": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(end_time)),
+        "elapsed_s": round(end_time - start_time, 3),
+        "nvidia_smi_sample": gpu,
+    }
 
 
 def spearman(a, b):
@@ -463,6 +491,27 @@ def main():
             e["target_new"] = args.refusal_string
     # eos/suppress: target_new left intact; the deletion objective lives in editors/rome_deletion.py
 
+    # ---- TOKENIZER DISTINGUISHABILITY GATE (added 2026-07-30) ----
+    # Fails BEFORE any GPU work when the tokenizer cannot tell two distinct targets
+    # apart by their first content token. Phi-3.5's SentencePiece collapsed every
+    # target onto the whitespace-marker id 29871, which made ROME optimise toward
+    # whitespace and the scorer read that same token back as "success" — 7 cells were
+    # silently meaningless before this gate existed. One cheap CPU check per run.
+    # See docs/findings/findings-PHI35-TOKENIZER-COLLISION-2026-07-30.md
+    _gate_targets = [e.get("target_new") for e in edits] + [e.get("target_true") for e in edits] \
+        + [p.get("target_true") for p in probes]
+    tok_gate = assert_targets_distinguishable(tok, [t for t in _gate_targets if t])
+    print(f"[kg] tokenizer distinguishability gate PASS: "
+          f"{tok_gate['n_first_tokens']}/{tok_gate['n_targets']} distinct first tokens "
+          f"(ratio {tok_gate['ratio']:.3f}, {tok_gate['n_collisions']} colliding pairs)",
+          flush=True)
+    if tok_gate["n_collisions"]:
+        # Benign prefix sharing: NOT a defect, but a scoring caveat the paper must
+        # disclose for this model. Logged per-run so it cannot go unnoticed again.
+        _ex = "; ".join(f"{a!r}/{b!r}" for a, b, _ in tok_gate["collisions"][:5])
+        print(f"[kg] WARN first-token prefix sharing on {tok_gate['n_collisions']} pair(s): "
+              f"{_ex} — argmax efficacy cannot separate these", flush=True)
+
     # ---- canonical E/G/L: attach paraphrase/neighborhood fields by content match-back ----
     egl_records = []
     egl_funcs = None
@@ -826,6 +875,7 @@ def main():
         "ALL_PAIRS": all_pairs_rep,
         "KNOWN_PROBES": known_rep,
         "runtime_s": round(time.time() - t0, 1),
+        "runner_stamp": _runner_stamp(t0),
     }
     if args.editor == "memit":
         res["memit_layers"] = memit_layers
@@ -914,6 +964,8 @@ def main():
             args.memit_cov_source if args.editor == "memit" else "n/a", dtype="U16")
         arrs["grace_eps_cos"] = np.array(
             args.grace_eps_cos if args.editor == "grace" else -1.0, dtype=np.float32)
+        arrs["runner_stamp_json"] = np.array(
+            json.dumps(res["runner_stamp"], sort_keys=True), dtype="U2048")
         if args.edit_mode == "delete":
             arrs["edit_ptrue_pre"] = edit_ptrue_pre.astype(np.float32)     # [N]
             arrs["edit_ptrue_post"] = edit_ptrue_post.astype(np.float32)   # [N]

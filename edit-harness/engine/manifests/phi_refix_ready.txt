@@ -1,0 +1,6 @@
+# Phi-3.5 refix (2026-07-30) — artifacts confirmed present on box 36039 by dry-run probe.
+# Subset of phi_refix.txt; the remainder is still being produced by run_phi_b6_refix.sh.
+results/merging/RG_operating_curve_table_phi35_L16_REFIX20260730.json
+results/merging/RG_operating_curve_table_phi35_L24_REFIX20260730.json
+results/gate_phi35_rome_cf_L16_s0.json
+results/gate_phi35_rome_cf_L16_s1.json

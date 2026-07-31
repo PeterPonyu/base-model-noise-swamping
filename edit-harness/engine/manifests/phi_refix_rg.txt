@@ -1,0 +1,8 @@
+# Phi-3.5 refix (2026-07-30) — the two completed merging RG tables + their driver log.
+# SRC must be /root/edit-harness-deploy-20260727 (NOT /root/edit-harness, which is a stale
+# 2026-07-14 tree without the tokenizer fix).
+results/merging/RG_operating_curve_table_phi35_L16_REFIX20260730.json
+results/merging/RG_operating_curve_table_phi35_L24_REFIX20260730.json
+engine/run_phi_rg_refix.log
+engine/run_phi_rg_refix.sh
+engine/run_phi_b6_refix.sh

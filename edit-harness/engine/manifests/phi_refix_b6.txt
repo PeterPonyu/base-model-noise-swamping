@@ -1,0 +1,10 @@
+# Phi-3.5 B6 arm refix (2026-07-30) — insertion-gate cells + npz, all 3 seeds.
+# Needed to recompute submissions/ieee/macros.tex \phiSigned (:177) and \magPhi/\magPhiSD (:197-198)
+# via: python experiments/magnitude_table.py --family phi35_L16=... --known --edit_ok
+# SRC=/root/edit-harness-deploy-20260727
+results/gate_phi35_rome_cf_L16_s0.json
+results/gate_phi35_rome_cf_L16_s1.json
+results/gate_phi35_rome_cf_L16_s2.json
+results/matrices/gate_phi35_rome_cf_L16_s0.npz
+results/matrices/gate_phi35_rome_cf_L16_s1.npz
+results/matrices/gate_phi35_rome_cf_L16_s2.npz

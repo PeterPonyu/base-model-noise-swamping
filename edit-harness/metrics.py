@@ -45,9 +45,101 @@ def target_token_ids(tokenizer, target: str) -> List[int]:
     return ids
 
 
+def _is_whitespace_token(tokenizer, tok_id: int) -> bool:
+    """True when ``tok_id`` decodes to nothing but whitespace (or to nothing).
+
+    SentencePiece tokenizers (Phi-3.5, Llama-2, Mistral) emit a standalone
+    whitespace-marker token (e.g. id 29871 = ``U+2581``) as the FIRST id of any
+    string encoded with a leading space. Such a token carries no target identity.
+    """
+    piece = tokenizer.decode([tok_id])
+    return piece.strip() == ""
+
+
 def first_target_token_id(tokenizer, target: str) -> int:
-    """First continuation token id of ``target`` (used for argmax success)."""
-    return target_token_ids(tokenizer, target)[0]
+    """First *content* continuation token id of ``target`` (used for argmax success).
+
+    DEFECT FIXED 2026-07-30 (see docs/findings/findings-PHI35-TOKENIZER-COLLISION-2026-07-30.md):
+    this returned ``ids[0]`` verbatim, which on SentencePiece tokenizers is the
+    leading whitespace marker for EVERY target. On Phi-3.5, ``" Paris"``,
+    ``" Michael"`` and ``"I cannot answer"`` all encoded to a first id of 29871,
+    so every target collapsed to the same token: ROME optimised toward emitting
+    whitespace and the scorer then read that same token back as "success".
+    Leading whitespace-only tokens are now skipped so the id identifies the target.
+    """
+    ids = target_token_ids(tokenizer, target)
+    for tok_id in ids:
+        if not _is_whitespace_token(tokenizer, tok_id):
+            return tok_id
+    # Degenerate target (whitespace only): no content token exists to score.
+    raise ValueError(
+        f"target {target!r} tokenises to whitespace-only ids {ids}; it cannot "
+        "identify an argmax target"
+    )
+
+
+def target_distinguishability(tokenizer, targets: Sequence[str]) -> Dict[str, object]:
+    """Measure how well first-content-token argmax separates ``targets``.
+
+    Returns ``n_targets``, ``n_first_tokens``, ``ratio`` (= n_first_tokens /
+    n_targets) and up to 10 example ``collisions``.
+
+    Two REGIMES matter and must not be conflated:
+
+    * **Catastrophic** (ratio near 0) — the tokenizer collapses essentially every
+      target onto one id. This is the Phi-3.5 whitespace defect: 319 distinct
+      CounterFact targets → 1 id (ratio 0.003). Every per-edit efficacy and
+      deletion-suppression number in such a cell is meaningless.
+    * **Benign prefix sharing** (ratio high but < 1) — occasional pairs share a
+      first subword: on fixed Phi-3.5, ``'NBC'``/``'Nissan'`` both start at ``'N'``
+      (47 colliding pairs, ratio ~0.85). This is an inherent limitation of
+      first-token argmax scoring, not a defect; it is a caveat to DISCLOSE, and
+      it is invisible on vocabularies that happen not to collide (Llama, Qwen,
+      gemma all score 1.000 on the same 319 targets).
+    """
+    seen: Dict[int, str] = {}
+    collisions: List[tuple] = []
+    uniq = {str(t).strip() for t in targets if t is not None and str(t).strip()}
+    for target in sorted(uniq):
+        tok_id = first_target_token_id(tokenizer, target)
+        prior = seen.get(tok_id)
+        if prior is not None and prior != target:
+            collisions.append((prior, target, tok_id))
+        seen[tok_id] = target
+    n_t = len(uniq)
+    return {
+        "n_targets": n_t,
+        "n_first_tokens": len(seen),
+        "ratio": (len(seen) / n_t) if n_t else 1.0,
+        "collisions": collisions[:10],
+        "n_collisions": len(collisions),
+    }
+
+
+def assert_targets_distinguishable(
+    tokenizer, targets: Sequence[str], min_ratio: float = 0.5
+) -> Dict[str, object]:
+    """Abort when first-token argmax cannot separate targets at all.
+
+    Guards the Phi-3.5 class of defect (see
+    docs/findings/findings-PHI35-TOKENIZER-COLLISION-2026-07-30.md) BEFORE any GPU
+    work: had this existed, cell 1 of the phi35 deletion run would have failed
+    instead of producing three silently-void cells.
+
+    Fails only in the catastrophic regime (``ratio < min_ratio``); benign prefix
+    sharing is returned in the report for the caller to log and the paper to
+    disclose, never used to block a legitimate model.
+    """
+    report = target_distinguishability(tokenizer, targets)
+    if report["ratio"] < min_ratio:
+        ex = "; ".join(f"{a!r}/{b!r}->{i}" for a, b, i in report["collisions"][:3])
+        raise ValueError(
+            f"tokenizer collapses targets onto too few first tokens: "
+            f"{report['n_first_tokens']}/{report['n_targets']} distinct ids "
+            f"(ratio {report['ratio']:.3f} < {min_ratio}); examples: {ex}. "
+            "Per-edit efficacy would be unmeasurable on this model."
+        )
+    return report
 
 
 # --------------------------------------------------------------------------- #

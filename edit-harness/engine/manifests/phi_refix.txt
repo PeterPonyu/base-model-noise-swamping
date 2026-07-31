@@ -1,0 +1,23 @@
+# Phi-3.5 refix (2026-07-30) exact pull list — no globs
+# Merging RG rerun (D2 depth claim)
+results/merging/RG_operating_curve_table_phi35_L16_REFIX20260730.json
+results/merging/RG_operating_curve_table_phi35_L24_REFIX20260730.json
+# B6 insertion gate cells
+results/gate_phi35_rome_cf_L16_s0.json
+results/gate_phi35_rome_cf_L16_s1.json
+results/gate_phi35_rome_cf_L16_s2.json
+results/matrices/gate_phi35_rome_cf_L16_s0.npz
+results/matrices/gate_phi35_rome_cf_L16_s1.npz
+results/matrices/gate_phi35_rome_cf_L16_s2.npz
+# deletion cells (phase-L twin for the gate + text baseline)
+results/u1e0_phi35_delete_refusal_L16_s0.json
+results/u1e0_phi35_delete_refusal_L16_s1.json
+results/u1e0_phi35_delete_refusal_L16_s2.json
+results/matrices/u1e0_phi35_delete_refusal_L16_s0.npz
+results/matrices/u1e0_phi35_delete_refusal_L16_s1.npz
+results/matrices/u1e0_phi35_delete_refusal_L16_s2.npz
+# driver logs + reports (provenance)
+engine/run_phi_rg_refix.log
+engine/run_phi_rg_refix.nohup.log
+engine/run_phi_b6_refix.log
+engine/run_phi_b6_refix.nohup.log

@@ -82,3 +82,10 @@ branches/**/*_out/
 *.pt
 *.gguf
 branches/**/samples/*.json
+
+# ---------------- session/agent runtime state (2026-07-30)
+.omx/
+.claude/
+
+# ---------------- invalid-data quarantine (duplicated evidence; findings doc is canonical)
+edit-harness/results/_invalid_*/

@@ -1,0 +1,30 @@
+# Deletion Wave 1 card0 exact pull list
+results/smoke_deletion_wave1/mistral7b.json
+results/smoke_deletion_wave1/qwen7b.json
+results/u1e0_mistral7b_delete_refusal_L24_s0.json
+results/u1e0_mistral7b_delete_refusal_L24_s1.json
+results/u1e0_mistral7b_delete_refusal_L24_s2.json
+results/matrices/u1e0_mistral7b_delete_refusal_L24_s0.npz
+results/matrices/u1e0_mistral7b_delete_refusal_L24_s1.npz
+results/matrices/u1e0_mistral7b_delete_refusal_L24_s2.npz
+results/gate_qwen7b_rome_cf_L21_s0.json
+results/gate_qwen7b_rome_cf_L21_s1.json
+results/gate_qwen7b_rome_cf_L21_s2.json
+results/matrices/gate_qwen7b_rome_cf_L21_s0.npz
+results/matrices/gate_qwen7b_rome_cf_L21_s1.npz
+results/matrices/gate_qwen7b_rome_cf_L21_s2.npz
+results/u1e0_qwen7b_delete_refusal_L21_s0.json
+results/u1e0_qwen7b_delete_refusal_L21_s1.json
+results/u1e0_qwen7b_delete_refusal_L21_s2.json
+results/matrices/u1e0_qwen7b_delete_refusal_L21_s0.npz
+results/matrices/u1e0_qwen7b_delete_refusal_L21_s1.npz
+results/matrices/u1e0_qwen7b_delete_refusal_L21_s2.npz
+engine/run_deletion_wave1_card0.log
+engine/run_deletion_wave1_card0.report
+engine/smoke_mistral7b.log
+engine/smoke_qwen7b.log
+
+# Required home-side twin inputs for the gate are already present locally:
+# results/matrices/gate_mistral7b_rome_cf_L24_s{0,1,2}.npz
+# results/matrices/gate_qwen7b_rome_cf_L21_s{0,1,2}.npz (pulled above)
+# No glob is used by box_pull_down.sh.

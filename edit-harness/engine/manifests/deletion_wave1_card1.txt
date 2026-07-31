@@ -1,0 +1,17 @@
+# Deletion Wave 1 card1 exact pull list
+results/smoke_deletion_wave1/llama8b.json
+results/u1e0_llama8b_delete_refusal_L24_s0.json
+results/u1e0_llama8b_delete_refusal_L24_s1.json
+results/u1e0_llama8b_delete_refusal_L24_s2.json
+results/matrices/u1e0_llama8b_delete_refusal_L24_s0.npz
+results/matrices/u1e0_llama8b_delete_refusal_L24_s1.npz
+results/matrices/u1e0_llama8b_delete_refusal_L24_s2.npz
+results/u1e0_llama8b_alphaHO_delete_refusal_L24_s0.json
+results/u1e0_llama8b_alphaHO_delete_refusal_L24_s1.json
+results/u1e0_llama8b_alphaHO_delete_refusal_L24_s2.json
+results/matrices/u1e0_llama8b_alphaHO_delete_refusal_L24_s0.npz
+results/matrices/u1e0_llama8b_alphaHO_delete_refusal_L24_s1.npz
+results/matrices/u1e0_llama8b_alphaHO_delete_refusal_L24_s2.npz
+engine/run_deletion_wave1_card1.log
+engine/run_deletion_wave1_card1.report
+engine/smoke_llama8b.log

@@ -1,0 +1,12 @@
+# Paper B B4 exact pull list
+results/quant_survival_curve_cloud/llama8b_rome_L24_s0/QS_phase1_table.json
+results/quant_survival_curve_cloud/llama8b_rome_L24_s0/QS_phase1_raw.npz
+results/quant_survival_curve_cloud/llama8b_rome_L24_s1/QS_phase1_table.json
+results/quant_survival_curve_cloud/llama8b_rome_L24_s1/QS_phase1_raw.npz
+results/quant_survival_curve_cloud/llama8b_rome_L24_s2/QS_phase1_table.json
+results/quant_survival_curve_cloud/llama8b_rome_L24_s2/QS_phase1_raw.npz
+results/smoke_paperb_curve_cloud/llama8b/QS_phase1_table.json
+results/smoke_paperb_curve_cloud/llama8b/QS_phase1_raw.npz
+engine/run_paperb_curve_cloud.log
+engine/run_paperb_curve_cloud.report
+engine/paperb_curve_cloud_smoke.log

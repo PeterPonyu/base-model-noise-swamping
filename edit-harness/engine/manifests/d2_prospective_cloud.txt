@@ -1,0 +1,6 @@
+# D2 prospective cloud exact pull list
+results/prospective_admission_cloud/prospective_admission_mistral7b_L24_table.json
+results/smoke_prospadm_cloud/prospadm_smoke_table.json
+engine/run_d2_prospective_cloud.log
+engine/run_d2_prospective_cloud_smoke.log
+engine/run_d2_prospective_cloud_report.txt

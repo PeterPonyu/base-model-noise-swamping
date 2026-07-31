@@ -1,0 +1,22 @@
+{
+  "Phi-3.5-mini_L16_RG": {
+    "model": "data/models/Phi-3.5-mini",
+    "layer": 16,
+    "n_obs": 2994,
+    "n_pos_dose": 2892,
+    "gain_median_absdrop_per_dose": 15.6357,
+    "frac_drop_negative": 0.2524,
+    "rho_reldose_drop": 0.4831,
+    "median_rel_dose": 0.0806
+  },
+  "Phi-3.5-mini_L24_RG": {
+    "model": "data/models/Phi-3.5-mini",
+    "layer": 24,
+    "n_obs": 2994,
+    "n_pos_dose": 2837,
+    "gain_median_absdrop_per_dose": 3.9101,
+    "frac_drop_negative": 0.46,
+    "rho_reldose_drop": 0.4853,
+    "median_rel_dose": 0.1211
+  }
+}

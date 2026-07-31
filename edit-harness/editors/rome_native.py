@@ -44,7 +44,7 @@ import numpy as np
 import torch
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from metrics import target_token_ids  # noqa: E402
+from metrics import target_token_ids, first_target_token_id  # noqa: E402
 # tp_edit_util is imported LAZILY (inside _optimise_value/apply_edit below), not here at
 # module top level: killgate_keygeom.py imports find_subject_last_token_index/_capture_key
 # from this module at ITS OWN top level for EVERY --editor (ft/memit/grace too, not just
@@ -151,8 +151,14 @@ def _optimise_value(
         output[0, tok_index, :] = v.to(output.dtype)
         return output
 
-    # target = first token of target_new appended right after the prompt
-    tgt_id = target_token_ids(tokenizer, target_new)[0]
+    # target = first CONTENT token of target_new appended right after the prompt.
+    # DEFECT FIXED 2026-07-30: this used target_token_ids(...)[0], which on
+    # SentencePiece tokenizers (Phi-3.5, Llama-2, Mistral) is the leading
+    # whitespace marker for EVERY target — the value optimiser was driven toward
+    # emitting whitespace rather than the intended object, and the scorer read the
+    # same token back as "success" (edit_ok 0.995 on Phi-3.5 was a false pass).
+    # See docs/findings/findings-PHI35-TOKENIZER-COLLISION-2026-07-30.md.
+    tgt_id = first_target_token_id(tokenizer, target_new)
     enc = tokenizer(prompt, return_tensors="pt").to(device)
     opt = torch.optim.Adam([v], lr=lr)
     history: List[float] = []
