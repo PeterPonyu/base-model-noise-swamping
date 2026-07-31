@@ -1,0 +1,88 @@
+{
+ "experiment": "RG_matched_dose_spread",
+ "tag": "REFIX20260731",
+ "convention": "common band = [max q10, min q90] of positive rel_dose across protocol cells; response = median(|drop|/rel_dose) in-band; >=30 obs eligibility",
+ "protocol_cells": 22,
+ "phi_bundles": "tokenizer-REFIXED (2026-07-30); all other bundles byte-identical to 2026-07-16",
+ "common_band": [
+  0.04869023603979989,
+  0.18666054639114796
+ ],
+ "common_band_endpoint_cells": {
+  "lo": "Llama-3.2-1B_L14_RG",
+  "hi": "Qwen2.5-3B_L18_RG"
+ },
+ "per_cell_response_in_band": {
+  "Llama-3.1-8B_L24_RG": 20.623260176342523,
+  "Llama-3.2-1B_L12_RG": 35.93178039976162,
+  "Llama-3.2-1B_L14_RG": 45.316059326179456,
+  "Llama-3.2-1B_L8_RG": 73.27200350296289,
+  "Llama-3.2-3B_L21_RG": 34.11752901376428,
+  "Mistral-7B-v0.3_L24_RG": 24.006543088639113,
+  "Mistral-Nemo-Base-2407_L30_RG": 8.865480233032333,
+  "Phi-3.5-mini_L16_RG": 15.24738859261061,
+  "Phi-3.5-mini_L24_RG": 2.9004062030122237,
+  "Qwen2.5-1.5B_L14_RG": 26.259220299916752,
+  "Qwen2.5-1.5B_L21_RG": 2.8083810864588985,
+  "Qwen2.5-1.5B_L24_RG": 1.705130543508481,
+  "Qwen2.5-14B_L36_RG": 3.3797869913599228,
+  "Qwen2.5-3B_L18_RG": 31.883819816813045,
+  "Qwen2.5-3B_L27_RG": 3.2005805646597913,
+  "Qwen2.5-7B_L21_RG": 3.2473574868053254,
+  "gemma-2-2b_L13_RG": 24.703442529554717,
+  "gemma-2-2b_L19_RG": 17.62715306852384,
+  "gemma-2-9b_L31_RG": 19.04620147836579,
+  "gpt-neox-20b_L33_RG": 0.0963567146096253,
+  "gpt2-xl_L24_RG": 3.5796148372744536,
+  "gpt2-xl_L36_RG": 0.9101620324287882
+ },
+ "n_obs_in_band": {
+  "Llama-3.1-8B_L24_RG": 1039,
+  "Llama-3.2-1B_L12_RG": 888,
+  "Llama-3.2-1B_L14_RG": 751,
+  "Llama-3.2-1B_L8_RG": 986,
+  "Llama-3.2-3B_L21_RG": 1033,
+  "Mistral-7B-v0.3_L24_RG": 848,
+  "Mistral-Nemo-Base-2407_L30_RG": 1020,
+  "Phi-3.5-mini_L16_RG": 1010,
+  "Phi-3.5-mini_L24_RG": 893,
+  "Qwen2.5-1.5B_L14_RG": 993,
+  "Qwen2.5-1.5B_L21_RG": 858,
+  "Qwen2.5-1.5B_L24_RG": 581,
+  "Qwen2.5-14B_L36_RG": 949,
+  "Qwen2.5-3B_L18_RG": 952,
+  "Qwen2.5-3B_L27_RG": 1018,
+  "Qwen2.5-7B_L21_RG": 979,
+  "gemma-2-2b_L13_RG": 967,
+  "gemma-2-2b_L19_RG": 863,
+  "gemma-2-9b_L31_RG": 926,
+  "gpt-neox-20b_L33_RG": 840,
+  "gpt2-xl_L24_RG": 1008,
+  "gpt2-xl_L36_RG": 760
+ },
+ "spread_max_over_min": 760.424468598928,
+ "spread_argmax": "Llama-3.2-1B_L8_RG",
+ "spread_argmin": "gpt-neox-20b_L33_RG",
+ "max_pairwise_matched_dose_ratio": 613.9281398561335,
+ "max_pair": {
+  "cells": [
+   "Llama-3.2-1B_L8_RG",
+   "gpt-neox-20b_L33_RG"
+  ],
+  "band": [
+   0.011467907127220551,
+   0.38877672046980666
+  ],
+  "n_obs": [
+   2161,
+   1893
+  ]
+ },
+ "addendum_post_freeze_cells": {
+  "Llama-2-13b-hf_L30_RG": {
+   "response_in_common_band": 6.347899888992077,
+   "n_in_band": 932
+  }
+ },
+ "supersedes": "RG_matched_dose_spread_20260716.json (pre-Phi-refix)"
+}

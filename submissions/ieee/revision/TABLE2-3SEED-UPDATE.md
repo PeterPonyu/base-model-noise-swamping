@@ -20,8 +20,10 @@ reviewer asking for seed variance. Three of the four extension cells have since 
 to seeds {0,1,2}; the fourth (NeoX-20B) has not.
 
 **Headline for the response letter:** no cell changes sign, and no cell crosses a
-qualitative threshold. Seed-to-seed spread is 0.003–0.034 in ρ. The single-seed values
-were, in every case, within ~0.03 of the 3-seed mean.
+qualitative threshold. Seed sd is 0.013–0.032 in ρ across the four 3-seed cells
+(max–min seed spread 0.023–0.062, worst = 8B L16; corrected 2026-07-31 after
+hostile review caught the earlier "0.003–0.034" mixing sd and spread). The
+single-seed values were, in every case, within ~0.03 of the 3-seed mean.
 
 ---
 
@@ -157,7 +159,7 @@ AlphaEdit seed" is now false. Replace with:
 ```latex
 {\footnotesize Every cell uses the held-out-key projector. All cells report the
 mean over three AlphaEdit projector seeds except NeoX-20B (single seed); no
-cell changes sign across seeds and the seed spread is at most 0.034 in $\rho$.
+cell changes sign across seeds and the largest seed-to-seed spread is 0.062 in $\rho$ (8B L16).
 A positive $\rho$ with a large ROME$\rightarrow$AlphaEdit drop (1B-Instruct) is
 the clean removal regime; the coupling weakens and its sign varies from 6B
 upward, matching the observational attenuation of Section~\ref{sec:regime}.

@@ -93,6 +93,24 @@ Instruct & key-cos & 0.365 & 0.458 & 0.559 & 0.379 \\
 \end{tabular}
 \end{table}
 
+\paragraph{Causal consistency check on MQuAKE-CF.} The causal cell of
+\S\ref{sec:causal} replicates on MQuAKE-CF with a held-out projector:
+% C4_causal_mquake_holdout_table_3seed.json::layers.12.within_probe_spearman = 0.4949 (per-seed 0.4986/0.4917/0.4944, sd 0.0035, 110292 pairs)
+$\rho(\text{key-cos}, \text{damage-removed}) = \mquakeCausalRho{}$ at L12 (3
+seeds, sd \mquakeCausalRhoSD{}), with damage-removed rising monotonically
+across key-cosine quartiles
+% C4_causal_mquake_holdout_table_3seed.json::layers.12.quartile_means[*].mean_damage_removed = -0.0346/0.334/1.326/3.651
+(\mquakeCausalQuartLo{} / 0.334 / 1.326 / \mquakeCausalQuartHi{}; the lowest
+quartile is slightly negative, so we report absolute quartiles and no ratio).
+The fraction of damage removed is lower than on CounterFact
+% C4_causal_mquake_holdout_table_3seed.json::layers.12.mean_damage_rome = 3.092, mean_damage_alpha = 1.773
+(\mquakeCausalFracRemoved{}\% vs 91--96\%), consistent with multi-hop probes
+retaining collateral that a single-layer null-space projection cannot reach.
+We therefore report it as a consistency check, not in
+Table~\ref{tab:causal-scale}. An earlier arm of this cell used the
+by-construction (probe-fitted) projector that \S\ref{sec:causal} retires; the
+held-out projector is the quotable one.
+
 \subsection{Within-Family Scale: Llama-3.2-3B}
 \label{sec:generality-scale}
 The depth/regime law is profiled in full on Llama-3.2-1B; a natural question

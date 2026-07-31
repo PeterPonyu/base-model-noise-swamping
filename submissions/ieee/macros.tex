@@ -348,35 +348,45 @@
 
 % =====================================================================
 % 2026-07-10 extension fold-in — scale/architecture CAUSAL cells (§5)
-% source: C4_causal_{instruct,gptj,neox20b,8b}_table.json (holdout projector,
-% seeds_used=[0] each — single AlphaEdit seed; exact fields in the provenance
-% block atop the "Generality: architecture, scale" subsection of 05_causal.tex)
+% REVISED 2026-07-26 (TETCI revision round): instruct / gptj / 8b cells now
+% 3-seed (seeds_used=[0,1,2]); NeoX-20B remains single-seed s0.
+% source: C4_causal_{instruct,gptj,8b}_table_3seed.json + C4_causal_neox20b_table.json
+% (holdout projector throughout: filters.proj_source = "holdout")
 % =====================================================================
-\newcommand{\instructCausalRho}{0.568}    % layers.12.within_probe_spearman = 0.5675 (3dp, table-consistent)
-\newcommand{\instructDmgRome}{2.63}       % layers.12.mean_damage_rome = 2.62831
-\newcommand{\instructDmgAlpha}{0.14}      % layers.12.mean_damage_alpha = 0.13693
-\newcommand{\instructQuartLo}{1.36}       % layers.12.quartile_means[0].mean_damage_removed = 1.35743
-\newcommand{\instructQuartHi}{3.85}       % layers.12.quartile_means[3].mean_damage_removed = 3.84745
-\newcommand{\instructRatio}{2.83}         % layers.12.removed_top_vs_bottom_ratio = 2.834
-\newcommand{\gptjCausalRho}{\ensuremath{-0.204}} % gptj layers.21.within_probe_spearman = -0.2043 (3dp)
-\newcommand{\gptjDmgRome}{\ensuremath{-0.040}}   % gptj layers.21.mean_damage_rome = -0.03971
-\newcommand{\gptjDmgAlpha}{\ensuremath{-0.004}}  % gptj layers.21.mean_damage_alpha = -0.00358
-\newcommand{\gptjQuartLo}{\ensuremath{-0.011}}   % gptj layers.21.quartile_means[0].mean_damage_removed = -0.01064
-\newcommand{\gptjQuartHi}{\ensuremath{-0.066}}   % gptj layers.21.quartile_means[3].mean_damage_removed = -0.06619
-\newcommand{\gptjRatio}{6.2}              % gptj layers.21.removed_top_vs_bottom_ratio = 6.221
+\newcommand{\instructCausalRho}{0.552}    % instruct_3seed layers.12.within_probe_spearman = 0.552 (per-seed 0.5675/0.5335/0.5550, sd 0.017)
+\newcommand{\instructDmgRome}{2.30}       % instruct_3seed layers.12.mean_damage_rome = 2.29786
+\newcommand{\instructDmgAlpha}{0.09}      % instruct_3seed layers.12.mean_damage_alpha = 0.08612
+\newcommand{\instructQuartLo}{1.22}       % instruct_3seed layers.12.quartile_means[0].mean_damage_removed = 1.22405
+\newcommand{\instructQuartHi}{3.47}       % instruct_3seed layers.12.quartile_means[3].mean_damage_removed = 3.46510
+\newcommand{\instructRatio}{2.83}         % instruct_3seed layers.12.removed_top_vs_bottom_ratio = 2.831 (unchanged)
+\newcommand{\gptjCausalRho}{\ensuremath{-0.184}} % gptj_3seed layers.21.within_probe_spearman = -0.1842 (per-seed -0.2043/-0.1696/-0.1786, sd 0.018)
+\newcommand{\gptjDmgRome}{\ensuremath{-0.034}}   % gptj_3seed layers.21.mean_damage_rome = -0.03388
+\newcommand{\gptjDmgAlpha}{\ensuremath{-0.002}}  % gptj_3seed layers.21.mean_damage_alpha = -0.00221
+\newcommand{\gptjQuartLo}{\ensuremath{-0.010}}   % gptj_3seed layers.21.quartile_means[0].mean_damage_removed = -0.00992
+\newcommand{\gptjQuartHi}{\ensuremath{-0.060}}   % gptj_3seed layers.21.quartile_means[3].mean_damage_removed = -0.06034
 \newcommand{\neoxCausalRho}{0.049}        % neox20b layers.16.within_probe_spearman = 0.0488 (3dp)
 \newcommand{\neoxDmgRome}{0.061}          % neox20b layers.16.mean_damage_rome = 0.06055
 \newcommand{\neoxDmgAlpha}{\ensuremath{-0.028}}  % neox20b layers.16.mean_damage_alpha = -0.02812
 \newcommand{\neoxQuartLo}{0.053}          % neox20b layers.16.quartile_means[0].mean_damage_removed = 0.05254
 \newcommand{\neoxQuartHi}{0.138}          % neox20b layers.16.quartile_means[3].mean_damage_removed = 0.13837
 \newcommand{\neoxRatio}{2.63}             % neox20b layers.16.removed_top_vs_bottom_ratio = 2.634
-\newcommand{\eightbCausalRhoLsixteen}{0.185}               % 8b layers.16.within_probe_spearman = 0.1852 (3dp)
-\newcommand{\eightbCausalRhoLtwentyfour}{\ensuremath{-0.102}} % 8b layers.24.within_probe_spearman = -0.1016 (3dp)
-\newcommand{\eightbDmgRomeLsixteen}{0.26}                   % 8b layers.16.mean_damage_rome = 0.26265
-\newcommand{\eightbDmgAlphaLsixteen}{0.04}                  % 8b layers.16.mean_damage_alpha = 0.03724
-\newcommand{\eightbDmgRomeLtwentyfour}{\ensuremath{-0.05}}  % 8b layers.24.mean_damage_rome = -0.04835
-\newcommand{\eightbDmgAlphaLtwentyfour}{0.03}               % 8b layers.24.mean_damage_alpha = 0.03425
-% NB: 8b layers.16.removed_top_vs_bottom_ratio (-68.963) deliberately has NO macro (unstable near sign change).
+\newcommand{\eightbCausalRhoLsixteen}{0.212}                  % 8b_3seed layers.16.within_probe_spearman = 0.2122 (per-seed 0.1852/0.2474/0.2040, sd 0.032)
+\newcommand{\eightbCausalRhoLtwentyfour}{\ensuremath{-0.087}} % 8b_3seed layers.24.within_probe_spearman = -0.0869 (per-seed -0.1016/-0.0810/-0.0781, sd 0.013)
+\newcommand{\eightbDmgRomeLsixteen}{0.26}                     % 8b_3seed layers.16.mean_damage_rome = 0.26026
+\newcommand{\eightbDmgAlphaLsixteen}{0.02}                    % 8b_3seed layers.16.mean_damage_alpha = 0.02248
+\newcommand{\eightbDmgRomeLtwentyfour}{\ensuremath{-0.05}}    % 8b_3seed layers.24.mean_damage_rome = -0.05036
+\newcommand{\eightbDmgAlphaLtwentyfour}{0.02}                 % 8b_3seed layers.24.mean_damage_alpha = 0.02018
+% \gptjRatio RETIRED 2026-07-26 (revision note A): base mean ~0 (0.0099 logits) makes the
+% Q4/Q1 ratio an arbitrary amplifier; absolute quartile means are reported instead.
+% NB: 8b layers.16.removed_top_vs_bottom_ratio (40.484 at 3 seeds, -68.963 at s0) still has
+% NO macro — the sign change near the floor makes it unstable in both.
+% --- MQuAKE-CF causal consistency check (08_generality; revision note B framing) ---
+% source: C4_causal_mquake_holdout_table_3seed.json (L12, holdout projector, seeds [0,1,2])
+\newcommand{\mquakeCausalRho}{0.495}              % layers.12.within_probe_spearman = 0.4949 (per-seed 0.4986/0.4917/0.4944)
+\newcommand{\mquakeCausalRhoSD}{0.004}            % seed sd 0.0035
+\newcommand{\mquakeCausalQuartLo}{\ensuremath{-0.035}} % quartile_means[0].mean_damage_removed = -0.0346
+\newcommand{\mquakeCausalQuartHi}{3.65}           % quartile_means[3].mean_damage_removed = 3.651
+\newcommand{\mquakeCausalFracRemoved}{43}         % 1 - 1.773/3.092 = 42.7% (rome 3.092 -> alpha 1.773)
 
 % =====================================================================
 % 2026-07-10 extension fold-in — dataset/deployment generality (§8)

@@ -415,7 +415,19 @@ exposure, not a winning router. (2) Wave-1 is the Llama-family 1B slice only;
 cross-family behavior (including known sign inversions off Llama) is out of scope
 and requires recalibration, never extrapolation. (3) The geometry signal is L12-only;
 the L14 lift is norm-growth-carried (geometry inert at L14) and is not claimed
-as a predictor feature here or anywhere. (4) The router uses the measured cost
+as a predictor feature here or anywhere. (3b) \textbf{Shared evidence base,
+disclosed.} The damage-risk predictor this paper routes on ($\rho = 0.725$ at
+L12, held-out clean) is measured on CounterFact (edit, probe) matrices
+produced by the same harness and the same base checkpoint as a companion
+mechanism study under review elsewhere (key-geometry prediction of
+locate-then-edit collateral damage). The two papers ask different questions of
+that shared measurement layer --- the companion establishes that key geometry
+\emph{predicts} edit damage; this paper measures whether an operator can
+\emph{act} on it under a cost model --- and no number, table, or figure is
+reused between them. Should the venues require it, the predictor can be
+re-derived on this paper's own stream at the cost of one additional wave; we
+report the shared provenance rather than silently double-dipping the evidence
+base. (4) The router uses the measured cost
 table when scoring; the synthetic cost anchor under-budgeted RAG by an order of
 magnitude and this measurement is one of the paper's findings. (5) Discovery
 claims are CI-only at MIX\_A's $n = 35 < 50$ power floor; MIX\_B/C ($n \ge 50$)

@@ -78,39 +78,41 @@ architecture-conditioned account of Section~\ref{sec:dissociation}.
 
 \subsection{Generality: architecture, scale, and instruction tuning}
 % ---- Source provenance for the scale/architecture causal cells (read from canonical JSONs at write time) ----
-% All four cells use the held-out-key projector (filters.proj_source = "holdout") and seeds_used = [0] (single AlphaEdit seed s0).
-% C4_causal_instruct_table.json::layers.12.within_probe_spearman   = 0.5675   -> \instructCausalRho{}   +0.57
-% C4_causal_instruct_table.json::layers.12.mean_damage_rome        = 2.62831  -> \instructDmgRome{}      2.63
-% C4_causal_instruct_table.json::layers.12.mean_damage_alpha       = 0.13693  -> \instructDmgAlpha{}     0.14
-% C4_causal_instruct_table.json::layers.12.quartile_means[0].mean_damage_removed = 1.35743 -> \instructQuartLo{} 1.36
-% C4_causal_instruct_table.json::layers.12.quartile_means[3].mean_damage_removed = 3.84745 -> \instructQuartHi{} 3.85
-% C4_causal_instruct_table.json::layers.12.removed_top_vs_bottom_ratio = 2.834 -> \instructRatio{}       2.83
-% C4_causal_gptj_table.json::layers.21.within_probe_spearman       = -0.2043  -> \gptjCausalRho{}       -0.20
-% C4_causal_gptj_table.json::layers.21.mean_damage_rome            = -0.03971 -> \gptjDmgRome{}         -0.040
-% C4_causal_gptj_table.json::layers.21.mean_damage_alpha           = -0.00358 -> \gptjDmgAlpha{}        -0.004
-% C4_causal_gptj_table.json::layers.21.quartile_means[0].mean_damage_removed = -0.01064 -> \gptjQuartLo{} -0.011
-% C4_causal_gptj_table.json::layers.21.quartile_means[3].mean_damage_removed = -0.06619 -> \gptjQuartHi{} -0.066
-% C4_causal_gptj_table.json::layers.21.removed_top_vs_bottom_ratio = 6.221    -> \gptjRatio{}            6.2
-% C4_causal_neox20b_table.json::layers.16.within_probe_spearman    = 0.0488   -> \neoxCausalRho{}       +0.05
+% All four cells use the held-out-key projector (filters.proj_source = "holdout").
+% REVISED 2026-07-26: instruct/gptj/8b cells are 3-seed (seeds_used=[0,1,2], mean reported); NeoX-20B remains s0.
+% C4_causal_instruct_table_3seed.json::layers.12.within_probe_spearman   = 0.552 (per-seed 0.5675/0.5335/0.5550, sd 0.017) -> \instructCausalRho{}
+% C4_causal_instruct_table_3seed.json::layers.12.mean_damage_rome        = 2.29786  -> \instructDmgRome{}      2.30
+% C4_causal_instruct_table_3seed.json::layers.12.mean_damage_alpha       = 0.08612  -> \instructDmgAlpha{}     0.09
+% C4_causal_instruct_table_3seed.json::layers.12.quartile_means[0].mean_damage_removed = 1.22405 -> \instructQuartLo{} 1.22
+% C4_causal_instruct_table_3seed.json::layers.12.quartile_means[3].mean_damage_removed = 3.46510 -> \instructQuartHi{} 3.47
+% C4_causal_instruct_table_3seed.json::layers.12.removed_top_vs_bottom_ratio = 2.831 -> \instructRatio{}       2.83
+% C4_causal_gptj_table_3seed.json::layers.21.within_probe_spearman       = -0.1842 (per-seed -0.2043/-0.1696/-0.1786, sd 0.018) -> \gptjCausalRho{}
+% C4_causal_gptj_table_3seed.json::layers.21.mean_damage_rome            = -0.03388 -> \gptjDmgRome{}         -0.034
+% C4_causal_gptj_table_3seed.json::layers.21.mean_damage_alpha           = -0.00221 -> \gptjDmgAlpha{}        -0.002
+% C4_causal_gptj_table_3seed.json::layers.21.quartile_means[0].mean_damage_removed = -0.00992 -> \gptjQuartLo{} -0.010
+% C4_causal_gptj_table_3seed.json::layers.21.quartile_means[3].mean_damage_removed = -0.06034 -> \gptjQuartHi{} -0.060
+% \gptjRatio RETIRED (revision note A): base mean 0.0099 logits ~ noise; absolute quartiles reported instead.
+% C4_causal_neox20b_table.json::layers.16.within_probe_spearman    = 0.0488   -> \neoxCausalRho{}       +0.05 (single seed s0)
 % C4_causal_neox20b_table.json::layers.16.mean_damage_rome         = 0.06055  -> \neoxDmgRome{}          0.061
 % C4_causal_neox20b_table.json::layers.16.mean_damage_alpha        = -0.02812 -> \neoxDmgAlpha{}        -0.028
 % C4_causal_neox20b_table.json::layers.16.quartile_means[0].mean_damage_removed = 0.05254 -> \neoxQuartLo{} 0.053
 % C4_causal_neox20b_table.json::layers.16.quartile_means[3].mean_damage_removed = 0.13837 -> \neoxQuartHi{} 0.138
 % C4_causal_neox20b_table.json::layers.16.removed_top_vs_bottom_ratio = 2.634 -> \neoxRatio{}            2.63
-% C4_causal_8b_table.json::layers.16.within_probe_spearman         = 0.1852   -> \eightbCausalRhoLsixteen{}      +0.19
-% C4_causal_8b_table.json::layers.24.within_probe_spearman         = -0.1016  -> \eightbCausalRhoLtwentyfour{}   -0.10
-% C4_causal_8b_table.json::layers.16.mean_damage_rome              = 0.26265  -> \eightbDmgRomeLsixteen{}         0.26
-% C4_causal_8b_table.json::layers.16.mean_damage_alpha             = 0.03724  -> \eightbDmgAlphaLsixteen{}        0.04
-% C4_causal_8b_table.json::layers.24.mean_damage_rome              = -0.04835 -> \eightbDmgRomeLtwentyfour{}     -0.05
-% C4_causal_8b_table.json::layers.24.mean_damage_alpha             = 0.03425  -> \eightbDmgAlphaLtwentyfour{}     0.03
-% NOTE: C4_causal_8b_table.json::layers.16.removed_top_vs_bottom_ratio = -68.963 is deliberately NOT quoted (numerically unstable near the sign change).
+% C4_causal_8b_table_3seed.json::layers.16.within_probe_spearman   = 0.2122 (per-seed 0.1852/0.2474/0.2040, sd 0.032) -> \eightbCausalRhoLsixteen{}
+% C4_causal_8b_table_3seed.json::layers.24.within_probe_spearman   = -0.0869 (per-seed -0.1016/-0.0810/-0.0781, sd 0.013) -> \eightbCausalRhoLtwentyfour{}
+% C4_causal_8b_table_3seed.json::layers.16.mean_damage_rome        = 0.26026  -> \eightbDmgRomeLsixteen{}         0.26
+% C4_causal_8b_table_3seed.json::layers.16.mean_damage_alpha       = 0.02248  -> \eightbDmgAlphaLsixteen{}        0.02
+% C4_causal_8b_table_3seed.json::layers.24.mean_damage_rome        = -0.05036 -> \eightbDmgRomeLtwentyfour{}     -0.05
+% C4_causal_8b_table_3seed.json::layers.24.mean_damage_alpha       = 0.02018  -> \eightbDmgAlphaLtwentyfour{}     0.02
+% NOTE: 8b layers.16 removed_top_vs_bottom_ratio (40.484 3-seed, -68.963 s0) deliberately NOT quoted (unstable near sign change).
 We rerun the causal cell -- using the held-out-key projector throughout -- on
 four further settings: an instruction-tuned twin of the 1B model, a second
 base architecture (GPT-J-6B), a much larger model (GPT-NeoX-20B), and the 8B
 model at which the observational coupling is already known to attenuate
-(Section~\ref{sec:regime}). Each of these cells rests on a single AlphaEdit
-projector seed; the 1B result above remains the only multi-seed causal
-measurement in this paper. Table~\ref{tab:causal-scale} summarizes.
+(Section~\ref{sec:regime}). Three of these four cells rest on three AlphaEdit
+projector seeds (GPT-NeoX-20B remains single-seed); the largest seed-to-seed
+spread is 0.062 in $\rho$ (8B L16) and no cell changes sign across seeds.
+Table~\ref{tab:causal-scale} summarizes.
 
 \paragraph{Instruction tuning.} On the instruction-tuned Llama-3.2-1B twin at
 its canonical layer, null-space projection reproduces the 1B story at full
@@ -126,8 +128,11 @@ GPT-J the collateral is small and sits in the net-improvement regime (mean
 logit-damage \gptjDmgRome{} under ROME, \gptjDmgAlpha{} under AlphaEdit), as
 it does for Qwen. The signed within-probe correlation is therefore negative
 (\gptjCausalRho{}), but the \emph{magnitude} of the removed perturbation still
-rises monotonically with key-cosine
-(\gptjQuartLo{}$\rightarrow$\gptjQuartHi{}, top-vs-bottom \gptjRatio{}$\times$).
+rises monotonically with key-cosine (absolute quartile means
+\gptjQuartLo{} / $-0.021$ / $-0.035$ / \gptjQuartHi{}; we report the absolute
+quartiles rather than a ratio here, because the first-quartile base
+($\approx$0.01 logits) is two orders of magnitude below the 1B cell's damage
+scale and any ratio built on it is arbitrarily inflatable).
 This is the sign-agnostic causal statement made above for Qwen, now on a
 second base architecture: projection removes a key-geometry-scaled
 perturbation whatever the sign of the local damage regime.
@@ -145,7 +150,7 @@ within-probe correlation is \eightbCausalRhoLsixteen{} at L16 and
 sign-dependence of the \emph{observational} coupling already documented at
 this scale (Section~\ref{sec:regime}). We therefore do not read the 8B cell as
 a causal confirmation. The large, positive-signed, monotone-removal form of
-the law is a small-to-mid-scale result on current single-seed evidence: it is
+the law is a small-to-mid-scale result: it is
 clean at 1B in both the base and instruction-tuned checkpoints; across 6B--20B
 the intervention keeps removing a key-geometry-scaled perturbation but in
 weaker or sign-shifted regimes; and at 8B the signed causal coupling is too
@@ -155,34 +160,38 @@ is numerically unstable near the sign change.
 \begin{table}[t]
 \centering\small
 \caption{Causal cell across architecture, scale, and instruction tuning
-(held-out-key projector, single AlphaEdit seed, CounterFact, matched
-ROME/AlphaEdit edit sets, known-fact and successful-edit filters). $\rho$ is
-the signed within-probe Spearman between pre-edit key-cosine and the
-logit-damage AlphaEdit removes relative to ROME; ``dmg R$\rightarrow$A'' is
-mean (signed) logit-damage under ROME then under AlphaEdit on the identical
-(edit, probe) pairs.}
+(held-out-key projector, CounterFact, matched ROME/AlphaEdit edit sets,
+known-fact and successful-edit filters). All cells are three AlphaEdit
+projector seeds (mean reported) except GPT-NeoX-20B, which remains
+single-seed. $\rho$ is the signed within-probe Spearman between pre-edit
+key-cosine and the logit-damage AlphaEdit removes relative to ROME;
+``dmg R$\rightarrow$A'' is mean (signed) logit-damage under ROME then under
+AlphaEdit on the identical (edit, probe) pairs.}
 \label{tab:causal-scale}
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lccc@{}}
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-Model & L & $\rho$(cos,\,removed) & dmg R$\rightarrow$A \\
+Model & L & seeds & $\rho$(cos,\,removed) & dmg R$\rightarrow$A \\
 \midrule
-1B-Instruct & 12 & \instructCausalRho{}          & \instructDmgRome{}$\rightarrow$\instructDmgAlpha{} \\
-GPT-J-6B    & 21 & \gptjCausalRho{}              & \gptjDmgRome{}$\rightarrow$\gptjDmgAlpha{} \\
-NeoX-20B    & 16 & \neoxCausalRho{}              & \neoxDmgRome{}$\rightarrow$\neoxDmgAlpha{} \\
-Llama-8B    & 16 & \eightbCausalRhoLsixteen{}    & \eightbDmgRomeLsixteen{}$\rightarrow$\eightbDmgAlphaLsixteen{} \\
-Llama-8B    & 24 & \eightbCausalRhoLtwentyfour{} & \eightbDmgRomeLtwentyfour{}$\rightarrow$\eightbDmgAlphaLtwentyfour{} \\
+1B-Instruct & 12 & 3 & \instructCausalRho{} {\scriptsize(sd 0.017)} & \instructDmgRome{}$\rightarrow$\instructDmgAlpha{} \\
+GPT-J-6B    & 21 & 3 & \gptjCausalRho{} {\scriptsize(sd 0.018)}     & \gptjDmgRome{}$\rightarrow$\gptjDmgAlpha{} \\
+NeoX-20B    & 16 & 1 & \neoxCausalRho{}                     & \neoxDmgRome{}$\rightarrow$\neoxDmgAlpha{} \\
+Llama-8B    & 16 & 3 & \eightbCausalRhoLsixteen{} {\scriptsize(sd 0.032)}    & \eightbDmgRomeLsixteen{}$\rightarrow$\eightbDmgAlphaLsixteen{} \\
+Llama-8B    & 24 & 3 & \eightbCausalRhoLtwentyfour{} {\scriptsize(sd 0.013)} & \eightbDmgRomeLtwentyfour{}$\rightarrow$\eightbDmgAlphaLtwentyfour{} \\
 \bottomrule
 \end{tabular}
 \par\smallskip
-{\footnotesize Every cell uses the held-out-key projector and a single
-AlphaEdit seed; the multi-seed 1B causal result is Table~\ref{tab:causal}.
+{\footnotesize Every cell uses the held-out-key projector. All cells report the
+mean over three AlphaEdit projector seeds except NeoX-20B (single seed); no
+cell changes sign across seeds and the largest seed-to-seed spread is 0.062
+in $\rho$ (8B L16).
 A positive $\rho$ with a large ROME$\rightarrow$AlphaEdit drop (1B-Instruct)
 is the clean removal regime; the coupling weakens and its sign varies from 6B
 upward, matching the observational attenuation of Section~\ref{sec:regime}.
 Even where the signed correlation is weak or negative, the magnitude of the
-removed perturbation rises monotonically with key-cosine (GPT-J
-\gptjRatio{}$\times$, NeoX-20B \neoxRatio{}$\times$ top-vs-bottom quartile).\par}
+removed perturbation rises monotonically with key-cosine (1B-Instruct
+\instructQuartLo{}$\rightarrow$\instructQuartHi{}, NeoX-20B
+\neoxQuartLo{}$\rightarrow$\neoxQuartHi{} across key-cosine quartiles).\par}
 \end{table}
 
 \subsection{Honest caveats}
@@ -193,7 +202,7 @@ by-construction arms are both 3-seed and agree (L8
 the floor rises modestly under the holdout projector (mean damage
 \hoDmgLeightAlpha{}\,/\,\hoDmgLtwelveAlpha{} versus $\sim$0.08
 by-construction), still roughly 30$\times$ below ROME. Finally, the cells of
-Table~\ref{tab:causal-scale} are single-AlphaEdit-seed generality evidence,
-as its footnote states, with the 8B cell an attenuation boundary.
+Table~\ref{tab:causal-scale} are three-seed generality evidence except
+GPT-NeoX-20B (single seed), with the 8B cell an attenuation boundary.
 
 \input{figures-tex/figC_causal}
