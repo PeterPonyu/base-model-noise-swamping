@@ -42,7 +42,9 @@ from typing import Any, Dict, List, Optional, Tuple
 # ------------------------------------------------------------------------------ constants
 EXPECTED_MODEL = "llama-3.2-1b"
 EXPECTED_PROVENANCE = "real"
-EXPECTED_MIXES = ("MIX_B", "MIX_C")
+EXPECTED_MIXES = ("MIX_A", "MIX_B", "MIX_C")   # MIX_A added 2026-08-01 (T5 audit: the
+# paper claims the full 99-cell grid and MIX_A carries primary tables + quarantined cells;
+# a gate covering only B/C would certify the mixes the paper leans on least)
 EXPECTED_SEEDS = (0, 1, 2)
 EXPECTED_POLICIES = ("both", "cost_only", "damage_only", "oracle",
                      "always_edit", "always_grace", "always_rag", "always_ft",
