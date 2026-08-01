@@ -137,10 +137,13 @@ requires (Assumption~A4$'$) that $\alpha(e,p)$ is sign-consistent across edits f
 $p$ \emph{and} does not covary with $S_e|C_{e,p}|$ enough to reorder pairs -- a
 plausibility condition, not a consequence of A1--A3 (and one our cells violate:
 per-probe sign-consistency of $\alpha$ is $0.66$--$0.81$ against a $0.50$ chance
-floor, with coefficient of variation $1.0$--$2.4$; see the remark below). Under A1--A3 and A4$'$, the
+floor, with median coefficient of variation $1.0$--$2.4$; see the remark below). Under A1--A3 and A4$'$, the
 within-probe Spearman coupling this paper reports between $|C|$ and collateral damage is
 a rank \emph{estimator} of the within-probe Spearman coupling between first-order
 training influence and damage -- not an exact identity of the two statistics.
+Since A4$'$ does not hold in our cells, the conditional's antecedent fails and we
+do not invoke it: the proposition's standing in this paper is the exact
+read-out identity of Eq.~\ref{eq:sc} alone, which needs A1--A3 only.
 \end{proposition}
 \begin{proof}[Proof sketch]
 Substitute $\dW$ and $\nabla_W\ell_p=g_pk_p^{\top}$ (chain rule under A2) into the
@@ -183,14 +186,12 @@ this factor be sign-consistent across edits for a fixed probe \emph{and} not
 systematically reorder edits by their $S\times C$ rank. We test this condition
 rather than assume it, and it does not hold in our cells: the per-probe
 sign-consistency of $\alpha(e,p)$ is $0.66$--$0.81$ (chance $0.50$) and its
-coefficient of variation is $1.0$--$2.4$ across four layers and three seeds.
+median coefficient of variation is $1.0$--$2.4$ across four layers and three seeds.
 A4$'$ is therefore violated, which is exactly why the measured rank agreement
 between true influence and \SxC{} is near zero. Consequently we do not claim
 the reported coupling as a rank estimator of the influence--damage coupling;
 the closed form's standing rests on the exact read-out identity of
-Eq.~\ref{eq:sc}, which is independent of A4$'$; under
-it, the reported coupling is a rank \emph{estimator} of, not identical to, the
-influence--damage coupling. An explicit error term for the gap between this single-step
+Eq.~\ref{eq:sc}, which is independent of A4$'$. An explicit error term for the gap between this single-step
 realization and ROME's actual iterative, regularized multi-step value solve follows the
 identical factorization (Eq.~\ref{eq:sc} applied to the value-solve gap $\Delta v$,
 bounded via the trivial $|\cos(g_p,\Delta v)|\le 1$) and is exact given the definition of

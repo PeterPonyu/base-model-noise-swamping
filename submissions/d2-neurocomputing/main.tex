@@ -58,8 +58,9 @@ geometry to track cross-talk; what flips is that cross-talk's effect at the read
 measurable scalar, the layer's perturbation \emph{gain}, orders the regimes (rank
 correlation \ordSpearman{} with constructive fraction, $p=\ordSpearmanP{}$, \nCells{}
 cells; gate constants and the directional prediction frozen before the runs), and a
-first-order readout model grounds it: gain estimates the magnitude of the readout slope
-at the edit's operating point; the regime is that slope's sign. Two boundaries scope
+first-order readout model grounds it: gain ranks cells by the magnitude of the
+readout slope at the edit's operating point (a rank-level proxy, not a point
+estimate); the regime is that slope's sign. Two boundaries scope
 the law: key geometry predicts damage only in small merge groups, and in most low-gain
 cells edits also install weakly---so the constructive regime largely marks where edits
 should \emph{not} be placed, which the screen identifies a priori. Within these
@@ -262,7 +263,11 @@ target token ($\mathrm{drop}<0$: merging \emph{helped}). Here $k_a$ is the edit'
 value residual; we use a native ROME implementation with fp32 value optimization, $n=200$
 edits per cell, and three seeds drawing independently sampled edit sets (seeded
 shuffles of the full 21{,}919-record bank; any two seeds' 200-edit banks share 2--5
-records). The \emph{dose} of observation
+records). Our ROME uses the identity-covariance (unwhitened) rank-one solve;
+canonical ROME's covariance-weighted variant replaces $k_a$ with $C^{-1}k_a$ in
+the left factor. Eq.~\ref{eq:crosstalk} and the dose are defined for the
+unwhitened update used throughout.
+The \emph{dose} of observation
 $a$ is $(d_a\!\cdot\!r_a)/\lVert r_a\rVert^2$, the received cross-talk relative to the
 edit's own delivery, and a cell's \emph{gain} is the median of $|\mathrm{drop}|/\text{dose}$
 over positive-dose observations (pooled over $g\leq20$): the logit response per unit
@@ -505,9 +510,14 @@ Under Assumptions~\ref{as:scalar}--\ref{as:smooth},
 \end{equation}
 Consequently, for positive-dose observations with $\ell_a'(1)\neq0$, in the limit
 $\delta_a\to0$ we have $\operatorname{sign}(\mathrm{drop}_a)=
--\operatorname{sign}(\ell_a'(1))$ and $|\mathrm{drop}_a|/\delta_a\to|\ell_a'(1)|$. A
+-\operatorname{sign}(\ell_a'(1))$ and $|\mathrm{drop}_a|/\delta_a\to|\ell_a'(1)|$.
+The sign statement is uninformative for cells whose slope is near zero, which is
+where the boundary cells of Section~\ref{sec:law} sit; we therefore report those
+cells separately and do not rest the regime assignment on them. A
 cell's \emph{gain}, the median of $|\mathrm{drop}|/\mathrm{dose}$ over positive-dose
-observations, is therefore a proxy for the median $|\ell_a'(1)|$ in that cell, and its
+observations (pooled over $g\leq20$; see the discussion following for the
+resulting finite-dose bias), is therefore a rank-level proxy for the median
+$|\ell_a'(1)|$ in that cell rather than a point estimate of it, and its
 \emph{constructive fraction} a proxy for $\Pr[\ell_a'(1)>0]$.
 \end{proposition}
 \begin{proof}

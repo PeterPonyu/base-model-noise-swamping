@@ -17,7 +17,7 @@ proportion to the same key-cosine, on models up to 3B parameters. The
 prediction rests on a closed form: for rank-one ROME updates the collateral
 perturbation factorizes exactly into a per-edit strength $S$, a per-probe norm,
 and the edit$\times$probe key-cosine $C$, and the product \SxC{} is the exact
-rank-one reduction of first-order gradient influence -- a zero-cost \emph{rank
+rank-one reduction of first-order gradient influence -- a zero-cost \emph{damage-rank
 estimator} needing no backward pass, though an explicit backward pass shows it
 is not a faithful rank-surrogate of the true influence.
 
