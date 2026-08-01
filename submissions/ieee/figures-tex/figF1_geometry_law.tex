@@ -11,7 +11,8 @@
 %     within_probe_rho_SC: L8=0.4015  L10=0.5526  L12=0.6765  L14=0.5037
 %   (c)(d) G1_stability_L{8,10,12,14}_v2.json per_seed:
 %     flat_spearman_INFLATED / within_probe_mean / editlevel_z
-%     max_within_probe_perm_p = 0.0033 (≤ 1/301 floor) all seeds
+%     aggregate.max_within_probe_perm_p_editlevel = 0.001 (edit-level floor, panel d;
+%     probe-level floor 0.0033 ≈ 1/301 is a separate field, not used here)
 % Regenerate: Rscript submissions/ieee/figures-src/figF1_geometry_law.R
 % =====================================================================
 \begin{figure*}[t]
@@ -30,8 +31,8 @@ that $S{\times}C$ beats raw key-cosine at every depth
 grey): the flat statistic's probe-marginal leakage distorts in both
 directions --- it sits above the within-probe value at L8
 ($0.401$ vs.\ $0.395$) and below it at L10--L14
-($0.491/0.511/0.282$ vs.\ $0.534/0.602/0.301$); only the partialled
-within-probe profile recovers the true L12-peaked depth law.
+($0.491/0.511/0.282$ vs.\ $0.534/0.602/0.301$); partialling changes the
+magnitudes substantially while both profiles peak at L12.
 \textbf{(d)} Edit-level permutation-null $z$-scores: the observed within-probe
 mean lies ${\approx}6$--$16$ s.d.\ above the null at all layers; the
 edit-level permutation-$p$ is $\leq 0.001$ for every seed (dots =
