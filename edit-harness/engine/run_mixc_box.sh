@@ -3,13 +3,12 @@
 # dual-card shard (H14, PLAN-GAP-CLOSURE-MASTER-2026-07-31).
 #
 #   card0: MIX_C policies both,cost_only,damage_only,oracle,always_edit,always_grace (18 cells)
-#          + MIX_A rerun cost_only (its s2 cell was quarantined 2026-07-26)
 #   card1: MIX_C policies always_rag,always_ft,always_reject,random,ft_merge (15 cells)
-#          + MIX_A rerun ft_merge,random (2 quarantined s2 cells)
 #
-# run_stream is idempotent per-cell (skip-on-exists), so MIX_A reruns fill ONLY the
-# quarantined s2 gaps. setsid + TERM trap per the 07-29 4x-SIGTERM incident (I18):
-# a wrapper/monitor SIGTERM must leave the python cell alive.
+# (The 3 MIX_A + 6 MIX_B gate-quarantined s2 refills run LOCALLY via engine/run_mixab_refill.sh
+# 2026-07-31 — this driver is MIX_C-only.)
+# run_stream is idempotent per-cell (skip-on-exists). setsid + TERM trap per the 07-29
+# 4x-SIGTERM incident (I18): a wrapper/monitor SIGTERM must leave the python cell alive.
 # GATE RULE (binding): no analysis/number may regenerate from these cells until
 # experiments/frame_a/provenance_gate_v2.py PASSES on them and writes
 # engine/FRAME_A_GATE_V2_PASS.ok. This driver runs cells ONLY — it never writes that receipt.
@@ -29,10 +28,8 @@ echo $$ > "$PIDFILE"
 trap 'rm -f "$PIDFILE"' EXIT
 
 case "$SHARD" in
-  card0) MIXC_POLICIES="both,cost_only,damage_only,oracle,always_edit,always_grace"
-         MIXA_POLICIES="cost_only" ;;
-  card1) MIXC_POLICIES="always_rag,always_ft,always_reject,random,ft_merge"
-         MIXA_POLICIES="ft_merge,random" ;;
+  card0) MIXC_POLICIES="both,cost_only,damage_only,oracle,always_edit,always_grace" ;;
+  card1) MIXC_POLICIES="always_rag,always_ft,always_reject,random,ft_merge" ;;
 esac
 
 # ---- preflight: model + tokenizer collision gate (07-30 regression lock, I22) ----
@@ -69,11 +66,6 @@ rc_all=0
 # ---- MIX_C (shard policies) — smoke gate is enforced inside run_stream (M4) ----
 run_cell "mixc_${SHARD}" $PY -m experiments.frame_a.run_stream --run --real \
   --mixes MIX_C --policies "$MIXC_POLICIES" --model_dir data/models/Llama-3.2-1B || rc_all=$?
-# ---- MIX_A quarantined s2 refills (skip-on-exists => only the 3 gaps regenerate) ----
-if [ "$rc_all" -eq 0 ]; then
-  run_cell "mixa_refill_${SHARD}" $PY -m experiments.frame_a.run_stream --run --real \
-    --mixes MIX_A --policies "$MIXA_POLICIES" --model_dir data/models/Llama-3.2-1B || rc_all=$?
-fi
 
 # ---- verification: count cells (never gate numbers on this — gate v2 decides) ----
 mixc=$(ls results/frame_a/cells/cell_llama-3.2-1b_real_MIX_C_*.json 2>/dev/null | wc -l)

@@ -37,6 +37,41 @@ POLICIES = ("both", "cost_only", "damage_only", "oracle",
             "random", "ft_merge")
 
 
+def _runner_stamp(t0: float) -> dict:
+    """provenance_gate_v2-compatible runner stamp (schema asserted by _stamp_shape_errors).
+
+    Added 2026-07-31: gate v2 FAILed 6 post-cutoff MIX_B s2 cells for missing stamps and
+    every future MIX_C cell would have failed identically — no H14 launch without this.
+    """
+    import hashlib
+    import socket
+    import subprocess
+    import time as _time
+    with open(os.path.abspath(__file__), "rb") as f:
+        code_sha256 = hashlib.sha256(f.read()).hexdigest()
+    try:
+        line = subprocess.run(
+            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used",
+             "--format=csv,noheader,nounits"],
+            check=False, capture_output=True, text=True, timeout=10,
+        ).stdout.strip().splitlines()[0]
+        util_s, mem_s = [p.strip() for p in line.split(",")[:2]]
+        gpu = {"util_pct": float(util_s), "mem_mib": float(mem_s)}
+    except (OSError, subprocess.SubprocessError, IndexError, ValueError):
+        gpu = {"util_pct": -1.0, "mem_mib": -1.0}
+    end = _time.time()
+    return {
+        "stamp_version": 1,
+        "code_sha256": code_sha256,
+        "pid": os.getpid(),
+        "hostname": socket.gethostname(),
+        "wall_start": _time.strftime("%Y-%m-%dT%H:%M:%SZ", _time.gmtime(t0)),
+        "wall_end": _time.strftime("%Y-%m-%dT%H:%M:%SZ", _time.gmtime(end)),
+        "elapsed_s": round(end - t0, 3),
+        "nvidia_smi_sample": gpu,
+    }
+
+
 def _make_router(policy: str, predictor: DamagePredictor, seed: int):
     if policy in ("both", "cost_only", "damage_only"):
         return Router(predictor=predictor, mode=policy)
@@ -403,6 +438,8 @@ def run_real_wave(out_cells: str, model_dir: str, cf_cell_seed: int = 0, force: 
                 router = _make_router(policy, predictor, seed)
                 if policy in ("both", "cost_only", "damage_only"):
                     router.lambda_cost = lam
+                import time as _t
+                _cell_t0 = _t.time()
                 rows, routing = replay_real(updates, router, harness, probe_bank)
                 if mix == "MIX_C":
                     for a in ("edit", "rag"):
@@ -410,6 +447,7 @@ def run_real_wave(out_cells: str, model_dir: str, cf_cell_seed: int = 0, force: 
                         real_serve_mixC[a][1] += routing["arm_counts"].get(a, 0)
                 cell = _score_real_rows(mix, policy, seed, rows, routing, lam, model_tag)
                 cell["stream_hash"] = manifest["stream_hash"]
+                cell["runner_stamp"] = _runner_stamp(_cell_t0)   # gate v2 schema (2026-07-31)
                 json.dump(cell, open(path, "w"))
                 written.append(path)
     # MIX-C structural P2, NAMESPACED to the real provenance (contract condition 3 — without this
