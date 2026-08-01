@@ -17,7 +17,7 @@ wait_pidfile_gone(){  # $1=pidfile $2=timeout_s $3=label
   done
 }
 
-wait_pidfile_gone engine/run_mixab_refill.pid 43200 "MIX_A/B refill"
+wait_pidfile_gone engine/run_mixab_refill.pid 86400 "MIX_A/B refill"
 tail -2 engine/run_mixab_refill.log | tee -a "$LOG"
 
 log "stage 1: B2 gemma-2-2b L19 (default snapshot)"
