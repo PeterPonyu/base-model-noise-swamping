@@ -140,6 +140,18 @@ gemma-2-2b & \magGemma{}\,$\pm$\,\magGemmaSD{} & DEAD \\
 {\footnotesize Layers probed: Llama-1B L8/10/12/14, Qwen-0.5B L12, Qwen-1.5B L14, Qwen-3B L18, Phi-3.5 L16, gemma-2-2b L13. Transfers on four of five non-Llama families; gemma is the exception (perm-$p$ \magGemmaPermP{}, n.s.).\par}
 \end{table}
 
+\paragraph{Estimand hierarchy, stated once.} The \emph{signed} within-probe
+correlation is the primary estimand of this paper: it is the quantity the
+mechanism claim (Sections~\ref{sec:regime}--\ref{sec:causal}) and every gate are
+phrased on. The unsigned magnitude correlation is a \emph{secondary},
+transfer-scope summary reported because architecture sign regimes differ; it
+is never used to rescue a family whose signed law fails. Phi-3.5 is the
+discipline case: its signed correlation is null (\phiSigned{}) and its
+magnitude correlation passes (\magPhi{}), and we report exactly that pair ---
+the family does not count as supporting the signed law, and its magnitude
+pass enters only the portability summary of
+Table~\ref{tab:magnitude}.
+
 \subsection{Depth dissociation on a second architecture}
 \label{sec:gptjdepth}
 GPT-J (6B, 28 transformer blocks) reproduces the coupling but relocates it in
