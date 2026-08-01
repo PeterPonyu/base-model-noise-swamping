@@ -62,7 +62,7 @@ This draft records both changes already applied to the revision manuscript and c
 
 **Number destination.** `{H1-PENDING}` → corrected `\phiSigned`, `\magPhi`, and `\magPhiSD` only after all six fixed Phi cells are present and the preregistered 1,000-permutation readout is rerun. No two-seed preview may appear in the response or manuscript.
 
-**Manuscript change.** The July 31 prose fold makes the signed/magnitude distinction explicit; the current Phi macros are queued for replacement, not affirmation, after H1.
+**Manuscript change.** The manuscript now makes the signed/magnitude distinction explicit (estimand-hierarchy paragraph, 06_dissociation.tex); the current Phi macros are queued for replacement, not affirmation, after H1.
 
 ## B6-6. The MQuAKE causal cell is a boundary case, not a headline replication
 
