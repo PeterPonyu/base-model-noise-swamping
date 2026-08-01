@@ -16,6 +16,28 @@ Per (bundle, g, seed) cell it reports, alongside the canonical |cos| metric
   - exact cross-term norm rho (the CPU x-check, for reference)
 
 All formulas are imported from merging_m0.py — nothing is re-derived here.
+
+2026-08-01 (deposit self-containment repair). The original 2026-07-15 invocation is
+UNCHANGED as the default: it still reads the pre-refix Phi operating tables
+`RG_operating_curve_table_phi35_L{16,24}.json` and writes
+`RG_signed_reanalysis_20260715.json`. Those two Phi tables were later invalidated by the
+Phi-3.5 tokenizer collision (findings-PHI35-TOKENIZER-COLLISION-2026-07-30), so a
+`--refix` switch selects the tokenizer-refixed reference tables and the refixed output
+name instead:
+
+  python3 experiments/rg_signed_reanalysis.py --refix
+  # reference tables: RG_operating_curve_table_phi35_L{16,24}_REFIX20260730.json
+  # out:              RG_signed_reanalysis_REFIX20260801.json
+
+`--phi_l16_table` / `--phi_l24_table` override the two paths individually. Only the
+Phi *reference* tables move: every bundle (Phi included) is always re-measured from the
+on-disk `*_RG/` vectors, so `--refix` changes which canonical numbers the per-cell
+reproduction_check is validated against, not the measurement itself.
+
+Rename map (pre-refix -> refixed):
+  RG_operating_curve_table_phi35_L16.json -> ..._phi35_L16_REFIX20260730.json
+  RG_operating_curve_table_phi35_L24.json -> ..._phi35_L24_REFIX20260730.json
+  RG_signed_reanalysis_20260715.json      -> RG_signed_reanalysis_REFIX20260801.json
 """
 import argparse
 import json
@@ -135,11 +157,28 @@ def analyze_bundle(rg_dir, table_path=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=os.path.join(
-        HARNESS, "results", "merging", "RG_signed_reanalysis_20260715.json"))
+    ap.add_argument("--results_dir", default=None,
+                    help="RG results directory (default: <harness>/results/merging)")
+    ap.add_argument("--out", default=None,
+                    help="output artifact (default depends on --refix)")
+    ap.add_argument("--refix", action="store_true",
+                    help="use the tokenizer-refixed Phi-3.5 reference tables "
+                         "(REFIX20260730) and the REFIX20260801 output name")
+    ap.add_argument("--phi_l16_table", default=None,
+                    help="explicit Phi-3.5 L16 reference operating table")
+    ap.add_argument("--phi_l24_table", default=None,
+                    help="explicit Phi-3.5 L24 reference operating table")
     args = ap.parse_args()
 
-    mg = os.path.join(HARNESS, "results", "merging")
+    mg = args.results_dir or os.path.join(HARNESS, "results", "merging")
+    phi_suffix = "_REFIX20260730" if args.refix else ""
+    phi_l16 = args.phi_l16_table or os.path.join(
+        mg, f"RG_operating_curve_table_phi35_L16{phi_suffix}.json")
+    phi_l24 = args.phi_l24_table or os.path.join(
+        mg, f"RG_operating_curve_table_phi35_L24{phi_suffix}.json")
+    out_path = args.out or os.path.join(
+        mg, "RG_signed_reanalysis_REFIX20260801.json" if args.refix
+        else "RG_signed_reanalysis_20260715.json")
     bundles = [
         ("Llama-3.2-1B_L8",  os.path.join(mg, "Llama-3.2-1B_L8_RG"),
          os.path.join(mg, "RG_operating_curve_table_L8.json")),
@@ -167,10 +206,8 @@ def main():
          os.path.join(mg, "RG_operating_curve_table_llama3b_L21.json")),
         ("Qwen2.5-3B_L27", os.path.join(mg, "Qwen2.5-3B_L27_RG"),
          os.path.join(mg, "RG_operating_curve_table_qwen3b_L27.json")),
-        ("Phi-3.5-mini_L24", os.path.join(mg, "Phi-3.5-mini_L24_RG"),
-         os.path.join(mg, "RG_operating_curve_table_phi35_L24.json")),
-        ("Phi-3.5-mini_L16", os.path.join(mg, "Phi-3.5-mini_L16_RG"),
-         os.path.join(mg, "RG_operating_curve_table_phi35_L16.json")),
+        ("Phi-3.5-mini_L24", os.path.join(mg, "Phi-3.5-mini_L24_RG"), phi_l24),
+        ("Phi-3.5-mini_L16", os.path.join(mg, "Phi-3.5-mini_L16_RG"), phi_l16),
         ("Qwen2.5-3B_L18", os.path.join(mg, "Qwen2.5-3B_L18_RG"),
          os.path.join(mg, "RG_operating_curve_table_qwen3b_L18.json")),
         ("gemma-2-2b_L13", os.path.join(mg, "gemma-2-2b_L13_RG"),
@@ -188,8 +225,19 @@ def main():
                  "recomputed and checked against the on-disk tables per cell."),
         "schema_version": SCHEMA_VERSION,
         "created": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        # recorded as results/merging/<name> so the artifact is byte-stable no matter
+        # which absolute or relative --results_dir produced it
+        "phi35_reference_tables": {
+            "L16": os.path.join("results", "merging", os.path.relpath(phi_l16, mg)),
+            "L24": os.path.join("results", "merging", os.path.relpath(phi_l24, mg))},
+        "phi35_refix": bool(args.refix),
         "bundles": {},
     }
+    if args.refix:
+        report["note_refix"] = (
+            "Phi-3.5 reference operating tables are the tokenizer-refixed ones "
+            "(findings-PHI35-TOKENIZER-COLLISION-2026-07-30); supersedes "
+            "RG_signed_reanalysis_20260715.json.")
     for name, rg_dir, table in bundles:
         if not os.path.isdir(rg_dir):
             report["bundles"][name] = {"status": "MISSING_LOCALLY"}
@@ -200,11 +248,11 @@ def main():
         print(f"  reproduction_check: {rc['status']} "
               f"({rc['n_checked']} cells, {rc['n_mismatch']} mismatch)", flush=True)
 
-    tmp = args.out + ".tmp"
+    tmp = out_path + ".tmp"
     with open(tmp, "w") as f:
         json.dump(report, f, indent=2)
-    os.replace(tmp, args.out)
-    print(f"wrote {args.out}")
+    os.replace(tmp, out_path)
+    print(f"wrote {out_path}")
 
 
 if __name__ == "__main__":
