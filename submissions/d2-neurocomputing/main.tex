@@ -489,7 +489,7 @@ observation is $\ell_a(1+\delta_a)$ up to the residual $w_a$.
 
 \begin{assumption}[Scalar readout along the delivery axis]\label{as:scalar}
 The target logit depends on the received cross-talk only through $\delta_a$ to first
-order: the contribution of the orthogonal residual $w_a$ is $o(\lVert d_a\rVert)$.
+order: the contribution of the orthogonal residual $w_a$ is $o(|\delta_a|)$.
 \end{assumption}
 \begin{assumption}[Local smoothness]\label{as:smooth}
 $\ell_a$ is continuously differentiable on a neighbourhood of $t=1$ containing
@@ -512,7 +512,7 @@ observations, is therefore a proxy for the median $|\ell_a'(1)|$ in that cell, a
 \end{proposition}
 \begin{proof}
 Assumption~\ref{as:scalar} lets the merged logit be written $\ell_a(1+\delta_a)+
-o(\lVert d_a\rVert)$; Assumption~\ref{as:smooth} gives the first-order expansion
+o(|\delta_a|)$; Assumption~\ref{as:smooth} gives the first-order expansion
 $\ell_a(1+\delta_a)=\ell_a(1)+\ell_a'(1)\delta_a+o(|\delta_a|)$. Subtracting yields
 Eq.~\ref{eq:firstorder}; dividing by $\delta_a>0$ and letting $\delta_a\to0$ gives the
 two limit statements.

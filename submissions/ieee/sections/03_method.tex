@@ -18,11 +18,13 @@ Writing any rank-one update as $\dW = u\,k^{\top}$, the edit constraint
 $(W+\dW)k = v$ forces $u = (v-Wk)/(k^{\top}k)$ uniquely. This is also the
 minimum-norm solution among \emph{all} matrices $M$ (not only rank-one ones)
 with $Mk = v-Wk$: any $N$ with $Nk=0$ adds only orthogonal Frobenius norm, so
-the norm is minimized at $N=0$. ROME's covariance-regularized objective only
-breaks the tie among multi-edit solutions satisfying the same constraint on
-$k$, so on a single edit -- the case studied throughout -- it reduces to this
-same matrix, and the decomposition in Eq.~\ref{eq:sc} needs no independent
-assumption about ROME's covariance weighting.
+the norm is minimized at $N=0$.
+We study the identity-covariance (unwhitened) rank-one update. Canonical
+ROME's covariance-weighted solve selects a \emph{different} member of the same
+solution set $\{M : Mk = v-Wk\}$, replacing $\cos(k,k_p)$ with
+$\cos(C^{-1}k,k_p)$; the decomposition of Eq.~\ref{eq:sc} is stated for the
+unwhitened update used throughout, and we do not claim it is invariant to
+that reweighting.
 
 \subsection{Collateral perturbation to an unrelated probe}
 For an unrelated
@@ -81,12 +83,13 @@ rather than an independent empirical check.
 
 To test the surrogate against a genuinely independent quantity, we computed the
 true first-order training influence of each edit on each probe with an explicit
-backward pass, at a single layer and seed (the L12 peak). Three facts hold.
+backward pass at four layers and three seeds. Three facts hold.
 First, the exact read-out identity underlying Eq.~\ref{eq:sc} is verified
 programmatically to within numerical tolerance.
-% GRADSIM_TRUE_Llama-3.2-1B_L12_s0.json::within_probe_rho.direct_vs_damage.mean = 0.4738
+% GRADSIM_TRUE_Llama-3.2-1B_L12_s0.json::within_probe_rho.direct_vs_damage.mean = 0.4738 (L12); L8 0.196/0.208/0.212; L10-L14 band 0.43-0.53
 Second, this true influence does predict collateral damage: its within-probe
-Spearman coupling with damage is $\rho\approx0.47$.
+Spearman coupling with damage rises with depth, from $\rho\approx0.20$ at L8 to
+$0.43$--$0.53$ across L10--L14 ($0.47$ at the L12 peak).
 % GRADSIM_TRUE_Llama-3.2-1B_L12_s0.json::rank_agreement.direct_vs_SC.mean = 0.0874
 Third -- the honest limitation -- the within-probe rank agreement between the
 true influence and \SxC{} is only about $0.09$, so \SxC{} is \emph{not} a
@@ -123,12 +126,18 @@ and $S=\|r\|/\|k\|$ and $C=\cos(k,k_p)$ are exactly the terms of the closed-form
 decomposition (Eq.~\ref{eq:sc}). The coefficient $\alpha(e,p)$ is fixed in its dependence
 on $g_p$ for a given probe $p$ (Assumption~A3) but varies with edit $e$ through
 $\cos(g_p,r_e)$, so $\mathrm{infl}(e,p)$ is proportional to, not numerically identical
-with, $S_e\|k_p\|C_{e,p}$ as $e$ ranges over the edit population. A per-edit-varying
-positive scalar does not by itself preserve rank order, so exact coincidence of the
+with, $S_e\|k_p\|C_{e,p}$ as $e$ ranges over the edit population.
+In the measured cells the key cosines are effectively non-negative
+(negative-cosine key mass is negligible), so $C = |C|$ there and the signed
+identity may be read against the reported $|C|$ statistic; the identity
+itself is signed. A per-edit-varying
+signed scalar does not by itself preserve rank order, so exact coincidence of the
 within-probe rank orderings of $\mathrm{infl}(\cdot,p)$ and $S\cdot|C|$ additionally
 requires (Assumption~A4$'$) that $\alpha(e,p)$ is sign-consistent across edits for fixed
 $p$ \emph{and} does not covary with $S_e|C_{e,p}|$ enough to reorder pairs -- a
-plausibility condition, not a consequence of A1--A3. Under A1--A3 and A4$'$, the
+plausibility condition, not a consequence of A1--A3 (and one our cells violate:
+per-probe sign-consistency of $\alpha$ is $0.66$--$0.81$ against a $0.50$ chance
+floor, with coefficient of variation $1.0$--$2.4$; see the remark below). Under A1--A3 and A4$'$, the
 within-probe Spearman coupling this paper reports between $|C|$ and collateral damage is
 a rank \emph{estimator} of the within-probe Spearman coupling between first-order
 training influence and damage -- not an exact identity of the two statistics.
@@ -137,12 +146,17 @@ training influence and damage -- not an exact identity of the two statistics.
 Substitute $\dW$ and $\nabla_W\ell_p=g_pk_p^{\top}$ (chain rule under A2) into the
 Frobenius inner product, using $\langle ab^\top,cd^\top\rangle_F=(a^\top c)(b^\top d)$ and
 $k^\top k_p=\|k\|\|k_p\|C$. Under A4$'$, a per-column ($p$ fixed),
-sign-consistent, low-covariance positive multiplier leaves Spearman rank correlation
+sign-consistent multiplier would leave Spearman rank correlation
 approximately unchanged (exactly unchanged only if $\alpha(e,p)$ were constant, which is
-not assumed) -- hence ``estimator,'' not ``coincides.'' An explicit error term for the
+not assumed) -- hence ``estimator,'' not ``coincides.'' We do not quantify the
+resulting rank perturbation; the step is heuristic, and the measurement reported
+below shows the multiplier's variation is in fact large enough to destroy the
+agreement. An explicit error term for the
 additional deviation between this proposition's single-step realization and the
 iterative multi-step value solve used throughout the empirical sections follows the
-\emph{same} substitution with $\Delta v:=v_{\text{iter}}-v_{\text{conv}}$ in place of $r$:
+\emph{same} substitution with $\Delta v:=v_{\text{iter}}-v_{\text{conv}}$ in place of $r$,
+where $v_{\text{iter}}$ is the value returned by the regularized multi-step solve and
+$v_{\text{conv}}$ the fully converged, unregularized solve:
 \begin{align*}
 &\mathrm{infl}_{\text{iter}}(e,p)-\mathrm{infl}_{\text{conv}}(e,p)\\
 &\quad= \big[\cos(g_p,\Delta v)\,\|g_p\|\big]\cdot \Delta S\cdot\|k_p\|\cdot C,
@@ -166,8 +180,15 @@ varies across edits for a fixed probe. Treating the within-probe rank correlatio
 paper reports between $|C|$ and collateral damage as a rank correlation between
 first-order training influence and damage additionally requires (Assumption~A4$'$) that
 this factor be sign-consistent across edits for a fixed probe \emph{and} not
-systematically reorder edits by their $S\times C$ rank -- a plausibility condition we do
-not test independently in this paper, not a consequence of the closed form itself; under
+systematically reorder edits by their $S\times C$ rank. We test this condition
+rather than assume it, and it does not hold in our cells: the per-probe
+sign-consistency of $\alpha(e,p)$ is $0.66$--$0.81$ (chance $0.50$) and its
+coefficient of variation is $1.0$--$2.4$ across four layers and three seeds.
+A4$'$ is therefore violated, which is exactly why the measured rank agreement
+between true influence and \SxC{} is near zero. Consequently we do not claim
+the reported coupling as a rank estimator of the influence--damage coupling;
+the closed form's standing rests on the exact read-out identity of
+Eq.~\ref{eq:sc}, which is independent of A4$'$; under
 it, the reported coupling is a rank \emph{estimator} of, not identical to, the
 influence--damage coupling. An explicit error term for the gap between this single-step
 realization and ROME's actual iterative, regularized multi-step value solve follows the

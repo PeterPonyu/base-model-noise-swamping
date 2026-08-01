@@ -58,7 +58,9 @@ implicit-Hessian approximation to leave-one-out retraining, and TracIn/GradSim
 \citep{pruthi2020gradsim} via a first-order, checkpoint-averaged dot product of
 gradients cheap enough to compute over a full edit set. Section~\ref{sec:method}
 shows that for a rank-one update this first-order influence has an exact closed
-form in the edit and probe keys alone, with no gradient computation -- the
+form whose key-geometry factor is available in the edit and probe keys alone,
+with no gradient computation; the remaining factor is a per-(edit,probe)
+gradient alignment (Section~\ref{sec:method}) -- the
 \SxC{} decomposition is the GradSim family specialized to the rank-one update,
 not an independent heuristic.
 
