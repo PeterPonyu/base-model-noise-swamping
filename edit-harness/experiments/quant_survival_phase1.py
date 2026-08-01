@@ -599,16 +599,17 @@ def run(args):
 
     qlinears = _quant_linears(model)
     non_edited = [m for m in qlinears if id(m.weight) not in edited_ids]
-    base_snap = _snapshot(qlinears)
+    base_snap = _snapshot(qlinears, device=("cpu" if getattr(args, "snapshot_device", "cuda") == "cpu" else None))
 
-    # VRAM preflight: the on-device base snapshot is ALREADY resident above, so `free` is
-    # post-model+post-snapshot memory. Charging snap_bytes×1.4 against it double-counts the
-    # resident snapshot and wrongly aborts a 3B cell on a 32GB card (model 12.6GB + snapshot
-    # 11.3GB leaves ~9GB — the 3B cells on box 10263 all FAILed rc 1 at this gate 2026-07-20).
-    # What the rest of the run actually needs beyond the resident state: transient deq of ONE
-    # edited tensor (≤~300MB), bnb workspace, and the optional fm_cache (auto falls back to off
-    # when it doesn't fit, see below). Honest gate: post-snapshot headroom >= HEADROOM_BYTES.
+    # VRAM preflight: with the default on-device snapshot the snapshot is ALREADY resident
+    # above, so `free` is post-model+post-snapshot memory; charging snap_bytes×1.4 against it
+    # double-counts (the 2026-07-20 3B-on-32GB false abort). With --snapshot_device cpu the
+    # snapshot lives in host RAM and is NOT VRAM-resident — `free` is then post-model only.
+    # Either way the honest gate is the same: post-snapshot-placement headroom >= HEADROOM_BYTES
+    # for transient deq of ONE edited tensor (≤~300MB), bnb workspace, and the optional fm_cache
+    # (auto falls back to off when it doesn't fit, see below).
     snap_bytes = sum(m.weight.numel() * m.weight.element_size() for m in qlinears)
+    snap_on_gpu = getattr(args, "snapshot_device", "cuda") != "cpu"
     free = total = None
     if device == "cuda":
         free, total = torch.cuda.mem_get_info()
@@ -616,9 +617,11 @@ def run(args):
         if free < HEADROOM_BYTES:
             raise SystemExit(
                 f"[qsp] VRAM preflight: post-snapshot free {free/1e9:.1f}GB < {HEADROOM_BYTES/1e9:.1f}GB "
-                f"headroom (model+snapshot already resident ~{snap_bytes/1e9:.1f}GB) — use a smaller "
+                f"headroom (model resident; snapshot ~{snap_bytes/1e9:.1f}GB "
+                f"{'on-device' if snap_on_gpu else 'CPU-resident'}) — use a smaller "
                 f"model or free the card.")
-        print(f"[qsp] VRAM preflight OK: snapshot ~{snap_bytes/1e9:.2f}GB resident, {free/1e9:.1f}GB free", flush=True)
+        print(f"[qsp] VRAM preflight OK: snapshot ~{snap_bytes/1e9:.2f}GB "
+              f"{'on-device' if snap_on_gpu else 'CPU-resident'}, {free/1e9:.1f}GB free", flush=True)
 
     # ---- full-model cache decision (prereg §7 optimization) ----
     # cache = dequant(quant(W_base)) for EVERY qlinear, once per scheme (base_noise-full uses it
@@ -781,7 +784,7 @@ def run(args):
                     assert torch.allclose(m.weight, W_edited_snap[li], atol=1e-5), \
                         "[qsp] edited down_proj not fp32-edited after full-model arm"
                 else:
-                    assert torch.allclose(m.weight, wb, atol=1e-5), \
+                    assert torch.allclose(m.weight, wb.to(m.weight.device), atol=1e-5), \
                         "[qsp] a non-edited block linear was not restored to base after full-model arm"
             print("[qsp] full-model restore-integrity sweep PASSED (edit 0)", flush=True)
 
@@ -1024,7 +1027,7 @@ def _run_on_tiny(model, tok, layer, args, edits, probes):
     Wz_base = W_bases[layer]
     edited_ids = {id(W_refs[layer])}
     qlinears = _quant_linears(model); non_edited = [m for m in qlinears if id(m.weight) not in edited_ids]
-    base_snap = _snapshot(qlinears)
+    base_snap = _snapshot(qlinears, device=("cpu" if getattr(args, "snapshot_device", "cuda") == "cpu" else None))
     localities = ["edited_layer", "full_model"]
     arm_names = [f"{s}_{loc}" for s in schemes for loc in localities]
 
@@ -1088,7 +1091,7 @@ def _run_on_tiny(model, tok, layer, args, edits, probes):
                 if id(m.weight) in edited_ids:
                     assert torch.allclose(m.weight, W_edited, atol=1e-5), "[qsp] tiny: edited not fp32-edited"
                 else:
-                    assert torch.allclose(m.weight, wb, atol=1e-5), "[qsp] tiny: non-edited not restored"
+                    assert torch.allclose(m.weight, wb.to(m.weight.device), atol=1e-5), "[qsp] tiny: non-edited not restored"
         with torch.no_grad():
             W_refs[layer].copy_(W_bases[layer])
     with torch.no_grad():
@@ -1150,6 +1153,9 @@ def main():
     ap.add_argument("--n_perm", type=int, default=1000, help="permutation-null draws (prereg N>=1000)")
     ap.add_argument("--n_boot", type=int, default=1000, help="bootstrap resamples for the rho CI")
     ap.add_argument("--device", choices=["cuda", "cpu"], default="cuda")
+    ap.add_argument("--snapshot_device", choices=["cuda", "cpu"], default="cuda",
+                    help="where the base fp32 snapshot lives; 'cpu' (host RAM) lets >=3B fp32 \
+                         models fit a 24GB card (fp32 loading itself is unchanged/prereg-bound)")
     ap.add_argument("--out_dir", default=os.path.join(HARNESS, "results", "quant_survival"))
     ap.add_argument("--table_out", default=None)
     args = ap.parse_args()

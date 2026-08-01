@@ -4,6 +4,7 @@ set -u
 cd "$(dirname "$0")" || exit 1
 PY=${PY:-/home/zeyufu/miniconda3/envs/dl/bin/python3}; GPU_ID=${GPU_ID:-0}; DRYRUN=${DRYRUN:-0}
 BUDGET_MIN=${BUDGET_MIN:-600}; JOB_CAP_MIN=${JOB_CAP_MIN:-120}
+SNAPSHOT_DEVICE=${SNAPSHOT_DEVICE:-cuda}   # cpu => 3B fp32 fits 24GB (host-RAM snapshot; fp32 load unchanged)
 PREREG=${PREREG:-../docs/plans/PREREG-PAPERB-CURVE-2026-07-26.md}
 [ -f "$PREREG" ] && grep -qx 'STATUS: RATIFIED' "$PREREG" || { echo "ABORT: Paper B curve prereg not ratified" >&2; exit 5; }
 mkdir -p engine results/quant_survival_curve results/smoke_paperb_curve
@@ -11,7 +12,10 @@ PIDFILE=engine/run_paperb_curve_local.pid; LOG=engine/run_paperb_curve_local.log
 echo "$BASHPID" > "$PIDFILE"; trap 'rm -f "$PIDFILE"' EXIT
 log(){ echo "[$(date '+%F %T')] $*" | tee -a "$LOG"; }
 Q=experiments/quant_survival_phase1.py; DATA=data/counterfact.json
-GRID="qwen3b:data/models/Qwen2.5-3B:27 gemma2b:data/models/gemma-2-2b:19 phi35:data/models/Phi-3.5-mini:24"
+GRID="${GRID:-qwen3b:data/models/Qwen2.5-3B:27 gemma2b:data/models/gemma-2-2b:19 phi35:data/models/Phi-3.5-mini:24}"
+# 2026-07-31 VRAM note: qwen3b (12.6GB fp32) and phi35 (15GB fp32) OOM the on-device
+# base snapshot on 24GB cards (fp32 model + ~equal snapshot > 23.4GB) — run them on a
+# >=32GB box or with GRID=gemma2b:... locally (gemma 8.4+7.5GB fits). fp32 is prereg-bound.
 for f in "$Q" "$DATA"; do [ -f "$f" ] || exit 3; done
 for spec in $GRID; do rest=${spec#*:}; model=${rest%:*}; [ -d "$model" ] || { log "ABORT missing $model"; exit 3; }; done
 if [ "$DRYRUN" = 1 ]; then log "DRYRUN $GRID"; exit 0; fi
@@ -28,7 +32,7 @@ for spec in $GRID; do
   smoke_dir="results/smoke_paperb_curve/${tag}"; smoke_table="$smoke_dir/QS_phase1_table.json"
   if [ ! -f "$smoke_table" ]; then
     mkdir -p "$smoke_dir"
-    CUDA_VISIBLE_DEVICES="$GPU_ID" timeout 2400 "$PY" "$Q" --run --model "$model" --data "$DATA" --editor rome --n_edits 3 --n_probes 8 --layer "$layer" --seed 0 --steps 2 --lr 0.1 --schemes nf4dq,int8 --codec real --fullmodel_cache off --n_perm 20 --n_boot 20 --gen_check_n 0 --device cuda --out_dir "$smoke_dir" --table_out "$smoke_table" >>"engine/paperb_curve_smoke_${tag}.log" 2>&1 || { log "ABORT smoke $tag"; exit 10; }
+    CUDA_VISIBLE_DEVICES="$GPU_ID" timeout 2400 "$PY" "$Q" --run --model "$model" --data "$DATA" --editor rome --n_edits 3 --n_probes 8 --layer "$layer" --seed 0 --steps 2 --lr 0.1 --schemes nf4dq,int8 --codec real --fullmodel_cache off --n_perm 20 --n_boot 20 --gen_check_n 0 --device cuda --snapshot_device "$SNAPSHOT_DEVICE" --out_dir "$smoke_dir" --table_out "$smoke_table" >>"engine/paperb_curve_smoke_${tag}.log" 2>&1 || { log "ABORT smoke $tag"; exit 10; }
   fi
 done
 validate(){ "$PY" - "$1" "$2" <<'PY'
@@ -44,7 +48,7 @@ for spec in $GRID; do tag=${spec%%:*}; rest=${spec#*:}; model=${rest%:*}; layer=
   dir="results/quant_survival_curve/${tag}_rome_L${layer}_s${seed}"; table="$dir/QS_phase1_table.json"; raw="$dir/QS_phase1_raw.npz"; mkdir -p "$dir"
   if [ -f "$table" ] && [ -f "$raw" ] && validate "$table" "$raw" >/dev/null 2>&1; then log "SKIP $tag s$seed"; continue; fi
   elapsed=$(( ($(date +%s)-T0)/60 )); [ $((elapsed+60)) -le "$BUDGET_MIN" ] || { log "BUDGET-STOP"; break 2; }
-  CUDA_VISIBLE_DEVICES="$GPU_ID" timeout --signal=TERM --kill-after=60 "$((JOB_CAP_MIN*60))s" "$PY" "$Q" --run --model "$model" --data "$DATA" --editor rome --n_edits 200 --n_probes 200 --layer "$layer" --seed "$seed" --steps 20 --lr 0.1 --schemes nf4dq,int8 --codec real --fullmodel_cache auto --n_perm 1000 --n_boot 1000 --device cuda --out_dir "$dir" --table_out "$table" >>"engine/paperb_curve_${tag}_s${seed}.log" 2>&1; rc=$?
+  CUDA_VISIBLE_DEVICES="$GPU_ID" timeout --signal=TERM --kill-after=60 "$((JOB_CAP_MIN*60))s" "$PY" "$Q" --run --model "$model" --data "$DATA" --editor rome --n_edits 200 --n_probes 200 --layer "$layer" --seed "$seed" --steps 20 --lr 0.1 --schemes nf4dq,int8 --codec real --fullmodel_cache auto --n_perm 1000 --n_boot 1000 --device cuda --snapshot_device "$SNAPSHOT_DEVICE" --out_dir "$dir" --table_out "$table" >>"engine/paperb_curve_${tag}_s${seed}.log" 2>&1; rc=$?
   if [ "$rc" -eq 0 ] && validate "$table" "$raw" >/dev/null 2>&1; then log "DONE $tag s$seed"; else log "FAIL $tag s$seed rc=$rc"; failures=$((failures+1)); fi
   [ "$failures" -lt 2 ] || exit 9
  done

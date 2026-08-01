@@ -145,9 +145,16 @@ def _quant_linears(model):
     return mods
 
 
-def _snapshot(mods):
-    """Base fp32 weight snapshot kept on the weights' own device (fast restore; a 1B model at fp32
-    is ~5GB, comfortable on a 24GB card — this smoke is 1B-only)."""
+def _snapshot(mods, device=None):
+    """Base fp32 weight snapshot. Default (device=None): kept on the weights' own device
+    (fast restore; a 1B model at fp32 is ~5GB, comfortable on a 24GB card — this smoke is
+    1B-only). device="cpu" (2026-07-31, B1/B3 enablement): pinned to host RAM instead —
+    a 3B fp32 model + on-device snapshot exceeds 24GB (Qwen2.5-3B OOMed the 5090 at
+    snapshot; fp32 loading is prereg-bound so the snapshot's PLACEMENT is the only free
+    knob). Values are bitwise identical either way; consumers must device-align (see
+    _assert_restore_integrity)."""
+    if device == "cpu":
+        return [m.weight.detach().cpu().clone() for m in mods]
     return [m.weight.detach().clone() for m in mods]
 
 
@@ -170,7 +177,7 @@ def _assert_restore_integrity(mods, snap, W_edited, w_edited_L, atol=1e-5):
             assert torch.allclose(m.weight, w_edited_L, atol=atol), \
                 "[qs] edited down_proj@L not fp32-edited after full-model arm"
         else:
-            assert torch.allclose(m.weight, wb, atol=atol), \
+            assert torch.allclose(m.weight, wb.to(m.weight.device), atol=atol), \
                 "[qs] a non-edited block linear was not restored to base after full-model arm"
 
 
@@ -373,20 +380,26 @@ def run_smoke(args):
     W = down.weight
     W_base_L = W.detach().clone()
     qlinears = _quant_linears(model)
-    # MINOR-3: VRAM/size preflight — the on-device base snapshot DUPLICATES the block-linear
+    # MINOR-3: VRAM/size preflight — an ON-DEVICE base snapshot DUPLICATES the block-linear
     # weights, so a >1B model can silently approach the 24GB ceiling and OOM mid-run. Abort loudly.
+    # With --snapshot_device cpu the snapshot lives in host RAM and does NOT charge VRAM
+    # (2026-07-31 fix: the gate previously charged it anyway, defeating the CPU path).
     snap_bytes = sum(m.weight.numel() * m.weight.element_size() for m in qlinears)
-    if device == "cuda":
+    snap_on_gpu = getattr(args, "snapshot_device", "cuda") != "cpu"
+    if device == "cuda" and snap_on_gpu:
         free, total = torch.cuda.mem_get_info()
         if snap_bytes * 1.4 > free:
             raise SystemExit(
                 f"[qs] VRAM preflight: on-device base snapshot needs ~{snap_bytes/1e9:.1f}GB "
                 f"(x1.4 margin) but only {free/1e9:.1f}GB / {total/1e9:.1f}GB free — this smoke is "
-                f"sized for ~1B models. Use a smaller --model, or add a CPU-resident snapshot path "
+                f"sized for ~1B models. Use a smaller --model, or pass --snapshot_device cpu "
                 f"before running larger models.")
         print(f"[qs] VRAM preflight OK: base snapshot ~{snap_bytes/1e9:.2f}GB, "
               f"{free/1e9:.1f}GB free", flush=True)
-    base_snap = _snapshot(qlinears)                          # full-model base weights (on device)
+    elif device == "cuda":
+        print(f"[qs] VRAM preflight: base snapshot ~{snap_bytes/1e9:.2f}GB is CPU-resident "
+              f"(no VRAM charge)", flush=True)
+    base_snap = _snapshot(qlinears, device=("cpu" if getattr(args, "snapshot_device", "cuda") == "cpu" else None))  # full-model base weights
 
     # BASE arm (unedited quantized): per (locality, scheme) probe logits -> base quant noise
     base_noise = {}                                          # arm_name -> [M]
@@ -641,7 +654,7 @@ def _run_on(model, tok, layer, args, edits, probes):
 
     W = model.model.layers[layer].mlp.down_proj.weight
     W_base_L = W.detach().clone()
-    qlinears = _quant_linears(model); base_snap = _snapshot(qlinears)
+    qlinears = _quant_linears(model); base_snap = _snapshot(qlinears, device=("cpu" if getattr(args, "snapshot_device", "cuda") == "cpu" else None))
 
     base_noise = {}
     for scheme in schemes:
@@ -726,6 +739,8 @@ def main():
     ap.add_argument("--n_edits", type=int, default=50)
     ap.add_argument("--n_probes", type=int, default=40)
     ap.add_argument("--layer", default="12")
+    ap.add_argument("--snapshot_device", choices=["cuda", "cpu"], default="cuda",
+                    help="CPU-resident base snapshot lets >1B fp32 models fit 24GB cards")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--steps", type=int, default=20)
     ap.add_argument("--lr", type=float, default=0.1)
