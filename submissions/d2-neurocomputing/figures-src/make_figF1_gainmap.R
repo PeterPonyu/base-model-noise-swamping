@@ -123,7 +123,7 @@ print(
 )
 dev.off()
 emit_tex("figF1A_gain_vs_frac.tex", c(
-  "% SOURCE: RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.{gain_median_absdrop_per_dose,frac_drop_negative} (22 protocol cells; cut=8; ordering_test.n_bundles=22)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.{gain_median_absdrop_per_dose,frac_drop_negative} (22 protocol cells; cut=8; ordering_test.n_bundles=22) + submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_holdout_20260716.json :: orderings CI fields (plotted bounds)"))
 cat("wrote figF1A_gain_vs_frac.tex\n")
 
 # ---- Panel B: leave-one-family-out robustness of the ordering ----
@@ -180,7 +180,7 @@ print(
 )
 dev.off()
 emit_tex("figF1B_lofo.tex", c(
-  "% SOURCE: RG_gain_law_MERGED_REFIX20260730.json :: per-cell recomputed LOFO in-script (all-22 rho=-0.822, frozen <=-0.7; range [-0.85,-0.79] = most-negative to minimum-magnitude)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json :: per-cell recomputed LOFO in-script (all-22 rho=-0.822, frozen <=-0.7; range [-0.85,-0.79] = most-negative to minimum-magnitude)"))
 cat("wrote figF1B_lofo.tex\n")
 
 # ---- Panel C: ordering statistic vs its label-permutation null ----
@@ -228,7 +228,7 @@ print(
              colour = "grey30",
              label = sprintf("permutation null, %d draws (%d cells)",
                              N_PERM, N_CELLS)) +
-    annotate("text", x = 0.97, y = ymax * 0.86, hjust = 1, size = 2.4,
+    annotate("text", x = 0.97, y = ymax * 0.74, hjust = 1, size = 2.4,
              colour = "grey30",
              label = sprintf("null mass at or below strongest variant: %s",
                              if (null_tail == 0)
@@ -248,7 +248,7 @@ print(
 )
 dev.off()
 emit_tex("figF1C_ordering_null.tex", c(
-  "% SOURCE: RG_gain_holdout_20260716.json :: orderings (full_pooled -0.8227 p=2.61e-6, heldout_split -0.8238); permutation null computed in-script (seed 20260801, 0/20000 draws at threshold)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_holdout_20260716.json :: orderings (full_pooled -0.8227 p=2.61e-6, heldout_split -0.8238); permutation null computed in-script over submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.{gain_median_absdrop_per_dose,frac_drop_negative} (seed 20260801, 0/20000 draws at threshold)"))
 cat("wrote figF1C_ordering_null.tex\n")
 
 # ---- Panel D: family-coloured two-regime scatter ----
@@ -294,7 +294,7 @@ print(
 )
 dev.off()
 emit_tex("figF1D_family_regimes.tex", c(
-  "% SOURCE: RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.{gain_median_absdrop_per_dose,frac_drop_negative,family} (22 cells, family-coloured regimes)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.{gain_median_absdrop_per_dose,frac_drop_negative} (22 cells; family derived from bundle names in-script, not an artifact field)"))
 cat("wrote figF1D_family_regimes.tex\n")
 cat("make_figF1_gainmap.R DONE\n")
 

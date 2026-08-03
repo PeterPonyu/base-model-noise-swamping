@@ -131,7 +131,7 @@ print(
 )
 dev.off()
 emit_tex("figF3A_partial_rho_by_g.tex", c(
-  "% SOURCE: RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.partial_rho_{s0,s1,s2,mean}; facets cells.*.regime; gate line partial=0.15"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.partial_rho_{s0,s1,s2,mean}; facets cells.*.regime; gate line partial=0.15"))
 cat("wrote figF3A_partial_rho_by_g.tex\n")
 
 # ---- Panel B: c2 coherence bands ----
@@ -178,7 +178,7 @@ print(
 )
 dev.off()
 emit_tex("figF3B_c2_coherence.tex", c(
-  "% SOURCE: RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.{c2_coherent,non_negligible,saturated} per seed; cells ordered by gain"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.{c2_coherent,non_negligible,saturated} per seed; cells ordered by gain"))
 cat("wrote figF3B_c2_coherence.tex\n")
 
 # ---- Panel C: permutation null — FPR across all 22 cells ----
@@ -259,7 +259,7 @@ print(
 )
 dev.off()
 emit_tex("figF3C_perm_null.tex", c(
-  "% SOURCE: perm_null_allcells/*.json :: gate_false_positive_rate (0/2000 all 22), n_perm=2000, cells.*.perm_p_one_sided (min plotted; GPT2_L36 min 0.83 off-scale, arrow-marked); gain for colouring: RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.gain_median_absdrop_per_dose"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/perm_null_allcells/*.json :: gate_false_positive_rate (0/2000 all 22), n_perm=2000, cells.*.perm_p_one_sided (min plotted; GPT2_L36 min 0.83 off-scale, arrow-marked); gain for colouring: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.gain_median_absdrop_per_dose"))
 cat("wrote figF3C_perm_null.tex\n")
 
 # ---- Panel D: two-boundary diagram ----
@@ -346,6 +346,6 @@ print(
 )
 dev.off()
 emit_tex("figF3D_two_boundaries.tex", c(
-  "% SOURCE: RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.{c2_coherent(>=2 seeds)+partial_rho_mean>=0.15 => qualifying g; saturated(<2 seeds) => gradated g; cells with no qualifying g marked with crosses, never dropped"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.{c2_coherent(>=2 seeds)+partial_rho_mean>=0.15 => qualifying g; saturated(<2 seeds) => gradated g; cells with no qualifying g marked with crosses, never dropped"))
 cat("wrote figF3D_two_boundaries.tex\n")
 cat("F3 done: figF3A_partial_rho_by_g.tex figF3B_c2_coherence.tex figF3C_perm_null.tex figF3D_two_boundaries.tex\n")

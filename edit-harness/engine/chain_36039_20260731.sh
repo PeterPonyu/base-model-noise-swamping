@@ -124,7 +124,7 @@ if [ "${1:-}" = "--lane1" ]; then lane1; exit $?; fi
 echo $$ > engine/chain_36039_20260731.pid
 trap 'rm -f engine/chain_36039_20260731.pid' EXIT
 
-bash engine/box_preflight_onbox.sh generic || { log "ABORT: preflight blocked"; exit 3; }
+CLOUD_PY=/root/autodl-tmp/venvs/ifa-20260727/bin/python bash engine/box_preflight_onbox.sh generic || { log "ABORT: preflight blocked"; exit 3; }
 for m in Phi-3.5-mini Llama-3.2-1B Qwen2.5-1.5B; do
   [ -d "data/models/$m" ] || { log "ABORT: missing model data/models/$m (download before chain)"; exit 3; }
   $PY experiments/selftest_target_token.py --tokenizer "data/models/$m" >/dev/null 2>&1 \

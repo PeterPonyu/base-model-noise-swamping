@@ -35,7 +35,8 @@ PORT="$PORT" DEST="$DEST" bash engine/box_sync_up.sh "$HOST" --go >> "$LOG" 2>&1
   || { log "ABORT: sync failed"; exit 12; }
 
 # ---- 4) on-box preflight + model check/download (small public models only) ----
-$SSH "$HOST" "cd $DEST && bash engine/box_preflight_onbox.sh generic" >> "$LOG" 2>&1 \
+$SSH "$HOST" "cd $DEST && CLOUD_PY=/root/autodl-tmp/venvs/ifa-20260727/bin/python \
+  bash engine/box_preflight_onbox.sh generic" >> "$LOG" 2>&1 \
   || { log "ABORT: on-box preflight blocked"; exit 13; }
 for spec in "Qwen/Qwen2.5-1.5B|Qwen2.5-1.5B" "microsoft/Phi-3.5-mini-instruct|Phi-3.5-mini" "meta-llama/Llama-3.2-1B|Llama-3.2-1B"; do
   repo="${spec%%|*}"; name="${spec##*|}"

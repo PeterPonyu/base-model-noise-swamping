@@ -14,14 +14,16 @@ EXPECTED_STEMS = {
     "fig02_efficacy_survival",
     "fig03_rank_survival",
     "fig04_reconstruction_gap",
+    "fig06_width_law",
 }
 EXPECTED_PDFS = {ROOT / "figures" / f"{stem}.pdf" for stem in EXPECTED_STEMS}
 EXPECTED_PNGS = {ROOT / "figures-qa" / f"{stem}.png" for stem in EXPECTED_STEMS}
 EXPECTED_TEXT = {
     "fig01_codec_scope": ("FP32 edit", "quantize", "efficacy", "out of scope"),
-    "fig02_efficacy_survival": ("A", "B", "Absolute quantized efficacy", "Conditional survival", "v1.2.1", "n=500"),
+    "fig02_efficacy_survival": ("A", "B", "C", "D", "Absolute efficacy survival", "Conditional on FP32 success", "8-bit survival", "4-bit full-model K1", "0.904 PASS", "0.680 FAIL"),
     "fig03_rank_survival": ("A", "B", "C", "D", "Rank-survival estimands", "within-probe", "edit-level"),
-    "fig04_reconstruction_gap": ("A", "B", "C", "Legacy median ratio", "Function-space gap", "Parameter-space gap", "amended K3 is UNADJUDICATED"),
+    "fig04_reconstruction_gap": ("A", "B", "C", "Median |dW|/b", "Function-space gap", "Parameter-space gap", "K3 concentration is KILLED"),
+    "fig06_width_law": ("A", "B", "C", "D", "Geometry-valid boundary by width", "Within-family ordering", "Old 1B-vs-Mistral confound", "H-Llama holds", "INCONCLUSIVE", "not layers within models"),
 }
 
 
@@ -91,4 +93,4 @@ for pdf in sorted(EXPECTED_PDFS):
     assert_pdf_text(pdf)
     assert_png(ROOT / "figures-qa" / f"{pdf.stem}.png", dimensions)
 
-print("validation PASS: exactly 4 vector-only single-page PDFs and 4 nonblank 200-dpi QA PNGs; v1.2.1/n_boot=500")
+print("validation PASS: exactly 5 vector-only single-page PDFs and 5 nonblank 200-dpi QA PNGs; v1.2.1/n_boot=500")

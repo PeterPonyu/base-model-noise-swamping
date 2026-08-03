@@ -25,41 +25,8 @@ write_tikz <- function(plot, path, width, height, source_lines) {
   writeLines(c(source_lines, body), path, useBytes=TRUE)
 }
 
-# Figure 2 source fields: cells[*].arms[*].absolute_quantized_esr.point and
-# cells[*].arms[*].conditional_survival_given_fp32_worked.point.
-rows <- list(); z <- 0
-for (cell in s$cells) for (arm in names(cell$arms)) {
-  x <- cell$arms[[arm]]; z <- z + 1
-  rows[[z]] <- data.frame(
-    model=cell$slug, editor=toupper(cell$editor), arm=arm,
-    esr=x$absolute_quantized_esr$point,
-    cond=x$conditional_survival_given_fp32_worked$point
-  )
-}
-d <- do.call(rbind, rows)
 arm_levels <- c("nf4dq_edited_layer", "nf4dq_full_model", "int8_edited_layer", "int8_full_model")
 arm_labels <- c("NF4\nEL", "NF4\nFM", "INT8\nEL", "INT8\nFM")
-d$arm <- factor(d$arm, levels=arm_levels, labels=arm_labels)
-common_esr <- list(
-  geom_col(position=position_dodge(.7), width=.62),
-  geom_hline(yintercept=c(.8,.9), linetype="22", colour="grey65", linewidth=.3),
-  facet_wrap(~model, nrow=1),
-  scale_fill_manual(values=c(ALPHA=C_ORANGE, MEMIT=C_TEAL, ROME=C_BLUE)),
-  scale_y_continuous(limits=c(0,1.04), breaks=c(0,.8,.9,1), expand=c(0,.01)),
-  theme_p
-)
-p2a <- ggplot(d, aes(arm, esr, fill=editor)) + common_esr +
-  labs(title="Absolute quantized efficacy", x=NULL, y="absolute ESR", fill="editor")
-p2b <- ggplot(d, aes(arm, cond, fill=editor)) + common_esr +
-  labs(title="Conditional survival given FP32 success", x=NULL, y="conditional ESR", fill="editor")
-p2 <- p2a / p2b + plot_annotation(
-  tag_levels="A", caption="Canonical v1.2.1; hierarchical bootstrap n=500.",
-  theme=theme(plot.tag=element_text(face="bold", size=10))
-)
-write_tikz(p2, "fig02_efficacy_survival.tex", 6.8, 5.0, c(
-  "% SOURCE: quant_survival_repair_v1.json fields cells[*].arms[*].absolute_quantized_esr.point; cells[*].arms[*].conditional_survival_given_fp32_worked.point.",
-  "% SOURCE: quant_survival_repair_v1.json fields module_provenance.version; module_provenance.n_boot (asserted v1.2.1 and 500)."
-))
 
 # Figure 3 source fields: cells[*].arms[*].flat_rank.point,
 # cells[*].arms[*].within_probe_rank.point, and cells[*].arms[*].edit_level_ranks.signed_mean.point.
@@ -145,5 +112,5 @@ p4 <- gap_panel("ratio", "Median |dW|/b", "median ratio") +
 write_tikz(p4, "fig04_reconstruction_gap.tex", 7.4, 4.0, c(
   "% SOURCE: gate_readout.json fields cells.*.c3.{nf4dq,int8}.median_ratio_mean; cells.*.c3.{nf4dq,int8}.r_func_mean; cells.*.c3.{nf4dq,int8}.r_param_mean."
 ))
-cat("wrote fig02--fig04; canonical version=", s$module_provenance$version,
+cat("wrote fig03--fig04; canonical version=", s$module_provenance$version,
     " n_boot=", s$module_provenance$n_boot, "\n")

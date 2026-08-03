@@ -1,14 +1,20 @@
 # Paper B figure package build
 R := Rscript
 TEX := pdflatex
-FIGURE_PDFS := figures/fig01_codec_scope.pdf figures/fig02_efficacy_survival.pdf figures/fig03_rank_survival.pdf figures/fig04_reconstruction_gap.pdf
+FIGURE_PDFS := figures/fig01_codec_scope.pdf figures/fig02_efficacy_survival.pdf figures/fig03_rank_survival.pdf figures/fig04_reconstruction_gap.pdf figures/fig06_width_law.pdf
 QA_PNGS := $(patsubst figures/%.pdf,figures-qa/%.png,$(FIGURE_PDFS))
-GENERATED_TEX := fig02_efficacy_survival.tex fig03_rank_survival.tex fig04_reconstruction_gap.tex
-FIGURE_INTERMEDIATES := $(foreach n,01 02 03 04,figures-src/fig$(n).aux figures-src/fig$(n).log figures-src/fig$(n).pdf)
+GENERATED_TEX := fig02_efficacy_survival.tex fig03_rank_survival.tex fig04_reconstruction_gap.tex fig06_width_law.tex
+FIGURE_INTERMEDIATES := $(foreach n,01 02 03 04 06,figures-src/fig$(n).aux figures-src/fig$(n).log figures-src/fig$(n).pdf)
 
 all: $(FIGURE_PDFS)
 
-$(GENERATED_TEX) &: make_figures.R
+fig02_efficacy_survival.tex: figures-src/fig02_efficacy_survival.R
+	$(R) figures-src/fig02_efficacy_survival.R
+
+fig06_width_law.tex: figures-src/fig06_width_law.R
+	$(R) figures-src/fig06_width_law.R
+
+fig03_rank_survival.tex fig04_reconstruction_gap.tex &: make_figures.R
 	$(R) make_figures.R
 
 figures/fig01_codec_scope.pdf: figures-src/fig01_codec_scope.tex
@@ -30,6 +36,11 @@ figures/fig04_reconstruction_gap.pdf: fig04_reconstruction_gap.tex figures-src/s
 	mkdir -p figures
 	$(TEX) -interaction=nonstopmode -halt-on-error -output-directory=figures-src -jobname=fig04 figures-src/standalone_fig04.tex >/dev/null
 	cp figures-src/fig04.pdf $@
+
+figures/fig06_width_law.pdf: fig06_width_law.tex figures-src/standalone_fig06.tex
+	mkdir -p figures
+	$(TEX) -interaction=nonstopmode -halt-on-error -output-directory=figures-src -jobname=fig06 figures-src/standalone_fig06.tex >/dev/null
+	cp figures-src/fig06.pdf $@
 
 qa: $(QA_PNGS)
 	python3 tests/validation.py

@@ -303,6 +303,66 @@ read from aggregates.
 - **Map evidence, run two ways** (from the archive root and from `code/`): byte-identical
   output, confirming the `_rec()` path normalization.
 
+### Signed re-analysis REFIX parity
+
+- 19 bundles, 0 MISSING_LOCALLY, all `reproduction_check: PASS`
+- Cells that changed vs the quarantined stale: exactly `Phi-3.5-mini_L16` and `Phi-3.5-mini_L24`
+- Non-Phi cells unchanged
+- Sample Phi values: L16 g2/s0 `partial_abscos_given_mag` 0.2026 → **0.0858** (stale → REFIX); L24 g2/s0: −0.1011 → **−0.2745**
+- 0 absolute paths in the deposit copy
+
+### All-bundles alignment REFIX parity
+
+- 19/19 bundles computed; 17/17 non-Phi cells reproduce the quarantined 20260715 file field-for-field; 2/2 Phi cells reproduce `RG_crossterm_alignment_phi35_REFIX20260730.json` field-for-field, and both differ from the stale
+- `rg_dir` fields recorded as `results/merging/<cell>` (no absolute paths)
+- figB macros verified from the new artifact: Qwen-14B −0.7340 (macro −0.73), Llama-1B +0.4041 (macro +0.40), Mistral-7B +0.3230 (macro +0.32)
+
+### Matched-dose spread deposit re-verification
+
+Run from `code/` using the deposit's own bundles via the new sibling-resolver default:
+
+| Quantity | Shipped artifact | Re-derived | Match |
+|---|---:|---:|---|
+| `spread_max_over_min` | 760.4245 | 760.4245 | OK |
+| `max_pairwise_matched_dose_ratio` | 613.9281 | 613.9281 | OK |
+| Phi-3.5 L16 response in band | 15.2474 | 15.2474 | OK |
+| Phi-3.5 L24 response in band | 2.9004 | 2.9004 | OK |
+| All 22 cells with numeric diff | — | NONE | OK |
+| Addendum (Llama-2-13b) | (absent) | (absent, expected) | OK |
+
+### Additional model-path anonymization
+
+The REFIX map-evidence and signed re-analysis artifacts inherited 4 absolute model paths from the gain-law artifact's per-bundle `model` field (Mistral-7B, Mistral-Nemo-12B, gemma-2-9b, GPT-NeoX-20B). These matched the pattern present in the repo's operating tables but were not present in the deposit's stale aggregate. Patched in both repo and deposit copies to the short anonymized names used by the stale deposit:
+
+| Cell | Before | After |
+|---|---|---|
+| Mistral-7B-v0.3_L24_RG | `/root/autodl-tmp/models/Mistral-7B-v0.3` | `Mistral-7B-v0.3` |
+| Mistral-Nemo-Base-2407_L30_RG | `/root/autodl-tmp/models/Mistral-Nemo-Base-2407` | `Mistral-Nemo-Base-2407` |
+| gemma-2-9b_L31_RG | `/root/autodl-tmp/models/gemma-2-9b` | `gemma-2-9b` |
+| gpt-neox-20b_L33_RG | `/root/autodl-tmp/models/gpt-neox-20b` | `gpt-neox-20b` |
+
+Zero remaining absolute paths in any of the three new artifacts. The `cells` values are unchanged — these fields are provenance-only.
+
+### Final absolute-path sweep
+
+All three new REFIX result artifacts: 0 leaks (RG_signed_reanalysis, RG_crossterm_alignment_ALL, RG_map_evidence).
+
+### Final functional stale-name check
+
+A pattern-based scan was tightened to catch functional occurrences only (lines containing `fromJSON`, `open(`, `json.load(`, `read.csv`, `--out`, `default=`). One hit appeared in `rg_map_evidence_consolidate.py` line 21, but inspection confirmed it is the docstring example showing the pre-refix legacy invocation:
+
+```
+python3 experiments/rg_map_evidence_consolidate.py \
+    --gain_law results/merging/RG_gain_law_20260715.json \
+    --out      results/merging/RG_map_evidence_20260716.json
+```
+
+This is intentional — the docstring documents both the old and the new (default) invocations. No functional stale routing found. All 80 total hits enumerated earlier are rename-map documentation, docstring examples, `supersedes:` provenance fields, or the frozen pre-registration ledger.
+
+### Operational note
+
+Three concurrent BLAS-heavy jobs drove load average to ~120 on 24 cores and slowed each ~5×. When re-running: cap threads (`OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4`) or run sequentially. Single-job wall times: gain law ≈ 13 min, alignment ≈ 2 min, signed ≈ 80 min (contended) / ~25 min (uncontended).
+
 ### Row-by-row re-audit
 
 | README row | Audit verdict | Now | Basis |

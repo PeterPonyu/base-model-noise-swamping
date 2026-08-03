@@ -147,7 +147,7 @@ print(
 )
 dev.off()
 emit_tex("figF8A_crossterm_alignment.tex", c(
-  "% SOURCE: RG_crossterm_alignment_ALL_REFIX20260801.json :: bundles.*.cells.g2.{frac_cos_align_pos,rho_proj_drop} (3-seed means per bundle, 19 bundles)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_crossterm_alignment_ALL_REFIX20260801.json :: bundles.*.cells.g2_s{0,1,2}.{frac_cos_align_pos,rho_proj_drop} (3-seed means per bundle, 19 bundles)"))
 cat("wrote figF8A_crossterm_alignment.tex\n")
 
 # ===== Panel B: readout-slope sign = regime =====
@@ -172,7 +172,7 @@ print(
 )
 dev.off()
 emit_tex("figF8B_slope_sign_regime.tex", c(
-  "% SOURCE: RG_crossterm_alignment_ALL_REFIX20260801.json :: bundles.*.cells.g2.rho_proj_drop (sign split by regime from RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.gain_median_absdrop_per_dose vs cut 8)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_crossterm_alignment_ALL_REFIX20260801.json :: bundles.*.cells.g2_s{0,1,2}.rho_proj_drop (sign split by regime from submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json :: bundles.*.gain_median_absdrop_per_dose vs cut 8)"))
 cat("wrote figF8B_slope_sign_regime.tex\n")
 
 # ===== Panel C: gain ≈ slope magnitude as rank-level proxy =====
@@ -226,7 +226,7 @@ print(
 )
 dev.off()
 emit_tex("figF8C_gain_slope_proxy.tex", c(
-  "% SOURCE: RG_map_evidence_REFIX20260801.json :: cells.*.{gain, per_g.\"2\".median_abs_drop_med3}; Spearman computed in-script (rank-level proxy; rho=0.81, p=4e-6)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_map_evidence_REFIX20260801.json :: cells.*.{gain, per_g.\"2\".median_abs_drop_med3}; Spearman computed in-script (rank-level proxy; rho=0.81, p=4e-6)"))
 cat("wrote figF8C_gain_slope_proxy.tex\n")
 
 # ===== Panel D: A4'-free statement panel =====

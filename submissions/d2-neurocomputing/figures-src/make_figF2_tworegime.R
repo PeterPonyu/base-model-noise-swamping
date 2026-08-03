@@ -126,7 +126,7 @@ p_A <- label_at_end(dA, anno_nms, p_A)
 tikz("figF2A_dose_high.tex", width = 5.0, height = 3.1, standAlone = FALSE)
 print(p_A); dev.off()
 emit_tex("figF2A_dose_high.tex", c(
-  "% SOURCE: RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.median_abs_drop_med3 (high-gain regime cells; extrema labels computed on g=max subset)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.median_abs_drop_med3 + cells.*.regime (series selection); extrema labels computed on g=max subset"))
 cat("wrote figF2A_dose_high.tex\n")
 
 # ---- Panel B: dose-response, LOW-GAIN (constructive) ----
@@ -155,7 +155,7 @@ p_B <- label_at_end(dB, unique(c(top_nm_B, bot_nm_B)), p_B)
 tikz("figF2B_dose_low.tex", width = 5.0, height = 3.1, standAlone = FALSE)
 print(p_B); dev.off()
 emit_tex("figF2B_dose_low.tex", c(
-  "% SOURCE: RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.median_abs_drop_med3 (low-gain constructive cells; extrema labels computed on g=max subset)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_map_evidence_REFIX20260801.json :: cells.*.per_g.{2,3,5,10,20}.median_abs_drop_med3 + cells.*.regime (series selection); extrema labels computed on g=max subset"))
 cat("wrote figF2B_dose_low.tex\n")
 
 # ---- Panel C: architecture-dependent crossover g ----
@@ -233,7 +233,7 @@ print(
 )
 dev.off()
 emit_tex("figF2C_crossover_g.tex", c(
-  "% SOURCE: RG_signed_reanalysis_REFIX20260801.json :: bundles.*.cells.g{2,3,5,10,20}.frac_drop_negative (crossover g per cell; 14B 0.813@2, 1B never crosses)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_signed_reanalysis_REFIX20260801.json :: bundles.*.cells.g{2,3,5,10,20}.frac_drop_negative over all stored group_sizes {2,3,5,10,20,50,100} (crossover g per cell; 14B 0.813@2, 1B never crosses) + regime colouring from submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json"))
 cat("wrote figF2C_crossover_g.tex\n")
 
 # ---- Panel D: signed reanalysis — frac(drop<0) vs g, 14B highlighted ----
@@ -308,6 +308,6 @@ print(
 )
 dev.off()
 emit_tex("figF2D_signed_reanalysis.tex", c(
-  "% SOURCE: RG_signed_reanalysis_REFIX20260801.json :: bundles.{Qwen2.5-14B_L36,Llama-3.2-1B_L12}.cells.g*.frac_drop_negative (14B 0.665@g20, 1B 0.000@g20)"))
+  "% SOURCE: submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_signed_reanalysis_REFIX20260801.json :: bundles.*.cells.g*.frac_drop_negative (all 19 bundles plotted; 14B 0.665@g20, 1B 0.000@g20 highlighted) + regime colouring from submissions/d2-neurocomputing/zenodo-deposit/results/merging/RG_gain_law_MERGED_REFIX20260730.json"))
 cat("wrote figF2D_signed_reanalysis.tex\n")
 cat("make_figF2_tworegime.R DONE\n")

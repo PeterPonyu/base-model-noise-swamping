@@ -3,7 +3,7 @@
   "status": "DESCRIPTIVE_NON_PREREGISTERED",
   "note": "Alignment of the exact received cross-term with the edit's own residual direction; mechanism probe for the 14B constructive flip.",
   "schema_version": "m0.v1",
-  "created": "2026-08-01T03:17:27",
+  "created": "2026-08-01T04:39:26",
   "bundles": {
     "Qwen2.5-14B_L36": {
       "rg_dir": "results/merging/Qwen2.5-14B_L36_RG",
@@ -161,7 +161,7 @@
     },
     "Mistral-7B-v0.3_L24": {
       "rg_dir": "results/merging/Mistral-7B-v0.3_L24_RG",
-      "model": "Mistral-7B-v0.3",
+      "model": "/root/autodl-tmp/models/Mistral-7B-v0.3",
       "layer": 24,
       "seeds": [
         0,
@@ -2471,7 +2471,7 @@
     },
     "Mistral-Nemo-Base-2407_L30": {
       "rg_dir": "results/merging/Mistral-Nemo-Base-2407_L30_RG",
-      "model": "Mistral-Nemo-Base-2407",
+      "model": "/root/autodl-tmp/models/Mistral-Nemo-Base-2407",
       "layer": 30,
       "seeds": [
         0,
@@ -2625,7 +2625,7 @@
     },
     "gemma-2-9b_L31": {
       "rg_dir": "results/merging/gemma-2-9b_L31_RG",
-      "model": "gemma-2-9b",
+      "model": "/root/autodl-tmp/models/gemma-2-9b",
       "layer": 31,
       "seeds": [
         0,
@@ -2779,7 +2779,7 @@
     },
     "gpt-neox-20b_L33": {
       "rg_dir": "results/merging/gpt-neox-20b_L33_RG",
-      "model": "gpt-neox-20b",
+      "model": "/root/autodl-tmp/models/gpt-neox-20b",
       "layer": 33,
       "seeds": [
         0,

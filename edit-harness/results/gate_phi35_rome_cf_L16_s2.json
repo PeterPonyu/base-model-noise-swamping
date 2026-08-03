@@ -9,9 +9,9 @@
   "seed": 2,
   "alpha_proj_source": null,
   "provenance": {
-    "torch": "2.12.1+cu130",
-    "transformers": "5.12.1",
-    "numpy": "2.3.4",
+    "torch": "2.8.0+cu128",
+    "transformers": "5.13.0",
+    "numpy": "2.3.2",
     "dtype": "float32",
     "model_dtype_arg": "fp32",
     "arch": "native",
@@ -20,34 +20,44 @@
     "steps": 20
   },
   "edit_success_rate": 1.0,
-  "mean_residual_norm": 31.8243,
-  "frac_probes_known(pre_p>0.05)": 0.124,
+  "mean_residual_norm": 36.7456,
+  "frac_probes_known(pre_p>0.05)": 0.29,
   "ALL_PAIRS": {
     "subset": "all",
     "n_pairs": 100000,
-    "spearman_cos_damage": 0.017,
-    "spearman_normgrowth_damage": -0.1022,
-    "auroc_cos_broken": 0.6363,
-    "auroc_normgrowth_broken": 0.6018,
-    "mean_damage_logit": 0.06536,
+    "spearman_cos_damage": 0.0701,
+    "spearman_normgrowth_damage": 0.0191,
+    "auroc_cos_broken": 0.681,
+    "auroc_normgrowth_broken": 0.5968,
+    "mean_damage_logit": 0.09617,
     "mean_cosine": 0.18
   },
   "KNOWN_PROBES": {
     "subset": "known_only",
-    "n_pairs": 12400,
-    "spearman_cos_damage": 0.0203,
-    "spearman_normgrowth_damage": 0.1765,
-    "auroc_cos_broken": 0.6223,
-    "auroc_normgrowth_broken": 0.647,
-    "mean_damage_logit": 0.04502,
-    "mean_cosine": 0.1715
+    "n_pairs": 29000,
+    "spearman_cos_damage": 0.1037,
+    "spearman_normgrowth_damage": 0.0078,
+    "auroc_cos_broken": 0.7167,
+    "auroc_normgrowth_broken": 0.5952,
+    "mean_damage_logit": 0.0935,
+    "mean_cosine": 0.1784
   },
-  "runtime_s": 3247.0,
+  "runtime_s": 2756.5,
+  "runner_stamp": {
+    "stamp_version": "runner_stamp.v1",
+    "code_sha256": "f544e539b0dc697e2a119e4c6be7c3153ba8f7db60bbb4e106e7312fe64d837c",
+    "pid": 10392,
+    "hostname": "autodl-container-9804448da5-e8a9d271",
+    "wall_start": "2026-07-30T09:46:47Z",
+    "wall_end": "2026-07-30T10:32:43Z",
+    "elapsed_s": 2756.604,
+    "nvidia_smi_sample": "0, NVIDIA GeForce RTX 4090 D, 5 %, 15461 MiB"
+  },
   "VERDICT": "WEAK/FAIL \u2014 see kill-gate criteria",
   "verdict_detail": {
-    "abs_spearman": 0.0203,
-    "auroc": 0.6223,
-    "beats_normgrowth": false
+    "abs_spearman": 0.1037,
+    "auroc": 0.7167,
+    "beats_normgrowth": true
   },
   "matrices_npz": "results/matrices/gate_phi35_rome_cf_L16_s2.npz"
 }
