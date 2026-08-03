@@ -196,14 +196,21 @@ check_cli(){
 }
 
 # Regression lock for the 2026-07-30 Phi-3.5 first-token collision: every model a
-# wave touches must map distinct edit targets to distinct first CONTENT tokens.
-# Tokenizer-only, CPU, seconds per model — runs BEFORE any GPU spend.
+# wave touches must map the actual wave targets to distinct first CONTENT tokens.
+# Tokenizer-only, CPU, seconds per model — runs BEFORE any GPU spend. The deletion
+# refusal target is included because it replaces target_new in deletion arms.
 check_tokenizer_gate(){
+  local -a extra_targets=()
+  case "$WAVE" in
+    deletion-wave1|deletion-wave2) extra_targets=(--extra-target "I cannot answer") ;;
+  esac
   while IFS='|' read -r repo name expected; do
     dir="$MODEL_ROOT/$name"
     [ -d "$dir" ] || { fail "tokenizer gate: missing model dir $dir"; continue; }
-    "$PY" "$H/experiments/selftest_target_token.py" --tokenizer "$dir" >/dev/null 2>&1 \
-      || fail "tokenizer gate FAIL: $name (first-token collision class bug — see findings-PHI35-TOKENIZER-COLLISION-2026-07-30.md)"
+    if ! "$PY" "$H/experiments/assert_targets_distinguishable.py" \
+      --tokenizer "$dir" --data "$DATA" --label "$name" "${extra_targets[@]}"; then
+      fail "tokenizer gate FAIL: $name (wave blocked; inspect TOKENIZER-GATE diagnostics above)"
+    fi
   done < <(model_lines)
 }
 
@@ -219,6 +226,7 @@ phase_check(){
   need_dir "$H"
   need_file "$H/requirements-box-waves.txt"
   need_file "$driver"
+  "$H/engine/box_preflight.sh" "$WAVE" || { fail "box preflight blocked"; return; }
   check_gpu
   check_prereg
   check_receipts

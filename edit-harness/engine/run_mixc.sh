@@ -4,39 +4,115 @@ set -u
 H="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$H/.." || exit 2
 PY=${PY:-/home/zeyufu/miniconda3/envs/dl/bin/python3}
-PIDFILE=engine/run_mixc.pid
-LOG=engine/run_mixc.log
+PIDFILE=${PIDFILE:-engine/run_mixc.pid}
+CHILD_PIDFILE=${CHILD_PIDFILE:-engine/run_mixc.child.pid}
+CHECKPOINT=${CHECKPOINT:-engine/run_mixc.checkpoint}
+LOG=${LOG:-engine/run_mixc.log}
+H18_POLL_SEC=${H18_POLL_SEC:-5}
 mkdir -p engine
 
 log(){ echo "[$(date '+%F %T')] $*" | tee -a "$LOG"; }
+read_pid(){
+  [ -f "$1" ] || return 1
+  tr -dc 0-9 < "$1"
+}
+pid_alive(){
+  [ -n "${1:-}" ] && kill -0 "$1" 2>/dev/null
+}
+mixc_worker_alive(){
+  local pid="${1:-}" cmd
+  pid_alive "$pid" || return 1
+  cmd=$(tr '\0' ' ' < "/proc/$pid/cmdline" 2>/dev/null) || return 1
+  case "$cmd" in
+    *experiments.frame_a.run_stream*--mixes*MIX_C*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+cleanup_monitor_pidfile(){
+  local recorded
+  recorded=$(read_pid "$PIDFILE" 2>/dev/null || true)
+  [ "$recorded" = "$$" ] && rm -f "$PIDFILE"
+}
+checkpoint_signal(){
+  local signal="$1" child alive=no count=0 cell
+  child=$(read_pid "$CHILD_PIDFILE" 2>/dev/null || true)
+  mixc_worker_alive "$child" && alive=yes
+  for cell in results/frame_a/cells/cell_llama-3.2-1b_real_MIX_C_*.json; do
+    [ -f "$cell" ] && count=$((count+1))
+  done
+  printf 'event=signal signal=%s time=%s monitor_pid=%s worker_pid=%s worker_alive=%s completed_cells=%s/33\n' \
+    "$signal" "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" "$$" "${child:-unknown}" "$alive" "$count" \
+    >> "$CHECKPOINT"
+  log "CHECKPOINT signal=$signal completed=$count/33 worker=${child:-unknown} alive=$alive; relaunch resumes landed cells"
+}
+on_signal(){
+  local signal="$1" rc="$2"
+  trap - TERM INT HUP
+  checkpoint_signal "$signal"
+  exit "$rc"
+}
 
-if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE" 2>/dev/null)" 2>/dev/null; then
-  echo "REFUSE: already running (pid $(cat "$PIDFILE"))" >&2; exit 7
+old_monitor=$(read_pid "$PIDFILE" 2>/dev/null || true)
+if pid_alive "$old_monitor"; then
+  echo "REFUSE: already running (pid $old_monitor)" >&2; exit 7
 fi
-echo $$ > "$PIDFILE"
-trap 'rm -f "$PIDFILE"' EXIT
+printf '%s\n' "$$" > "$PIDFILE"
+trap cleanup_monitor_pidfile EXIT
+trap 'on_signal TERM 143' TERM
+trap 'on_signal INT 130' INT
+trap 'on_signal HUP 129' HUP
 
 log "======== RUN MIX_C START pid=$$ ========"
 log "LID-OPEN REMINDER: keep lid open (nvidia_uvm wedge)."
 
-ENVP="env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1"
+# A monitor may be relaunched after receiving a signal while its detached cell is
+# still running. Follow that worker instead of starting a duplicate; when it exits,
+# the normal idempotent run below skips every cell it already checkpointed to JSON.
+CHILD=$(read_pid "$CHILD_PIDFILE" 2>/dev/null || true)
+if mixc_worker_alive "$CHILD"; then
+  log "REATTACH: detached MIX_C worker pid=$CHILD is still alive"
+  while mixc_worker_alive "$CHILD"; do sleep "$H18_POLL_SEC"; done
+  recorded=$(read_pid "$CHILD_PIDFILE" 2>/dev/null || true)
+  [ "$recorded" = "$CHILD" ] && rm -f "$CHILD_PIDFILE"
+  log "REATTACH: worker pid=$CHILD ended; resuming from landed cell JSONs"
+elif [ -n "$CHILD" ]; then
+  log "STALE: removing non-MIX_C child pid receipt $CHILD_PIDFILE (pid=$CHILD)"
+  rm -f "$CHILD_PIDFILE"
+fi
+
+ENVP=(env -u ALL_PROXY -u all_proxy HF_HUB_OFFLINE=1)
 
 log "MIX_C start (33 cells + p2 structural file)"
-# setsid: the cell runs in its OWN session/process group, so a SIGTERM aimed at
-# this wrapper (or the monitor supervising it) does NOT propagate to the cell —
-# the 07-29 4x-SIGTERM incident: python ran in a `| tee` pipeline inside the
-# wrapper's process group and died with it, losing ~29 GPU-h mid-stream.
-# Side fix: rc now comes from `wait` (real python rc), not from `tee`.
-CHILD_PIDFILE=engine/run_mixc.child.pid
-setsid $ENVP $PY -m experiments.frame_a.run_stream --run --real \
-    --mixes MIX_C --model_dir data/models/Llama-3.2-1B >> "$LOG" 2>&1 &
-CHILD=$!
-echo "$CHILD" > "$CHILD_PIDFILE"
-trap 'log "WRAPPER caught TERM/INT — setsid cell pid '"$CHILD"' stays alive; relaunch resumes landed cells"; exit 143' TERM INT
-wait "$CHILD"
-rc=$?
-trap - TERM INT
+# Keep the worker in its own session/process group. `setsid --wait` preserves the
+# Python exit status; the inner shell writes its PID before exec so the receipt
+# names Python itself even when util-linux setsid must fork.
 rm -f "$CHILD_PIDFILE"
+setsid --wait bash -c '
+  child_pidfile=$1
+  shift
+  printf "%s\n" "$$" > "$child_pidfile"
+  exec "$@"
+' h18-mixc-worker "$CHILD_PIDFILE" "${ENVP[@]}" "$PY" \
+    -m experiments.frame_a.run_stream --run --real \
+    --mixes MIX_C --model_dir data/models/Llama-3.2-1B >> "$LOG" 2>&1 &
+WAITER=$!
+CHILD=
+for _ in 1 2 3 4 5 6 7 8 9 10; do
+  CHILD=$(read_pid "$CHILD_PIDFILE" 2>/dev/null || true)
+  [ -n "$CHILD" ] && break
+  pid_alive "$WAITER" || break
+  sleep 0.1
+done
+if [ -z "$CHILD" ]; then
+  wait "$WAITER"; rc=$?
+  log "FAILED: detached MIX_C worker did not publish $CHILD_PIDFILE (rc=$rc)"
+  exit "$rc"
+fi
+log "MIX_C worker started pid=$CHILD session=$CHILD"
+wait "$WAITER"
+rc=$?
+recorded=$(read_pid "$CHILD_PIDFILE" 2>/dev/null || true)
+[ "$recorded" = "$CHILD" ] && rm -f "$CHILD_PIDFILE"
 if [ $rc -eq 0 ]; then
   # 验证细胞数量
   count=$(ls results/frame_a/cells/cell_llama-3.2-1b_real_MIX_C_*.json 2>/dev/null | wc -l)
