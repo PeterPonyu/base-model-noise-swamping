@@ -57,11 +57,24 @@ make_figF1 <- function() {
       .default = family_raw
     )
     layer_from_key <- as.integer(sub(".*_L([0-9]+)_RG$", "\\1", bundle_name))
+    # Hardcoded model depths — robust to future family additions
+    n_layers_lookup <- c(
+      "Llama-3.2-1B" = 16L, "Llama-3.2-3B" = 28L, "Llama-3.1-8B" = 32L,
+      "Mistral-7B-v0.3" = 32L, "Mistral-Nemo-Minitron-8B" = 32L,
+      "Phi-3.5-mini-instruct" = 32L,
+      "Qwen2.5-1.5B" = 28L, "Qwen2.5-3B" = 36L, "Qwen2.5-7B" = 28L, "Qwen2.5-14B" = 48L,
+      "gemma-2-2b" = 26L, "gemma-2-9b" = 42L,
+      "gpt2-xl" = 48L, "gpt-neox-20b" = 40L
+    )
+    n_layers_for_model <- n_layers_lookup[model_name]
+    if (is.na(n_layers_for_model)) n_layers_for_model <- layer_from_key  # fallback: rel_depth=1
+    rel_depth <- layer_from_key / n_layers_for_model
 
     data.frame(
       bundle = bundle_name,
       family = family,
       layer = layer_from_key,
+      rel_depth = rel_depth,
       n_obs = as.integer(bundle$n_obs),
       gain = as.numeric(bundle$gain_median_absdrop_per_dose),
       frac_drop_negative = as.numeric(bundle$frac_drop_negative),
@@ -88,10 +101,6 @@ make_figF1 <- function() {
     gain_df$regime,
     levels = c("Constructive", "Destructive")
   )
-  # Normalise layer to relative depth [0,1] within each model's depth
-  max_layer_per_model <- tapply(gain_df$layer, gain_df$family, max)
-  gain_df$rel_depth <- gain_df$layer /
-    max_layer_per_model[gain_df$family]
 
   family_colours <- c(
     Llama = "#0072B2",
