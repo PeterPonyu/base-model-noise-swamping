@@ -110,23 +110,18 @@ PY
 
 # Model integrity parameter check
 log "Model integrity check..."
-"$PY" - <<'PY' || { log "ABORT: model integrity failed"; exit 4; }
-import sys
-sys.path.insert(0, ".")
-from experiments.tools.integrity_check import check_integrity
-
-models = [
-    ("gemma2b", "data/models/gemma-2-2b", "2.507e9"),
-    ("qwen3b", "data/models/Qwen2.5-3B", "3.09e9"),
-    ("phi35", "data/models/Phi-3.5-mini", "3.821e9"),
-]
-
-for tag, path, expected in models:
-    print(f"Checking {tag} at {path}...")
-    check_integrity(path, expect_params=expected)
-    print(f"PASS {tag}")
-print("Model integrity PASS")
-PY
+for spec in \
+  "gemma2b:data/models/gemma-2-2b:2614341888" \
+  "qwen3b:data/models/Qwen2.5-3B:3085938688" \
+  "phi35:data/models/Phi-3.5-mini:3821079552"; do
+  tag=${spec%%:*}
+  rest=${spec#*:}
+  model=${rest%:*}
+  expected=${spec##*:}
+  "$PY" experiments/tools/integrity_check.py "$model" --expect_params "$expected" \
+    || { log "ABORT: model integrity failed for $tag"; exit 4; }
+done
+log "Model integrity PASS"
 
 if [ "$DRYRUN" = 1 ]; then
   log "DRYRUN mode: would run SHARD=$SHARD GRID=$GRID"

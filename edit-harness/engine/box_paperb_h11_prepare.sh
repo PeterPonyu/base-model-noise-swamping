@@ -27,9 +27,9 @@ need_dir() { [ -d "$1" ] || fail "missing directory $1"; }
 # Total ~14GB safetensors + ~2GB config/tokenizer = ~16GB disk
 # VRAM: dual 4090D (24GB each) or better
 MODEL_SPECS="
-google/gemma-2-2b|gemma-2-2b|2.507e9
-Qwen/Qwen2.5-3B|Qwen2.5-3B|3.09e9
-microsoft/Phi-3.5-mini-instruct|Phi-3.5-mini|3.821e9
+google/gemma-2-2b|gemma-2-2b|2614341888
+Qwen/Qwen2.5-3B|Qwen2.5-3B|3085938688
+microsoft/Phi-3.5-mini-instruct|Phi-3.5-mini|3821079552
 "
 
 phase_deps() {
