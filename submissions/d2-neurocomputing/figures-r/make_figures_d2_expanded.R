@@ -62,6 +62,7 @@ make_figF1 <- function() {
       bundle = bundle_name,
       family = family,
       layer = layer_from_key,
+      n_obs = as.integer(bundle$n_obs),
       gain = as.numeric(bundle$gain_median_absdrop_per_dose),
       frac_drop_negative = as.numeric(bundle$frac_drop_negative),
       regime = if (as.numeric(bundle$frac_drop_negative) > 0.5) {
@@ -79,7 +80,7 @@ make_figF1 <- function() {
     all(gain_df$family %in% c("Llama", "Qwen", "Phi", "Gemma", "GPT", "Mistral")),
     all(is.finite(gain_df$layer)),
     all(is.finite(gain_df$gain)),
-    all(gain_df$gain > 0),
+    all(gain_df$gain >= 0),
     all(is.finite(gain_df$frac_drop_negative)),
     all(gain_df$frac_drop_negative >= 0 & gain_df$frac_drop_negative <= 1)
   )
@@ -87,6 +88,10 @@ make_figF1 <- function() {
     gain_df$regime,
     levels = c("Constructive", "Destructive")
   )
+  # Normalise layer to relative depth [0,1] within each model's depth
+  max_layer_per_model <- tapply(gain_df$layer, gain_df$family, max)
+  gain_df$rel_depth <- gain_df$layer /
+    max_layer_per_model[gain_df$family]
 
   family_colours <- c(
     Llama = "#0072B2",
@@ -136,16 +141,18 @@ make_figF1 <- function() {
     guides(colour = guide_legend(nrow = 1, byrow = TRUE)) +
     panel_theme
 
-  pc <- ggplot(gain_df, aes(x = layer, y = gain, colour = regime)) +
-    geom_point(size = 2.2, alpha = 0.9) +
+  pc <- ggplot(gain_df, aes(x = rel_depth, y = gain, colour = regime, size = log1p(n_obs))) +
+    geom_point(alpha = 0.9) +
     scale_y_log10() +
+    scale_size_continuous(range = c(1, 4), guide = "none") +
     scale_colour_manual(values = regime_colours, name = "Observed regime") +
     labs(
-      x = "Edited layer",
+      x = "Relative layer depth",
       y = "Median gain (absolute drop / dose)"
     ) +
     guides(colour = guide_legend(nrow = 1, byrow = TRUE)) +
-    panel_theme
+    panel_theme +
+    theme(axis.title.y = element_text(margin = margin(r = 8)))
 
   gain_threshold <- 8
   pd <- ggplot() +
