@@ -46,6 +46,18 @@
 \newcommand{\refPartialsGthree}{0.418/0.479/0.557} % SOURCE: cells g3_s* partial_rho_geom
 \newcommand{\refPartialsGfive}{0.316/0.305/0.340}  % SOURCE: cells g5_s* partial_rho_geom
 
+% ---- preregistered prospective admission reference cell ----
+% SOURCE: results/prospective_admission/prospective_admission_readout.json (v3, 2026-08-03)
+% Llama-3.2-1B L12 ROME CounterFact; q=25%, g=5; downstream mean over seed reports.
+% STATUS: PREREG_MIXED_RESULT — P1/P2/P4 pass, P3 fails (1/3 seeds); claim_admitted_at_reference_cell=false; primary_geometry_claim_supported=true
+\newcommand{\prospectiveDropGeometry}{5.015}
+\newcommand{\prospectiveDropRandom}{7.069}
+\newcommand{\prospectiveDropMagnitude}{9.280}
+\newcommand{\prospectiveDropGeometrySeeds}{6.291/4.402/4.353}
+\newcommand{\prospectiveDropRandomSeeds}{7.754/6.229/7.226}
+\newcommand{\prospectiveDropMagnitudeSeeds}{9.094/8.911/9.835}
+\newcommand{\prospectiveRandomSpreads}{2.793/1.729/2.397}
+
 % ---- signed re-analysis (SOURCE: results/merging/RG_signed_reanalysis_20260715.json) ----
 \newcommand{\fourteenBPartialsGtwo}{-0.432/-0.419/-0.523} % SOURCE: canonical table qwen25_14b cells g2_s*
 \newcommand{\fourteenBConstructiveRange}{81--88\%}         % SOURCE: frac_drop_negative g2..10, 3-seed means

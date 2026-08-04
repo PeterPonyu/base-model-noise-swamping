@@ -993,8 +993,9 @@ fixed group composition; the primary metric is the mean signed drop among admitt
 versus the same-budget random baseline (exactly the overall mean), with magnitude-only
 ordering as a second baseline and seeds kept separate. Keeping composition fixed makes
 this a \emph{selection} evaluation --- which of an already-formed group's members to
-admit --- rather than a prospective group-formation study; evaluating admission that
-re-forms the groups themselves is future work. The three-way comparison is
+admit --- rather than a prospective group-formation study; the separately pre-registered
+reference-cell test below screens a candidate pool and forms the admitted groups anew. The
+three-way comparison is
 deliberately an ablation of the rule's knowledge component: random admission removes
 all information, magnitude-only ordering keeps the update-size scaffold but discards
 key geometry, and the full rule adds the geometric term --- so the gap between the
@@ -1047,6 +1048,25 @@ safe, admission ordering is neutral.}
 \label{fig:benefit}
 \end{figure}
 
+\textbf{Pre-registered prospective test (single reference cell, mixed result).} We froze and
+ran a prospective group-formation test at Llama-3.2-1B layer~12 with ROME on CounterFact:
+from a pool of 100 candidate edits, each policy admitted 25\% and formed groups of five,
+with three seeds and three random-policy draws per seed. Mean target-logit drop was
+\prospectiveDropGeometry{} for geometry screening, versus \prospectiveDropRandom{} for
+random and \prospectiveDropMagnitude{} for magnitude screening (downstream descriptive
+means over the three seed reports). Geometry was lower than both baselines in every seed
+(geometry \prospectiveDropGeometrySeeds{}; random \prospectiveDropRandomSeeds{};
+magnitude \prospectiveDropMagnitudeSeeds{}). The geometry--magnitude advantage also
+exceeded the random policy's full three-draw range in every seed
+(\prospectiveRandomSpreads{}), so none of the three comparisons counted as a tie under the
+frozen rule. The retrospective $g{=}5$ geometry partials (\refPartialsGfive{}) had the
+predicted positive sign. P1, P2, and P4 pass in all seeds; P3 (simultaneous ESR and
+retention within the random interval) passes in 1/3 seeds. Under the frozen gate, the
+primary geometry comparison is supported but the claim is not admitted at the reference
+cell---P3's failure blocks full confirmation. This remains evidence that geometry
+screening outperforms both random and magnitude-only baselines at this cell, but it does
+not establish prospective generalization across models, editors, or datasets.
+
 \section{Falsified Intermediate Interpretations}\label{sec:falsified}
 We report four intermediate interpretations that our own follow-up tests refuted; each
 falsification sharpened the final claim. A \emph{single dose-continuum} was refuted by the
@@ -1081,8 +1101,12 @@ single cell, its overall verdict is Mixed with one qualifying group size, it was
 bf16 rather than fp32, and no directional prediction was frozen for it --- so a second
 large non-Qwen cell with a pre-registered prediction and a qualifying window wider than
 $\{20\}$ remains the natural next test.
-\textbf{Retrospective evaluations.} The admission-benefit table and the routing efficiency
-are retrospective; a confirmatory prospective arm is future work.
+\textbf{Prospective evaluation.} The pre-registered prospective test (single reference
+cell, Llama-1B L12 ROME CounterFact) yielded a mixed result: the primary geometry
+comparison is supported across all three seeds, but P3 (retention and ESR simultaneously
+within random bounds) passes in only 1/3 seeds, blocking full confirmation under the
+frozen gate. Extending this result across models, editors, datasets, and group sizes
+remains future work.
 \textbf{Gain estimation.} Gain is measured here from merge observations; a cheaper edit-free
 estimator from norm statistics is future work.
 \textbf{Outcome metric.} We report target-logit drop on the edited fact; downstream and
