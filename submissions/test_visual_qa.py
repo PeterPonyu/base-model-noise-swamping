@@ -53,6 +53,63 @@ Hello World
     return pdf_file
 
 
+@pytest.fixture
+def multipage_pdf(temp_package):
+    """Create a three-page PDF fixture to lock per-page raster behavior."""
+    tex_content = r"""
+\documentclass{article}
+\begin{document}
+Page one\newpage
+Page two\newpage
+Page three
+\end{document}
+"""
+    tex_file = temp_package / "multipage.tex"
+    tex_file.write_text(tex_content)
+    subprocess.run(
+        ["pdflatex", "-interaction=batchmode", str(tex_file)],
+        cwd=temp_package,
+        capture_output=True,
+        check=True,
+    )
+    pdf_file = temp_package / "multipage.pdf"
+    assert pdf_file.exists(), "Multi-page PDF fixture creation failed"
+    return pdf_file
+
+
+def test_multipage_fixture_renders_every_page(temp_package, multipage_pdf):
+    """A multi-page PDF must yield one canonical PNG per page, with no suffix debris."""
+    result = subprocess.run(
+        [
+            "python",
+            "submissions/visual_qa.py",
+            str(temp_package),
+            str(multipage_pdf),
+            "--status", "honest-draft",
+        ],
+        capture_output=True,
+        text=True,
+        cwd=".",
+    )
+    assert result.returncode == 0, result.stderr
+
+    qa_dir = temp_package / "figures-qa"
+    page_pngs = sorted(qa_dir.glob("test-package-main-page-*.png"))
+    assert [p.name for p in page_pngs] == [
+        "test-package-main-page-001.png",
+        "test-package-main-page-002.png",
+        "test-package-main-page-003.png",
+    ]
+    assert all(p.stat().st_size > 1000 for p in page_pngs)
+
+    data = json.loads((qa_dir / "manifest.json").read_text())
+    pages = data["checks"]["pages"]
+    assert pages["status"] == "ok"
+    assert pages["total_pages"] == 3
+    assert pages["generated"] == 3
+    assert not list(qa_dir.glob("test-package-main-page-*-*.png"))
+
+
 def test_pdf_not_found(temp_package):
     """Test graceful failure when PDF doesn't exist."""
     result = subprocess.run(

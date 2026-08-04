@@ -308,7 +308,10 @@ class PaperQA:
                     })
                     continue
 
-                # Generate PNG with pdftoppm
+                # Render exactly one page to exactly output_file. Without
+                # -singlefile, pdftoppm appends a zero-padded page suffix whose
+                # width depends on the full PDF page count (for example -01),
+                # making per-page rename logic fragile.
                 subprocess.run(
                     [
                         "pdftoppm",
@@ -316,6 +319,7 @@ class PaperQA:
                         "-r", "200",
                         "-f", str(page_num),
                         "-l", str(page_num),
+                        "-singlefile",
                         str(self.pdf_path),
                         str(output_file.with_suffix(""))
                     ],
@@ -323,13 +327,8 @@ class PaperQA:
                     capture_output=True
                 )
 
-                # pdftoppm adds suffix, find and rename it
-                # Single-page output: -1, multi-page varies
-                for suffix in ["-1", f"-{page_num}"]:
-                    generated_file = output_file.parent / f"{output_file.stem}{suffix}.png"
-                    if generated_file.exists():
-                        generated_file.rename(output_file)
-                        break
+                if not output_file.exists():
+                    raise RuntimeError(f"pdftoppm did not create {output_file}")
 
                 # Check if non-empty
                 non_empty = output_file.stat().st_size > 1000
