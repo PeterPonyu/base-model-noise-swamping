@@ -1,0 +1,234 @@
+{
+  "status": "PRE_B4_READOUT",
+  "schema_version": 2,
+  "qwen15b_mean": 0.2759,
+  "qwen3b_mean": 0.20506666666666665,
+  "gemma2b_mean": 0.9340666666666667,
+  "phi35_mean": 0.12773333333333334,
+  "llama1b_mean": 0.9038,
+  "llama3b_mean": 0.6797333333333334,
+  "Q1_qwen_monotone": true,
+  "Q1_llama_partial_monotone": true,
+  "Q2_family_separation": true,
+  "Q3_nsr_rho": -0.9,
+  "Q3_PASS": true,
+  "G_S3_PASS": true,
+  "seed_values": {
+    "qwen3b": [
+      0.2233,
+      0.1933,
+      0.1986
+    ],
+    "gemma2b": [
+      0.9418,
+      0.9343,
+      0.9261
+    ],
+    "phi35": [
+      0.1005,
+      0.1098,
+      0.1729
+    ]
+  },
+  "curve_points": [
+    {
+      "model": "llama1b",
+      "layer": 12,
+      "seed": 0,
+      "noise_to_signal": 0.2107892913628959,
+      "nf4_rank_survival": 0.9294,
+      "source_table": "results/quant_survival/llama1b_rome_L12_s0/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/llama1b_rome_L12_s0/QS_phase1_raw.npz",
+      "table_sha256": "d953f04cc59ae679389f6a7615f66c207f9075bd7b4b914232c804bcc8feaea3",
+      "raw_sha256": "b7af19c6bfc971102d72bfd3843d6c36c8b965dc560c74556121061150233aba"
+    },
+    {
+      "model": "llama1b",
+      "layer": 12,
+      "seed": 1,
+      "noise_to_signal": 0.27762918576153406,
+      "nf4_rank_survival": 0.8977,
+      "source_table": "results/quant_survival/llama1b_rome_L12_s1/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/llama1b_rome_L12_s1/QS_phase1_raw.npz",
+      "table_sha256": "976d2ad06828899f5cb167b8cc382ba4882c528ebd47533ffb30ad3be7083869",
+      "raw_sha256": "f329e0bec422267589507b119143a8bd8268f90627495ad582813e02c54dc8bc"
+    },
+    {
+      "model": "llama1b",
+      "layer": 12,
+      "seed": 2,
+      "noise_to_signal": 0.25935714494483136,
+      "nf4_rank_survival": 0.8843,
+      "source_table": "results/quant_survival/llama1b_rome_L12_s2/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/llama1b_rome_L12_s2/QS_phase1_raw.npz",
+      "table_sha256": "c79b77b6bacfdd7465b214307f5e482203301b114c74eb1d0b7f1eb678443063",
+      "raw_sha256": "864ef4ef4f6e87688c5e6c92e07f2dd4826073c849c81b606748c92d867bc66e"
+    },
+    {
+      "model": "llama3b",
+      "layer": 24,
+      "seed": 0,
+      "noise_to_signal": 0.7003371169966437,
+      "nf4_rank_survival": 0.7017,
+      "source_table": "results/quant_survival/llama3b_rome_L24_s0/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/llama3b_rome_L24_s0/QS_phase1_raw.npz",
+      "table_sha256": "8ed47b1da5892ff6498f32a6b492d81b17a5c732f7716ff71df6ba74f42b954e",
+      "raw_sha256": "1a2dc39f40baeba1afeb66679edaa3cdc92baf9d4f620604552bddb0d234d00b"
+    },
+    {
+      "model": "llama3b",
+      "layer": 24,
+      "seed": 1,
+      "noise_to_signal": 0.8109322429407461,
+      "nf4_rank_survival": 0.6602,
+      "source_table": "results/quant_survival/llama3b_rome_L24_s1/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/llama3b_rome_L24_s1/QS_phase1_raw.npz",
+      "table_sha256": "8be472a708858826a7808a2acdde8a451abaaace8f77b978c75a4e0542da5b53",
+      "raw_sha256": "47296945efa8639e51f7c943383fbf38c24e99628538feb8caeee08882b66a62"
+    },
+    {
+      "model": "llama3b",
+      "layer": 24,
+      "seed": 2,
+      "noise_to_signal": 0.7331603924482879,
+      "nf4_rank_survival": 0.6773,
+      "source_table": "results/quant_survival/llama3b_rome_L24_s2/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/llama3b_rome_L24_s2/QS_phase1_raw.npz",
+      "table_sha256": "923a8189f422aa38dc4eb1f72e8f19eaf86d29b99bc4f60f815fe4e93e616766",
+      "raw_sha256": "19cf022a3c2f556ee0f3d8975c54565d70df3c9639fb48e45927e103d9d4b2ee"
+    },
+    {
+      "model": "qwen15b",
+      "layer": 21,
+      "seed": 0,
+      "noise_to_signal": 3.3458912526248508,
+      "nf4_rank_survival": 0.2833,
+      "source_table": "results/quant_survival/qwen15b_rome_L21_s0/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/qwen15b_rome_L21_s0/QS_phase1_raw.npz",
+      "table_sha256": "f7fe58ed9c20be80322c1f75bb856cc43a4621d909b12131f93d7b8e73ca5c45",
+      "raw_sha256": "28482907cdc7a01c081d49f4fa7d8e7f0b0e4e7f24f3904ff2cb0d31f0a007fd"
+    },
+    {
+      "model": "qwen15b",
+      "layer": 21,
+      "seed": 1,
+      "noise_to_signal": 3.652413682941421,
+      "nf4_rank_survival": 0.2617,
+      "source_table": "results/quant_survival/qwen15b_rome_L21_s1/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/qwen15b_rome_L21_s1/QS_phase1_raw.npz",
+      "table_sha256": "e3177a6d50a626d6075477de1e49fd0bb5cd88ce62e79bf4071947b54020b6b7",
+      "raw_sha256": "836155ce2900c6416affb8d8fe6fdc319829cb1460857b865503ef77e7703101"
+    },
+    {
+      "model": "qwen15b",
+      "layer": 21,
+      "seed": 2,
+      "noise_to_signal": 3.79947276358642,
+      "nf4_rank_survival": 0.2827,
+      "source_table": "results/quant_survival/qwen15b_rome_L21_s2/QS_phase1_table.json",
+      "source_raw": "results/quant_survival/qwen15b_rome_L21_s2/QS_phase1_raw.npz",
+      "table_sha256": "74d8e6e83c9f6787d7e31555499ad5f0005aff630bba0cdd733654413dde662b",
+      "raw_sha256": "aea4ea59e54da390f98070aa37d9b48176982e6fcfa441aa69ce1ce29569c216"
+    },
+    {
+      "model": "qwen3b",
+      "layer": 27,
+      "seed": 0,
+      "noise_to_signal": 5.538618494537947,
+      "nf4_rank_survival": 0.2233,
+      "source_table": "results/quant_survival_curve/qwen3b_rome_L27_s0/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/qwen3b_rome_L27_s0/QS_phase1_raw.npz",
+      "table_sha256": "642f42d4b33d349009c90c8bff2ae1d093f8b42a4f9c8c9c8be1cd21fc22eded",
+      "raw_sha256": "0a8f5ccb183730ba46a472d78f8281e2878f5a21beeffd07641739a80ee66b5c"
+    },
+    {
+      "model": "qwen3b",
+      "layer": 27,
+      "seed": 1,
+      "noise_to_signal": 6.213366855610344,
+      "nf4_rank_survival": 0.1933,
+      "source_table": "results/quant_survival_curve/qwen3b_rome_L27_s1/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/qwen3b_rome_L27_s1/QS_phase1_raw.npz",
+      "table_sha256": "db040927d55c73815562b6989ad5e17fc012cdd62ad8ad1d73fbb9c615a52487",
+      "raw_sha256": "e4a0232744aaa1aa3799170708257dc4572a075f4f3c1872c654db8f99383136"
+    },
+    {
+      "model": "qwen3b",
+      "layer": 27,
+      "seed": 2,
+      "noise_to_signal": 5.753380263429456,
+      "nf4_rank_survival": 0.1986,
+      "source_table": "results/quant_survival_curve/qwen3b_rome_L27_s2/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/qwen3b_rome_L27_s2/QS_phase1_raw.npz",
+      "table_sha256": "62fe9dc8e32f9de3217e1e344e635631d0bf6a8b818b35ce3d6b1e2e6e6c851d",
+      "raw_sha256": "ed54ae8b95bb978f79bcd2f3a72540395d14befb0ee300b82fa88818a8f64a5b"
+    },
+    {
+      "model": "gemma2b",
+      "layer": 19,
+      "seed": 0,
+      "noise_to_signal": 0.1313725387418956,
+      "nf4_rank_survival": 0.9418,
+      "source_table": "results/quant_survival_curve/gemma2b_rome_L19_s0/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/gemma2b_rome_L19_s0/QS_phase1_raw.npz",
+      "table_sha256": "00fafa287f9bd5de4ead9f77329b9b86fd073f192cd02b74883e49ff48dcac17",
+      "raw_sha256": "b97cc414eefe05ba9ce44a236c36717630b6354d1bf9af32d8fe0fe6775b783a"
+    },
+    {
+      "model": "gemma2b",
+      "layer": 19,
+      "seed": 1,
+      "noise_to_signal": 0.1519293731097347,
+      "nf4_rank_survival": 0.9343,
+      "source_table": "results/quant_survival_curve/gemma2b_rome_L19_s1/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/gemma2b_rome_L19_s1/QS_phase1_raw.npz",
+      "table_sha256": "e378ec5355e9c47628e466c678b41c574e9e5a17dff641dcaf9173486455b80d",
+      "raw_sha256": "0e6dd6dfd82ef175913f4eb8886cd7a2e21ce242b37c3a1960ce02299d41b4e9"
+    },
+    {
+      "model": "gemma2b",
+      "layer": 19,
+      "seed": 2,
+      "noise_to_signal": 0.12206796400568858,
+      "nf4_rank_survival": 0.9261,
+      "source_table": "results/quant_survival_curve/gemma2b_rome_L19_s2/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/gemma2b_rome_L19_s2/QS_phase1_raw.npz",
+      "table_sha256": "297d18082478735f193646647cc7637067bc3eea07d764d29d9cb8d4df930958",
+      "raw_sha256": "24a61434053bb8b198b39088331def23c211b7b7427ddd85a7896c94380bbc81"
+    },
+    {
+      "model": "phi35",
+      "layer": 24,
+      "seed": 0,
+      "noise_to_signal": 11.178983613387357,
+      "nf4_rank_survival": 0.1005,
+      "source_table": "results/quant_survival_curve/phi35_rome_L24_s0/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/phi35_rome_L24_s0/QS_phase1_raw.npz",
+      "table_sha256": "0749c352e1e5075e49ad0120b70720af66569524a22f4fcee4c5695a9a16b74a",
+      "raw_sha256": "9c5f0a17b84dee6e90b857d59b3a465cd0424907b441e2d92a74c5c46c78a804"
+    },
+    {
+      "model": "phi35",
+      "layer": 24,
+      "seed": 1,
+      "noise_to_signal": 10.177544976341636,
+      "nf4_rank_survival": 0.1098,
+      "source_table": "results/quant_survival_curve/phi35_rome_L24_s1/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/phi35_rome_L24_s1/QS_phase1_raw.npz",
+      "table_sha256": "a26f086d58b49c42cf6891ec56e6c19cffcb2e7c45d6bdec2880cb8cf0fc781f",
+      "raw_sha256": "02926a1850b9fd45043d70c81924065bbfcc6c1a7af0fdf882a74854b73ed548"
+    },
+    {
+      "model": "phi35",
+      "layer": 24,
+      "seed": 2,
+      "noise_to_signal": 13.647995826782806,
+      "nf4_rank_survival": 0.1729,
+      "source_table": "results/quant_survival_curve/phi35_rome_L24_s2/QS_phase1_table.json",
+      "source_raw": "results/quant_survival_curve/phi35_rome_L24_s2/QS_phase1_raw.npz",
+      "table_sha256": "1c87af540affd1ac0cc53fc90223811b424d110988fff167aa9c00ff1278d805",
+      "raw_sha256": "01de812459b6d221e4b564c3a56ea29874d6f46a7a65719a86059fc6432af0e8"
+    }
+  ],
+  "note": "B4 remains the separately gated Llama-3.1-8B point; complete three-point Llama Q1 is evaluated only after B4."
+}

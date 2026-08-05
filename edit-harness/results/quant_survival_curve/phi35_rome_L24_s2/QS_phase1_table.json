@@ -1,0 +1,189 @@
+{
+  "experiment": "quant_survival_phase1",
+  "schema_version": "qs.phase1.v1",
+  "created": "2026-08-05T13:51:29",
+  "model": "data/models/Phi-3.5-mini",
+  "layer": 24,
+  "editor": "rome",
+  "n_edits": 200,
+  "n_probes": 200,
+  "seed": 2,
+  "schemes": [
+    "nf4dq",
+    "int8"
+  ],
+  "codec": "real",
+  "blocksize": 64,
+  "fullmodel_cache": "off",
+  "edited_layers": [
+    24
+  ],
+  "c2_scope": "ROME on this cell carries C1/C2/C3; C2 (geometry-ranking survival) is evaluated only where the fp32 within-probe law clears rho>=0.30 (see mechanism_tie.fp32_law_gate_c2_eligible)",
+  "quant_note": "REAL bitsandbytes kernels (codec=real): NF4 double-quant ON, INT8 per-row absmax; sim = pilot pure-torch round-trip (NF4 omits double-quant), CPU cross-check only",
+  "damage_metric_note": "signed damage_logit = pre_l(fp32 unedited) \u2212 post_l; never AUROC",
+  "esr": {
+    "mean_esr_fp32": 0.44,
+    "n_edits_worked_fp32": 88
+  },
+  "mechanism_tie": {
+    "rho_keycos_damage_fp32_pooled": 0.0245,
+    "rho_keycos_damage_fp32_within_probe": 0.0023,
+    "within_probe_n_cols": 200,
+    "fp32_law_gate_c2_eligible": false,
+    "fp32_pooled_ci95_bootstrap_edits": [
+      -0.0056,
+      0.0539
+    ]
+  },
+  "arms": {
+    "nf4dq_edited_layer": {
+      "locality": "edited_layer",
+      "scheme": "nf4dq",
+      "mean_esr": 0.425,
+      "esr_survival_given_fp32_worked": 0.9659,
+      "rho_keycos_damage_pooled": 0.051,
+      "rho_keycos_damage_pooled_base_subtracted": 0.0233,
+      "rho_keycos_damage_within_probe": 0.012,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.012,
+      "delta_rho_vs_fp32_pooled": 0.0265,
+      "delta_rho_vs_fp32_within_probe": 0.0097,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.7635,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.7556,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        0.0258,
+        0.074
+      ],
+      "added_damage_logit_mean": 2e-05,
+      "added_damage_logit_std": 0.04481,
+      "base_quant_noise_logit_mean_abs": 0.02954
+    },
+    "nf4dq_full_model": {
+      "locality": "full_model",
+      "scheme": "nf4dq",
+      "mean_esr": 0.365,
+      "esr_survival_given_fp32_worked": 0.8182,
+      "rho_keycos_damage_pooled": 0.065,
+      "rho_keycos_damage_pooled_base_subtracted": 0.0397,
+      "rho_keycos_damage_within_probe": 0.0268,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.0268,
+      "delta_rho_vs_fp32_pooled": 0.0405,
+      "delta_rho_vs_fp32_within_probe": 0.0245,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.1729,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.0503,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        0.0552,
+        0.0729
+      ],
+      "added_damage_logit_mean": 0.6337,
+      "added_damage_logit_std": 0.85931,
+      "base_quant_noise_logit_mean_abs": 0.78835
+    },
+    "int8_edited_layer": {
+      "locality": "edited_layer",
+      "scheme": "int8",
+      "mean_esr": 0.44,
+      "esr_survival_given_fp32_worked": 1.0,
+      "rho_keycos_damage_pooled": 0.0297,
+      "rho_keycos_damage_pooled_base_subtracted": 0.0251,
+      "rho_keycos_damage_within_probe": 0.0036,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.0036,
+      "delta_rho_vs_fp32_pooled": 0.0052,
+      "delta_rho_vs_fp32_within_probe": 0.0013,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.9919,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.9918,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        -0.0012,
+        0.0582
+      ],
+      "added_damage_logit_mean": 0.00023,
+      "added_damage_logit_std": 0.00455,
+      "base_quant_noise_logit_mean_abs": 0.00315
+    },
+    "int8_full_model": {
+      "locality": "full_model",
+      "scheme": "int8",
+      "mean_esr": 0.44,
+      "esr_survival_given_fp32_worked": 0.9886,
+      "rho_keycos_damage_pooled": 0.039,
+      "rho_keycos_damage_pooled_base_subtracted": 0.0257,
+      "rho_keycos_damage_within_probe": 0.0033,
+      "rho_keycos_damage_within_probe_base_subtracted": 0.0033,
+      "delta_rho_vs_fp32_pooled": 0.0145,
+      "delta_rho_vs_fp32_within_probe": 0.001,
+      "rho_damage_fp32_vs_arm_rank_survival": 0.4416,
+      "rho_damage_fp32_vs_arm_rank_survival_base_subtracted": 0.4935,
+      "permutation_null_p_pooled": 0.001,
+      "rho_pooled_ci95_bootstrap_edits": [
+        0.0208,
+        0.0562
+      ],
+      "added_damage_logit_mean": 0.03747,
+      "added_damage_logit_std": 0.12438,
+      "base_quant_noise_logit_mean_abs": 0.09295
+    }
+  },
+  "bin_width_mechanism_C3": {
+    "nf4dq": {
+      "n_params_pooled": 3276800,
+      "F_above_bin": 0.0,
+      "median_ratio": 0.0046,
+      "p90_ratio": 0.041,
+      "M_concentration_holds_median_ge_1": false,
+      "r_func_mean": 0.1939,
+      "r_param_mean": 77.7585,
+      "M_averaging_r_func_ll_r_param": true,
+      "note": "F_above/median_ratio are a CONCENTRATION proxy (survival also depends on W_base in-bin position) \u2014 reported distinct from the measured C1/C2 survival"
+    },
+    "int8": {
+      "n_params_pooled": 3276800,
+      "F_above_bin": 0.0145,
+      "median_ratio": 0.0381,
+      "p90_ratio": 0.3277,
+      "M_concentration_holds_median_ge_1": false,
+      "r_func_mean": 0.0201,
+      "r_param_mean": 9.425,
+      "M_averaging_r_func_ll_r_param": true,
+      "note": "F_above/median_ratio are a CONCENTRATION proxy (survival also depends on W_base in-bin position) \u2014 reported distinct from the measured C1/C2 survival"
+    }
+  },
+  "generation_checks": {
+    "fp32": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 3.9791,
+      "paraphrase_esr_mean": 0.1
+    },
+    "nf4dq_edited_layer": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 3.9952,
+      "paraphrase_esr_mean": 0.1
+    },
+    "nf4dq_full_model": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 4.516,
+      "paraphrase_esr_mean": 0.05
+    },
+    "int8_edited_layer": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 3.98,
+      "paraphrase_esr_mean": 0.1
+    },
+    "int8_full_model": {
+      "n_gen_probes": 40,
+      "perplexity_mean": 3.9701,
+      "paraphrase_esr_mean": 0.1
+    }
+  },
+  "runner_stamp": {
+    "stamp_version": "runner_stamp.v1",
+    "code_sha256": "1c6ce48f8c5baa6e403b177854559a957352d52f1d09017ed2ecb8da1a470e87",
+    "pid": 3281,
+    "hostname": "autodl-container-9804448da5-e8a9d271",
+    "wall_start": "2026-08-05T03:40:59Z",
+    "wall_end": "2026-08-05T05:45:00Z",
+    "elapsed_s": 7440.598,
+    "nvidia_smi_sample": "0, NVIDIA GeForce RTX 4090 D, 11 %, 16707 MiB\n1, NVIDIA GeForce RTX 4090 D, 0 %, 0 MiB"
+  }
+}

@@ -116,11 +116,13 @@ def main():
                 }
                 rows.append(row)
 
-    # Compute Spearman correlation if enough points
-    if len(rows) >= 6:
+    # Compute Q3 only from the complete 3-model x 3-seed NEW grid. Baseline
+    # rows must not make a partial H11 wave look complete.
+    new_rows = [r for r in rows if r["model"] in {"qwen3b", "gemma2b", "phi35"}]
+    if len(new_rows) == 9:
         from experiments.merging_m0 import _spearman
-        nsr_vals = np.array([r["noise_to_signal"] for r in rows])
-        surv_vals = np.array([r["nf4_rank_survival"] for r in rows])
+        nsr_vals = np.array([r["noise_to_signal"] for r in new_rows])
+        surv_vals = np.array([r["nf4_rank_survival"] for r in new_rows])
         rho_nsr = float(_spearman(nsr_vals, surv_vals))
     else:
         rho_nsr = None

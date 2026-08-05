@@ -84,7 +84,7 @@ p <- ggplot(df, aes(x = noise_to_signal, y = nf4_rank_survival, color = family))
   )
 
 if (!is.null(x$Q3_nsr_rho) && is.finite(x$Q3_nsr_rho)) {
-  rho_text <- sprintf("$\\rho_{\\text{Spearman}} = %.3f$", x$Q3_nsr_rho)
+  rho_text <- sprintf("$\\rho = %.3f$", x$Q3_nsr_rho)
   pass_text <- if (isTRUE(x$Q3_PASS)) " (Q3 PASS)" else " (Q3 FAIL)"
   annotation_text <- paste0(rho_text, pass_text)
   p <- p + annotate("text", x = max(df$noise_to_signal) * 0.5, y = 0.95,

@@ -241,6 +241,6 @@ echo "  2. On remote box: bash engine/box_paperb_h11_prepare.sh deps"
 echo "  3. On remote box: bash engine/box_paperb_h11_prepare.sh download"
 echo "  4. On remote box: bash engine/box_paperb_h11_prepare.sh check"
 echo "  5. On remote box: bash engine/box_paperb_h11_launch.sh"
-echo "  6. After completion: bash engine/box_paperb_h11_pull.sh REMOTE_HOST"
+echo "  6. After completion: bash engine/box_paperb_h11_pull.sh root@connect.cqa1.seetacloud.com"
 echo ""
 exit 0

@@ -5,7 +5,7 @@ set -u
 cd "$(dirname "$0")" || exit 1
 
 # Environment
-PY=${PY:-/home/zeyufu/miniconda3/envs/dl/bin/python3}
+PY=${PY:-${CLOUD_PY:-/home/zeyufu/miniconda3/envs/dl/bin/python3}}
 GPU_ID=${GPU_ID:-0}
 DRYRUN=${DRYRUN:-0}
 BUDGET_MIN=${BUDGET_MIN:-300}
@@ -14,9 +14,20 @@ SNAPSHOT_DEVICE=${SNAPSHOT_DEVICE:-cuda}
 SHARD=${SHARD:-all}  # all | card0 | card1
 WAVE_BOX=${WAVE_BOX:-local}
 H=${H:-$(pwd)}
+if [ "$WAVE_BOX" != "local" ] && [ "$WAVE_BOX" != "$(hostname)" ]; then
+  echo "ABORT: WAVE_BOX=$WAVE_BOX does not match host $(hostname)" >&2
+  exit 6
+fi
 
-# Prereg check (reuses Paper B curve prereg)
-PREREG=${PREREG:-../docs/plans/PREREG-PAPERB-CURVE-2026-07-26.md}
+# Prereg check (reuses Paper B curve prereg). The laptop keeps this file in
+# the repository-level docs/, while the deployed box mirrors docs/ inside H.
+if [ -z "${PREREG:-}" ]; then
+  if [ -f "$H/docs/plans/PREREG-PAPERB-CURVE-2026-07-26.md" ]; then
+    PREREG="$H/docs/plans/PREREG-PAPERB-CURVE-2026-07-26.md"
+  else
+    PREREG="$H/../docs/plans/PREREG-PAPERB-CURVE-2026-07-26.md"
+  fi
+fi
 [ -f "$PREREG" ] && grep -qx 'STATUS: RATIFIED' "$PREREG" || {
   echo "ABORT: Paper B curve prereg not ratified" >&2
   exit 5
@@ -136,25 +147,50 @@ CUDA_VISIBLE_DEVICES="" "$PY" "$Q" --selftest > engine/paperb_h11_missing_selfte
 }
 log "CPU selftest PASS"
 
-# GPU idle gate (skip on remote box if WAVE_BOX != local)
-if [ "$WAVE_BOX" = "local" ]; then
-  consec=0
-  gate_start=$(date +%s)
-  while [ "$consec" -lt 3 ]; do
-    line=$(nvidia-smi -i "$GPU_ID" --query-gpu=utilization.gpu,memory.used --format=csv,noheader,nounits 2>/dev/null | head -1)
-    util=$(printf '%s' "$line" | cut -d, -f1 | tr -dc 0-9)
-    mem=$(printf '%s' "$line" | cut -d, -f2 | tr -dc 0-9)
-    if [ -n "$util" ] && [ -n "$mem" ] && [ "$util" -lt 25 ] && [ "$mem" -lt 1500 ]; then
-      consec=$((consec + 1))
-    else
-      consec=0
-    fi
-    elapsed=$(($(date +%s) - gate_start))
-    [ "$elapsed" -le 1800 ] || { log "ABORT: GPU idle gate timeout"; exit 8; }
-    [ "$consec" -eq 3 ] || sleep 30
-  done
-  log "GPU idle gate PASS"
-fi
+# GPU idle gate: every launch, local or remote, must verify the selected physical
+# card is idle. WAVE_BOX identifies the host; it is not permission to skip this gate.
+consec=0
+gate_start=$(date +%s)
+while [ "$consec" -lt 3 ]; do
+  line=$(nvidia-smi -i "$GPU_ID" --query-gpu=utilization.gpu,memory.used --format=csv,noheader,nounits 2>/dev/null | head -1)
+  util=$(printf '%s' "$line" | cut -d, -f1 | tr -dc 0-9)
+  mem=$(printf '%s' "$line" | cut -d, -f2 | tr -dc 0-9)
+  if [ -n "$util" ] && [ -n "$mem" ] && [ "$util" -lt 25 ] && [ "$mem" -lt 1500 ]; then
+    consec=$((consec + 1))
+  else
+    consec=0
+  fi
+  elapsed=$(($(date +%s) - gate_start))
+  [ "$elapsed" -le 1800 ] || { log "ABORT: GPU idle gate timeout"; exit 8; }
+  [ "$consec" -eq 3 ] || sleep 30
+done
+log "GPU idle gate PASS"
+
+# Per-model GPU smoke on the exact card, model, layer, codec, and snapshot mode
+# used by this shard. A downloaded model is not launch-ready until the full edit ->
+# quantize -> restore path succeeds once.
+for spec in $GRID; do
+  tag=${spec%%:*}
+  rest=${spec#*:}
+  model=${rest%:*}
+  layer=${spec##*:}
+  smoke_dir="results/smoke_paperb_h11/${tag}"
+  smoke_table="$smoke_dir/QS_phase1_table.json"
+  if [ ! -f "$smoke_table" ]; then
+    mkdir -p "$smoke_dir"
+    log "SMOKE $tag L$layer on GPU $GPU_ID"
+    CUDA_VISIBLE_DEVICES="$GPU_ID" timeout 2400 "$PY" "$Q" \
+      --run --model "$model" --data "$DATA" --editor rome \
+      --n_edits 3 --n_probes 8 --layer "$layer" --seed 0 \
+      --steps 2 --lr 0.1 --schemes nf4dq,int8 --codec real \
+      --fullmodel_cache off --n_perm 20 --n_boot 20 --gen_check_n 0 \
+      --device cuda --snapshot_device "$SNAPSHOT_DEVICE" \
+      --out_dir "$smoke_dir" --table_out "$smoke_table" \
+      > "engine/paperb_h11_smoke_${tag}.log" 2>&1 \
+      || { log "ABORT: GPU smoke failed for $tag"; exit 10; }
+  fi
+done
+log "GPU smoke gate PASS"
 
 # Validation function (runner_stamp + schema check)
 validate() {
@@ -176,6 +212,14 @@ PY
 # Main execution loop
 T0=$(date +%s)
 failures=0
+completed=0
+expected=0
+for spec in $GRID; do
+  tag=${spec%%:*}
+  seeds_var="SEEDS_${tag}"
+  seeds="${!seeds_var:-}"
+  for _ in $seeds; do expected=$((expected + 1)); done
+done
 
 for spec in $GRID; do
   tag=${spec%%:*}
@@ -197,6 +241,7 @@ for spec in $GRID; do
     # Skip if valid
     if [ -f "$table" ] && [ -f "$raw" ] && validate "$table" "$raw" >/dev/null 2>&1; then
       log "SKIP $tag L$layer s$seed (already valid)"
+      completed=$((completed + 1))
       continue
     fi
 
@@ -235,7 +280,15 @@ for spec in $GRID; do
 
     if [ "$rc" -eq 0 ] && validate "$table" "$raw" >/dev/null 2>&1; then
       log "DONE $tag L$layer s$seed"
+      completed=$((completed + 1))
     else
+      invalid_suffix=".INVALID-$(date -u '+%Y%m%dT%H%M%SZ')-$BASHPID"
+      for artifact in "$table" "$raw"; do
+        if [ -e "$artifact" ]; then
+          mv -- "$artifact" "${artifact}${invalid_suffix}"
+          log "QUARANTINED ${artifact}${invalid_suffix}"
+        fi
+      done
       log "FAIL $tag L$layer s$seed rc=$rc"
       failures=$((failures + 1))
     fi
@@ -258,8 +311,12 @@ else
   log "G-S3 not passed (rc=$readout_rc)"
 fi
 
-log "COMPLETE failures=$failures readout_rc=$readout_rc elapsed=$((($(date +%s) - T0) / 60))min"
+log "COMPLETE failures=$failures completed=$completed/$expected readout_rc=$readout_rc elapsed=$((($(date +%s) - T0) / 60))min"
 
 [ "$failures" -eq 0 ] || exit 9
-[ "$readout_rc" -eq 3 ] && exit 11
+[ "$completed" -eq "$expected" ] || exit 12
+# The remote recovery box intentionally lacks the 13 already-local baseline
+# artifacts. rc=3 therefore means "pull the five validated cells and run the
+# aggregate readout on the laptop", not a cell failure.
+[ "$readout_rc" -eq 3 ] && exit 0
 exit 0

@@ -6,6 +6,11 @@ H="${HARNESS:-/root/edit-harness}"
 DRYRUN="${DRYRUN:-0}"
 cd "$H" || exit 1
 [ -f engine/box_env.sh ] && source engine/box_env.sh
+PAPERB_H11_PY="${PAPERB_H11_PY:-/root/autodl-tmp/venvs/ifa-20260727/bin/python}"
+[ -x "$PAPERB_H11_PY" ] || {
+  echo "[paperb-h11-launch] ABORT: Python venv not executable: $PAPERB_H11_PY" >&2
+  exit 6
+}
 
 host=$(hostname)
 WAVE="paperb-h11-missing"
@@ -59,22 +64,26 @@ launch() {
 launch_fail=0
 
 launch paperb-h11-card0 engine/run_paperb_h11_missing_card0.pid \
+  PY="$PAPERB_H11_PY" \
   H="$H" \
   WAVE_BOX="$host" \
   SHARD=card0 \
   GPU_ID=0 \
+  SNAPSHOT_DEVICE=cpu \
   BUDGET_MIN="${BUDGET_MIN:-300}" \
-  JOB_CAP_MIN="${JOB_CAP_MIN:-120}" \
+  JOB_CAP_MIN="${JOB_CAP_MIN:-150}" \
   bash -c './run_paperb_h11_missing.sh >engine/paperb_h11_missing_card0.nohup.log 2>&1' \
   || launch_fail=1
 
 launch paperb-h11-card1 engine/run_paperb_h11_missing_card1.pid \
+  PY="$PAPERB_H11_PY" \
   H="$H" \
   WAVE_BOX="$host" \
   SHARD=card1 \
   GPU_ID=1 \
+  SNAPSHOT_DEVICE=cpu \
   BUDGET_MIN="${BUDGET_MIN:-300}" \
-  JOB_CAP_MIN="${JOB_CAP_MIN:-120}" \
+  JOB_CAP_MIN="${JOB_CAP_MIN:-150}" \
   bash -c './run_paperb_h11_missing.sh >engine/paperb_h11_missing_card1.nohup.log 2>&1' \
   || launch_fail=1
 

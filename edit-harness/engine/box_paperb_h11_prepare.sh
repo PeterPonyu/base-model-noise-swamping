@@ -167,6 +167,7 @@ check_code() {
   need_file "$H/experiments/quant_survival_phase1.py"
   need_file "$H/experiments/paperb_curve_readout.py"
   need_file "$H/experiments/tools/integrity_check.py"
+  need_file "$H/experiments/assert_targets_distinguishable.py"
 
   # Verify driver is executable
   [ -x "$H/run_paperb_h11_missing.sh" ] || chmod +x "$H/run_paperb_h11_missing.sh"
@@ -181,11 +182,35 @@ check_models() {
   done <<< "$MODEL_SPECS"
 }
 
+check_tokenizer_gate() {
+  need_file "$H/experiments/assert_targets_distinguishable.py"
+  [ -f "$H/experiments/assert_targets_distinguishable.py" ] || return
+  while IFS='|' read -r repo name expected; do
+    [ -n "$repo" ] || continue
+    "$PY" "$H/experiments/assert_targets_distinguishable.py" \
+      --tokenizer "$MODEL_ROOT/$name" --data "$DATA" --label "$name" \
+      || fail "tokenizer gate failed: $name"
+  done <<< "$MODEL_SPECS"
+}
+
 phase_check() {
+  need_file "$DATA"
+  if [ -f "$DATA" ]; then
+    local data_sha
+    data_sha=$(sha256sum "$DATA" | cut -d' ' -f1)
+    [ "$data_sha" = "$EXPECTED_DATA_SHA" ] || fail "CounterFact sha256 $data_sha != $EXPECTED_DATA_SHA"
+  fi
   check_gpu
   check_prereg
   check_code
   check_models
+  check_tokenizer_gate
+  if ! CUDA_VISIBLE_DEVICES="" "$PY" "$H/experiments/quant_survival_phase1.py" --selftest \
+      > "$H/engine/paperb_h11_prepare_selftest.log" 2>&1; then
+    fail "Paper B CPU selftest failed"
+  elif ! grep -q 'ALL CHECKS PASSED' "$H/engine/paperb_h11_prepare_selftest.log"; then
+    fail "Paper B CPU selftest completion marker missing"
+  fi
 
   if [ "$FAILED" -eq 0 ]; then
     driver="$H/run_paperb_h11_missing.sh"
