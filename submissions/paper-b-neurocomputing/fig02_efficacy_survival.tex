@@ -552,7 +552,6 @@
 
 \path[draw=drawColor,line width= 0.5pt,line join=round] (355.22,158.50) --
 	(366.58,158.50);
-\definecolor{drawColor}{RGB}{213,94,0}
 
 \path[draw=drawColor,line width= 0.5pt,line join=round] (449.94,113.17) --
 	(461.31,113.17);
@@ -562,18 +561,13 @@
 
 \path[draw=drawColor,line width= 0.5pt,line join=round] (449.94,102.87) --
 	(461.31,102.87);
-\definecolor{drawColor}{RGB}{0,114,178}
 \definecolor{fillColor}{RGB}{0,114,178}
 
 \path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round,fill=fillColor] (360.90,163.34) circle (  3.22);
-\definecolor{drawColor}{RGB}{213,94,0}
-\definecolor{fillColor}{RGB}{213,94,0}
 
 \path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round,fill=fillColor] (455.62,107.72) circle (  3.22);
-\definecolor{drawColor}{RGB}{0,114,178}
 
 \node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.77] at (360.90,168.63) {0.904 PASS};
-\definecolor{drawColor}{RGB}{213,94,0}
 
 \node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  0.77] at (455.62,113.01) {0.680 FAIL};
 \end{scope}
@@ -642,7 +636,7 @@
 \path[clip] (  0.00,  0.00) rectangle (523.96,433.62);
 \definecolor{drawColor}{RGB}{0,0,0}
 
-\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.80] at (304.07,190.70) {ROME flat rank survival; range across seeds; models differ in width and layer (no factor attribution)};
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.80] at (304.07,190.70) {ROME only; labels report threshold verdicts};
 \end{scope}
 \begin{scope}
 \path[clip] (  0.00,  0.00) rectangle (523.96,433.62);
@@ -660,7 +654,7 @@
 \path[clip] (  0.00,  0.00) rectangle (523.96,433.62);
 \definecolor{drawColor}{RGB}{0,0,0}
 
-\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 11.50,  6.88) {Panels A-C: canonical v1.2.1 (hierarchical bootstrap n=500). Panel D: raw three-seed recomputation; K1 is narrow because only validated ROME cells are adjudicated.};
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  0.71] at ( 11.50,  6.88) {Panels A-C: canonical v1.2.1 (hierarchical bootstrap n=500). Panel D: raw three-seed ROME recomputation; labels report K1 threshold verdicts.};
 \end{scope}
 \begin{scope}
 \path[clip] (  0.00,  0.00) rectangle (523.96,433.62);

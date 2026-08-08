@@ -5,7 +5,7 @@
 % explains it by an edit-independent per-probe offset injected by the quantizer.
 % Section sec:swamping is labelled post hoc throughout — it was built after the
 % preregistered C2 rank gate failed, and that failure is the reported finding.
-% Also in this pass: K3 adjudicated KILLED on the measured axis (F_above 0.001–0.004);
+% Also in this pass: K3 does not survive its pre-registered gate on the measured axis (F_above 0.001–0.004);
 % the editor-ordering "fails on Qwen" claim RETRACTED on a paired bootstrap (0/36
 % contrasts distinguishable); C4/K4 removed from the claim set; repeated caveats
 % consolidated into Limitations.
@@ -161,7 +161,7 @@ base-noise account we tested the natural alternative, ported from the
 unlearning$\times$quantization literature: that concentrated parametric edits survive
 quantization because their per-parameter changes $|\Delta W|$ sit at or above the
 quantization bin width $b$, while diffuse gradient-style updates sit far below it. On
-the axis we can measure, this hypothesis is dead. The fraction of edited parameters
+the axis we can measure, this hypothesis does not survive its pre-registered gate. The fraction of edited parameters
 above the bin width is \pKthreeFaboveMin{}--\pKthreeFaboveMax{} on the NF4 cells---three
 orders of magnitude too small to carry an effect---so there is no concentration for
 survival to depend on (Section~\ref{sec:c3}). This is what redirected the analysis from
@@ -288,7 +288,7 @@ paper.
 
 \textbf{C3 (bin-width mechanism).} M-concentration predicts that edits survive
 quantization when their per-parameter changes sit at or above the bin width $b$.
-\textbf{Outcome: killed.} The fraction of edited parameters above the bin width is
+\textbf{Outcome: does not survive its pre-registered gate.} The fraction of edited parameters above the bin width is
 \pKthreeFaboveMin{}--\pKthreeFaboveMax{} on the NF4 cells and the median $|\Delta W|/b$
 is $\approx 0.03$; the edit is essentially entirely sub-bin-width, leaving no
 concentration variation for survival to track (Section~\ref{sec:c3}). The mechanism this
@@ -898,12 +898,12 @@ Llama-3B L24 ROME & int8 & \pSecondIntEightFabove   & \pSecondIntEightMedianRati
 \caption{Bin-width sensitivity and reconstruction-gap summaries across all nine cells.
 Orange denotes NF4 and blue INT8; figure codes are defined in the panel footer. The
 reconstruction ordering is descriptive of total-rounding error and does not establish
-M-concentration, which is killed on the measured axis
+M-concentration, which does not survive its pre-registered gate on the measured axis
 (Section~\ref{sec:c3}). No causal concentration claim is made.}
 \label{fig:reconstruction-gap}
 \end{figure}
 
-\textbf{K3 is killed on the axis we can measure.} The concentration hypothesis needs
+\textbf{K3 does not survive its pre-registered gate on the axis we can measure.} The concentration hypothesis needs
 some appreciable mass of the edit to sit at or above the quantization bin width. It does
 not. On the NF4 cells the fraction above bin width is $F_{\mathrm{above}} =
 \pPrimaryNfFourDqFabove{}$ (Llama-3.2-1B L12 ROME) and $\pSecondNfFourDqFabove{}$
@@ -921,7 +921,7 @@ study had intended. The substitution is a strictly positive per-element rescalin
 $b$: it can move $F_{\mathrm{above}}$ up or down in magnitude but cannot make a
 predictor that is identically near zero into one that separates cells, because it
 reorders nothing that the concentration hypothesis needs. We therefore adjudicate K3 as
-\textbf{killed on the measured axis} rather than deferring it. What we do \emph{not}
+\textbf{not supported on the measured axis} rather than deferring it. What we do \emph{not}
 claim is that the amended channel-scale axis has been measured: it has not, and a
 concentration effect defined on some other rescaling remains formally untested. We do
 not consider that a live prospect given the margin involved. INT8 is not decomposed into
@@ -931,13 +931,15 @@ The reconstruction-gap statistic in the same table is
 $r_{\mathrm{func}}=\|\epsilon x\|/\|\Delta W x\|$, the relative reconstruction error on
 the edit's key activation $x$, against
 $r_{\mathrm{param}}=\operatorname{median}|\epsilon|/\operatorname{median}|\Delta W|$,
-with $\epsilon = \mathrm{Q}(W{+}d) - (W{+}d)$. Because $\epsilon$ is the gap between the
-quantized and unquantized \emph{edited} weight rather than a quantized-update error, it
-summarises the total rounding budget and is not a mechanism claim. It is ordered
-consistently ($r_{\mathrm{func}} < r_{\mathrm{param}}$ in all 18 scheme blocks; median
-ratio $0.00570$ at INT8, $0.00591$ at NF4), and we report it as a descriptive property
-of the codec. The mechanism this paper advances is in Section~\ref{sec:swamping} and
-does not rest on these quantities.
+with $\epsilon = \mathrm{Q}(W{+}d) - (W{+}d)$. The unratified design draft described
+$r_{\mathrm{func}} \ll r_{\mathrm{param}}$ as a competing M-averaging interpretation,
+but the implemented $\epsilon$ is a total-rounding gap, not a quantized-update error.
+All 18 scheme blocks satisfy the inequality descriptively (median ratio $0.00570$ at
+INT8 and $0.00591$ at NF4), yet no analysis here tests whether it predicts efficacy or
+rank survival, and the cross-model layer values cannot separate depth from architecture.
+We therefore retire M-averaging as a mechanism claim. K3-prime is retained only as a
+descriptive codec signature; the explanatory account used here is the post-hoc
+base-noise-swamping hypothesis in Section~\ref{sec:swamping}.
 
 \subsection{Gate status}
 \label{sec:gates}
@@ -945,11 +947,11 @@ does not rest on these quantities.
 \begin{table}[t]
 \centering
 \small
-\caption{Specified kill-gate status. K1 fires only if both validated-law ROME
+\caption{Specified pre-registered gate status. K1 fires only if both validated-law ROME
 cells fail rank-survival at NF4 full-model; one of the two fails, which narrows C2
-rather than killing it, and Section~\ref{sec:swamping} accounts for the failure.
+rather than rejecting it, and Section~\ref{sec:swamping} accounts for the failure.
 K2 is the unconditional efficacy-survival gate at 4-bit and passes in every arm-cell.
-K3 is killed on the measured axis: the fraction of edited parameters above bin width is
+K3 does not survive its gate on the measured axis: the fraction of edited parameters above bin width is
 \pKthreeFaboveMin{}--\pKthreeFaboveMax{}, leaving no concentration to predict from.}
 \label{tab:gates}
 \setlength{\tabcolsep}{4pt}
@@ -959,8 +961,8 @@ Gate & Claim & Status \\
 \midrule
 K1 & C2 geometry-ranking survival & \gateKoneDisplayStatus{} \\
 K2 & 4-bit esr survival $\geq$\pEsrSurvFourThreshold{} & \gateKtwoStatus \\
-K3 & M-concentration (bin-width) & KILLED (measured axis) \\
-K3' & \quad Reconstruction-gap ($r_{\mathrm{func}} \ll r_{\mathrm{param}}$) & holds (18/18, descriptive) \\
+K3 & M-concentration (bin-width) & GATE FAIL (measured axis) \\
+K3' & \quad Reconstruction-gap ($r_{\mathrm{func}} \ll r_{\mathrm{param}}$) & descriptive only (18/18) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1017,6 +1019,9 @@ could not have supplied a C2 verdict, and with no measurable edit-attributable d
 signal it also could not contribute a usable noise-to-signal point to
 Section~\ref{sec:swamping} --- the denominator is what the cell lacks. Its efficacy
 (C1) numbers would have been reportable, and their omission is a real if minor gap.
+A separate width-control analysis of geometry-screened edit federation is shown in
+Appendix Figure~\ref{fig:width-law}; it is outside the quantization grid and does not
+enter the K1--K3 adjudication or the noise-swamping account.
 Extrapolation past these arm--cell combinations is not warranted.
 
 \textbf{Reproducibility.} All numbers in this paper derive from three analysis
@@ -1065,7 +1070,7 @@ where cross-probe rank has fallen to \pFlatNfFMQOneRome{}. Normalising the injec
 noise by the edit's own damage magnitude orders every one of the 36 arm-cells
 ($\rho=\pNsrRhoFlat{}$), and it dissolves the apparent editor effect: AlphaEdit measures
 worst because it damages least, not because it is fragile. The competing bin-width
-concentration hypothesis is dead on the axis we can measure --- between
+concentration hypothesis does not survive its pre-registered gate on the axis we can measure --- between
 \pKthreeFaboveMin{} and \pKthreeFaboveMax{} of edited parameters clear the bin width, so
 there is no concentration for survival to track.
 
@@ -1083,6 +1088,27 @@ its rank survival on unseen models and arms, and whether the same offset explain
 absolute Strict-Edit-Locality F1 degradation reported for editing under
 compression~\cite{composable2024}, are both answerable with the protocol here extended
 to a deployed kernel and a batch-deployment ordering.
+
+\appendix
+\section{Supplementary width control}
+\label{app:width-control}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\renewcommand{\theHfigure}{appendix.A.\arabic{figure}}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig06_width_law.pdf}
+\caption{Width control for the geometry-valid federation boundary, evaluated at one
+75\%-relative-depth layer per model. The boundary is the largest edit-group size
+satisfying the pre-specified geometry and coherence criteria; a cross denotes an
+inconclusive, undefined boundary rather than zero. The same-family Llama comparison
+widens from 5 at 1B to 20 at 8B, removing model family as a necessary explanation for
+the earlier Llama--Mistral contrast. This supplementary analysis concerns
+geometry-screened edit federation, not post-edit quantization, and does not enter any
+K1--K3 verdict.}
+\label{fig:width-law}
+\end{figure}
 
 % ================================================================
 \section*{Funding}

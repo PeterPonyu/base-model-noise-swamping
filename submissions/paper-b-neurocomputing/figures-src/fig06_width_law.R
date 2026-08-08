@@ -73,7 +73,7 @@ p_a <- ggplot(spec, aes(width_b, boundary, colour = family, shape = family)) +
   geom_line(data = spec[spec$family %in% c("Llama", "Qwen") & !is.na(spec$boundary), ], aes(group = family), linewidth = .55) +
   geom_point(data = spec[!is.na(spec$boundary), ], size = 2.5) +
   geom_point(data = spec[is.na(spec$boundary), ], aes(y = 1), shape = 4, size = 3, stroke = .7) +
-  geom_text(data = spec[is.na(spec$boundary), ], aes(y = 2.4, label = "undefined"), size = 2.4, show.legend = FALSE) +
+  geom_text(data = spec[is.na(spec$boundary), ], aes(y = 2.4, label = "undefined"), size = 2.4, hjust = 1, show.legend = FALSE) +
   scale_colour_manual(values = family_colors) + scale_shape_manual(values = c(Llama = 16, Mistral = 17, Qwen = 15)) +
   scale_x_log10(breaks = c(1, 1.5, 7, 8, 14), labels = c("1", "1.5", "7", "8", "14")) +
   scale_y_continuous(limits = c(0, 21), breaks = c(0, 5, 10, 20), expand = expansion(mult = c(.01, .03))) +
@@ -81,14 +81,18 @@ p_a <- ggplot(spec, aes(width_b, boundary, colour = family, shape = family)) +
 
 within <- spec[spec$family %in% c("Llama", "Qwen"), ]
 within$status_y <- ifelse(is.na(within$boundary), 1, within$boundary)
-within$status <- ifelse(is.na(within$boundary), "INCONCLUSIVE", paste0("g=", within$boundary))
-p_b <- ggplot(within, aes(width_b, status_y, colour = family, group = family)) +
+within$status <- ifelse(is.na(within$boundary), "undefined", paste0("g=", within$boundary))
+# Qwen 7B (g=20 at x=7) sits adjacent to Llama 8B (g=20 at x=8) on the log axis:
+# place the Qwen label below its point so the two g=20 labels never collide.
+within$label_vjust <- ifelse(!is.na(within$boundary) & within$family == "Qwen" & within$width_b == 7, 1.6, -1.0)
+p_b <- ggplot(within, aes(width_b, status_y, colour = family, shape = family, group = family)) +
   geom_line(data = within[!is.na(within$boundary), ], linewidth = .65) + geom_point(size = 2.6) +
-  geom_text(aes(label = status), vjust = -1.0, size = 2.5, show.legend = FALSE) +
+  geom_text(aes(label = status, vjust = label_vjust, hjust = ifelse(within$family == "Qwen" & is.na(within$boundary), 1, 0.5)), size = 2.5, show.legend = FALSE) +
   scale_colour_manual(values = family_colors) +
+  scale_shape_manual(values = c(Llama = 16, Qwen = 15)) +
   scale_x_log10(breaks = c(1, 1.5, 7, 8, 14), labels = c("1", "1.5", "7", "8", "14")) +
   scale_y_continuous(limits = c(0, 22), breaks = c(0, 5, 10, 20), expand = expansion(mult = c(.01, .05))) +
-  labs(title = "Within-family ordering", subtitle = "Llama holds; Qwen 14B is undefined, not zero", x = "model width (B parameters, log scale)", y = "geometry-valid boundary", colour = NULL) + paper_theme + theme(legend.position = "bottom")
+  labs(title = "Within-family ordering", subtitle = "Llama holds; Qwen 14B is undefined, not zero", x = "model width (B parameters, log scale)", y = "geometry-valid boundary", colour = NULL, shape = NULL) + paper_theme + theme(legend.position = "bottom")
 
 confound <- spec[spec$model %in% c("Llama-3.2-1B", "Mistral-7B-v0.3", "Llama-3.1-8B"), ]
 confound$comparison <- factor(ifelse(confound$model == "Mistral-7B-v0.3", "old cross-family", "same-family control"), levels = c("old cross-family", "same-family control"))
@@ -96,7 +100,7 @@ p_c <- ggplot(confound, aes(width_b, boundary, colour = family, shape = comparis
   geom_segment(aes(x = 1, xend = 7, y = 5, yend = 20), colour = "#777777", linewidth = .45, linetype = "22") +
   geom_segment(aes(x = 1, xend = 8, y = 5, yend = 20), colour = "#0072B2", linewidth = .7) +
   geom_point(size = 2.8) +
-  geom_text(aes(label = cell_label), vjust = -1.0, size = 2.35, show.legend = FALSE) +
+  geom_text(aes(label = cell_label, vjust = ifelse(confound$model == "Mistral-7B-v0.3", -1.0, 1.6)), size = 2.35, show.legend = FALSE) +
   scale_colour_manual(values = family_colors) + scale_shape_manual(values = c("old cross-family" = 17, "same-family control" = 16)) +
   scale_x_continuous(limits = c(.5, 8.6), breaks = c(1, 7, 8)) +
   scale_y_continuous(limits = c(3, 22), breaks = c(5, 10, 20)) +

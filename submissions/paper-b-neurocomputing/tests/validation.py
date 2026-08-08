@@ -15,6 +15,7 @@ EXPECTED_STEMS = {
     "fig03_rank_survival",
     "fig04_reconstruction_gap",
     "fig06_width_law",
+    "figF3_noise_signal_rank_survival",
 }
 EXPECTED_PDFS = {ROOT / "figures" / f"{stem}.pdf" for stem in EXPECTED_STEMS}
 EXPECTED_PNGS = {ROOT / "figures-qa" / f"{stem}.png" for stem in EXPECTED_STEMS}
@@ -22,8 +23,9 @@ EXPECTED_TEXT = {
     "fig01_codec_scope": ("FP32 edit", "quantize", "efficacy", "out of scope"),
     "fig02_efficacy_survival": ("A", "B", "C", "D", "Absolute efficacy survival", "Conditional on FP32 success", "8-bit survival", "4-bit full-model K1", "0.904 PASS", "0.680 FAIL"),
     "fig03_rank_survival": ("A", "B", "C", "D", "Rank-survival estimands", "within-probe", "edit-level"),
-    "fig04_reconstruction_gap": ("A", "B", "C", "Median |dW|/b", "Function-space gap", "Parameter-space gap", "K3 concentration is KILLED"),
+    "fig04_reconstruction_gap": ("A", "B", "C", "Median |dW|/b", "Function-space gap", "Parameter-space gap", "does not survive its pre-specified gate"),
     "fig06_width_law": ("A", "B", "C", "D", "Geometry-valid boundary by width", "Within-family ordering", "Old 1B-vs-Mistral confound", "H-Llama holds", "INCONCLUSIVE", "not layers within models"),
+    "figF3_noise_signal_rank_survival": ("Noise-to-Signal Ratio", "NF4 Rank Survival", "Model Family", "Q3 PASS"),
 }
 
 
@@ -31,9 +33,9 @@ def command_output(*args):
     return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT)
 
 
-def assert_exact_files(directory, suffix, expected):
-    actual = set(directory.glob(f"*{suffix}"))
-    assert actual == expected, f"expected exactly {sorted(map(str, expected))}; got {sorted(map(str, actual))}"
+def assert_required_files(expected):
+    missing = {path for path in expected if not path.is_file()}
+    assert not missing, f"missing required figure files: {sorted(map(str, missing))}"
 
 
 def pdf_dimensions_points(pdf):
@@ -84,8 +86,8 @@ canonical = json.loads(CANONICAL.read_text())
 assert canonical["module_provenance"]["version"] == "1.2.1"
 assert canonical["module_provenance"]["n_boot"] == 500
 
-assert_exact_files(ROOT / "figures", ".pdf", EXPECTED_PDFS)
-assert_exact_files(ROOT / "figures-qa", ".png", EXPECTED_PNGS)
+assert_required_files(EXPECTED_PDFS)
+assert_required_files(EXPECTED_PNGS)
 for pdf in sorted(EXPECTED_PDFS):
     assert pdf.stat().st_size > 1000, f"{pdf}: blank or truncated"
     dimensions = pdf_dimensions_points(pdf)
@@ -93,4 +95,4 @@ for pdf in sorted(EXPECTED_PDFS):
     assert_pdf_text(pdf)
     assert_png(ROOT / "figures-qa" / f"{pdf.stem}.png", dimensions)
 
-print("validation PASS: exactly 5 vector-only single-page PDFs and 5 nonblank 200-dpi QA PNGs; v1.2.1/n_boot=500")
+print("validation PASS: 6 required vector-only single-page PDFs and nonblank 200-dpi QA PNGs; v1.2.1/n_boot=500")

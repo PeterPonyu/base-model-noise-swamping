@@ -13,8 +13,8 @@
   box/.style={draw=ink,rounded corners=2pt,fill=pale,minimum width=2.35cm,
     minimum height=0.78cm,text width=2.15cm,align=center,
     font=\sffamily\small,inner xsep=2mm,inner ysep=1.5mm},
-  arrow/.style={-{Latex[length=2mm]},line width=.65pt,draw=ink},
-  note/.style={font=\sffamily\scriptsize\color{muted},align=center,
+  arrow/.style={-{Latex[length=2.2mm]},line width=.75pt,draw=ink},
+  note/.style={font=\sffamily\footnotesize\color{muted},align=center,
     text width=2.6cm,inner sep=1pt},
   fence/.style={draw=muted,dashed,rounded corners=3pt,inner sep=6pt}
 }
@@ -41,7 +41,7 @@
 \begin{scope}[on background layer]
 \node[fence,fit=(qd)(refwd)(baseq)] (scope) {};
 \end{scope}
-\node[note,below=3mm of scope.south,text width=6.4cm]
+\node[note,below=3mm of scope.south,text width=8.4cm]
   {deployment packing and integer kernels are out of scope};
 \end{tikzpicture}
 \end{document}

@@ -2,19 +2,19 @@
   "package": "paper-b-neurocomputing",
   "pdf_path": "submissions/paper-b-neurocomputing/main-honest-review.pdf",
   "status": "honest-draft",
-  "refresh": false,
+  "refresh": true,
   "checks": {
     "pdf_info": {
       "status": "ok",
       "data": {
-        "Title": "Edit Efficacy Survives 4-Bit Quantization but Damage Geometry Does Not: Base-Model Noise Swamping in Knowledge-Edited Language Models",
+        "Title": "redHONEST-STATE REVIEW DRAFT \u2014 NOT SUBMISSION CANDIDATE [0.6em] Edit Efficacy Survives 4-Bit Quantization but Damage Geometry Does Not: Base-Model Noise Swamping in Knowledge-Edited Language Models",
         "Subject": "",
         "Keywords": "",
         "Author": "Zeyu Fu;",
         "Creator": "LaTeX with hyperref",
         "Producer": "pdfTeX-1.40.25",
-        "CreationDate": "Wed Aug  5 02:13:41 2026 EDT",
-        "ModDate": "Wed Aug  5 02:13:41 2026 EDT",
+        "CreationDate": "Sat Aug  8 03:04:18 2026 EDT",
+        "ModDate": "Sat Aug  8 03:04:18 2026 EDT",
         "Custom Metadata": "yes",
         "Metadata Stream": "no",
         "Tagged": "no",
@@ -22,29 +22,24 @@
         "Suspects": "no",
         "Form": "none",
         "JavaScript": "no",
-        "Pages": "29",
+        "Pages": "30",
         "Encrypted": "no",
         "Page size": "612 x 792 pts (letter)",
         "Page rot": "0",
-        "File size": "549072 bytes",
+        "File size": "593558 bytes",
         "Optimized": "no",
         "PDF version": "1.5",
-        "sha256": "a29de6a66ee03ac1fe78ad5c71f6cd012344a9b4ac2152536123a33008a52f1e"
+        "sha256": "a7f12ecb7c55e76314deaaac532ca450de10bad66615a4970f37fe914d5aff03"
       }
     },
     "pdf_fonts": {
       "status": "ok",
-      "total_fonts": 37,
-      "embedded_count": 37,
+      "total_fonts": 41,
+      "embedded_count": 41,
       "all_embedded": true,
       "fonts": [
         {
           "name": "TMKLOZ+CMBX12",
-          "type": "Type",
-          "embedded": true
-        },
-        {
-          "name": "YEGDDB+CMR12",
           "type": "Type",
           "embedded": true
         },
@@ -54,12 +49,17 @@
           "embedded": true
         },
         {
+          "name": "YEGDDB+CMR12",
+          "type": "Type",
+          "embedded": true
+        },
+        {
           "name": "IVMWBL+CMTI7",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "LKDDGS+CMTI10",
+          "name": "RKAAYC+CMTI10",
           "type": "Type",
           "embedded": true
         },
@@ -69,22 +69,22 @@
           "embedded": true
         },
         {
-          "name": "HZFQNT+CMMI12",
-          "type": "Type",
-          "embedded": true
-        },
-        {
           "name": "SDVCAT+CMSY7",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "DKKOTX+CMR10",
+          "name": "MBBYKV+CMR10",
           "type": "Type",
           "embedded": true
         },
         {
           "name": "VNDRIL+CMTT10",
+          "type": "Type",
+          "embedded": true
+        },
+        {
+          "name": "HZFQNT+CMMI12",
           "type": "Type",
           "embedded": true
         },
@@ -159,12 +159,12 @@
           "embedded": true
         },
         {
-          "name": "GNCVQJ+LMRoman10-Regular",
+          "name": "NQSCNB+LMRoman10-Regular",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "FZWTNZ+LMRoman10-Bold",
+          "name": "UVPOMH+LMRoman10-Bold",
           "type": "Type",
           "embedded": true
         },
@@ -184,12 +184,12 @@
           "embedded": true
         },
         {
-          "name": "GNCVQJ+LMRoman10-Regular",
+          "name": "NQSCNB+LMRoman10-Regular",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "FZWTNZ+LMRoman10-Bold",
+          "name": "UVPOMH+LMRoman10-Bold",
           "type": "Type",
           "embedded": true
         },
@@ -199,27 +199,47 @@
           "embedded": true
         },
         {
-          "name": "OCMVGR+CMMI10",
+          "name": "XLXUGV+LMMathItalic10-Regular",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "DKKOTX+CMR10",
+          "name": "PIVSXZ+LMRoman7-Regular",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "QVVIWP+CMSY10",
+          "name": "NQSCNB+LMRoman10-Regular",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "GNCVQJ+LMRoman10-Regular",
+          "name": "MGKPYK+LMMathSymbols10-Regular",
           "type": "Type",
           "embedded": true
         },
         {
-          "name": "FZWTNZ+LMRoman10-Bold",
+          "name": "NQSCNB+LMRoman10-Regular",
+          "type": "Type",
+          "embedded": true
+        },
+        {
+          "name": "NQSCNB+LMRoman10-Regular",
+          "type": "Type",
+          "embedded": true
+        },
+        {
+          "name": "UVPOMH+LMRoman10-Bold",
+          "type": "Type",
+          "embedded": true
+        },
+        {
+          "name": "NQSCNB+LMRoman10-Regular",
+          "type": "Type",
+          "embedded": true
+        },
+        {
+          "name": "UVPOMH+LMRoman10-Bold",
           "type": "Type",
           "embedded": true
         }
@@ -230,16 +250,12 @@
       "hits": {}
     },
     "latex": {
-      "status": "ok",
-      "log_file": "main-honest-review.log",
-      "errors": 0,
-      "overfull": 0,
-      "undefined": 0,
-      "error_samples": []
+      "status": "skip",
+      "message": "No .log file found"
     },
     "source_freshness": {
       "status": "ok",
-      "pdf_mtime": 1785910421.4071777,
+      "pdf_mtime": 1786172658.5539777,
       "checked_sources": [
         "main-honest-review.tex"
       ],
@@ -252,8 +268,8 @@
     },
     "pages": {
       "status": "ok",
-      "total_pages": 29,
-      "generated": 29,
+      "total_pages": 30,
+      "generated": 30,
       "existing": 0,
       "empty_pages": [],
       "pages": [
@@ -430,9 +446,15 @@
           "file": "paper-b-neurocomputing-main-page-029.png",
           "status": "generated",
           "non_empty": true
+        },
+        {
+          "page": 30,
+          "file": "paper-b-neurocomputing-main-page-030.png",
+          "status": "generated",
+          "non_empty": true
         }
       ]
     }
   },
-  "timestamp": "2026-08-05T02:19:00.479523"
+  "timestamp": "2026-08-08T03:50:50.538577"
 }

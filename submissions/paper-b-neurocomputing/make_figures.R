@@ -7,6 +7,10 @@ GATE <- file.path(HARNESS, "results/quant_survival/aggregate/gate_readout.json")
 s <- fromJSON(SURV, simplifyVector=FALSE)
 stopifnot(s$module_provenance$version == "1.2.1", s$module_provenance$n_boot == 500)
 g <- fromJSON(GATE, simplifyVector=FALSE)
+# fig07-09 are NOT used by main-honest-review.tex (it inputs fig01/02/03/F3/04/06 only).
+# Gate their generation so a routine regen does not silently emit orphan figures.
+# Set WRITE_EXTRAS=1 in the environment to build them.
+WRITE_EXTRAS <- nzchar(Sys.getenv("WRITE_EXTRAS")) && Sys.getenv("WRITE_EXTRAS") != "0"
 C_BLUE <- "#0072B2"; C_ORANGE <- "#D55E00"; C_TEAL <- "#009E73"; C_GREY <- "#6A3D9A"
 theme_p <- theme_classic(base_size=10.5, base_family="sans") + theme(
   plot.title=element_text(face="bold", size=10.5),
@@ -46,15 +50,26 @@ r3 <- rbind(
   transform(r, estimand="edit-level", value=edit)
 )
 r3$estimand <- factor(r3$estimand, levels=c("cross-probe", "within-probe", "edit-level"))
+# Short one-line tick labels: the collected legend and the figure caption carry the
+# full estimand names, so the ticks only need to distinguish the three columns.
+# (tikzDevice neither wraps "\n" nor measures "\shortstack" reliably at 4-panel width.)
+estimand_labels <- c("cross-probe"="cross", "within-probe"="within", "edit-level"="edit")
 rank_panels <- lapply(seq_along(arm_levels), function(i) {
   ggplot(r3[r3$arm == arm_levels[i], ], aes(estimand, value, colour=estimand)) +
     geom_point(position=position_jitter(width=.11, height=0, seed=121), size=1.15, alpha=.75) +
     scale_colour_manual(values=c("cross-probe"=C_GREY, "within-probe"=C_BLUE, "edit-level"=C_ORANGE)) +
+    scale_x_discrete(labels=estimand_labels) +
     scale_y_continuous(limits=c(0,1.04), breaks=c(0,.5,1), expand=c(0,.01)) +
-    labs(title=arm_labels[i], x=NULL, y=if (i == 1) "Spearman rank survival" else NULL, colour=NULL) +
-    theme_p + theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), legend.position="none")
+    labs(title=arm_labels[i], x=NULL, y=if (i == 1) "Spearman rank survival" else NULL, colour="Estimand") +
+    theme_p + theme(axis.text.x=element_text(size=7.4, angle=0, hjust=0.5, lineheight=0.85),
+                    axis.title.x=element_text(size=7.8),
+                    legend.position="bottom",
+                    legend.text=element_text(size=8),
+                    legend.title=element_text(size=8))
 })
-p3 <- wrap_plots(rank_panels, nrow=1) + plot_layout(guides="collect") +
+# 2x2 layout: at 1x4 the collected right-hand legend squeezed each panel to a
+# ~25pt sliver and the three tick labels overprinted. 2x2 gives ~3.4in panels.
+p3 <- wrap_plots(rank_panels, nrow=2) + plot_layout(guides="collect") +
   plot_annotation(
     title="Rank-survival estimands",
     caption="Purple: cross-probe; blue: within-probe; orange: edit-level.",
@@ -63,7 +78,8 @@ p3 <- wrap_plots(rank_panels, nrow=1) + plot_layout(guides="collect") +
                                                           margin=margin(t=5)),
                                 plot.caption.position="plot")
   )
-write_tikz(p3, "fig03_rank_survival.tex", 7.2, 3.45, c(
+p3 <- p3 & theme(legend.position="bottom")
+write_tikz(p3, "fig03_rank_survival.tex", 7.2, 6.4, c(
   "% SOURCE: quant_survival_repair_v1.json fields cells[*].arms[*].flat_rank.point; cells[*].arms[*].within_probe_rank.point; cells[*].arms[*].edit_level_ranks.signed_mean.point.",
   "% SOURCE: quant_survival_repair_v1.json fields module_provenance.version; module_provenance.n_boot (asserted v1.2.1 and 500)."
 ))
@@ -88,10 +104,15 @@ for (nm in names(g$cells)) for (q in c("nf4dq", "int8")) {
 gd <- do.call(rbind, rows)
 gd$cell <- factor(gd$cell, levels=unname(cell_codes[names(g$cells)]))
 gap_panel <- function(field, heading, ylabel, show_legend=FALSE) {
+  y_scale <- if (field == "param") {
+    scale_y_continuous(limits=c(0,80), breaks=seq(0,80,20), expand=expansion(mult=c(0,.04)))
+  } else {
+    scale_y_continuous(expand=expansion(mult=c(0,.08)))
+  }
   ggplot(gd, aes(cell, .data[[field]], fill=scheme)) +
     geom_col(position=position_dodge(.72), width=.62) +
     scale_fill_manual(values=c(NF4=C_ORANGE, INT8=C_BLUE)) +
-    scale_y_continuous(expand=expansion(mult=c(0,.08))) +
+    y_scale +
     labs(title=heading, x=NULL, y=ylabel, fill=NULL) + theme_p +
     theme(axis.text.x=element_text(angle=45, hjust=1, vjust=1, size=6.5),
           legend.position=if (show_legend) "bottom" else "none")
@@ -102,7 +123,7 @@ p4 <- gap_panel("ratio", "Median |dW|/b", "median ratio") +
   plot_layout(guides="collect", widths=c(1,1,1)) +
   plot_annotation(
     title="Reconstruction gap and bin-width sensitivity",
-    caption="Codes: L1/L3 = Llama 1B/3B; Q1 = Qwen 1.5B; M/A/R = MEMIT/AlphaEdit/ROME.\nOrange = NF4; blue = INT8; K3 concentration is KILLED on this axis.",
+    caption="Codes: L1/L3 = Llama 1B/3B; Q1 = Qwen 1.5B; M/A/R = MEMIT/AlphaEdit/ROME.\nOrange = NF4; blue = INT8; K3 concentration does not survive its pre-specified gate on this axis.",
     tag_levels="A", theme=theme(plot.tag=element_text(face="bold", size=10),
                                 plot.caption=element_text(size=7.3, hjust=0,
                                                           margin=margin(t=5)),
@@ -116,7 +137,7 @@ cat("wrote fig03--fig04; canonical version=", s$module_provenance$version,
     " n_boot=", s$module_provenance$n_boot, "\n")
 
 # ── Fig 07: Model-by-model flat-rank survival with bootstrap CIs ───────────────
-{
+if (WRITE_EXTRAS) {
   rows <- list(); z <- 0
   for (cell in s$cells) for (arm in names(cell$arms)) {
     x <- cell$arms[[arm]]; z <- z + 1
@@ -191,7 +212,7 @@ cat("wrote fig03--fig04; canonical version=", s$module_provenance$version,
 }
 
 # ── Fig 08: Base-noise mechanism (4-panel) ─────────────────────────────────────
-{
+if (WRITE_EXTRAS) {
   NOISE_FILE <- file.path(HARNESS, "results/quant_survival/aggregate/base_noise_swamping_20260726.json")
   stopifnot(file.exists(NOISE_FILE))
   nb <- fromJSON(NOISE_FILE, simplifyVector=FALSE)
@@ -250,7 +271,7 @@ cat("wrote fig03--fig04; canonical version=", s$module_provenance$version,
 }
 
 # ── Fig 09: Editor ordering null result (4-panel) ─────────────────────────────
-{
+if (WRITE_EXTRAS) {
   ED_FILE <- file.path(HARNESS, "results/quant_survival/aggregate/editor_ordering_bootstrap_20260726.json")
   stopifnot(file.exists(ED_FILE))
   eb <- fromJSON(ED_FILE, simplifyVector=FALSE)

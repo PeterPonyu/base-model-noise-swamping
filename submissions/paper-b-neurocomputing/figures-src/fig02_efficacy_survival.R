@@ -113,21 +113,20 @@ for (slug in names(validated)) {
 }
 k1 <- do.call(rbind, k1_rows)
 k1$model <- factor(k1$model, levels = unname(model_labels[c("llama1b", "llama3b")]))
-p_d <- ggplot(k1, aes(model, value, colour = verdict)) +
+p_d <- ggplot(k1, aes(model, value)) +
   geom_hline(yintercept = .85, colour = "#777777", linetype = "22", linewidth = .35) +
-  geom_errorbar(aes(ymin = lo, ymax = hi), width = .12, linewidth = .45) +
-  geom_point(size = 2.7) +
-  geom_text(aes(label = sprintf("%.3f %s", value, verdict)), vjust = -1.0, size = 2.7, show.legend = FALSE) +
-  scale_colour_manual(values = c(PASS = "#0072B2", FAIL = "#D55E00")) +
+  geom_errorbar(aes(ymin = lo, ymax = hi), width = .12, linewidth = .45, colour = editor_colors[["ROME"]]) +
+  geom_point(size = 2.7, colour = editor_colors[["ROME"]]) +
+  geom_text(aes(label = sprintf("%.3f %s", value, verdict)), vjust = -1.0, size = 2.7, colour = editor_colors[["ROME"]]) +
   scale_y_continuous(limits = c(.62, .96), breaks = c(.68, .85, .90), expand = expansion(mult = c(.02, .08))) +
-  labs(title = "4-bit full-model K1", subtitle = "ROME flat rank survival; range across seeds; models differ in width and layer (no factor attribution)", x = NULL, y = "Spearman rank survival", colour = NULL) +
+  labs(title = "4-bit full-model K1", subtitle = "ROME only; labels report threshold verdicts", x = NULL, y = "Spearman rank survival") +
   paper_theme + theme(axis.text.x = element_text(angle = 25, hjust = 1), legend.position = "none")
 
 plot <- (p_a | p_b) / (p_c | p_d) +
   plot_annotation(
     title = "Efficacy and survival under quantization",
     subtitle = "Model labels include the single evaluated layer; no layer curve is implied.",
-    caption = "Panels A-C: canonical v1.2.1 (hierarchical bootstrap n=500). Panel D: raw three-seed recomputation; K1 is narrow because only validated ROME cells are adjudicated.",
+    caption = "Panels A-C: canonical v1.2.1 (hierarchical bootstrap n=500). Panel D: raw three-seed ROME recomputation; labels report K1 threshold verdicts.",
     tag_levels = "A",
     theme = theme(plot.tag = element_text(face = "bold", size = 10), plot.title = element_text(face = "bold", size = 11), plot.subtitle = element_text(size = 8.2), plot.caption = element_text(size = 7.1, hjust = 0), plot.caption.position = "plot")
   )

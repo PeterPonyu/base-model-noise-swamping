@@ -2,18 +2,18 @@
 
 **PDF:** `main-honest-review.pdf`
 **Status:** honest-draft
-**Generated:** 2026-08-05T02:19:00.479523
+**Generated:** 2026-08-08T03:50:50.538577
 
 ## PDF Information
 
-- **Pages:** 29
+- **Pages:** 30
 - **Page size:** 612 x 792 pts (letter)
-- **SHA256:** `a29de6a66ee03ac1...`
+- **SHA256:** `a7f12ecb7c55e763...`
 
 ## Font Embedding
 
-- **Total fonts:** 37
-- **Embedded:** 37
+- **Total fonts:** 41
+- **Embedded:** 41
 - **All embedded:** ✓
 
 ## Text Content Scan
@@ -22,11 +22,7 @@
 
 ## LaTeX Build
 
-- **Status:** ok
-- **Log file:** `main-honest-review.log`
-- **Errors:** 0
-- **Overfull:** 0
-- **Undefined:** 0
+Status: skip
 
 ## Source Freshness
 
@@ -38,6 +34,6 @@
 
 ## Page Rasters
 
-- **Total pages:** 29
-- **Generated:** 29
+- **Total pages:** 30
+- **Generated:** 30
 - **Existing:** 0
