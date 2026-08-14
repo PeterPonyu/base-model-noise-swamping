@@ -1,4 +1,8 @@
-# Vochn Wisdom Frontier ideas — local-hardware feasibility analysis
+# Noise swamping
+
+Edit efficacy and damage-rank survival under INT8 and NF4. Full-model NF4 can swamp the unquantized rank; local curve ρ(NSR, survival) = −0.900.
+
+**[Site](https://peterponyu.github.io/base-model-noise-swamping/)** · **[Source](https://github.com/PeterPonyu/base-model-noise-swamping)**# Vochn Wisdom Frontier ideas — local-hardware feasibility analysis
 
 > Generated: 2026-06-30 · Analysis machine: local machine (actually measured, not a memory-based guess)
 > One-line conclusion: **The 24 GB single GPU is the only hard constraint.** Any idea that is "algorithm / post-training / fine-tuning a small-to-medium model" can almost all be done on this machine; any idea that requires "pretraining a large model from scratch / large-scale video world models / real hardware" cannot be done on this machine (or can only be done as inference / evaluation / a scaled-down version).
